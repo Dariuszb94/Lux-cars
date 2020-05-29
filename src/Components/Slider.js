@@ -84,7 +84,7 @@ const SlideLowerText = styled.button`
   padding-right:12px;
 `;
 
-export default class Slider extends Component {
+export class Slider extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -114,8 +114,8 @@ export default class Slider extends Component {
         </FirstSlide>
         <SecondSlide background1={this.state.background1}>
           <SlideText>
-            <SlideUpperText>RAC Approved Dealer</SlideUpperText>
-            <SlideMiddleText>Up to 3 years extended RAC Warranty available</SlideMiddleText>
+            <SlideUpperText>Welcome to Lux Cars</SlideUpperText>
+            <SlideMiddleText>All credit applications considered</SlideMiddleText>
             <SlideLowerText>More Info</SlideLowerText>
           </SlideText>
           <Search/>

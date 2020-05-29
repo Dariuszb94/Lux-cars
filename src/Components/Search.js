@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import {connect} from 'react-redux';
 import {chooseModel}from '../Actions/chooseModelActions';
 import {updateMaker}from '../Actions/makerActions';
+import {NavLink} from "react-router-dom";
 
 const SearchContainer = styled.div`
   background-color: rgba(68, 68, 68, .7);
@@ -43,6 +44,16 @@ const DropDownContentMaker = styled.div`
   z-index: 1;
   display: ${props => props.makerShow ? "block" : "none"};
 
+`;
+const activeClassName = 'nav-item-active'
+const StyledLink = styled(NavLink).attrs({ activeClassName })`
+  width:100%;
+    text-decoration:none;
+    color:white;
+  &.${activeClassName} {
+  
+  }
+  
 `;
 const DropDownContentModel = styled.div`
   display: none;
@@ -115,17 +126,19 @@ class Search extends Component {
   componentDidMount() {
   }
   componentDidUpdate() {
+    console.log(this.props.maker.maker);
   }
   componentWillUnmount() {
   }
   modelChange(updatedModel){
-    this.props.chooseModel(updatedModel)
+    this.props.chooseModel(updatedModel.model)
     
   }
   makerChange(e){
+    console.log(e);
      this.props.updateMaker(e);
-    let updatedModel={"model":"Any Model"};
-    this.props.chooseModel(updatedModel)
+    let updatedModel={model:"Any Model"};
+    this.props.chooseModel(updatedModel.model)
   }
   makerShow(){
      this.setState({ makerShow: !this.state.makerShow});
@@ -140,10 +153,9 @@ class Search extends Component {
         <MakerChoose>
           <AnyMaker onClick={() => this.makerShow()} >
             <AnyMakerText>{ (this.props.maker.maker === undefined) ? "Any Maker" : this.props.maker.maker}</AnyMakerText>
-            <ExpandMoreIcon/>
+            <ArrowDropDownIcon/>
           </AnyMaker>
           <DropDownContentMaker makerShow={this.state.makerShow} onClick={() => this.makerShow()}>
-            {" "}
             <SubMaker onClick={() => this.makerChange("Any Maker")}>Any Maker</SubMaker>
             <SubMaker onClick={() => this.makerChange("Citroen")}>Citroen</SubMaker>
             <SubMaker onClick={() => this.makerChange("Mercedes-Benz")}>Mercedes-Benz</SubMaker>
@@ -153,18 +165,15 @@ class Search extends Component {
         </MakerChoose>
         <ModelChoose>
           <AnyModel onClick={() => this.modelShow()} >
-            <AnyMakerText>{ (this.props.choosenModel.choosenModel.model === undefined) ? "Any Model" : this.props.choosenModel.choosenModel.model}</AnyMakerText>
-            <ExpandMoreIcon/>
+            <AnyMakerText>{ (this.props.choosenModel.choosenModel === undefined) ? "Any Model" : this.props.choosenModel.choosenModel}</AnyMakerText>
+            <ArrowDropDownIcon/>
           </AnyModel>
           <DropDownContentModel modelShow={this.state.modelShow} onClick={() => this.modelShow()}>
-            {" "}
-           
-            <SubMaker onClick={() => this.modelChange({"model":"Any Model"})}>Any Model</SubMaker>
-
+            <SubMaker onClick={() => this.modelChange({model:"Any Model"})}>Any Model</SubMaker>
           {(this.props.models[this.props.maker.maker]===undefined) ?   null : (this.props.models[this.props.maker.maker].map(model =>   <SubMaker key={model} onClick={() => this.modelChange({model})}>{model}</SubMaker> )) }
           </DropDownContentModel>
         </ModelChoose>
-        <SearchButton>Search</SearchButton>
+        <StyledLink to="/Offers"><SearchButton>Search</SearchButton></StyledLink>
       </SearchContainer>
     );
   }

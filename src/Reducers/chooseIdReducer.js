@@ -1,14 +1,14 @@
-import { UPDATE_MAKER} from '../Actions/types';
+import { CHOOSE_ID} from '../Actions/types';
 
-const initialState ={maker:"Any Maker"};
+const initialState ={choosenId:0};
 
 export default function(state = initialState, action) {
 
   switch (action.type) {
-    case  UPDATE_MAKER:
+    case CHOOSE_ID:
       return {
         ...state,
-        maker:action.payload
+        choosenId:action.payload
       }
       default: 
       return state;

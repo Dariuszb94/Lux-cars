@@ -1,0 +1,262 @@
+import React, {Component} from 'react';
+import styled from 'styled-components';
+import {connect} from 'react-redux';
+import SpeedOutlinedIcon from '@material-ui/icons/SpeedOutlined';
+import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
+import LocalGasStationOutlinedIcon from '@material-ui/icons/LocalGasStationOutlined';
+import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
+import BatteryFullIcon from '@material-ui/icons/Opacity';
+import CheckIcon from '@material-ui/icons/Check';
+import {NavLink} from "react-router-dom";
+import {chooseId}from '../Actions/chooseOfferActions';
+const CarsContainer = styled.div`
+  background-color:black;
+  color:white;
+  font-weight:600;
+`;
+const Car = styled.li`
+  display:flex;
+  flex-direction:column;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  border-bottom:2px solid #3a3a3a;
+  padding-left: 2%;
+  padding-right: 2%;
+`;
+const CarList = styled.ul`
+`;
+const CarHeader = styled.section`
+  display:flex;
+  flex-direction:row;
+`;
+const CarLogo = styled.img`
+  display:flex;
+  flex-direction:row;
+  background-color:white;
+  width:112px;
+`;
+const CarDetails = styled.section`
+`;
+const CarHeaderText = styled.div`
+  display:flex;
+  flex-direction:row;
+  width:100%;
+  background-color:#3a3a3a;
+  padding-left:16px;
+  padding-right:16px;
+  align-items: center;
+  justify-content: space-between;
+`;
+const CarHeaderMainText = styled.div`
+  background-color:#3a3a3a;
+  font-size:1.5em;
+`;
+const CarHeaderSubText = styled.div`
+  font-size:1.2em;
+  font-weight:300;
+`;
+const CarHeaderTextRight = styled.div`
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+`;
+const CarHeaderTextLeft = styled.div`
+`;
+const CarMain = styled.div`
+  padding-top: 16px;
+  display:grid;
+  grid-template-columns:40% 60%;
+`;
+const CarPhoto = styled.img`
+  width: 100%;
+`;
+const CarMainDetailsLeft = styled.div`
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  padding-left:32px;
+  padding-right:32px;
+`;
+const CarMainDetailsRight = styled.div`
+  display:flex;  
+  flex-direction:column;
+  justify-content:space-around;
+  padding-left:32px;
+  padding-right:32px;
+`;
+const CarDetail = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const CarDetailText = styled.div`
+`;
+const CarMainDetails = styled.div`
+  display:grid;
+  grid-template-columns: 50% 50%;
+  justify-content:start;
+`;
+const StyledSpeedOutlinedIcon = styled(SpeedOutlinedIcon)`
+  background-color: #ec6b0c;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+`;
+const StyledColorLensOutlinedIcon = styled(ColorLensOutlinedIcon)`
+  background-color: #ec6b0c;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+`;
+const StyledLocalGasStationOutlinedIcon = styled(LocalGasStationOutlinedIcon)`
+  background-color: #ec6b0c;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+`;
+const StyledSettingsOutlinedIcon = styled(SettingsOutlinedIcon)`
+  background-color: #ec6b0c;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+`;
+const StyledBatteryFullIcon = styled(BatteryFullIcon)`
+  background-color: #ec6b0c;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+`;
+const StyledCheckIcon = styled(CheckIcon)`
+  background-color: #ec6b0c;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+`;
+const activeClassName = 'nav-item-active'
+const StyledLink = styled(NavLink).attrs({ activeClassName })`
+  width:100%;
+    text-decoration:none;
+    color:white;
+  &.${activeClassName} {
+  
+  }
+  
+`;
+class Cars extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cars:[],
+      };
+      this.chooseId = this.chooseId.bind(this);
+  }
+  componentDidMount() {
+    this.filterCars();
+  }
+  componentDidUpdate(){
+    this.filterCars();
+  }
+  filterCars(){
+    let filteredArray=[];
+    this.props.cars.forEach((car)=>{
+      this.filterModel(car,filteredArray);
+    });
+    this.sort(filteredArray);
+    this.updateList(filteredArray);
+  }
+  updateList(filteredArray){
+    let prevState = JSON.stringify([...this.state.cars]);
+    let newState = JSON.stringify([...filteredArray]);
+    if(prevState===newState){
+    }
+    if(prevState!==newState){
+      this.setState({ cars: filteredArray});
+    }
+  }
+  sort(filteredArray){
+    if(this.props.priceSort.priceSort==="Ascending")
+    filteredArray.sort((a, b) => (a.price > b.price) ? 1 : -1)
+    if(this.props.priceSort.priceSort==="Descending")
+    filteredArray.sort((a, b) => (a.price < b.price) ? 1 : -1)
+  }
+  filterModel(car, filteredArray){
+      if(this.props.maker.maker===car.brand || this.props.maker.maker==="Any Maker") {
+        if(this.props.choosenModel.choosenModel===car.model || this.props.choosenModel.choosenModel==="Any Model"){
+          if((this.props.choosenPower.maxPower>=car.power || this.props.choosenPower.maxPower===null)&&(this.props.choosenPower.minPower<=car.power || this.props.choosenPower.minPower===null)){
+            if((this.props.choosenYear.maxYear>=car.year || this.props.choosenYear.maxYear===null) && (this.props.choosenYear.minYear<=car.year || this.props.choosenYear.minYear===null)){
+              if((this.props.choosenPrice.maxPrice>=car.price || this.props.choosenPrice.maxPrice===null) && (this.props.choosenPrice.minPrice<=car.price || this.props.choosenPrice.minPrice===null)){
+                filteredArray.push(car);
+              }
+            }
+          } 
+        }
+      }
+   
+  }
+  chooseId(e){
+    this.props.chooseId(e);
+  }
+  render() {
+    return (  
+      <CarsContainer>
+        <CarList>
+          {this.state.cars.map(car =><StyledLink to="/Offer/Vehicle-Features" key={car.id} ><Car onClick={() => this.chooseId(car.id)}>
+            <CarHeader>
+              <CarLogo src={car.imageLogo}></CarLogo>
+              <CarHeaderText>
+                <CarHeaderTextRight>
+                  <CarHeaderMainText>{car.year} {car.brand} {car.model}</CarHeaderMainText>
+                  <CarHeaderSubText>{car.power} KM {car.displacement} cm3</CarHeaderSubText>
+                </CarHeaderTextRight>
+                <CarHeaderTextLeft>
+                  <CarHeaderMainText>{car.price} PLN</CarHeaderMainText>
+                </CarHeaderTextLeft>
+              </CarHeaderText>
+            </CarHeader>
+            <CarMain>
+              <CarPhoto src={car.image1}></CarPhoto>
+              <CarMainDetails>
+                <CarMainDetailsLeft>
+                  <CarDetail><StyledSpeedOutlinedIcon></StyledSpeedOutlinedIcon><CarDetailText>&nbsp;{car.mileage} km</CarDetailText></CarDetail>
+                  <CarDetail><StyledColorLensOutlinedIcon></StyledColorLensOutlinedIcon><CarDetailText>&nbsp;{car.color}</CarDetailText></CarDetail>
+                   <CarDetail><StyledBatteryFullIcon></StyledBatteryFullIcon><CarDetailText>&nbsp;{car.fuel}</CarDetailText></CarDetail>
+                   <CarDetail><StyledSettingsOutlinedIcon></StyledSettingsOutlinedIcon><CarDetailText>&nbsp;{car.gearBox}</CarDetailText></CarDetail>
+                   <CarDetail><StyledLocalGasStationOutlinedIcon ></StyledLocalGasStationOutlinedIcon ><CarDetailText>&nbsp;{car.fuelConsumption}</CarDetailText></CarDetail>
+                </CarMainDetailsLeft>
+                <CarMainDetailsRight>
+                  <CarDetail><StyledCheckIcon></StyledCheckIcon><CarDetailText>&nbsp;XXXXXXXXXX</CarDetailText></CarDetail>
+                  <CarDetail><StyledCheckIcon></StyledCheckIcon><CarDetailText>&nbsp;xxxxxxxxxx</CarDetailText></CarDetail>
+                   <CarDetail><StyledCheckIcon></StyledCheckIcon><CarDetailText>&nbsp;XXXXXXXXXX}</CarDetailText></CarDetail>
+                   <CarDetail><StyledCheckIcon></StyledCheckIcon><CarDetailText>&nbsp;XXXXXXXXXX</CarDetailText></CarDetail>
+                   <CarDetail><StyledCheckIcon ></StyledCheckIcon ><CarDetailText>&nbsp;XXXXXXXXXX}</CarDetailText></CarDetail>
+                </CarMainDetailsRight>
+              </CarMainDetails>
+            </CarMain>
+            <CarDetails></CarDetails>
+            </Car></StyledLink>)}
+        </CarList>
+      </CarsContainer>
+    );
+  }
+}
+const mapStateToProps = state => ({
+  models: state.models,
+  maker: state.maker,
+  choosenModel:state.choosenModel,
+  power:state.power,
+  choosenPower:state.choosenPower,
+  years:state.years,
+  choosenYear:state.choosenYear,
+  price:state.price,
+  choosenPrice:state.choosenPrice,
+  cars:state.cars,
+  priceSort:state.priceSort,
+  id:state.id
+  }); 
+
+  export default connect(mapStateToProps,{chooseId})(Cars);

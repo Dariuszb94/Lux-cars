@@ -2,7 +2,7 @@ import { UPDATE_MODEL} from '../Actions/types';
 
 const initialState ={
  "Citroen": ["C5", "C6", "XM"],
- "Mercedes-Benz": ["W201", "W218", "W219"],
+ "Mercedes-Benz": ["CLS W218", "CLS W219", "W219"],
  "BMW": ["E46", "F30", "F10"],
 };
 

@@ -4,13 +4,14 @@ import LogoSrc from '../Assets/Images/Logo.png';
 import TopRatedSrc from '../Assets/Images/Top-rated.png';
 import CallIcon from '@material-ui/icons/Call';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import {NavLink} from "react-router-dom";
 
 const HeaderContainer = styled.div`
   background: #020202;
   display:flex;
   flex-direction:row;
-  padding-left:8px;
-  padding-right:8px;
+  padding-left:12px;
+  padding-right:12px;
   padding-top:16px;
   padding-bottom:16px;
   justify-content:space-between;
@@ -23,6 +24,13 @@ const Logo = styled.img`
 const TopRated = styled.img`
   width: 400px;
   height: 31px;
+`;
+const activeClassName = 'nav-item-active'
+const StyledLink = styled(NavLink).attrs({ activeClassName })`
+  width:100%;
+    text-decoration:none;
+    color:white;
+  
 `;
 const Contact= styled.div`
   display:flex;
@@ -43,19 +51,25 @@ const CallLower= styled.div`
   display:flex;
   flex-direction:row;
   font-size: 32px !important;
+  align-items:center;
 `;
 const Facebook = styled(FacebookIcon)`
   color: #ec6b0c;
+  cursor: pointer;
   font-size: 32px !important;
   padding-left:16px;
   &:hover {
     color: white;
-    cursor: pointer;
+    
   }
 `;
 const CallNumber = styled.div`
   color: white;
 `;
+const LogoLink = styled.div`
+`;
+
+
 const StyledCallIcon = styled(CallIcon)`
   color: #ec6b0c;
   font-size: 32px !important;
@@ -75,7 +89,7 @@ export default class Header extends Component {
   render() {
     return (  
       <HeaderContainer>
-         <Logo src={LogoSrc}></Logo>
+         <LogoLink><StyledLink to="/Lux-cars" ><Logo src={LogoSrc}></Logo></StyledLink></LogoLink>
          <TopRated src={TopRatedSrc}></TopRated>
          <Contact>
                 <CallLowerUpperContainer>
