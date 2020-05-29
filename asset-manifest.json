@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Lux-cars/static/css/main.bdde973b.chunk.css",
-    "main.js": "/Lux-cars/static/js/main.b7cf2ce8.chunk.js",
-    "main.js.map": "/Lux-cars/static/js/main.b7cf2ce8.chunk.js.map",
+    "main.js": "/Lux-cars/static/js/main.11d21637.chunk.js",
+    "main.js.map": "/Lux-cars/static/js/main.11d21637.chunk.js.map",
     "runtime-main.js": "/Lux-cars/static/js/runtime-main.e82becdc.js",
     "runtime-main.js.map": "/Lux-cars/static/js/runtime-main.e82becdc.js.map",
     "static/js/2.65e47eca.chunk.js": "/Lux-cars/static/js/2.65e47eca.chunk.js",
     "static/js/2.65e47eca.chunk.js.map": "/Lux-cars/static/js/2.65e47eca.chunk.js.map",
     "index.html": "/Lux-cars/index.html",
-    "precache-manifest.edb2edec345f3432bcf74bf07e0e5cab.js": "/Lux-cars/precache-manifest.edb2edec345f3432bcf74bf07e0e5cab.js",
+    "precache-manifest.7b606f95a4b11f855673cc9a55e346a9.js": "/Lux-cars/precache-manifest.7b606f95a4b11f855673cc9a55e346a9.js",
     "service-worker.js": "/Lux-cars/service-worker.js",
     "static/css/main.bdde973b.chunk.css.map": "/Lux-cars/static/css/main.bdde973b.chunk.css.map",
     "static/js/2.65e47eca.chunk.js.LICENSE.txt": "/Lux-cars/static/js/2.65e47eca.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.e82becdc.js",
     "static/js/2.65e47eca.chunk.js",
     "static/css/main.bdde973b.chunk.css",
-    "static/js/main.b7cf2ce8.chunk.js"
+    "static/js/main.11d21637.chunk.js"
   ]
 }
