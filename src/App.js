@@ -19,6 +19,7 @@ function App() {
       <Route exact path="/Lux-cars" component={Home} />
       <Route path="/offers" component={Offers} />
       <Route path="/Offer" component={Offer} />
+      <Route component={Home} />
       </Switch>
     </div>
   );

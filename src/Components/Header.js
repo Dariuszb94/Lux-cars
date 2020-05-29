@@ -79,13 +79,8 @@ export default class Header extends Component {
     super(props);
     this.state = {
       };
-  }
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
+       
+    }
   render() {
     return (  
       <HeaderContainer>
