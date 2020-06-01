@@ -29,12 +29,18 @@ const CarsContainer = styled.div`
   font-weight:600;
   padding-left:2%;
   padding-right:2%;
+  @media (max-width:620px){
+    padding-left:1%;
+  padding-right:1%;
+  }
 `;
+
 const Car = styled.section`
   display:flex;
   flex-direction:column;
   padding-bottom: 16px;
   padding-top: 16px;
+
 
 `;
 const CarList = styled.article`
@@ -48,6 +54,22 @@ const CarLogo = styled.img`
   flex-direction:row;
   background-color:white;
   width:112px;
+  @media (max-width:640px){
+    width:80px;
+    height:80px;
+  }
+  @media (max-width:600px){
+    width:64px;
+    height:64px;
+  }
+  @media (max-width:480px){
+    width:48px;
+    height:48px;
+  }
+  @media (max-width:450px){
+    width:88px;
+    height:88px;
+  }
 `;
 const CarDetails = styled.section`
 `;
@@ -60,25 +82,70 @@ const CarHeaderText = styled.div`
   padding-right:16px;
   align-items: center;
   justify-content: space-between;
+  @media (max-width:530px){
+    padding-left: 8px;
+  padding-right: 8px;
+}
+@media (max-width:500px){
+    padding-left: 4px;
+  padding-right: 4px;
+}
+@media (max-width: 450px) {
+    flex-direction:column;
+    align-items: flex-start;
+  }
+  @media (max-width:450px){
+    padding-left:16px;
+  padding-right:16px;
+  }
+  @media (max-width:380px){
+    padding-left:4px;
+  padding-right:4px;
+  }
 `;
 const CarHeaderMainText = styled.div`
-  font-size:1.5em;
+  font-size:1.5rem;
+  @media (max-width:590px){
+  font-size:1.3rem;
+}
+@media (max-width:350px){
+  font-size:1.1rem;
+  }
 `;
 const CarHeaderSubText = styled.div`
-  font-size:1.2em;
+  font-size:1.2rem;
   font-weight:300;
+  @media (max-width:590px){
+  font-size:1rem;
+}
+
 `;
 const CarHeaderMainTextRight = styled.div`
-  font-size:2.3em;
+  font-size:2.3rem;
   text-align:right;
   font-weight:800;
-  
+@media (max-width:590px){
+  font-size:2.1rem;
+}
+@media (max-width:530px){
+  font-size:1.8rem;
+}
+@media (max-width:500px){
+  font-size:1.6rem;
+}
+@media (max-width:470px){
+  font-size:1.5rem;
+}
+@media (max-width: 450px) {
+    text-align:left;
+  }
 `;
 
 const CarHeaderTextRight = styled.div`
   display:flex;
   flex-direction:column;
   justify-content: center;
+
 `;
 const CarHeaderTextLeft = styled.div`
 `;
@@ -86,6 +153,19 @@ const CarMain = styled.div`
   padding-top: 16px;
   display:grid;
   grid-template-columns:60% 40%;
+  @media (max-width: 1000px) {
+    grid-template-columns:70% 30%;
+
+  }
+  @media (max-width:900px) {
+    grid-template-columns:72% 28%;
+
+  }
+  @media (max-width:710px) {
+    display:flex;
+    flex-direction:column;
+
+  }
 `;
 const CarPhoto = styled.img`
   width: 100%;
@@ -119,7 +199,6 @@ const CarPhotoChoose = styled.div`
   display:flex;
   flex-direction:row;
   justify-content:space-between;
-  background-color:#ec6b0c;
   margin-top: 16px;
 
 `;
@@ -165,6 +244,17 @@ cursor: pointer;
     background-color: #ec6b0c;
 
   } 
+  @media (max-width:900px) {
+    padding-left:8px;
+  padding-right:8px;
+  width:88%;
+
+  }
+  @media (max-width:710px) {
+    padding-left:16px;
+  padding-right:16px;
+
+  }
 `;
 const CarDetailText = styled.div`
 color:white;
@@ -202,13 +292,13 @@ const CarMainDetails = styled.div`
  flex-direction:column;
   align-items:center;
   justify-content:center;
+  @media (max-width:710px) {
+margin-top:16px;
+  }
 `;
 const StyledSpeedOutlinedIcon = styled(SpeedOutlinedIcon)`
 font-size:1.5em !important;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
   color:#3a3a3a;
   background-color:white;
   border-radius:50%;
@@ -217,62 +307,56 @@ font-size:1.5em !important;
 const StyledColorLensOutlinedIcon = styled(ColorLensOutlinedIcon)`
 
 font-size:1.5em !important;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
   color:#3a3a3a;
   background-color:white;
   border-radius:50%;
+
 `;
 const StyledLocalGasStationOutlinedIcon = styled(LocalGasStationOutlinedIcon)`
 
 font-size:1.5em !important;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
+
   color:#3a3a3a;
   background-color:white;
   border-radius:50%;
+
 `;
 const StyledSettingsOutlinedIcon = styled(SettingsOutlinedIcon)`
 
 font-size:1.5em !important;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
+
   color:#3a3a3a;
   background-color:white;
   border-radius:50%;
+
 `;
 const StyledBatteryFullIcon = styled(BatteryFullIcon)`
   
   font-size:1.5em !important;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
+
   color:#3a3a3a;
   background-color:white;
   border-radius:50%;
+
 `;
 const StyledCheckIcon = styled(CheckIcon)`
 
 font-size:1.5em !important;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
+
   color:#3a3a3a;
   background-color:white;
   border-radius:50%;
+
 `;
 
 const StyledArrowLeftIcon = styled(ArrowLeftIcon)`
 
-font-size:5em !important;
+font-size:5rem !important;
 width:100% !important;
 cursor: pointer;
 -webkit-transition:0.3s linear !important;
@@ -283,15 +367,23 @@ cursor: pointer;
 
 `;
 const CarHeaderSubTextRight = styled(Link).attrs()`
-  font-size:1.2em;
+  font-size:1.2rem;
   font-weight:300;
   color:#e46b0c;
   -webkit-transition:0.3s linear;
   -moz-transition:0.3s linear;
   transition:0.3s linear;
+  text-decoration:none;
 &:hover{
 color:white;
 }
+@media (max-width:590px){
+  font-size:1rem;
+}
+@media (max-width:470px){
+  font-size:0.9rem;
+}
+
 `;
 const CarDetailLink = styled(Link).attrs()`
 cursor: pointer;
@@ -307,15 +399,26 @@ cursor: pointer;
   -webkit-transition:0.3s linear;
   -moz-transition:0.3s linear;
   transition:0.3s linear;
+  text-decoration:none;
   &:hover {
     background-color: #ec6b0c;
 
   } 
+  @media (max-width:900px) {
+    padding-left:8px;
+  padding-right:8px;
+  width:88%;
 
+  }
+  @media (max-width:710px) {
+    padding-left:16px;
+  padding-right:16px;
+
+  }
 `;
 const StyledArrowRightIcon= styled(ArrowRightIcon)`
 
-font-size:5em !important;
+font-size:5rem !important;
 width:100% !important;
 cursor: pointer;
 -webkit-transition:0.3s linear !important;
@@ -363,7 +466,8 @@ class Offer extends Component {
   }
   componentDidUpdate(){
     this.filterCars();
-    this.createListOfImages()
+    this.createListOfImages();
+    
   }
   filterCars(){
     let filteredArray=[];
@@ -398,7 +502,7 @@ class Offer extends Component {
 
   }
 
-  console.log("po"+this.state.smallImageSelect3 );
+
   if (this.state.smallImageSelect3 >= this.state.listOfImages.length-2)
   this.setState({ swipeRightPossible: false});
   else{
@@ -457,6 +561,7 @@ class Offer extends Component {
     }
     if(prevState!==newState){
       this.setState({ listOfImages: listOfImages});
+      this.displayPhoto("changeCar")
     }
 
 
@@ -467,7 +572,12 @@ class Offer extends Component {
 
   }
   displayPhoto(event, numberOfPhoto){
+    if (event!==undefined)
     this.setState({ mainImage: event });
+    if(event==="changeCar")
+    this.setState({ mainImage:this.props.cars[this.props.id.choosenId].imageDetail3 });
+
+
     if (numberOfPhoto===1){
       this.setState({ imageHighLight1: true });
       this.setState({ imageHighLight2: false });
@@ -541,22 +651,13 @@ class Offer extends Component {
             </CarHeader>
             <CarMain>
               <CarPhotoContainer>
-         
-
-
-                  <GlassMagnifier
-  imageSrc={this.state.mainImage}
-  imageAlt={this.props.cars[this.props.id.choosenId].model}
-/>
- 
-<Magnifier
-  largeImageSrc={this.state.mainImage} 
-
-
-/>
-
-
-
+                <GlassMagnifier
+                  imageSrc={this.state.mainImage}
+                  imageAlt={this.props.cars[this.props.id.choosenId].model}
+                />
+                <Magnifier
+                  largeImageSrc={this.state.mainImage} 
+                />
                 <CarPhotoChoose>
                   <CarPhotoNaviLeft swipeLeftPossible={this.state.swipeLeftPossible}><StyledArrowLeftIcon onClick={() => this.swipeLeft()}  ></StyledArrowLeftIcon></CarPhotoNaviLeft>
                  <CarPhotoChooseSmall src={this.state.listOfImages[this.state.smallImageSelect1]} onClick={() => this.displayPhoto(this.state.listOfImages[this.state.smallImageSelect1],1)}></CarPhotoChooseSmall>
@@ -568,7 +669,6 @@ class Offer extends Component {
               <CarMainDetails>
                   <CarDetail><StyledSpeedOutlinedIcon></StyledSpeedOutlinedIcon><CarDetailText>&nbsp;&nbsp;Send An Enquiry</CarDetailText></CarDetail>
                   <CarDetail onClick={()=>this.print()}><StyledColorLensOutlinedIcon></StyledColorLensOutlinedIcon><CarDetailText>&nbsp;&nbsp;Print This Page</CarDetailText></CarDetail>
-            
                    <CarDetailLink to="#vehicleInfo" onClick={()=> { this.changeSection("Finance")}}><StyledBatteryFullIcon></StyledBatteryFullIcon><CarDetailText>&nbsp;&nbsp;Similar Vehicles</CarDetailText></CarDetailLink>
                    <CarDetail><StyledSettingsOutlinedIcon></StyledSettingsOutlinedIcon><CarDetailText>&nbsp;&nbsp;{this.props.cars[this.props.id.choosenId].gearBox}</CarDetailText></CarDetail>
                    <CarDetail><StyledLocalGasStationOutlinedIcon ></StyledLocalGasStationOutlinedIcon ><CarDetailText>&nbsp;&nbsp;{this.props.cars[this.props.id.choosenId].fuelConsumption}</CarDetailText></CarDetail>

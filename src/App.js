@@ -5,6 +5,7 @@ import Menu from './Components/Menu';
 import Home from './Components/Home';
 import Offers from './Components/Offers';
 import Offer from './Components/Offer';
+import About from './Components/About';
 import {
     Route,
     Switch
@@ -19,6 +20,7 @@ function App() {
       <Route exact path="/Lux-cars" component={Home} />
       <Route path="/Offers" component={Offers} />
       <Route path="/Offer" component={Offer} />
+      <Route path="/About" component={About} />
       <Route component={Home} />
       </Switch>
     </div>

@@ -23,12 +23,19 @@ padding-right:2%;
 const AttrContainer = styled.div`
 display:flex;
 flex-direction:column;
-
+width: 24%;
+@media (max-width: 860px) {
+  width: 100%;
+  }
 `;
 
 const Search = styled.div`
 display:flex;
 flex-direction:row;
+@media (max-width: 1040px) {
+  flex-direction:column;
+  }
+
 `;
 const SearchHeader = styled.h2`
 color:white;
@@ -45,6 +52,16 @@ display:flex;
 flex-direction:row;
 justify-content:space-around;
 width: 100%;
+@media (max-width: 860px) {
+  display:grid;
+  grid-template-columns: 50% 50%;
+  grid-gap:1rem;
+  }
+  @media (max-width: 450px) {
+  display:flex;
+flex-direction:column;
+  grid-gap:0;
+  }
 `;
 const DropDownContentMaker = styled.div`
   font-weight: 200;
@@ -99,6 +116,7 @@ const DropDownContentMaxPrice= styled.div`
 `;
 const SubAttr = styled.div`
   cursor: pointer;
+  color:black;
   padding:4px;
   font-weight: 300;
   &:hover {
@@ -109,10 +127,10 @@ const AnyAttrText = styled.div`
 color:black;
 `;
 const AttrChoose = styled.ul`
-color:black;
 
 display: inline-block;
 padding-bottom:4px;
+margin-bottom:8px;
 `;
 const AnyAttr = styled.button`
 
@@ -186,9 +204,12 @@ white-space: nowrap;
   -webkit-transition:0.4s ease-in-out;
   -moz-transition:0.4s ease-in-out;
   transition:0.4s ease-in-out;
-  
+  margin-left:8px;
 &:hover {
     background-color: black;
+  }
+  @media (max-width: 1040px) {
+    margin-left:0px;
   }
 `;
 

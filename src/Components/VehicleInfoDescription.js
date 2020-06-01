@@ -22,19 +22,41 @@ padding-left:16px;
 padding-right:16px;
 padding-top:16px;
 padding-bottom:16px;
+@media (max-width:450px) {
+  padding-left:8px;
+padding-right:8px;
+}
+
 `;
 const Header = styled.h2`
 border-bottom:2px solid #ec6b0c;
 width:30%;
 margin-bottom:32px;
+font-size:1.2rem;
 `;
 const Main = styled.div`
 display:grid;
 grid-template-columns:40% 60%;
+@media (max-width:1280px) {
+  grid-template-columns:30% 70%;
+}
+@media (max-width:780px) {
+  display:flex;
+  flex-direction:column;
+}
 `;
 const MainLeft = styled.div`
 display:flex;
 flex-direction:column;
+
+@media (max-width:780px) {
+  display:grid;
+  grid-template-columns: 50% 50%;
+}
+@media (max-width:460px) {
+  display:flex;
+flex-direction:column;
+}
 `;
 const MainLeftElement = styled.div`
 display:flex;
@@ -42,11 +64,20 @@ flex-direction:row;
 align-items: center;
 background-color: #5a5a5a;
 margin-bottom:4px;
-font-weight:300;
+font-weight:400;
 `;
 const MainRight = styled.div`
 padding-left:24px;
 padding-right:24px;
+@media (max-width:920px) {
+  padding-right:0px;
+  padding-left:12px;
+}
+@media (max-width:780px) {
+  padding-right:0px;
+  padding-left:0px;
+  margin-top:16px;
+}
 `;
 
 const StyledCalendarTodayIcon= styled(CalendarTodayIcon)`
@@ -128,17 +159,17 @@ class VehicleInfoDescription extends Component {
           <Header>Description</Header>
           <Main>
             <MainLeft>
-              <MainLeftElement><StyledCalendarTodayIcon></StyledCalendarTodayIcon>&nbsp;aaaaa</MainLeftElement>
-              <MainLeftElement><StyledSpeedIcon></StyledSpeedIcon>&nbsp;aaaaa</MainLeftElement>
-              <MainLeftElement><StyledBarChartIcon></StyledBarChartIcon>&nbsp;aaaaa</MainLeftElement>
-              <MainLeftElement><StyledLocalGasStationIcon></StyledLocalGasStationIcon>&nbsp;aaaaa</MainLeftElement>
-              <MainLeftElement><StyledSettingsIcon></StyledSettingsIcon>&nbsp;aaaaa</MainLeftElement>
-              <MainLeftElement><StyledDriveEtaIcon></StyledDriveEtaIcon>&nbsp;aaaaa</MainLeftElement>
+              <MainLeftElement><StyledCalendarTodayIcon></StyledCalendarTodayIcon>&nbsp;Registered: {this.props.cars[this.props.id.choosenId].year}</MainLeftElement>
+              <MainLeftElement><StyledSpeedIcon></StyledSpeedIcon>&nbsp;Mileage: {this.props.cars[this.props.id.choosenId].mileage} km</MainLeftElement>
+              <MainLeftElement><StyledBarChartIcon></StyledBarChartIcon>&nbsp;Engine Size: {this.props.cars[this.props.id.choosenId].displacement} cm3</MainLeftElement>
+              <MainLeftElement><StyledLocalGasStationIcon></StyledLocalGasStationIcon>&nbsp;Fuel Type: {this.props.cars[this.props.id.choosenId].fuel}</MainLeftElement>
+              <MainLeftElement><StyledSettingsIcon></StyledSettingsIcon>&nbsp;Gearbox: {this.props.cars[this.props.id.choosenId].gearBox}</MainLeftElement>
+              <MainLeftElement><StyledDriveEtaIcon></StyledDriveEtaIcon>&nbsp;Body Style: {this.props.cars[this.props.id.choosenId].body}</MainLeftElement>
             </MainLeft>
             <MainRight>
-              <FirstParagraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</FirstParagraph>
-              <SecondParagraph> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur dapibus, mauris posuere volutpat suscipit, magna massa blandit dui, et facilisis orci odio quis sapien. Nam varius metus eu nisi interdum, vitae varius lorem viverra. Cras luctus laoreet libero, sed gravida mauris tincidunt id. Aliquam finibus, dui vitae imperdiet cursus, leo eros varius est, eget rhoncus mauris ante sit amet velit. Sed elementum suscipit eros ac molestie.</SecondParagraph>
-              <ThirdParagraph>Sed ligula velit, venenatis sed lectus nec, sollicitudin egestas libero. Ut finibus auctor justo non lobortis. Aenean eget nulla eu sem interdum aliquam.</ThirdParagraph>
+              <FirstParagraph>{this.props.cars[this.props.id.choosenId].description1}</FirstParagraph>
+              <SecondParagraph>{this.props.cars[this.props.id.choosenId].description2}</SecondParagraph>
+              <ThirdParagraph>{this.props.cars[this.props.id.choosenId].description3}</ThirdParagraph>
             </MainRight>
           </Main>
       </VehicleInfoDescriptionContainer>
@@ -148,6 +179,8 @@ class VehicleInfoDescription extends Component {
 const mapStateToProps = state => ({
   models: state.models,
   maker: state.maker,
-  choosenModel:state.choosenModel
+  choosenModel:state.choosenModel,
+  id:state.id,
+  cars:state.cars,
   }); 
   export default connect(mapStateToProps,{chooseModel, updateMaker})(VehicleInfoDescription);

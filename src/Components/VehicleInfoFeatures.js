@@ -60,22 +60,25 @@ const VehicleSummaryListElement = styled.li`
   list-style:none;
   height:20px;
   display:grid;
-  grid-template-columns:20% 20% 60%;
+  grid-template-columns:30% 30% 40%;
   padding-left:16px;
+  padding:4px;
 `;
 const VehiclePerformanceListElement = styled.li`
   list-style:none;
   height:20px;
   display:grid;
-  grid-template-columns:20% 20% 60%;
+  grid-template-columns:30% 30% 40%;
   padding-left:16px;
+  padding:4px;
 `;
 const VehicleDimensionsListElement = styled.li`
   list-style:none;
   height:20px;
   display:grid;
-  grid-template-columns:20% 20% 60%;
+  grid-template-columns:30% 30% 40%;
   padding-left:16px;
+  padding:4px;
 `;
 const VehicleSummaryListElementLeft = styled.div`
 `;
@@ -230,12 +233,11 @@ class VehicleInfoFeatures extends Component {
               unmountOnExit
             >
               <VehicleSummaryListDropDown vehicleSummaryListShow={this.state.vehicleSummaryListShow}>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>aaaa</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>bb</VehicleSummaryListElementRight></VehicleSummaryListElement>
-                <VehicleSummaryListElement >aaaa</VehicleSummaryListElement>
-                <VehicleSummaryListElement >aaaa</VehicleSummaryListElement>
-                <VehicleSummaryListElement>aaaa</VehicleSummaryListElement>
-                <VehicleSummaryListElement >aaaa</VehicleSummaryListElement>
-                <VehicleSummaryListElement >aaaa</VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Body style</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].body}</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Engine size</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].displacement} cm3</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Number of doors</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].doors}</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Number of seats</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].seats}</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Transmission</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].gearBox}</VehicleSummaryListElementRight></VehicleSummaryListElement>
               </VehicleSummaryListDropDown>
             </CSSTransition>
           </VehicleSummaryList>
@@ -248,12 +250,13 @@ class VehicleInfoFeatures extends Component {
               unmountOnExit
             >
               <VehiclePerformanceListDropDown vehiclePerformanceListShow={this.state.vehiclePerformanceListShow}>
-                <VehiclePerformanceListElement><VehicleSummaryListElementLeft>aaaa</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>bb</VehicleSummaryListElementRight></VehiclePerformanceListElement>
-                <VehiclePerformanceListElement >aaaa</VehiclePerformanceListElement>
-                <VehiclePerformanceListElement >aaaa</VehiclePerformanceListElement>
-                <VehiclePerformanceListElement>aaaa</VehiclePerformanceListElement>
-                <VehiclePerformanceListElement >aaaa</VehiclePerformanceListElement>
-                <VehiclePerformanceListElement >aaaa</VehiclePerformanceListElement>
+                <VehiclePerformanceListElement><VehicleSummaryListElementLeft>0-100 km/h</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].acceleration} s</VehicleSummaryListElementRight></VehiclePerformanceListElement>
+                <VehiclePerformanceListElement><VehicleSummaryListElementLeft>Top speed</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].topSpeed} km/h</VehicleSummaryListElementRight></VehiclePerformanceListElement>
+                
+                <VehiclePerformanceListElement><VehicleSummaryListElementLeft>Cylinders</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].cylinders}</VehicleSummaryListElementRight></VehiclePerformanceListElement>
+                <VehiclePerformanceListElement><VehicleSummaryListElementLeft>Engine power</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].power} KM</VehicleSummaryListElementRight></VehiclePerformanceListElement>
+                <VehiclePerformanceListElement><VehicleSummaryListElementLeft>Engine torque</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].torque} Nm</VehicleSummaryListElementRight></VehiclePerformanceListElement>
+
               </VehiclePerformanceListDropDown>
             </CSSTransition>
           </VehicleSummaryList>
@@ -266,13 +269,11 @@ class VehicleInfoFeatures extends Component {
               unmountOnExit
             >
               <VehicleDimensionsListDropDown vehicleDimensionsListShow={this.state.vehicleDimensionsListShow}>
-                <VehicleDimensionsListElement><VehicleSummaryListElementLeft>aaaa</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>bb</VehicleSummaryListElementRight></VehicleDimensionsListElement>
-                <VehicleDimensionsListElement >aaaa</VehicleDimensionsListElement>
-                <VehicleDimensionsListElement >aaaa</VehicleDimensionsListElement>
-                <VehicleDimensionsListElement>aaaa</VehicleDimensionsListElement>
-                <VehicleDimensionsListElement >aaaa</VehicleDimensionsListElement>
-                <VehicleDimensionsListElement >aaaa</VehicleDimensionsListElement>
-              </VehicleDimensionsListDropDown>
+                <VehicleDimensionsListElement><VehicleSummaryListElementLeft>Height</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].height} mm</VehicleSummaryListElementRight></VehicleDimensionsListElement>
+                <VehicleDimensionsListElement><VehicleSummaryListElementLeft>Length</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].length} mm</VehicleSummaryListElementRight></VehicleDimensionsListElement>
+                <VehicleDimensionsListElement><VehicleSummaryListElementLeft>Wheelbase</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].wheelbase} mm</VehicleSummaryListElementRight></VehicleDimensionsListElement>
+                <VehicleDimensionsListElement><VehicleSummaryListElementLeft>Width</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[this.props.id.choosenId].width} mm</VehicleSummaryListElementRight></VehicleDimensionsListElement>
+               </VehicleDimensionsListDropDown>
             </CSSTransition>
           </VehicleSummaryList>
         </VehicleInfoContainer>
@@ -282,6 +283,8 @@ class VehicleInfoFeatures extends Component {
 const mapStateToProps = state => ({
   models: state.models,
   maker: state.maker,
-  choosenModel:state.choosenModel
+  choosenModel:state.choosenModel,
+  id:state.id,
+  cars:state.cars,
   }); 
   export default connect(mapStateToProps,{chooseModel, updateMaker})(VehicleInfoFeatures);

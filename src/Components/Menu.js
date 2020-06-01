@@ -9,6 +9,11 @@ const MenuContainer = styled.div`
   background-color:#ec6b0c;
   color:white;
   font-weight:600;
+  @media (max-width: 750px) {
+display:none;
+
+
+  }
 `;
 const MenuList = styled.ul`
   display:flex;
@@ -36,6 +41,7 @@ const MenuListElement = styled.li`
   -webkit-transition:0.2s linear;
   -moz-transition:0.2s linear;
   transition:0.2s linear;
+  font-size:1.2rem;
   &:hover {
     background-color: rgba(0, 0, 0, .1);
     backdrop-filter: grayscale(0.1) opacity(0.9);
@@ -73,14 +79,10 @@ const SubMaker = styled.div`
   }
 `;
 const activeClassName = 'nav-item-active'
-const StyledLink = styled(NavLink).attrs({ activeClassName })`
+const StyledLink = styled(NavLink).attrs()`
   width:100%;
     text-decoration:none;
     color:white;
-  &.${activeClassName} {
-  
-  }
-  
 `;
 const AnyMaker = styled.div`
   padding-bottom:16px;
@@ -92,7 +94,7 @@ const AnyMaker = styled.div`
  width:100%;
 text-decoration:none;
   height:100%;
-
+  font-size:1.2rem;
 `;
 class Menu extends Component {
   constructor(props) {
@@ -131,7 +133,7 @@ class Menu extends Component {
           </StyledLink>
           <MakerChoose onMouseEnter={() => this.makerShow()} onMouseLeave={() => this.makerHide()}>
             <StyledLink to="/Offers">
-              <AnyMaker >USED CARS</AnyMaker>
+              <AnyMaker onClick={() => this.makerChange("Any Maker")}>USED CARS</AnyMaker>
             </StyledLink>
             <DropDownContent makerShow={this.state.makerShow} >
               <StyledLink to="/Offers"><SubMaker onClick={() => this.makerChange("Citroen")}>Citroen</SubMaker></StyledLink>
@@ -143,7 +145,7 @@ class Menu extends Component {
           <StyledLink to="/Lux-cars" >
             <MenuListElement>FINANCE</MenuListElement>
           </StyledLink>
-          <StyledLink to="/Lux-cars" >
+          <StyledLink to="/About" >
             <MenuListElement>ABOUT</MenuListElement>
           </StyledLink>
           <StyledLink to="/Lux-cars">

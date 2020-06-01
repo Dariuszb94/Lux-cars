@@ -22,6 +22,7 @@ margin-top:32px;
 const Header = styled.h1`
 border-bottom:2px solid #ec6b0c;
 margin-bottom:16px;
+font-size:1.4rem;
 `;
 const Offer = styled.div`
 
@@ -52,7 +53,7 @@ margin-bottom:4px;
 `;
 const OfferPrice = styled.div`
 font-size:1rem;
-font-weight: 300;
+font-weight: 500;
     color: #e46b0c;
 
 
@@ -72,9 +73,7 @@ class SimilarVehicles extends Component {
       this.chooseId = this.chooseId.bind(this);
   }
   componentDidMount() {
-    console.log("SS");
-    console.log(this.props.maker.maker);
-    console.log(this.props.cars);
+
     this.setState({ cars: this.props.cars});
     this.filterCars();
   }

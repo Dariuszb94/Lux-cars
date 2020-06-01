@@ -22,6 +22,12 @@ const Car = styled.li`
   border-bottom:2px solid #3a3a3a;
   padding-left: 2%;
   padding-right: 2%;
+  @media (max-width: 500px) {
+    padding-left: 0;
+  padding-right: 0;
+
+  }
+  
 `;
 const CarList = styled.ul`
 `;
@@ -34,8 +40,20 @@ const CarLogo = styled.img`
   flex-direction:row;
   background-color:white;
   width:112px;
+  @media (max-width: 480px) {
+    width:80px;
+
+  }
+  @media (max-width: 430px) {
+    width:64px;
+
+  }
+  @media (max-width: 390px) {
+    width:112px;
+  }
 `;
 const CarDetails = styled.section`
+
 `;
 const CarHeaderText = styled.div`
   display:flex;
@@ -46,14 +64,38 @@ const CarHeaderText = styled.div`
   padding-right:16px;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 550px) {
+    padding-left:4px;
+  padding-right:4px;
+
+  }
+  @media (max-width: 390px) {
+    align-items: flex-start;
+  flex-direction:column;
+  padding-left:16px;
+  padding-right:16px;
+  }
 `;
 const CarHeaderMainText = styled.div`
   background-color:#3a3a3a;
   font-size:1.5em;
+  @media (max-width: 520px) {
+    font-size:1.3em;
+  }
+  @media (max-width: 420px) {
+    font-size:1.2em;
+  }
+  @media (max-width: 390px) {
+    font-size:1.3em;
+    margin-bottom:4px;
+  }
 `;
 const CarHeaderSubText = styled.div`
   font-size:1.2em;
   font-weight:300;
+  @media (max-width: 390px) {
+    margin-bottom:4px;
+  }
 `;
 const CarHeaderTextRight = styled.div`
   display:flex;
@@ -66,9 +108,20 @@ const CarMain = styled.div`
   padding-top: 16px;
   display:grid;
   grid-template-columns:40% 60%;
+  @media (max-width: 680px) {
+    display:flex;
+    flex-direction:column;
+
+
+    padding-top: 0;
+  }
+
 `;
 const CarPhoto = styled.img`
   width: 100%;
+  margin-bottom: 8px;
+ 
+
 `;
 const CarMainDetailsLeft = styled.div`
   display:flex;
@@ -76,6 +129,16 @@ const CarMainDetailsLeft = styled.div`
   justify-content:space-around;
   padding-left:32px;
   padding-right:32px;
+  @media (max-width: 950px) {
+    padding-left:8px;
+  padding-right:8px;
+
+  }
+  @media (max-width: 700px) {
+    padding-left:4px;
+  padding-right:4px;
+
+  }
 `;
 const CarMainDetailsRight = styled.div`
   display:flex;  
@@ -83,68 +146,135 @@ const CarMainDetailsRight = styled.div`
   justify-content:space-around;
   padding-left:32px;
   padding-right:32px;
+  @media (max-width: 950px) {
+    padding-left:8px;
+  padding-right:8px;
+
+  }
+  @media (max-width: 700px) {
+    padding-left:4px;
+  padding-right:4px;
+
+  }
+`;
+const CarDetailOrangeContainer = styled.div`
+width:100%;
+display:flex;
+margin-top:16px;
+flex-direction:row;
+
+justify-content: space-around;
+@media (max-width: 870px) {
+  margin-top:8px;
+  }
+  @media (max-width: 680px) {
+    justify-content: space-between;
+  }
+  
+`;
+const CarDetailOrange = styled.div`
+cursor: pointer;
+background-color:#ec6b0c;
+width:40%;
+padding-left:16px;
+  padding-right:16px;
+  padding-top:12px;
+  padding-bottom:12px;
+
+  text-align:center;
+  border-radius:8px;
+  -webkit-transition:0.3s linear;
+  -moz-transition:0.3s linear;
+  transition:0.3s linear;
+  &:hover {
+    background-color: black;
+
+  } 
+  @media (max-width: 950px) {
+    padding-left:12px;
+  padding-right:12px;
+  padding-top:8px;
+  padding-bottom:8px;
+  }
+  @media (max-width: 320px) {
+    padding-left:8px;
+  padding-right:8px;
+  padding-top:8px;
+  padding-bottom:8px;
+  width:42%;
+  font-size:0.9rem;
+  }
+
+`;
+const CarFeatures = styled.div`
+  display:grid;
+  grid-template-columns:50% 50%;
+  height:80%;
+
 `;
 const CarDetail = styled.div`
   display: flex;
   align-items: center;
+  @media (max-width: 680px) {
+margin-bottom: 4px;
+  }
 `;
 const CarDetailText = styled.div`
+
 `;
 const CarMainDetails = styled.div`
-  display:grid;
-  grid-template-columns: 50% 50%;
-  justify-content:start;
+
+
 `;
 const StyledSpeedOutlinedIcon = styled(SpeedOutlinedIcon)`
   background-color: #ec6b0c;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
+  @media (max-width: 870px) {
+    padding: 4px;
+  }
 `;
 const StyledColorLensOutlinedIcon = styled(ColorLensOutlinedIcon)`
   background-color: #ec6b0c;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
+  @media (max-width: 870px) {
+    padding: 4px;
+  }
+
 `;
 const StyledLocalGasStationOutlinedIcon = styled(LocalGasStationOutlinedIcon)`
   background-color: #ec6b0c;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
+  @media (max-width: 870px) {
+    padding: 4px;
+  }
 `;
 const StyledSettingsOutlinedIcon = styled(SettingsOutlinedIcon)`
   background-color: #ec6b0c;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
+  @media (max-width: 870px) {
+    padding: 4px;
+  }
 `;
 const StyledBatteryFullIcon = styled(BatteryFullIcon)`
   background-color: #ec6b0c;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
+  @media (max-width: 870px) {
+    padding: 4px;
+  }
 `;
 const StyledCheckIcon = styled(CheckIcon)`
   background-color: #ec6b0c;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
+  @media (max-width: 870px) {
+    padding: 4px;
+  }
 `;
 const activeClassName = 'nav-item-active'
-const StyledLink = styled(NavLink).attrs({ activeClassName })`
+const StyledLink = styled(NavLink).attrs()`
   width:100%;
     text-decoration:none;
     color:white;
-  &.${activeClassName} {
-  
-  }
+
   
 `;
 class Cars extends Component {
@@ -221,20 +351,26 @@ class Cars extends Component {
             <CarMain>
               <CarPhoto src={car.image1}></CarPhoto>
               <CarMainDetails>
-                <CarMainDetailsLeft>
-                  <CarDetail><StyledSpeedOutlinedIcon></StyledSpeedOutlinedIcon><CarDetailText>&nbsp;{car.mileage} km</CarDetailText></CarDetail>
-                  <CarDetail><StyledColorLensOutlinedIcon></StyledColorLensOutlinedIcon><CarDetailText>&nbsp;{car.color}</CarDetailText></CarDetail>
-                   <CarDetail><StyledBatteryFullIcon></StyledBatteryFullIcon><CarDetailText>&nbsp;{car.fuel}</CarDetailText></CarDetail>
-                   <CarDetail><StyledSettingsOutlinedIcon></StyledSettingsOutlinedIcon><CarDetailText>&nbsp;{car.gearBox}</CarDetailText></CarDetail>
-                   <CarDetail><StyledLocalGasStationOutlinedIcon ></StyledLocalGasStationOutlinedIcon ><CarDetailText>&nbsp;{car.fuelConsumption}</CarDetailText></CarDetail>
-                </CarMainDetailsLeft>
-                <CarMainDetailsRight>
-                  <CarDetail><StyledCheckIcon></StyledCheckIcon><CarDetailText>&nbsp;XXXXXXXXXX</CarDetailText></CarDetail>
-                  <CarDetail><StyledCheckIcon></StyledCheckIcon><CarDetailText>&nbsp;xxxxxxxxxx</CarDetailText></CarDetail>
-                   <CarDetail><StyledCheckIcon></StyledCheckIcon><CarDetailText>&nbsp;XXXXXXXXXX}</CarDetailText></CarDetail>
-                   <CarDetail><StyledCheckIcon></StyledCheckIcon><CarDetailText>&nbsp;XXXXXXXXXX</CarDetailText></CarDetail>
-                   <CarDetail><StyledCheckIcon ></StyledCheckIcon ><CarDetailText>&nbsp;XXXXXXXXXX}</CarDetailText></CarDetail>
-                </CarMainDetailsRight>
+                <CarFeatures>
+                  <CarMainDetailsLeft>
+                    <CarDetail><StyledSpeedOutlinedIcon></StyledSpeedOutlinedIcon><CarDetailText>&nbsp;{car.mileage} km</CarDetailText></CarDetail>
+                    <CarDetail><StyledColorLensOutlinedIcon></StyledColorLensOutlinedIcon><CarDetailText>&nbsp;{car.color}</CarDetailText></CarDetail>
+                    <CarDetail><StyledBatteryFullIcon></StyledBatteryFullIcon><CarDetailText>&nbsp;{car.fuel}</CarDetailText></CarDetail>
+                    <CarDetail><StyledSettingsOutlinedIcon></StyledSettingsOutlinedIcon><CarDetailText>&nbsp;{car.gearBox}</CarDetailText></CarDetail>
+                    <CarDetail><StyledLocalGasStationOutlinedIcon ></StyledLocalGasStationOutlinedIcon ><CarDetailText>&nbsp;{car.fuelConsumption}</CarDetailText></CarDetail>
+                  </CarMainDetailsLeft>
+                  <CarMainDetailsRight>
+                    <CarDetail><StyledCheckIcon></StyledCheckIcon><CarDetailText>&nbsp;{car.feature1}</CarDetailText></CarDetail>
+                    <CarDetail><StyledCheckIcon></StyledCheckIcon><CarDetailText>&nbsp;{car.feature2}</CarDetailText></CarDetail>
+                    <CarDetail><StyledCheckIcon></StyledCheckIcon><CarDetailText>&nbsp;{car.feature3}</CarDetailText></CarDetail>
+                    <CarDetail><StyledCheckIcon></StyledCheckIcon><CarDetailText>&nbsp;{car.feature4}</CarDetailText></CarDetail>
+                    <CarDetail><StyledCheckIcon ></StyledCheckIcon ><CarDetailText>&nbsp;{car.feature5}</CarDetailText></CarDetail>
+                  </CarMainDetailsRight>
+                </CarFeatures>
+                <CarDetailOrangeContainer>
+                  <CarDetailOrange>Add to Favourites</CarDetailOrange>
+                  <CarDetailOrange>View Favourites</CarDetailOrange>
+                </CarDetailOrangeContainer>
               </CarMainDetails>
             </CarMain>
             <CarDetails></CarDetails>

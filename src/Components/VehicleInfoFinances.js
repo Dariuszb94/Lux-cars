@@ -22,6 +22,10 @@ padding:16px;
 display:flex;
 flex-direction:column;
 padding-bottom:32px;
+@media (max-width:600px){
+  padding-left:8px;
+  padding-right:8px;
+}
   
 `;
 const Sliders = styled.div`
@@ -29,7 +33,9 @@ margin-top:24px;
 display:flex;
 flex-direction:row;
 justify-content: space-around;
-
+@media (max-width:450px){
+  flex-direction:column;
+}
 `;
 const Monthly = styled.div`
 margin-top:24px;
@@ -45,6 +51,12 @@ const  SliderContainer= styled.div`
 display:flex;
 flex-direction:column;
 width:40%;
+@media (max-width:700px){
+  width:48%;
+}
+@media (max-width:450px){
+  width:100%;
+}
 `;
 const MonthsText = styled.h3`
 padding-bottom:4px;
@@ -53,6 +65,9 @@ text-align:center;
 const StyledMonthSlider = styled(ReactSlider)`
     width: 100%;
     height: 25px;
+    @media (max-width:450px){
+      margin-bottom:24px;
+    }
 
 `;
 const StyledDepositSlider = styled(ReactSlider)`
@@ -79,6 +94,12 @@ const StyledThumbDeposit = styled.div`
     background-color:#ec6b0c;
     border-radius: 8%;
     cursor: grab;
+    @media (max-width:900px){
+      width: 60px;
+    }
+    @media (max-width:600px){
+      width: 55px;
+    }
 `;
 const ThumbMonths = (props, state) => <StyledThumbMonths {...props}>{state.valueNow}</StyledThumbMonths>;
 const ThumbDeposit = (props, state) => <StyledThumbDeposit {...props}>{state.valueNow}</StyledThumbDeposit>;
@@ -139,7 +160,7 @@ class VehicleInfoFinances extends Component {
     renderTrack={TrackDeposit}
     renderThumb={ThumbDeposit}
     onChange={val => this.setState({ deposit: val}) }
-    max={100000}
+    max={20000}
 />
 </SliderContainer>
 </Sliders>

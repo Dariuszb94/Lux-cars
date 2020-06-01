@@ -3,7 +3,7 @@ import styled, {keyframes} from 'styled-components';
 import imgBg1 from '../Assets/Images/slide1bg.jpg';
 import imgBg2 from '../Assets/Images/slide2bg.jpg';
 import Search from './Search';
-
+import {NavLink} from "react-router-dom";
 const SliderContainer = styled.div`
 
 `;
@@ -25,6 +25,32 @@ const FirstSlide = styled.div`
   -webkit-transition: opacity 600ms, visibility 600ms;
   transition: opacity 600ms, visibility 600ms;
   animation: ${changeSlide} 1s ease-in-out;
+  @media (max-width: 970px) {
+    min-height:60vh;
+    padding-left:8px;
+    padding-right:8px;
+  }
+  @media (max-width: 850px) {
+    min-height:55vh;
+
+  }
+
+  @media (max-width: 750px) {
+    grid-template-columns: 70% 30%;
+    min-height:40vh;
+  }
+  @media (max-width: 680px) {
+    grid-template-columns: 80% 20%;
+
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 90% 10%;
+    min-height:35vh;
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: 95% 5%;
+    min-height:30vh;
+  }
 `;
 const SecondSlide = styled.div`
   background-image: url(${imgBg2});
@@ -40,6 +66,38 @@ const SecondSlide = styled.div`
   -webkit-transition: opacity 600ms, visibility 600ms;
   transition: opacity 600ms, visibility 600ms;
   animation: ${changeSlide} 1s ease-in-out;
+  @media (max-width: 970px) {
+    padding-left:8px;
+    padding-right:8px;
+  }
+  @media (max-width: 970px) {
+    min-height:60vh;
+    padding-left:8px;
+    padding-right:8px;
+  }
+  @media (max-width: 850px) {
+    min-height:55vh;
+
+  }
+
+  @media (max-width: 750px) {
+    grid-template-columns: 70% 30%;
+    min-height:40vh;
+  }
+  @media (max-width: 680px) {
+    grid-template-columns: 80% 20%;
+
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 90% 10%;
+    min-height:35vh;
+
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: 95% 5%;
+    min-height:30vh;
+
+  }
 `;
 const SlideText = styled.div`
 
@@ -52,11 +110,45 @@ const SlideUpperText = styled.h2`
   margin-bottom:16px;
   padding-bottom:4px;
   padding-top:4px;
-  font-size:40px;
+  font-size:2.4rem;
   padding-left:4px;
   padding-right:4px;
   color:white;
+  @media (max-width: 1400px) {
 
+    width:70%;
+  }
+  @media (max-width: 1140px) {
+    width:75%;
+  }
+  @media (max-width: 970px) {
+    font-size:2.3rem;
+    
+  }
+  @media (max-width: 890px) {
+    font-size:2.1rem;
+
+  }
+  @media (max-width: 770px) {
+    font-size:2.0rem;
+
+  }
+  @media (max-width: 750px) {
+    width:85%;
+    font-size:2.1rem;
+  }
+  @media (max-width: 600px) {
+    font-size:2.0rem;
+
+  }
+  @media (max-width: 480px) {
+    font-size:1.8rem;
+    width:90%;
+  }
+  @media (max-width: 360px) {
+    font-size:1.7rem;
+
+  }
 `;
 
 
@@ -66,9 +158,47 @@ const SlideMiddleText = styled.h2`
   width:80%;
   padding-bottom:4px;
   padding-top:4px;
-  font-size:36px;
+  font-size:2.2rem;
   padding-left:4px;
   padding-right:4px;
+
+  @media (max-width: 1400px) {
+
+width:85%;
+}
+@media (max-width: 1140px) {
+
+}
+@media (max-width: 970px) {
+font-size:2.1rem;
+
+}
+@media (max-width: 890px) {
+font-size:2.0rem;
+
+}
+@media (max-width: 770px) {
+font-size:1.8rem;
+
+}
+@media (max-width: 750px) {
+    width:95%;
+    font-size:2rem;
+
+  }
+  @media (max-width: 600px) {
+    font-size:1.8rem;
+
+  }
+}
+  @media (max-width: 480px) {
+    font-size:1.6rem;
+    width:100%;
+  }
+  @media (max-width: 360px) {
+    font-size:1.5rem;
+
+  }
 `;
 const SlideLowerText = styled.button`
   margin-top:16px;
@@ -77,30 +207,87 @@ const SlideLowerText = styled.button`
   outline: none;
   border: none;
   cursor:pointer;
-  font-size:24px;
-  padding-bottom:8px;
-  padding-top:8px;
-  padding-left:12px;
-  padding-right:12px;
-`;
+  font-size:1.6em;
+  padding-bottom:12px;
+  padding-top:12px;
+  padding-left:16px;
+  padding-right:16px;
+  @media (max-width: 970px) {
+font-size:1.5rem;
 
+}
+@media (max-width: 890px) {
+font-size:1.4rem;
+
+}
+@media (max-width: 770px) {
+font-size:1.2rem;
+
+}
+@media (max-width: 770px) {
+font-size:1.4rem;
+
+}
+
+-webkit-transition:0.2s linear;
+  -moz-transition:0.2s linear;
+  transition:0.2s linear;
+  border-radius:5%;
+  &:hover {
+    background-color: black;
+
+  } 
+`;
+const StyledLink = styled(NavLink).attrs()`
+  width:100%;
+    text-decoration:none;
+    color:white;
+
+  
+`;
 export class Slider extends Component {
   constructor(props) {
     super(props);
     this.state = {
       background1:true,
+      showSearch: true,
       };
+      this.showSearch = this.showSearch.bind(this);
   }
   componentDidMount() {
+
+    if (window.innerWidth <750){
+
+       this.setState({ showSearch: false});
+           }
     this.interval = setInterval(() => this.setState({ background1: !this.state.background1}), 10000);
+    window.addEventListener('resize', this.showSearch);
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
+    window.removeEventListener('resize', this.showSearch);
   }
   componentDidUpdate(){
+
     
   }
+showSearch(){
+
+  if (window.innerWidth <750){
+
+    if (this.state.showSearch===true)
+   this.setState({ showSearch: false});
+
+   }
+   if (window.innerWidth >=750){
+
+    if (this.state.showSearch===false)
+   this.setState({ showSearch: true});
+
+   }
+}
+
   render() {
     return (  
       <SliderContainer>
@@ -108,18 +295,19 @@ export class Slider extends Component {
           <SlideText>
             <SlideUpperText>RAC Approved Dealer</SlideUpperText>
             <SlideMiddleText>Up to 3 years extended RAC Warranty available</SlideMiddleText>
-            <SlideLowerText>More Info</SlideLowerText>
+            <StyledLink to="/Offers"><SlideLowerText>More Info</SlideLowerText></StyledLink>
           </SlideText>
-          <Search/>
+          {this.state.showSearch && <Search/>}
         </FirstSlide>
         <SecondSlide background1={this.state.background1}>
           <SlideText>
             <SlideUpperText>Welcome to Lux Cars</SlideUpperText>
             <SlideMiddleText>All credit applications considered</SlideMiddleText>
-            <SlideLowerText>More Info</SlideLowerText>
+            <StyledLink to="/Offers"><SlideLowerText>More Info</SlideLowerText></StyledLink>
           </SlideText>
-          <Search/>
+          {this.state.showSearch && <Search/>}
         </SecondSlide>
+        {!this.state.showSearch && <Search/>}
       </SliderContainer>
     );
   }

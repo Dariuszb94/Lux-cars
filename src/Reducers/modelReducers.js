@@ -1,9 +1,9 @@
 import { UPDATE_MODEL} from '../Actions/types';
 
-const initialState ={
- "Citroen": ["C5", "C6", "XM"],
- "Mercedes-Benz": ["CLS W218", "CLS W219", "W219"],
- "BMW": ["E46", "F30", "F10"],
+let initialState ={
+ "Citroen": ["C5","C6","C4"],
+ "Mercedes-Benz": ["CLS"],
+ "BMW": [],
 };
 
 export default function(state = initialState, action) {

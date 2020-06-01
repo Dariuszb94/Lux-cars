@@ -21,14 +21,23 @@ const VehicleInfoContainer = styled.div`
 margin-top:16px;
 `;
 
-const VehicleInfoHeader = styled.div`
+const VehicleInfoHeader = styled.h1`
   border-bottom:2px solid #ec6b0c;
   margin-bottom:16px;
-
+  font-size:1.4rem;
 `;
 const StyledListIcon = styled(ListIcon)`
   color: #ec6b0c;
   font-size: 32px !important;
+  @media (max-width:420px){
+    font-size: 24px !important;
+  }
+  @media (max-width:390px){
+    font-size: 20px !important;
+  }
+  @media (max-width:320px){
+    font-size: 16px !important;
+  }
 `;
 const StyledLinkDescription = styled(NavLink).attrs()`
     display: flex;
@@ -44,6 +53,7 @@ background-color: #2d2d2d;
     -webkit-transition:0.3s ease-in;
   -moz-transition:0.3s ease-in;
   transition:0.3s ease-in;
+
 `;
 const StyledLinkFeatures = styled(NavLink).attrs()`
     display: flex;
@@ -73,16 +83,35 @@ background-color: #2d2d2d;
     -webkit-transition:0.3s ease-in;
   -moz-transition:0.3s ease-in;
   transition:0.3s ease-in;
+ 
 
 `;
 
 const StyledCheckBoxOutlinedIcon = styled(CheckBoxOutlinedIcon)`
   color: #ec6b0c;
   font-size: 32px !important;
+  @media (max-width:420px){
+    font-size: 24px !important;
+  }
+  @media (max-width:390px){
+    font-size: 20px !important;
+  }
+  @media (max-width:320px){
+    font-size: 16px !important;
+  }
 `;
 const StyledCreditCardOutlinedIcon = styled(CreditCardOutlinedIcon)`
   color: #ec6b0c;
   font-size: 32px !important;
+  @media (max-width:420px){
+    font-size: 24px !important;
+  }
+  @media (max-width:390px){
+    font-size: 20px !important;
+  }
+  @media (max-width:320px){
+    font-size: 16px !important;
+  }
 `;
 const VehicleInfoMenu = styled.div`
   width:100%;
@@ -99,7 +128,11 @@ const VehicleInfoMenuElementDescription = styled.li`
     padding-bottom:8px;
   padding-top:8px;
   width:100%;
+
     background-color: ${props => props.highlightInfoTypeDescription ? "#474747" : "#2d2d2d"};
+    @media (max-width:360px){
+      font-size: 0.9rem;
+    }
 `;
 const VehicleInfoMenuElementFeatures = styled.li`
     display: flex;
@@ -110,6 +143,9 @@ const VehicleInfoMenuElementFeatures = styled.li`
   padding-top:8px;
   width:100%;
     background-color: ${props => props.highlightInfoTypeFeatures ? "#474747" : "#2d2d2d"};
+    @media (max-width:360px){
+      font-size: 0.9rem;
+    }
 `;
 const VehicleInfoMenuElementFinances = styled.li`
     display: flex;
@@ -120,6 +156,10 @@ const VehicleInfoMenuElementFinances = styled.li`
   padding-top:8px;
   width:100%;
     background-color: ${props => props.highlightInfoTypeFinances ? "#474747" : "#2d2d2d"};
+    @media (max-width:360px){
+      font-size: 0.9rem;
+    }
+    
 `;
 
 class VehicleInfo extends Component {
@@ -168,7 +208,7 @@ class VehicleInfo extends Component {
     return (  
       <VehicleInfoContainer> 
         <VehicleInfoHeader>
-          <h1>Vehicle Information</h1>
+          Vehicle Information
         </VehicleInfoHeader>
         <VehicleInfoMenu>
 

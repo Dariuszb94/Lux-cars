@@ -17,10 +17,28 @@ const SearchContainer = styled.div`
   flex-direction:column;
   justify-content: space-between;
   width:300px;
+  @media (max-width: 880px) {
+    width:250px;
+
+}
+@media (max-width: 750px) {
+    width:100%;
+    align-items:center;
+    padding-left:0;
+    padding-right:0;
+
+}
 `;
 const SearchHeader = styled.h2`
-  font-family: 'Roboto', sans-serif;
   font-weight:300;
+  font-size:1.4rem;
+  margin-bottom: 8px;
+  @media (max-width: 750px) {
+  align-self: flex-start;
+  padding-left:5%;
+  margin-bottom: 12px;
+  font-size:2rem;
+  }
 `;
 const SearchButton = styled.button`
   background-color:#ec6b0c;
@@ -33,7 +51,18 @@ const SearchButton = styled.button`
   padding-bottom:12px;
   border-radius:4px;
   align-self: flex-start;
+width:100%;
+-webkit-transition:0.2s linear;
+  -moz-transition:0.2s linear;
+  transition:0.2s linear;
   cursor: pointer;
+  &:hover{
+    background-color:black;
+  }
+  @media (max-width: 750px) {
+  margin-left:5%;
+  width:90%;
+  }
 
 `;
 const DropDownContentMaker = styled.div`
@@ -43,10 +72,18 @@ const DropDownContentMaker = styled.div`
   background-color:white;
   z-index: 1;
   display: ${props => props.makerShow ? "block" : "none"};
+  @media (max-width: 880px) {
+    width:250px;
 
+}
+@media (max-width: 750px) {
+    width:90%;
+
+}
 `;
 const activeClassName = 'nav-item-active'
 const StyledLink = styled(NavLink).attrs({ activeClassName })`
+margin-top:8px;
   width:100%;
     text-decoration:none;
     color:white;
@@ -62,17 +99,32 @@ const DropDownContentModel = styled.div`
   background-color:white;
   z-index: 1;
   display: ${props => props.modelShow ? "block" : "none"};
+  @media (max-width: 880px) {
+    width:250px;
 
+}
+@media (max-width: 750px) {
+    width:90%;
+
+}
 `;
 const MakerChoose = styled.ul`
 color:black;
 
 display: inline-block;
+@media (max-width: 750px) {
+  width: 90%;
+  margin-bottom: 4px;
+}
 `;
 const ModelChoose = styled.ul`
 color:black;
 
 display: inline-block;
+@media (max-width: 750px) {
+  width: 90%;
+  margin-bottom: 12px;
+}
 `;
 const AnyMaker = styled.button`
   cursor: pointer;
@@ -86,6 +138,10 @@ const AnyMaker = styled.button`
   padding:8px;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 750px) {
+
+
+}
 `;
 const AnyModel = styled.button`
   cursor: pointer;
@@ -99,6 +155,10 @@ const AnyModel = styled.button`
   padding:8px;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 750px) {
+    width:100%
+
+}
 `;
 const SubMaker = styled.div`
   cursor: pointer;
@@ -122,11 +182,13 @@ class Search extends Component {
       this.makerChange = this.makerChange.bind(this);
       this.makerShow = this.makerShow.bind(this);
       this.modelShow = this.modelShow.bind(this);
+            this.scrollToTop = this.scrollToTop.bind(this);
   }
   componentDidMount() {
+  
   }
   componentDidUpdate() {
-    console.log(this.props.maker.maker);
+
   }
   componentWillUnmount() {
   }
@@ -135,7 +197,6 @@ class Search extends Component {
     
   }
   makerChange(e){
-    console.log(e);
      this.props.updateMaker(e);
     let updatedModel={model:"Any Model"};
     this.props.chooseModel(updatedModel.model)
@@ -145,6 +206,9 @@ class Search extends Component {
   }
   modelShow(){
      this.setState({ modelShow: !this.state.modelShow});
+  }
+  scrollToTop(){
+    window.scrollTo(0, 0);
   }
   render() {
     return (  
@@ -173,7 +237,7 @@ class Search extends Component {
           {(this.props.models[this.props.maker.maker]===undefined) ?   null : (this.props.models[this.props.maker.maker].map(model =>   <SubMaker key={model} onClick={() => this.modelChange({model})}>{model}</SubMaker> )) }
           </DropDownContentModel>
         </ModelChoose>
-        <StyledLink to="/Offers"><SearchButton>Search</SearchButton></StyledLink>
+        <StyledLink to="/Offers"><SearchButton onClick={() => this.scrollToTop()} >Search</SearchButton></StyledLink>
       </SearchContainer>
     );
   }
