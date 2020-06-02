@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1b6f11ebee118ef1a83a4868892b0897",
+    "revision": "384e3a501e69eef5dd3f5457edd29049",
     "url": "/Lux-cars/index.html"
   },
   {
-    "revision": "897217c4fbcbc422575a",
-    "url": "/Lux-cars/static/css/main.7d47fa8e.chunk.css"
+    "revision": "caa66c222f4669402852",
+    "url": "/Lux-cars/static/css/main.ace0d15c.chunk.css"
   },
   {
-    "revision": "f398e7eec9b5a58b3f07",
-    "url": "/Lux-cars/static/js/2.40891499.chunk.js"
+    "revision": "ff1f0c4f94a10eab4d30",
+    "url": "/Lux-cars/static/js/2.0525c5bb.chunk.js"
   },
   {
     "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/Lux-cars/static/js/2.40891499.chunk.js.LICENSE.txt"
+    "url": "/Lux-cars/static/js/2.0525c5bb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "897217c4fbcbc422575a",
-    "url": "/Lux-cars/static/js/main.9fab0cb4.chunk.js"
+    "revision": "caa66c222f4669402852",
+    "url": "/Lux-cars/static/js/main.00c19972.chunk.js"
   },
   {
     "revision": "84ff2a4d21bed614454f",
