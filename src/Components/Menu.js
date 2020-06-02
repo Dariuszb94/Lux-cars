@@ -142,13 +142,13 @@ class Menu extends Component {
               <StyledLink to="/Offers"><SubMaker onClick={() => this.makerChange("Honda")}>Honda</SubMaker></StyledLink>
             </DropDownContent>
           </MakerChoose>
-          <StyledLink to="/Lux-cars" >
+          <StyledLink to="/Finance" >
             <MenuListElement>FINANCE</MenuListElement>
           </StyledLink>
           <StyledLink to="/About" >
             <MenuListElement>ABOUT</MenuListElement>
           </StyledLink>
-          <StyledLink to="/Lux-cars">
+          <StyledLink to="/Contact">
             <MenuListElement>CONTACT</MenuListElement>
           </StyledLink>
         </MenuList>

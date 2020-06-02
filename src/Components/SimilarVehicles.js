@@ -17,7 +17,7 @@ import {
 import { CardHeader } from '@material-ui/core';
 import {chooseId}from '../Actions/chooseOfferActions';
 const Container = styled.div`
-margin-top:32px;
+
 `;
 const Header = styled.h1`
 border-bottom:2px solid #ec6b0c;

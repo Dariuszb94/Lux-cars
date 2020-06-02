@@ -11,6 +11,7 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import VehicleInfo from './VehicleInfo';
 import SimilarVehicles from './SimilarVehicles';
+import ContactForm from './ContactForm';
 import {NavLink} from "react-router-dom";
 import { HashLink as Link } from 'react-router-hash-link';
 import {choosenSection}from '../Actions/carOfferNaviActions';
@@ -149,6 +150,12 @@ const CarHeaderTextRight = styled.div`
 `;
 const CarHeaderTextLeft = styled.div`
 `;
+const ContactHeader = styled.h1`
+  border-bottom:2px solid #ec6b0c;
+  margin-bottom:16px;
+  font-size:1.4rem;
+`;
+
 const CarMain = styled.div`
   padding-top: 16px;
   display:grid;
@@ -433,9 +440,26 @@ const VehicleInfoSection = styled.section`
 
 `;
 const SimilarVehiclesSection = styled.section`
+padding-bottom:16px;
 
 `;
+const ContactFormSection = styled.section`
+margin-top:32px;
 
+`;
+const ContactFormContainer = styled.div`
+padding-bottom:8px;
+padding-right:16%;
+padding-left:16%;
+@media (max-width:550px){
+  padding-right:8%;
+padding-left:8%;
+}
+@media (max-width:450px){
+  padding-right:4%;
+padding-left:4%;
+}
+`;
 class Offer extends Component {
   constructor(props) {
     super(props);
@@ -667,7 +691,7 @@ class Offer extends Component {
                 </CarPhotoChoose>
               </CarPhotoContainer>
               <CarMainDetails>
-                  <CarDetail><StyledSpeedOutlinedIcon></StyledSpeedOutlinedIcon><CarDetailText>&nbsp;&nbsp;Send An Enquiry</CarDetailText></CarDetail>
+                  <CarDetailLink to="#contact"><StyledSpeedOutlinedIcon></StyledSpeedOutlinedIcon><CarDetailText>&nbsp;&nbsp;Send An Enquiry</CarDetailText></CarDetailLink>
                   <CarDetail onClick={()=>this.print()}><StyledColorLensOutlinedIcon></StyledColorLensOutlinedIcon><CarDetailText>&nbsp;&nbsp;Print This Page</CarDetailText></CarDetail>
                    <CarDetailLink to="#vehicleInfo" onClick={()=> { this.changeSection("Finance")}}><StyledBatteryFullIcon></StyledBatteryFullIcon><CarDetailText>&nbsp;&nbsp;Similar Vehicles</CarDetailText></CarDetailLink>
                    <CarDetail><StyledSettingsOutlinedIcon></StyledSettingsOutlinedIcon><CarDetailText>&nbsp;&nbsp;{this.props.cars[this.props.id.choosenId].gearBox}</CarDetailText></CarDetail>
@@ -684,6 +708,10 @@ class Offer extends Component {
         <VehicleInfoSection id="vehicleInfo">
         <VehicleInfo></VehicleInfo>
         </VehicleInfoSection>
+        <ContactFormSection id="contact">
+          <ContactHeader>Send a message</ContactHeader>
+          <ContactFormContainer><ContactForm></ContactForm></ContactFormContainer>
+        </ContactFormSection>
         <SimilarVehiclesSection id="similarVehicles">
         <SimilarVehicles></SimilarVehicles>
         </SimilarVehiclesSection>
