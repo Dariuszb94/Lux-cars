@@ -16,7 +16,8 @@ import ListIcon from '@material-ui/icons/List';
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import CreditCardOutlinedIcon from '@material-ui/icons/CreditCardOutlined';
 import { CSSTransition } from "react-transition-group";
-
+import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 const VehicleInfoContainer = styled.div`
 margin-top:16px;
 `;
@@ -176,8 +177,14 @@ class VehicleInfo extends Component {
 
   }
   componentDidMount() {
+    console.log(this.props);
+    console.log(window.location.href);
+
+    console.log();   
+
   }
   componentDidUpdate() {
+    console.log(this.props);
     setTimeout(() => this.highlightInfoType(),200);
     if (this.state.activeSection!==this.props.section.section)
     this.setState({ activeSection: this.props.section.section});
@@ -212,20 +219,20 @@ class VehicleInfo extends Component {
         </VehicleInfoHeader>
         <VehicleInfoMenu>
 
-        <StyledLinkFeatures to="/Offer/Vehicle-Features" onClick={() => setTimeout(() => this.highlightInfoType(),200)}>
+        <StyledLinkFeatures   to={{ pathname: '/Offer/Vehicle-Features/' +window.location.href.slice(21).replace(/\D/g, "")    }}    onClick={() => setTimeout(() => this.highlightInfoType(),200)}>
           <VehicleInfoMenuElementFeatures highlightInfoTypeFeatures={this.state.highlightInfoTypeFeatures}>
             <StyledListIcon></StyledListIcon>
             &nbsp;Features
           </VehicleInfoMenuElementFeatures></StyledLinkFeatures>
 
-          <StyledLinkDescription to="/Offer/Vehicle-Description" onClick={() => setTimeout(() => this.highlightInfoType(),200)}>
+          <StyledLinkDescription to={{ pathname: '/Offer/Vehicle-Description/' +window.location.href.slice(21).replace(/\D/g, "")    }}  onClick={() => setTimeout(() => this.highlightInfoType(),200)}>
           <VehicleInfoMenuElementDescription highlightInfoTypeDescription={this.state.highlightInfoTypeDescription}>
           <StyledCheckBoxOutlinedIcon></StyledCheckBoxOutlinedIcon>
           &nbsp;Description
           </VehicleInfoMenuElementDescription></StyledLinkDescription>
 
 
-          <StyledLinkFinances to="/Offer/Vehicle-Finances" onClick={() => setTimeout(() => this.highlightInfoType(),200)}>
+          <StyledLinkFinances to={{ pathname: '/Offer/Vehicle-Finances/' +window.location.href.slice(21).replace(/\D/g, "")    }}  onClick={() => setTimeout(() => this.highlightInfoType(),200)}>
           <VehicleInfoMenuElementFinances highlightInfoTypeFinances={this.state.highlightInfoTypeFinances}>
           <StyledCreditCardOutlinedIcon></StyledCreditCardOutlinedIcon>
           &nbsp;Finance
@@ -241,8 +248,10 @@ class VehicleInfo extends Component {
 
         <Switch >
       <Route exact path="/Offer/Vehicle-Features" component={VehicleInfoFeatures} />
+    
       <Route path="/Offer/Vehicle-Description" component={VehicleInfoDescription} />
       <Route path="/Offer/Vehicle-Finances" component={VehicleInfoFinances} />
+      <Route component={VehicleInfoFeatures} />
       </Switch>
 
       </VehicleInfoContainer>
@@ -253,6 +262,7 @@ const mapStateToProps = state => ({
   models: state.models,
   maker: state.maker,
   choosenModel:state.choosenModel,
-  section:state.section
+  section:state.section,
+  id:state.id
   }); 
   export default connect(mapStateToProps,{chooseModel, updateMaker})(VehicleInfo);

@@ -9,10 +9,12 @@ import About from './Components/About';
 import {Footer} from './Components/Footer';
 import {Finance} from './Components/Finance';
 import Contact from './Components/Contact';
+import {FavouriteList} from './Components/FavouriteList';
 import {
     Route,
     Switch
   } from "react-router-dom";
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
         <Route path="/About" component={About} />
         <Route path="/Finance" component={Finance} />
         <Route path="/Contact" component={Contact} />
+        <Route path="/FavouriteList" component={FavouriteList} />
         <Route component={Home} />
       </Switch>
       <Footer/>

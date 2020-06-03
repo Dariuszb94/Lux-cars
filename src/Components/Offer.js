@@ -12,6 +12,7 @@ import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import VehicleInfo from './VehicleInfo';
 import SimilarVehicles from './SimilarVehicles';
 import ContactForm from './ContactForm';
+import FavouriteSet from './FavouriteSet';
 import {NavLink} from "react-router-dom";
 import { HashLink as Link } from 'react-router-hash-link';
 import {choosenSection}from '../Actions/carOfferNaviActions';
@@ -23,7 +24,7 @@ import {
   MOUSE_ACTIVATION,
   TOUCH_ACTIVATION
 } from "react-image-magnifiers";
-
+import Dexie from "dexie";
 const CarsContainer = styled.div`
   background-color:black;
   color:white;
@@ -460,6 +461,17 @@ padding-left:8%;
 padding-left:4%;
 }
 `;
+    //set the database 
+    const db = new Dexie("ReactDexie");
+    //create the database store
+    db.version(1).stores({
+        posts: "id"
+    })
+    db.open().catch((err) => {
+        console.log(err.stack || err)
+    })
+
+
 class Offer extends Component {
   constructor(props) {
     super(props);
@@ -469,12 +481,13 @@ class Offer extends Component {
       smallImageSelect1:1,
       smallImageSelect2:2,
       smallImageSelect3:3,
-      mainImage:this.props.cars[this.props.id.choosenId].imageDetail3,
+      mainImage:this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail3,
       imageHighLight1:false,
       imageHighLight2:true,
       imageHighLight3:false,
       swipeRightPossible:true,
       swipeLeftPossible:true,
+    
 
       };
       this.swipeLeft = this.swipeLeft.bind(this);
@@ -486,11 +499,20 @@ class Offer extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     this.filterCars();
-    this.createListOfImages()
+    this.createListOfImages();
+
   }
   componentDidUpdate(){
+
     this.filterCars();
     this.createListOfImages();
+       //get all posts from the database
+       const getPosts = async() => {
+        let allPosts = await db.posts.toArray();
+
+        console.log(allPosts);
+    }
+    getPosts();
     
   }
   filterCars(){
@@ -570,11 +592,11 @@ class Offer extends Component {
   }
   createListOfImages(){
     let listOfImages=[];
-    listOfImages.push(this.props.cars[this.props.id.choosenId].imageDetail1);
-    listOfImages.push(this.props.cars[this.props.id.choosenId].imageDetail2);
-    listOfImages.push(this.props.cars[this.props.id.choosenId].imageDetail3);
-    listOfImages.push(this.props.cars[this.props.id.choosenId].imageDetail4);
-    listOfImages.push(this.props.cars[this.props.id.choosenId].imageDetail5);
+    listOfImages.push(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail1);
+    listOfImages.push(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail2);
+    listOfImages.push(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail3);
+    listOfImages.push(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail4);
+    listOfImages.push(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail5);
     
 
 
@@ -599,7 +621,7 @@ class Offer extends Component {
     if (event!==undefined)
     this.setState({ mainImage: event });
     if(event==="changeCar")
-    this.setState({ mainImage:this.props.cars[this.props.id.choosenId].imageDetail3 });
+    this.setState({ mainImage:this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail3 });
 
 
     if (numberOfPhoto===1){
@@ -650,7 +672,7 @@ class Offer extends Component {
   }
   changeSection(section){
     this.props.choosenSection(section);
-    this.props.history.push("Vehicle-Finances")
+    this.props.history.push("Vehicle-Finances"+this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id)
   }
   print(){
     window.print();
@@ -659,17 +681,17 @@ class Offer extends Component {
     return (  
       <CarsContainer>
         <CarList> 
-          <Car key={this.props.cars[this.props.id.choosenId].id}>
+          <Car key={this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id}>
             <CarHeader>
-              <CarLogo src={this.props.cars[this.props.id.choosenId].imageLogo}></CarLogo>
+              <CarLogo src={this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageLogo}></CarLogo>
               <CarHeaderText>
                 <CarHeaderTextRight>
-                  <CarHeaderMainText>{this.props.cars[this.props.id.choosenId].year} {this.props.cars[this.props.id.choosenId].brand} {this.props.cars[this.props.id.choosenId].model}</CarHeaderMainText>
-                  <CarHeaderSubText>{this.props.cars[this.props.id.choosenId].power} KM {this.props.cars[this.props.id.choosenId].displacement} cm3</CarHeaderSubText>
+                  <CarHeaderMainText>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].year} {this.props.cars[this.props.location.pathname.replace(/\D/g, "")].brand} {this.props.cars[this.props.location.pathname.replace(/\D/g, "")].model}</CarHeaderMainText>
+                  <CarHeaderSubText>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].power} KM {this.props.cars[this.props.location.pathname.replace(/\D/g, "")].displacement} cm3</CarHeaderSubText>
                 </CarHeaderTextRight>
                 <CarHeaderTextLeft>
-                  <CarHeaderMainTextRight>{this.props.cars[this.props.id.choosenId].price} PLN</CarHeaderMainTextRight>
-                  <CarHeaderSubTextRight to="#vehicleInfo" onClick={()=> { this.changeSection("Finance")}}>Finance from {(this.props.cars[this.props.id.choosenId].price*1.05/72).toFixed(0)} PLN</CarHeaderSubTextRight>
+                  <CarHeaderMainTextRight>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price} PLN</CarHeaderMainTextRight>
+                  <CarHeaderSubTextRight to="#vehicleInfo" onClick={()=> { this.changeSection("Finance")}}>Finance from {(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price*1.05/72).toFixed(0)} PLN</CarHeaderSubTextRight>
                 </CarHeaderTextLeft>
               </CarHeaderText>
             </CarHeader>
@@ -677,7 +699,7 @@ class Offer extends Component {
               <CarPhotoContainer>
                 <GlassMagnifier
                   imageSrc={this.state.mainImage}
-                  imageAlt={this.props.cars[this.props.id.choosenId].model}
+                  imageAlt={this.props.cars[this.props.location.pathname.replace(/\D/g, "")].model}
                 />
                 <Magnifier
                   largeImageSrc={this.state.mainImage} 
@@ -693,12 +715,13 @@ class Offer extends Component {
               <CarMainDetails>
                   <CarDetailLink to="#contact"><StyledSpeedOutlinedIcon></StyledSpeedOutlinedIcon><CarDetailText>&nbsp;&nbsp;Send An Enquiry</CarDetailText></CarDetailLink>
                   <CarDetail onClick={()=>this.print()}><StyledColorLensOutlinedIcon></StyledColorLensOutlinedIcon><CarDetailText>&nbsp;&nbsp;Print This Page</CarDetailText></CarDetail>
-                   <CarDetailLink to="#vehicleInfo" onClick={()=> { this.changeSection("Finance")}}><StyledBatteryFullIcon></StyledBatteryFullIcon><CarDetailText>&nbsp;&nbsp;Similar Vehicles</CarDetailText></CarDetailLink>
-                   <CarDetail><StyledSettingsOutlinedIcon></StyledSettingsOutlinedIcon><CarDetailText>&nbsp;&nbsp;{this.props.cars[this.props.id.choosenId].gearBox}</CarDetailText></CarDetail>
-                   <CarDetail><StyledLocalGasStationOutlinedIcon ></StyledLocalGasStationOutlinedIcon ><CarDetailText>&nbsp;&nbsp;{this.props.cars[this.props.id.choosenId].fuelConsumption}</CarDetailText></CarDetail>
+                   <CarDetailLink to="#similarVehicles"><StyledBatteryFullIcon></StyledBatteryFullIcon><CarDetailText>&nbsp;&nbsp;Similar Vehicles</CarDetailText></CarDetailLink>
+                   <CarDetail><StyledSettingsOutlinedIcon></StyledSettingsOutlinedIcon><CarDetailText>&nbsp;&nbsp;{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].gearBox}</CarDetailText></CarDetail>
+                   <CarDetail><StyledLocalGasStationOutlinedIcon ></StyledLocalGasStationOutlinedIcon ><CarDetailText>&nbsp;&nbsp;{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].fuelConsumption}</CarDetailText></CarDetail>
                     <CarDetailOrangeContainer>
                     <CarDetailOrange>Add to Favourites</CarDetailOrange>
                     <CarDetailOrange>View Favourites</CarDetailOrange>
+                    <FavouriteSet/>
                     </CarDetailOrangeContainer>
               </CarMainDetails>
             </CarMain>

@@ -16,6 +16,7 @@ import {
   import HeightIcon from '@material-ui/icons/Height';
 import { CardHeader } from '@material-ui/core';
 import {chooseId}from '../Actions/chooseOfferActions';
+import Dexie from "dexie";
 const Container = styled.div`
 
 `;
@@ -63,6 +64,18 @@ const StyledLink = styled(NavLink).attrs()`
     text-decoration:none;
     color:white;
 `;
+    
+    //set the database 
+    const db = new Dexie("choosenId");
+    //create the database store
+    db.version(1).stores({
+        posts: "id"
+    })
+    db.open().catch((err) => {
+        console.log(err.stack || err)
+    })
+    
+
 class SimilarVehicles extends Component {
   constructor(props) {
     super(props);
@@ -115,10 +128,10 @@ class SimilarVehicles extends Component {
             }
   render() {
     return (  
-      <Container> 
+      <Container>
           <Header>Similar Used Cars</Header>
          <Offers> 
-          {this.state.cars.map(car =>   <StyledLink to="/Offer/Vehicle-Features" key={car.id} ><Offer onClick={() => this.chooseId(car.id)}>
+          {this.state.cars.map(car =>   <StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+car.id}} key={car.id} ><Offer onClick={() => this.chooseId(car.id)}>
             <OfferPhoto src={car.image1}></OfferPhoto>
             <OfferName>{car.brand} {car.model}</OfferName>
             <OfferPrice>{car.price} PLN</OfferPrice>

@@ -1,4 +1,7 @@
-import React, {Component} from 'react';
+
+  
+import React , {Component} from 'react';
+
 import styled, { keyframes } from 'styled-components';
 import {connect} from 'react-redux';
 import SpeedOutlinedIcon from '@material-ui/icons/SpeedOutlined';
