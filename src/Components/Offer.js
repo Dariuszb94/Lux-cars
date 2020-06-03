@@ -239,7 +239,7 @@ cursor: pointer;
   display: flex;
   align-items: center;
   background-color: #3a3a3a;
-  margin-bottom:8px;
+  margin-bottom:16px;
   padding-top:8px;
   padding-bottom:8px;
   padding-left:16px;
@@ -398,7 +398,7 @@ cursor: pointer;
   display: flex;
   align-items: center;
   background-color: #3a3a3a;
-  margin-bottom:8px;
+  margin-bottom:16px;
   padding-top:8px;
   padding-bottom:8px;
   padding-left:16px;
@@ -672,7 +672,8 @@ class Offer extends Component {
   }
   changeSection(section){
     this.props.choosenSection(section);
-    this.props.history.push("Vehicle-Finances"+this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id)
+    this.refs.vehicleInfo.scrollIntoView();
+   // this.props.history("Vehicle-Finances"+this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id)
   }
   print(){
     window.print();
@@ -691,7 +692,7 @@ class Offer extends Component {
                 </CarHeaderTextRight>
                 <CarHeaderTextLeft>
                   <CarHeaderMainTextRight>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price} PLN</CarHeaderMainTextRight>
-                  <CarHeaderSubTextRight to="#vehicleInfo" onClick={()=> { this.changeSection("Finance")}}>Finance from {(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price*1.05/72).toFixed(0)} PLN</CarHeaderSubTextRight>
+                  <CarHeaderSubTextRight  to={{ pathname: '/Offer/Vehicle-Finances/'+this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id}}  onClick={()=> { this.changeSection("Finance")}}>Finance from {(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price*1.05/72).toFixed(0)} PLN</CarHeaderSubTextRight>
                 </CarHeaderTextLeft>
               </CarHeaderText>
             </CarHeader>
@@ -700,9 +701,13 @@ class Offer extends Component {
                 <GlassMagnifier
                   imageSrc={this.state.mainImage}
                   imageAlt={this.props.cars[this.props.location.pathname.replace(/\D/g, "")].model}
+                  magnifierOffsetX={50}
+                  magnifierOffsetY={50}
+                  magnifierSize="40%"
                 />
                 <Magnifier
                   largeImageSrc={this.state.mainImage} 
+             
                 />
                 <CarPhotoChoose>
                   <CarPhotoNaviLeft swipeLeftPossible={this.state.swipeLeftPossible}><StyledArrowLeftIcon onClick={() => this.swipeLeft()}  ></StyledArrowLeftIcon></CarPhotoNaviLeft>
@@ -715,20 +720,16 @@ class Offer extends Component {
               <CarMainDetails>
                   <CarDetailLink to="#contact"><StyledSpeedOutlinedIcon></StyledSpeedOutlinedIcon><CarDetailText>&nbsp;&nbsp;Send An Enquiry</CarDetailText></CarDetailLink>
                   <CarDetail onClick={()=>this.print()}><StyledColorLensOutlinedIcon></StyledColorLensOutlinedIcon><CarDetailText>&nbsp;&nbsp;Print This Page</CarDetailText></CarDetail>
-                   <CarDetailLink to="#similarVehicles"><StyledBatteryFullIcon></StyledBatteryFullIcon><CarDetailText>&nbsp;&nbsp;Similar Vehicles</CarDetailText></CarDetailLink>
-                   <CarDetail><StyledSettingsOutlinedIcon></StyledSettingsOutlinedIcon><CarDetailText>&nbsp;&nbsp;{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].gearBox}</CarDetailText></CarDetail>
-                   <CarDetail><StyledLocalGasStationOutlinedIcon ></StyledLocalGasStationOutlinedIcon ><CarDetailText>&nbsp;&nbsp;{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].fuelConsumption}</CarDetailText></CarDetail>
-                    <CarDetailOrangeContainer>
-                    <CarDetailOrange>Add to Favourites</CarDetailOrange>
-                    <CarDetailOrange>View Favourites</CarDetailOrange>
+                  <CarDetailLink to="#similarVehicles"><StyledBatteryFullIcon></StyledBatteryFullIcon><CarDetailText>&nbsp;&nbsp;Similar Vehicles</CarDetailText></CarDetailLink>
+                <CarDetailOrangeContainer>
                     <FavouriteSet/>
-                    </CarDetailOrangeContainer>
+                </CarDetailOrangeContainer>
               </CarMainDetails>
             </CarMain>
             <CarDetails></CarDetails>
             </Car> 
         </CarList>
-        <VehicleInfoSection id="vehicleInfo">
+        <VehicleInfoSection ref="vehicleInfo">
         <VehicleInfo></VehicleInfo>
         </VehicleInfoSection>
         <ContactFormSection id="contact">

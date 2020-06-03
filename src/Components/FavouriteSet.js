@@ -3,6 +3,7 @@ import Dexie from "dexie";
 import {connect} from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 import {NavLink} from "react-router-dom";
+import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 const CarDetailOrange = styled.div`
 cursor: pointer;
 background-color:#ec6b0c;
@@ -24,11 +25,27 @@ margin-bottom:16px;
   } 
 `;
 const StyledLink = styled(NavLink).attrs()`
-  width:100%;
+background-color:#ec6b0c;
+width:80%;
+padding-left:16px;
+  padding-right:16px;
+margin-bottom:16px;
+  padding-top:16px;
+  padding-bottom:16px;
+
+  text-align:center;
+  border-radius:8px;
+  -webkit-transition:0.3s linear;
+  -moz-transition:0.3s linear;
+  transition:0.3s linear;
+  color:white;
+  &:hover {
+    background-color: black;
     text-decoration:none;
-    color:white;
+  }
 `;
-const FavouriteSet = ({ id }) => {
+
+const FavouriteSet = (props) => {
     
     //set the database 
     const db = new Dexie("ReactDexie");
@@ -83,34 +100,47 @@ const FavouriteSet = ({ id }) => {
 
 
     const addFavourite = () => {
+      console.log(props.carId);
       let canUpdate=true;
-      posts.forEach((idPost)=>{
-
-if(idPost.id===id.choosenId){
-  canUpdate=false;
-
-
-}
-
-}
-    )
-
-if(canUpdate===true){
-          let post = {
-            id:id.choosenId,
+      if(props.carId===undefined){
+        posts.forEach((idPost)=>{
+          if (idPost.id===window.location.href.slice(21).replace(/\D/g, "")){
+            canUpdate=false;
           }
-  
+        })
+        if(canUpdate===true){
+          let post = {
+            id:window.location.href.slice(21).replace(/\D/g, ""),
+          }
           db.posts.add(post).then(async() => {
-              //retrieve all posts inside the database
-              let allPosts = await db.posts.toArray();
-              //set the posts
-              setPosts(allPosts);
+            //retrieve all posts inside the database
+            let allPosts = await db.posts.toArray();
+            //set the posts
+            setPosts(allPosts);
           });
-          
-    
         }
-      
-  }
+      }
+
+      if(props.carId!==undefined){
+        posts.forEach((idPost)=>{
+          if (idPost.id==props.carId){
+            canUpdate=false;
+          }
+        })
+        if(canUpdate===true){
+          let post = {
+            id:props.carId,
+          }
+          db.posts.add(post).then(async() => {
+            //retrieve all posts inside the database
+            let allPosts = await db.posts.toArray();
+            //set the posts
+            setPosts(allPosts);
+          });
+        }
+      }
+
+    }
     useEffect(() => {
 
         //get all posts from the database
@@ -135,7 +165,7 @@ if(canUpdate===true){
 
 
 <CarDetailOrange onClick={e => addFavourite()}>Add to Favourites</CarDetailOrange>
-             <StyledLink to="/FavouriteList"><CarDetailOrange>View Favourites{id.choosenId}</CarDetailOrange></StyledLink>
+<StyledLink to="/FavouriteList">  View Favourites</StyledLink>
 
     </React.Fragment>
   );

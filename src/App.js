@@ -9,7 +9,7 @@ import About from './Components/About';
 import {Footer} from './Components/Footer';
 import {Finance} from './Components/Finance';
 import Contact from './Components/Contact';
-import {FavouriteList} from './Components/FavouriteList';
+import FavouriteList from './Components/FavouriteList';
 import {
     Route,
     Switch

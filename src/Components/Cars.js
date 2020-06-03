@@ -9,6 +9,7 @@ import BatteryFullIcon from '@material-ui/icons/Opacity';
 import CheckIcon from '@material-ui/icons/Check';
 import {NavLink} from "react-router-dom";
 import {chooseId}from '../Actions/chooseOfferActions';
+import FavouriteSet from './FavouriteSet';
 const CarsContainer = styled.div`
   background-color:black;
   color:white;
@@ -162,6 +163,7 @@ width:100%;
 display:flex;
 margin-top:16px;
 flex-direction:row;
+z-index:1;
 
 justify-content: space-around;
 @media (max-width: 870px) {
@@ -335,7 +337,8 @@ class Cars extends Component {
     return (  
       <CarsContainer>
         <CarList>
-          {this.state.cars.map(car =><StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+car.id}} key={car.id} ><Car onClick={() => this.chooseId(car.id)}>
+          {this.state.cars.map(car =><div key={car.id}>
+            <StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+car.id}} ><Car onClick={() => this.chooseId(car.id)}>
             <CarHeader>
               <CarLogo src={car.imageLogo}></CarLogo>
               <CarHeaderText>
@@ -367,14 +370,15 @@ class Cars extends Component {
                     <CarDetail><StyledCheckIcon ></StyledCheckIcon ><CarDetailText>&nbsp;{car.feature5}</CarDetailText></CarDetail>
                   </CarMainDetailsRight>
                 </CarFeatures>
-                <CarDetailOrangeContainer>
-                  <CarDetailOrange>Add to Favourites</CarDetailOrange>
-                  <CarDetailOrange>View Favourites</CarDetailOrange>
-                </CarDetailOrangeContainer>
+       
               </CarMainDetails>
             </CarMain>
             <CarDetails></CarDetails>
-            </Car></StyledLink>)}
+            </Car>
+            </StyledLink>
+            <CarDetailOrangeContainer>
+            <FavouriteSet carId={car.id.toString(8)}  />
+          </CarDetailOrangeContainer></div>)}
         </CarList>
       </CarsContainer>
     );

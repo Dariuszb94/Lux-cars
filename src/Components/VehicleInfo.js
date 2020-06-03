@@ -177,14 +177,11 @@ class VehicleInfo extends Component {
 
   }
   componentDidMount() {
-    console.log(this.props);
-    console.log(window.location.href);
-
-    console.log();   
+  this.highlightInfoType();
 
   }
   componentDidUpdate() {
-    console.log(this.props);
+
     setTimeout(() => this.highlightInfoType(),200);
     if (this.state.activeSection!==this.props.section.section)
     this.setState({ activeSection: this.props.section.section});
@@ -247,11 +244,11 @@ class VehicleInfo extends Component {
         
 
         <Switch >
-      <Route exact path="/Offer/Vehicle-Features" component={VehicleInfoFeatures} />
-    
+      <Route path="/Offer/Vehicle-Features" component={VehicleInfoFeatures} />
+      
       <Route path="/Offer/Vehicle-Description" component={VehicleInfoDescription} />
       <Route path="/Offer/Vehicle-Finances" component={VehicleInfoFinances} />
-      <Route component={VehicleInfoFeatures} />
+      <Route component={VehicleInfoFinances} />
       </Switch>
 
       </VehicleInfoContainer>
