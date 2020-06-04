@@ -131,7 +131,7 @@ class VehicleInfoFinances extends Component {
 
   }
   componentDidMount() {
-    this.setState({ carPrice: this.props.cars[this.props.id.choosenId].price}) 
+    this.setState({ carPrice: this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].price}) 
   }
   componentDidUpdate() {
   }

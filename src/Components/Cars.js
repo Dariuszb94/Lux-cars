@@ -15,12 +15,12 @@ const CarsContainer = styled.div`
   color:white;
   font-weight:600;
 `;
-const Car = styled.li`
+const Car = styled.div`
   display:flex;
   flex-direction:column;
   padding-bottom: 16px;
   padding-top: 16px;
-  border-bottom:2px solid #3a3a3a;
+ 
   padding-left: 2%;
   padding-right: 2%;
   @media (max-width: 500px) {
@@ -160,19 +160,19 @@ const CarMainDetailsRight = styled.div`
 `;
 const CarDetailOrangeContainer = styled.div`
 width:100%;
-display:flex;
-margin-top:16px;
-flex-direction:row;
-z-index:1;
+display:grid;
+grid-template-columns:50% 50%;
 
-justify-content: space-around;
+justify-items: center;
 @media (max-width: 870px) {
   margin-top:8px;
   }
   @media (max-width: 680px) {
     justify-content: space-between;
   }
-  
+  @media (max-width: 320px) {
+
+  }
 `;
 const CarDetailOrange = styled.div`
 cursor: pointer;
@@ -212,7 +212,12 @@ const CarFeatures = styled.div`
   display:grid;
   grid-template-columns:50% 50%;
   height:80%;
-
+  @media (max-width: 350px) {
+    grid-template-columns:45% 55%;
+  }
+  @media (max-width: 320px) {
+    grid-template-columns:42% 58%;
+  }
 `;
 const CarDetail = styled.div`
   display: flex;
@@ -279,6 +284,9 @@ const StyledLink = styled(NavLink).attrs()`
 
   
 `;
+const CarWithButtons = styled.li`
+ border-bottom:2px solid #3a3a3a;
+`;
 class Cars extends Component {
   constructor(props) {
     super(props);
@@ -337,8 +345,8 @@ class Cars extends Component {
     return (  
       <CarsContainer>
         <CarList>
-          {this.state.cars.map(car =><div key={car.id}>
-            <StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+car.id}} ><Car onClick={() => this.chooseId(car.id)}>
+          {this.state.cars.map(car =><CarWithButtons key={car.id}>
+            <StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+car.id}}><Car onClick={() => this.chooseId(car.id)}>
             <CarHeader>
               <CarLogo src={car.imageLogo}></CarLogo>
               <CarHeaderText>
@@ -370,7 +378,6 @@ class Cars extends Component {
                     <CarDetail><StyledCheckIcon ></StyledCheckIcon ><CarDetailText>&nbsp;{car.feature5}</CarDetailText></CarDetail>
                   </CarMainDetailsRight>
                 </CarFeatures>
-       
               </CarMainDetails>
             </CarMain>
             <CarDetails></CarDetails>
@@ -378,7 +385,7 @@ class Cars extends Component {
             </StyledLink>
             <CarDetailOrangeContainer>
             <FavouriteSet carId={car.id.toString(8)}  />
-          </CarDetailOrangeContainer></div>)}
+          </CarDetailOrangeContainer></CarWithButtons>)}
         </CarList>
       </CarsContainer>
     );

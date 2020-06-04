@@ -35,6 +35,7 @@ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
    justify-content:center;
    @media (max-width: 1200px) {
     grid-gap: 0.5rem;
+    grid-row-gap: 1.5rem;
   }
    @media (max-width: 900px) {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

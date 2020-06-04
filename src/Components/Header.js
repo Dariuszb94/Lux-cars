@@ -211,9 +211,9 @@ class Header extends Component {
           <StyledLink to="/Offers"><Maker onClick={() => this.makerChange("BMW")}>BMW</Maker></StyledLink>
           <StyledLink to="/Offers"><Maker onClick={() => this.makerChange("Audi")}>Audi</Maker></StyledLink>
           </Makers>
-          <StyledLink to="/Lux-cars" ><MenuDropDownElement onClick={()=>this.showMenu()}>FINANCE</MenuDropDownElement></StyledLink>
-          <StyledLink to="/Lux-cars" > <MenuDropDownElement onClick={()=>this.showMenu()}>ABOUT</MenuDropDownElement></StyledLink>
-          <StyledLink to="/Lux-cars" ><MenuDropDownElement onClick={()=>this.showMenu()}>CONTACT</MenuDropDownElement></StyledLink>
+          <StyledLink to="/Finance" ><MenuDropDownElement onClick={()=>this.showMenu()}>FINANCE</MenuDropDownElement></StyledLink>
+          <StyledLink to="/About" > <MenuDropDownElement onClick={()=>this.showMenu()}>ABOUT</MenuDropDownElement></StyledLink>
+          <StyledLink to="/Contact" ><MenuDropDownElement onClick={()=>this.showMenu()}>CONTACT</MenuDropDownElement></StyledLink>
 
           </MenuDropDown>
 

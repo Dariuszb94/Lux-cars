@@ -17,7 +17,10 @@ padding-top:2%;
 padding-bottom:2%;
 padding-left:2%;
 padding-right:2%;
-
+@media (max-width: 450px) {
+  padding-left:0;
+padding-right:0;
+  }
 `;
 
 const AttrContainer = styled.div`
@@ -71,7 +74,9 @@ const DropDownContentMaker = styled.div`
   z-index: 1;
   display: ${props => props.makerShow ? "block" : "none"};
   min-width:200px;
-
+  @media (max-width:450px){
+    width:100%;
+  }
 
 `;
 const DropDownContentMinYear= styled.div`
@@ -82,7 +87,9 @@ const DropDownContentMinYear= styled.div`
   background-color:white;
   z-index: 1;
   display: ${props => props.minYearsShow ? "block" : "none"};
-
+  @media (max-width:450px){
+    width:100%;
+  }
 `;
 const DropDownContentMaxYear= styled.div`
     font-weight: 200;
@@ -92,7 +99,9 @@ const DropDownContentMaxYear= styled.div`
   background-color:white;
   z-index: 1;
   display: ${props => props.maxYearsShow ? "block" : "none"};
-
+  @media (max-width:450px){
+    width:100%;
+  }
 `;
 const DropDownContentMinPrice= styled.div`
     font-weight: 200;
@@ -102,7 +111,9 @@ const DropDownContentMinPrice= styled.div`
   background-color:white;
   z-index: 1;
   display: ${props => props.minPricesShow ? "block" : "none"};
-
+  @media (max-width:450px){
+    width:100%;
+  }
 `;
 const DropDownContentMaxPrice= styled.div`
     font-weight: 200;
@@ -112,16 +123,20 @@ const DropDownContentMaxPrice= styled.div`
   background-color:white;
   z-index: 1;
   display: ${props => props.maxPricesShow ? "block" : "none"};
-
+  @media (max-width:450px){
+    width:100%;
+  }
 `;
 const SubAttr = styled.div`
   cursor: pointer;
   color:black;
+
   padding:4px;
   font-weight: 300;
   &:hover {
     background-color: rgba(0, 0, 0, .2);
   }
+
 `;
 const AnyAttrText = styled.div`
 color:black;
@@ -164,7 +179,9 @@ const DropDownContentModel = styled.div`
   display: ${props => props.modelShow ? "block" : "none"};
   font-weight: 200;
   min-width:200px;
-
+  @media (max-width:450px){
+    width:100%;
+  }
 `;
 const DropDownContentMinPower = styled.div`
   display: none;
@@ -174,7 +191,9 @@ const DropDownContentMinPower = styled.div`
   z-index: 1;
   display: ${props => props.minPowerShow ? "block" : "none"};
   font-weight: 200;
-
+  @media (max-width:450px){
+    width:100%;
+  }
 `;
 const DropDownContentMaxPower = styled.div`
   display: none;
@@ -184,7 +203,9 @@ const DropDownContentMaxPower = styled.div`
   z-index: 1;
   display: ${props => props.maxPowerShow ? "block" : "none"};
   font-weight: 200;
-
+  @media (max-width:450px){
+    width:100%;
+  }
 `;
 const ResetButton = styled.button`
 white-space: nowrap;
@@ -279,33 +300,84 @@ white-space: nowrap;
   }
   makerShow(){
      this.setState({ makerShow: !this.state.makerShow});
+    this.setState({ modelShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ maxPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ minPricesShow: false});
+
   }
   modelShow(){
      this.setState({ modelShow: !this.state.modelShow});
+    this.setState({ makerShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ maxPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ minPricesShow: false});
   }
   minPowerShow(){
      this.setState({ minPowerShow: !this.state.minPowerShow});
-
+    this.setState({ makerShow: false});
+    this.setState({ modelShow: false});
+    this.setState({ maxPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ minPricesShow: false});
   }
   maxPowerShow(){
      this.setState({ maxPowerShow: !this.state.maxPowerShow});
-
+    this.setState({ makerShow: false});
+    this.setState({ modelShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ minPricesShow: false});
   }
   minYearsShow(){
      this.setState({ minYearsShow: !this.state.minYearsShow});
-
+    this.setState({ makerShow: false});
+    this.setState({ modelShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ maxPowerShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ minPricesShow: false});
   }
   maxYearsShow(){
      this.setState({ maxYearsShow: !this.state.maxYearsShow});
-
+    this.setState({ makerShow: false});
+    this.setState({ modelShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxPowerShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ minPricesShow: false});
   }
   minPricesShow(){
      this.setState({ minPricesShow: !this.state.minPricesShow});
-
+    this.setState({ makerShow: false});
+    this.setState({ modelShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ maxYearsShow: false});
   }
   maxPricesShow(){
      this.setState({ maxPricesShow: !this.state.maxPricesShow});
-
+    this.setState({ makerShow: false});
+    this.setState({ modelShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ minPricesShow: false});
+    this.setState({ maxPowerShow: false});
   }
   resetFilters(){
     this.props.updateMaker("Any Maker");

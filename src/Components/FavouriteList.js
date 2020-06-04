@@ -168,7 +168,7 @@ const FavouriteList = ({ id,cars }) => {
 
 
     const deletePost = async(id) => {
-        console.log(id);
+
         db.posts.delete(id);
         let allPosts = await db.posts.toArray();
         //set the posts
@@ -235,7 +235,6 @@ if(canUpdate===true){
         const getPosts = async() => {
             let allPosts = await db.posts.toArray();
             setPosts(allPosts);
-            console.log(allPosts);
         }
         getPosts();
   

@@ -23,6 +23,17 @@ margin-bottom:16px;
     background-color: black;
 
   } 
+  @media (max-width: 360px) {
+    padding-left:8px;
+  padding-right:8px;
+  }
+  @media (max-width: 320px) {
+    width:84%;
+}
+@media (max-width: 305px) {
+    padding-left:4px;
+  padding-right:4px;
+  }
 `;
 const StyledLink = styled(NavLink).attrs()`
 background-color:#ec6b0c;
@@ -32,7 +43,7 @@ padding-left:16px;
 margin-bottom:16px;
   padding-top:16px;
   padding-bottom:16px;
-
+  text-decoration: none;
   text-align:center;
   border-radius:8px;
   -webkit-transition:0.3s linear;
@@ -42,6 +53,17 @@ margin-bottom:16px;
   &:hover {
     background-color: black;
     text-decoration:none;
+  }
+  @media (max-width: 360px) {
+    padding-left:8px;
+  padding-right:8px;
+  }
+  @media (max-width: 320px) {
+    width:84%;
+}
+@media (max-width: 305px) {
+    padding-left:4px;
+  padding-right:4px;
   }
 `;
 
@@ -67,7 +89,7 @@ const FavouriteSet = (props) => {
 
 
     const deletePost = async(id) => {
-        console.log(id);
+
         db.posts.delete(id);
         let allPosts = await db.posts.toArray();
         //set the posts
@@ -100,7 +122,6 @@ const FavouriteSet = (props) => {
 
 
     const addFavourite = () => {
-      console.log(props.carId);
       let canUpdate=true;
       if(props.carId===undefined){
         posts.forEach((idPost)=>{
@@ -147,7 +168,6 @@ const FavouriteSet = (props) => {
         const getPosts = async() => {
             let allPosts = await db.posts.toArray();
             setPosts(allPosts);
-            console.log(allPosts);
         }
         getPosts();
   

@@ -69,8 +69,12 @@ const CarLogo = styled.img`
     height:48px;
   }
   @media (max-width:450px){
-    width:88px;
-    height:88px;
+    width:96px;
+    height:96px;
+  }
+  @media (max-width:350px){
+    width:80px;
+    height:80px;
   }
 `;
 const CarDetails = styled.section`
@@ -187,6 +191,12 @@ background-color:black;
   &:hover {
     color: ${props => props.swipeRightPossible ? "#ec6b0c" : "white"};
   } 
+  @media(max-width:700px){
+    width: 15%;
+  }
+  @media(max-width:450px){
+    width: 100%;
+  }
 `;
 const CarPhotoNaviLeft = styled.div`
 background-color:black;
@@ -197,6 +207,12 @@ background-color:black;
   &:hover {
     color: ${props => props.swipeLeftPossible ? "#ec6b0c" : "white"};
   } 
+  @media(max-width:700px){
+    width: 15%;
+  }
+  @media(max-width:450px){
+    width: 100%;
+  }
 `;
 const CarPhotoContainer = styled.div`
   display:flex;
@@ -509,8 +525,6 @@ class Offer extends Component {
        //get all posts from the database
        const getPosts = async() => {
         let allPosts = await db.posts.toArray();
-
-        console.log(allPosts);
     }
     getPosts();
     

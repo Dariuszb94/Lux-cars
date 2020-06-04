@@ -159,17 +159,17 @@ class VehicleInfoDescription extends Component {
           <Header>Description</Header>
           <Main>
             <MainLeft>
-              <MainLeftElement><StyledCalendarTodayIcon></StyledCalendarTodayIcon>&nbsp;Registered: {this.props.cars[this.props.id.choosenId].year}</MainLeftElement>
-              <MainLeftElement><StyledSpeedIcon></StyledSpeedIcon>&nbsp;Mileage: {this.props.cars[this.props.id.choosenId].mileage} km</MainLeftElement>
-              <MainLeftElement><StyledBarChartIcon></StyledBarChartIcon>&nbsp;Engine Size: {this.props.cars[this.props.id.choosenId].displacement} cm3</MainLeftElement>
-              <MainLeftElement><StyledLocalGasStationIcon></StyledLocalGasStationIcon>&nbsp;Fuel Type: {this.props.cars[this.props.id.choosenId].fuel}</MainLeftElement>
-              <MainLeftElement><StyledSettingsIcon></StyledSettingsIcon>&nbsp;Gearbox: {this.props.cars[this.props.id.choosenId].gearBox}</MainLeftElement>
-              <MainLeftElement><StyledDriveEtaIcon></StyledDriveEtaIcon>&nbsp;Body Style: {this.props.cars[this.props.id.choosenId].body}</MainLeftElement>
+              <MainLeftElement><StyledCalendarTodayIcon></StyledCalendarTodayIcon>&nbsp;Registered: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].year}</MainLeftElement>
+              <MainLeftElement><StyledSpeedIcon></StyledSpeedIcon>&nbsp;Mileage: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].mileage} km</MainLeftElement>
+              <MainLeftElement><StyledBarChartIcon></StyledBarChartIcon>&nbsp;Engine Size: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].displacement} cm3</MainLeftElement>
+              <MainLeftElement><StyledLocalGasStationIcon></StyledLocalGasStationIcon>&nbsp;Fuel Type: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].fuel}</MainLeftElement>
+              <MainLeftElement><StyledSettingsIcon></StyledSettingsIcon>&nbsp;Gearbox: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].gearBox}</MainLeftElement>
+              <MainLeftElement><StyledDriveEtaIcon></StyledDriveEtaIcon>&nbsp;Body Style: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].body}</MainLeftElement>
             </MainLeft>
             <MainRight>
-              <FirstParagraph>{this.props.cars[this.props.id.choosenId].description1}</FirstParagraph>
-              <SecondParagraph>{this.props.cars[this.props.id.choosenId].description2}</SecondParagraph>
-              <ThirdParagraph>{this.props.cars[this.props.id.choosenId].description3}</ThirdParagraph>
+              <FirstParagraph>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].description1}</FirstParagraph>
+              <SecondParagraph>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].description2}</SecondParagraph>
+              <ThirdParagraph>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].description3}</ThirdParagraph>
             </MainRight>
           </Main>
       </VehicleInfoDescriptionContainer>
