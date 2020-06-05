@@ -12,58 +12,55 @@ import {choosenPriceMin }from '../Actions/choosenPriceActions';
 import {choosenPriceMax }from '../Actions/choosenPriceActions';
 
 const MainSearchContainer = styled.div`
-background-color:#3a3a3a;
-padding-top:2%;
-padding-bottom:2%;
-padding-left:2%;
-padding-right:2%;
-@media (max-width: 450px) {
-  padding-left:0;
-padding-right:0;
+  background-color:#3a3a3a;
+  padding:2%;
+  @media (max-width: 450px) {
+    padding-left:0;
+    padding-right:0;
   }
 `;
 
 const AttrContainer = styled.div`
-display:flex;
-flex-direction:column;
-width: 24%;
-@media (max-width: 860px) {
-  width: 100%;
+  display:flex;
+  flex-direction:column;
+  width: 24%;
+  @media (max-width: 860px) {
+    width: 100%;
   }
 `;
 
 const Search = styled.div`
-display:flex;
-flex-direction:row;
-@media (max-width: 1040px) {
-  flex-direction:column;
+  display:flex;
+  flex-direction:row;
+  @media (max-width: 1040px) {
+    flex-direction:column;
   }
-
 `;
 const SearchHeader = styled.h2`
-color:white;
-font-family: 'Roboto', sans-serif;
-font-weight:100;
-padding-bottom:4px;
-letter-spacing:1px;
+  color:white;
+  font-family: 'Roboto', sans-serif;
+  font-weight:100;
+  padding-bottom:4px;
+  letter-spacing:1px;
 `;
+
 const FilterContainer = styled.div`
-color:white;
-font-family: 'Roboto', sans-serif;
-font-weight:200;
-display:flex;
-flex-direction:row;
-justify-content:space-around;
-width: 100%;
-@media (max-width: 860px) {
-  display:grid;
-  grid-template-columns: 50% 50%;
-  grid-gap:1rem;
+  color:white;
+  font-family: 'Roboto', sans-serif;
+  font-weight:200;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-around;
+  width: 100%;
+  @media (max-width: 860px) {
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-gap:1rem;
   }
   @media (max-width: 450px) {
-  display:flex;
-flex-direction:column;
-  grid-gap:0;
+    display:flex;
+    flex-direction:column;
+    grid-gap:0;
   }
 `;
 const DropDownContentMaker = styled.div`
@@ -77,10 +74,10 @@ const DropDownContentMaker = styled.div`
   @media (max-width:450px){
     width:100%;
   }
-
 `;
+
 const DropDownContentMinYear= styled.div`
-    font-weight: 200;
+  font-weight: 200;
   display: none;
   min-width:200px;
   position: absolute;
@@ -91,8 +88,9 @@ const DropDownContentMinYear= styled.div`
     width:100%;
   }
 `;
+
 const DropDownContentMaxYear= styled.div`
-    font-weight: 200;
+  font-weight: 200;
   display: none;
   min-width:200px;
   position: absolute;
@@ -103,8 +101,9 @@ const DropDownContentMaxYear= styled.div`
     width:100%;
   }
 `;
+
 const DropDownContentMinPrice= styled.div`
-    font-weight: 200;
+  font-weight: 200;
   display: none;
   min-width:200px;
   position: absolute;
@@ -115,8 +114,9 @@ const DropDownContentMinPrice= styled.div`
     width:100%;
   }
 `;
+
 const DropDownContentMaxPrice= styled.div`
-    font-weight: 200;
+  font-weight: 200;
   display: none;
   min-width:200px;
   position: absolute;
@@ -127,28 +127,28 @@ const DropDownContentMaxPrice= styled.div`
     width:100%;
   }
 `;
+
 const SubAttr = styled.div`
   cursor: pointer;
   color:black;
-
   padding:4px;
   font-weight: 300;
   &:hover {
     background-color: rgba(0, 0, 0, .2);
   }
-
 `;
+
 const AnyAttrText = styled.div`
-color:black;
+  color:black;
 `;
+
 const AttrChoose = styled.ul`
-
-display: inline-block;
-padding-bottom:4px;
-margin-bottom:8px;
+  display: inline-block;
+  padding-bottom:4px;
+  margin-bottom:8px;
 `;
-const AnyAttr = styled.button`
 
+const AnyAttr = styled.button`
   cursor: pointer;
   display: flex;
   flex-direction:row;
@@ -183,6 +183,7 @@ const DropDownContentModel = styled.div`
     width:100%;
   }
 `;
+
 const DropDownContentMinPower = styled.div`
   display: none;
   min-width:200px;
@@ -195,6 +196,7 @@ const DropDownContentMinPower = styled.div`
     width:100%;
   }
 `;
+
 const DropDownContentMaxPower = styled.div`
   display: none;
   min-width:200px;
@@ -207,8 +209,9 @@ const DropDownContentMaxPower = styled.div`
     width:100%;
   }
 `;
+
 const ResetButton = styled.button`
-white-space: nowrap;
+  white-space: nowrap;
   cursor: pointer;
   background-color:#ec6b0c;
   color:white;
@@ -226,7 +229,7 @@ white-space: nowrap;
   -moz-transition:0.4s ease-in-out;
   transition:0.4s ease-in-out;
   margin-left:8px;
-&:hover {
+  &:hover {
     background-color: black;
   }
   @media (max-width: 1040px) {
@@ -265,19 +268,12 @@ white-space: nowrap;
       this.minPricesShow = this.minPricesShow.bind(this);
       this.resetFilters = this.resetFilters.bind(this);
   }
-  componentDidMount() {
-  }
-  componentDidUpdate() {
-  }
-  componentWillUnmount() {
-  }
 
   modelChange(updatedModel){
     this.props.chooseModel(updatedModel.model);
-    
   }
   makerChange(e){
-     this.props.updateMaker(e);
+    this.props.updateMaker(e.maker);
     this.props.chooseModel("Any Model")
   }
   minPowerChange(e){
@@ -299,7 +295,7 @@ white-space: nowrap;
      this.props.choosenPriceMax(e.value);
   }
   makerShow(){
-     this.setState({ makerShow: !this.state.makerShow});
+    this.setState({ makerShow: !this.state.makerShow});
     this.setState({ modelShow: false});
     this.setState({ minPowerShow: false});
     this.setState({ maxPowerShow: false});
@@ -307,10 +303,9 @@ white-space: nowrap;
     this.setState({ maxYearsShow: false});
     this.setState({ maxPricesShow: false});
     this.setState({ minPricesShow: false});
-
   }
   modelShow(){
-     this.setState({ modelShow: !this.state.modelShow});
+    this.setState({ modelShow: !this.state.modelShow});
     this.setState({ makerShow: false});
     this.setState({ minPowerShow: false});
     this.setState({ maxPowerShow: false});
@@ -320,7 +315,7 @@ white-space: nowrap;
     this.setState({ minPricesShow: false});
   }
   minPowerShow(){
-     this.setState({ minPowerShow: !this.state.minPowerShow});
+    this.setState({ minPowerShow: !this.state.minPowerShow});
     this.setState({ makerShow: false});
     this.setState({ modelShow: false});
     this.setState({ maxPowerShow: false});
@@ -330,7 +325,7 @@ white-space: nowrap;
     this.setState({ minPricesShow: false});
   }
   maxPowerShow(){
-     this.setState({ maxPowerShow: !this.state.maxPowerShow});
+    this.setState({ maxPowerShow: !this.state.maxPowerShow});
     this.setState({ makerShow: false});
     this.setState({ modelShow: false});
     this.setState({ minPowerShow: false});
@@ -340,7 +335,7 @@ white-space: nowrap;
     this.setState({ minPricesShow: false});
   }
   minYearsShow(){
-     this.setState({ minYearsShow: !this.state.minYearsShow});
+    this.setState({ minYearsShow: !this.state.minYearsShow});
     this.setState({ makerShow: false});
     this.setState({ modelShow: false});
     this.setState({ minPowerShow: false});
@@ -350,7 +345,7 @@ white-space: nowrap;
     this.setState({ minPricesShow: false});
   }
   maxYearsShow(){
-     this.setState({ maxYearsShow: !this.state.maxYearsShow});
+    this.setState({ maxYearsShow: !this.state.maxYearsShow});
     this.setState({ makerShow: false});
     this.setState({ modelShow: false});
     this.setState({ minPowerShow: false});
@@ -360,7 +355,7 @@ white-space: nowrap;
     this.setState({ minPricesShow: false});
   }
   minPricesShow(){
-     this.setState({ minPricesShow: !this.state.minPricesShow});
+    this.setState({ minPricesShow: !this.state.minPricesShow});
     this.setState({ makerShow: false});
     this.setState({ modelShow: false});
     this.setState({ minPowerShow: false});
@@ -370,7 +365,7 @@ white-space: nowrap;
     this.setState({ maxYearsShow: false});
   }
   maxPricesShow(){
-     this.setState({ maxPricesShow: !this.state.maxPricesShow});
+    this.setState({ maxPricesShow: !this.state.maxPricesShow});
     this.setState({ makerShow: false});
     this.setState({ modelShow: false});
     this.setState({ minPowerShow: false});
@@ -396,93 +391,90 @@ white-space: nowrap;
           <FilterContainer>
             <AttrContainer>
               <SearchHeader>Search</SearchHeader>
-                <AttrChoose>
-                  <AnyAttr onClick={() => this.makerShow()}>
-                    <AnyAttrText>{ (this.props.maker.maker === undefined) ? "Any Maker" : this.props.maker.maker}</AnyAttrText>
-                    <ArrowDropDownIcon/>
-                  </AnyAttr>
-                  <DropDownContentMaker makerShow={this.state.makerShow} onClick={() => this.makerShow()}>
-                    <SubAttr onClick={() => this.makerChange("Any Maker")}>Any Maker</SubAttr>
-                    <SubAttr onClick={() => this.makerChange("Citroen")}>Citroen</SubAttr>
-                    <SubAttr onClick={() => this.makerChange("Mercedes-Benz")}>Mercedes-Benz</SubAttr>
-                    <SubAttr onClick={() => this.makerChange("BMW")}>BMW</SubAttr>
-                    <SubAttr onClick={() => this.makerChange("Audi")}>Audi</SubAttr>
-                  </DropDownContentMaker>
-                </AttrChoose>
-                <AttrChoose>
-                  <AnyAttr onClick={() => this.modelShow()} >
-                    <AnyAttrText>{ (this.props.choosenModel.choosenModel === undefined) ? "Any Model" : this.props.choosenModel.choosenModel}</AnyAttrText> 
-                    <ArrowDropDownIcon/>
-                  </AnyAttr>
-                  <DropDownContentModel modelShow={this.state.modelShow} onClick={() => this.modelShow()}>
-                    <SubAttr onClick={() => this.modelChange({model:"Any Model"})}>Any Model</SubAttr>
-                    {(this.props.models===undefined || this.props.maker===undefined || this.props.maker.maker===undefined || this.props.models[this.props.maker.maker]===undefined) ?   null : (this.props.models[this.props.maker.maker].map(model =>   <SubAttr key={model} onClick={() => this.modelChange({model})}>{model}</SubAttr> )) }
-                  </DropDownContentModel>
-                </AttrChoose>
-              </AttrContainer>
-              <AttrContainer>  
-                <SearchHeader>Power</SearchHeader>
-                <AttrChoose>
-                  <AnyAttr onClick={() => this.minPowerShow()} >
-                    <AnyAttrText>{ (this.props.choosenPower.minPower === null) ? "Min Power" : this.props.choosenPower.minPower} KM</AnyAttrText> 
-                    <ArrowDropDownIcon/>
-                  </AnyAttr>
-                  <DropDownContentMinPower minPowerShow={this.state.minPowerShow} onClick={() => this.minPowerShow()}>
-                    {(this.props.power.powerMin===undefined ) ?   null : (this.props.power.powerMin.map(value =>   <SubAttr key={value} onClick={() => this.minPowerChange({value})}>{value}&nbsp;KM</SubAttr> )) }
-                 </DropDownContentMinPower>
-                </AttrChoose>
-                <AttrChoose>
-                  <AnyAttr onClick={() => this.maxPowerShow()} >
-                    <AnyAttrText>{ (this.props.choosenPower.maxPower === null) ? "Max Power" : this.props.choosenPower.maxPower} KM</AnyAttrText> 
-                    <ArrowDropDownIcon/>
-                  </AnyAttr>
-                  <DropDownContentMaxPower maxPowerShow={this.state.maxPowerShow} onClick={() => this.maxPowerShow()}>
-                    {(this.props.power.powerMax===undefined ) ?   null : (this.props.power.powerMax.map(value =>   <SubAttr key={value} onClick={() => this.maxPowerChange({value})}>{value}&nbsp;KM</SubAttr> )) }
-                 </DropDownContentMaxPower>
-                </AttrChoose>
-              </AttrContainer>
-              <AttrContainer>  
-                <SearchHeader>Years</SearchHeader>
-                <AttrChoose>
-                  <AnyAttr onClick={() => this.minYearsShow()} >
-                    <AnyAttrText>From { (this.props.choosenYear.minYear === null) ? null : this.props.choosenYear.minYear}</AnyAttrText> 
-                    <ArrowDropDownIcon/>
-                  </AnyAttr>
-                  <DropDownContentMinYear minYearsShow={this.state.minYearsShow} onClick={() => this.minYearsShow()}>
-                    {(this.props.years===undefined ) ?   null : (this.props.years.yearMin.map(value =>   <SubAttr key={value} onClick={() => this.minYearChange({value})}>{value}</SubAttr> )) }
-                 </DropDownContentMinYear>
-                </AttrChoose>
-                <AttrChoose>
-                  <AnyAttr onClick={() => this.maxYearsShow()} >
-                    <AnyAttrText>To { (this.props.choosenYear.maxYear === null) ? null: this.props.choosenYear.maxYear}</AnyAttrText> 
-                    <ArrowDropDownIcon/>
-                  </AnyAttr>
-                  <DropDownContentMaxYear maxYearsShow={this.state.maxYearsShow} onClick={() => this.maxYearsShow()}>
-                    {(this.props.years===undefined ) ?   null : (this.props.years.yearMax.map(value =>   <SubAttr key={value} onClick={() => this.maxYearChange({value})}>{value}</SubAttr> )) }
-                 </DropDownContentMaxYear>
-                </AttrChoose>
-              </AttrContainer>
-              <AttrContainer>  
-                <SearchHeader>Price</SearchHeader>
-                <AttrChoose>
-                  <AnyAttr onClick={() => this.minPricesShow()} >
-                    <AnyAttrText>From { (this.props.choosenPrice.minPrice === null) ? null : this.props.choosenPrice.minPrice} PLN</AnyAttrText> 
-                    <ArrowDropDownIcon/>
-                  </AnyAttr>
-                  <DropDownContentMinPrice minPricesShow={this.state.minPricesShow} onClick={() => this.minPricesShow()}>
-                    {(this.props.price===undefined ) ?   null : (this.props.price.priceMin.map(value =>   <SubAttr key={value} onClick={() => this.minPriceChange({value})}>{value}</SubAttr> )) }
-                 </DropDownContentMinPrice>
-                </AttrChoose>
-                <AttrChoose>
-                  <AnyAttr onClick={() => this.maxPricesShow()} >
-                    <AnyAttrText>To { (this.props.choosenPrice.maxPrice === null) ? null : this.props.choosenPrice.maxPrice} PLN</AnyAttrText> 
-                    <ArrowDropDownIcon/>
-                  </AnyAttr>
-                  <DropDownContentMaxPrice maxPricesShow={this.state.maxPricesShow} onClick={() => this.maxPricesShow()}>
-                    {(this.props.price===undefined ) ?   null : (this.props.price.priceMax.map(value =>   <SubAttr key={value} onClick={() => this.maxPriceChange({value})}>{value}</SubAttr> )) }
-                 </DropDownContentMaxPrice>
-                </AttrChoose>
-              </AttrContainer>     
+              <AttrChoose>
+                <AnyAttr onClick={() => this.makerShow()}>
+                  <AnyAttrText>{ (this.props.maker.maker === undefined) ? "Any Maker" : this.props.maker.maker}</AnyAttrText>
+                  <ArrowDropDownIcon/>
+                </AnyAttr>
+                <DropDownContentMaker makerShow={this.state.makerShow} onClick={() => this.makerShow()}>
+                  <SubAttr onClick={() => this.makerChange({maker:"Any Maker"})}>Any Maker</SubAttr>
+                  {(this.props.makers===undefined) ? null : (this.props.makers.map(maker => <SubAttr key={maker} onClick={() => this.makerChange({maker})}>{maker}</SubAttr> )) }
+                </DropDownContentMaker>
+              </AttrChoose>
+              <AttrChoose>
+                <AnyAttr onClick={() => this.modelShow()} >
+                  <AnyAttrText>{ (this.props.choosenModel.choosenModel === undefined) ? "Any Model" : this.props.choosenModel.choosenModel}</AnyAttrText> 
+                  <ArrowDropDownIcon/>
+                </AnyAttr>
+                <DropDownContentModel modelShow={this.state.modelShow} onClick={() => this.modelShow()}>
+                  <SubAttr onClick={() => this.modelChange({model:"Any Model"})}>Any Model</SubAttr>
+                  {(this.props.models===undefined || this.props.maker===undefined || this.props.maker.maker===undefined || this.props.models[this.props.maker.maker]===undefined) ?   null : (this.props.models[this.props.maker.maker].map(model =>   <SubAttr key={model} onClick={() => this.modelChange({model})}>{model}</SubAttr> )) }
+                </DropDownContentModel>
+              </AttrChoose>
+            </AttrContainer>
+            <AttrContainer>  
+              <SearchHeader>Power</SearchHeader>
+              <AttrChoose>
+                <AnyAttr onClick={() => this.minPowerShow()} >
+                  <AnyAttrText>{ (this.props.choosenPower.minPower === null) ? "Min Power" : this.props.choosenPower.minPower} KM</AnyAttrText> 
+                  <ArrowDropDownIcon/>
+                </AnyAttr>
+                <DropDownContentMinPower minPowerShow={this.state.minPowerShow} onClick={() => this.minPowerShow()}>
+                  {(this.props.power.powerMin===undefined ) ?   null : (this.props.power.powerMin.map(value =>   <SubAttr key={value} onClick={() => this.minPowerChange({value})}>{value}&nbsp;KM</SubAttr> )) }
+               </DropDownContentMinPower>
+              </AttrChoose>
+              <AttrChoose>
+                <AnyAttr onClick={() => this.maxPowerShow()} >
+                  <AnyAttrText>{ (this.props.choosenPower.maxPower === null) ? "Max Power" : this.props.choosenPower.maxPower} KM</AnyAttrText> 
+                  <ArrowDropDownIcon/>
+                </AnyAttr>
+                <DropDownContentMaxPower maxPowerShow={this.state.maxPowerShow} onClick={() => this.maxPowerShow()}>
+                  {(this.props.power.powerMax===undefined ) ?   null : (this.props.power.powerMax.map(value =>   <SubAttr key={value} onClick={() => this.maxPowerChange({value})}>{value}&nbsp;KM</SubAttr> )) }
+               </DropDownContentMaxPower>
+              </AttrChoose>
+            </AttrContainer>
+            <AttrContainer>  
+              <SearchHeader>Years</SearchHeader>
+              <AttrChoose>
+                <AnyAttr onClick={() => this.minYearsShow()} >
+                  <AnyAttrText>From { (this.props.choosenYear.minYear === null) ? null : this.props.choosenYear.minYear}</AnyAttrText> 
+                  <ArrowDropDownIcon/>
+                </AnyAttr>
+                <DropDownContentMinYear minYearsShow={this.state.minYearsShow} onClick={() => this.minYearsShow()}>
+                  {(this.props.years===undefined ) ?   null : (this.props.years.yearMin.map(value =>   <SubAttr key={value} onClick={() => this.minYearChange({value})}>{value}</SubAttr> )) }
+               </DropDownContentMinYear>
+              </AttrChoose>
+              <AttrChoose>
+                <AnyAttr onClick={() => this.maxYearsShow()} >
+                  <AnyAttrText>To { (this.props.choosenYear.maxYear === null) ? null: this.props.choosenYear.maxYear}</AnyAttrText> 
+                  <ArrowDropDownIcon/>
+                </AnyAttr>
+                <DropDownContentMaxYear maxYearsShow={this.state.maxYearsShow} onClick={() => this.maxYearsShow()}>
+                  {(this.props.years===undefined ) ?   null : (this.props.years.yearMax.map(value =>   <SubAttr key={value} onClick={() => this.maxYearChange({value})}>{value}</SubAttr> )) }
+               </DropDownContentMaxYear>
+              </AttrChoose>
+            </AttrContainer>
+            <AttrContainer>  
+              <SearchHeader>Price</SearchHeader>
+              <AttrChoose>
+                <AnyAttr onClick={() => this.minPricesShow()} >
+                  <AnyAttrText>From { (this.props.choosenPrice.minPrice === null) ? null : this.props.choosenPrice.minPrice} PLN</AnyAttrText> 
+                  <ArrowDropDownIcon/>
+                </AnyAttr>
+                <DropDownContentMinPrice minPricesShow={this.state.minPricesShow} onClick={() => this.minPricesShow()}>
+                  {(this.props.price===undefined ) ?   null : (this.props.price.priceMin.map(value =>   <SubAttr key={value} onClick={() => this.minPriceChange({value})}>{value}</SubAttr> )) }
+               </DropDownContentMinPrice>
+              </AttrChoose>
+              <AttrChoose>
+                <AnyAttr onClick={() => this.maxPricesShow()} >
+                  <AnyAttrText>To { (this.props.choosenPrice.maxPrice === null) ? null : this.props.choosenPrice.maxPrice} PLN</AnyAttrText> 
+                  <ArrowDropDownIcon/>
+                </AnyAttr>
+                <DropDownContentMaxPrice maxPricesShow={this.state.maxPricesShow} onClick={() => this.maxPricesShow()}>
+                  {(this.props.price===undefined ) ?   null : (this.props.price.priceMax.map(value =>   <SubAttr key={value} onClick={() => this.maxPriceChange({value})}>{value}</SubAttr> )) }
+               </DropDownContentMaxPrice>
+              </AttrChoose>
+            </AttrContainer>     
           </FilterContainer>
           <ResetButton onClick={()=>this.resetFilters()}>RESET FILTERS</ResetButton>
         </Search>
@@ -493,6 +485,7 @@ white-space: nowrap;
 const mapStateToProps = state => ({
   models: state.models,
   maker: state.maker,
+  makers: state.makers,
   choosenModel:state.choosenModel,
   power:state.power,
   choosenPower:state.choosenPower,

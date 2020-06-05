@@ -19,27 +19,27 @@ const SearchContainer = styled.div`
   width:300px;
   @media (max-width: 880px) {
     width:250px;
-
-}
-@media (max-width: 750px) {
+  }
+  @media (max-width: 750px) {
     width:100%;
     align-items:center;
     padding-left:0;
     padding-right:0;
-
 }
 `;
+
 const SearchHeader = styled.h2`
   font-weight:300;
   font-size:1.4rem;
   margin-bottom: 8px;
   @media (max-width: 750px) {
-  align-self: flex-start;
-  padding-left:5%;
-  margin-bottom: 12px;
-  font-size:2rem;
+    align-self: flex-start;
+    padding-left:5%;
+    margin-bottom: 12px;
+    font-size:2rem;
   }
 `;
+
 const SearchButton = styled.button`
   background-color:#ec6b0c;
   outline:none;
@@ -51,8 +51,8 @@ const SearchButton = styled.button`
   padding-bottom:12px;
   border-radius:4px;
   align-self: flex-start;
-width:100%;
--webkit-transition:0.2s linear;
+  width:100%;
+  -webkit-transition:0.2s linear;
   -moz-transition:0.2s linear;
   transition:0.2s linear;
   cursor: pointer;
@@ -60,10 +60,9 @@ width:100%;
     background-color:black;
   }
   @media (max-width: 750px) {
-  margin-left:5%;
-  width:90%;
+    margin-left:5%;
+    width:90%;
   }
-
 `;
 const DropDownContentMaker = styled.div`
   display: none;
@@ -74,24 +73,19 @@ const DropDownContentMaker = styled.div`
   display: ${props => props.makerShow ? "block" : "none"};
   @media (max-width: 880px) {
     width:250px;
-
-}
-@media (max-width: 750px) {
-    width:90%;
-
-}
-`;
-const activeClassName = 'nav-item-active'
-const StyledLink = styled(NavLink).attrs({ activeClassName })`
-margin-top:8px;
-  width:100%;
-    text-decoration:none;
-    color:white;
-  &.${activeClassName} {
-  
   }
-  
+  @media (max-width: 750px) {
+    width:90%;
+  }
 `;
+
+const StyledLink = styled(NavLink).attrs()`
+  margin-top:8px;
+  width:100%;
+  text-decoration:none;
+  color:white;
+`;
+
 const DropDownContentModel = styled.div`
   display: none;
   width: 300px;
@@ -101,31 +95,30 @@ const DropDownContentModel = styled.div`
   display: ${props => props.modelShow ? "block" : "none"};
   @media (max-width: 880px) {
     width:250px;
-
-}
-@media (max-width: 750px) {
+  }
+  @media (max-width: 750px) {
     width:90%;
-
-}
+  }
 `;
+
 const MakerChoose = styled.ul`
-color:black;
-
-display: inline-block;
-@media (max-width: 750px) {
-  width: 90%;
-  margin-bottom: 4px;
-}
+  color:black;
+  display: inline-block;
+  @media (max-width: 750px) {
+    width: 90%;
+    margin-bottom: 4px;
+  }
 `;
+
 const ModelChoose = styled.ul`
-color:black;
-
-display: inline-block;
-@media (max-width: 750px) {
-  width: 90%;
-  margin-bottom: 12px;
-}
+  color:black;
+  display: inline-block;
+  @media (max-width: 750px) {
+    width: 90%;
+    margin-bottom: 12px;
+  }
 `;
+
 const AnyMaker = styled.button`
   cursor: pointer;
   display: flex;
@@ -138,11 +131,8 @@ const AnyMaker = styled.button`
   padding:8px;
   align-items: center;
   justify-content: space-between;
-  @media (max-width: 750px) {
-
-
-}
 `;
+
 const AnyModel = styled.button`
   cursor: pointer;
   display: flex;
@@ -157,17 +147,17 @@ const AnyModel = styled.button`
   justify-content: space-between;
   @media (max-width: 750px) {
     width:100%
-
 }
 `;
+
 const SubMaker = styled.div`
   cursor: pointer;
   padding:4px;
-  
   &:hover {
     background-color: rgba(0, 0, 0, .2);
   }
 `;
+
 const AnyMakerText = styled.div`
 `;
 
@@ -177,27 +167,18 @@ class Search extends Component {
     this.state = {
       makerShow:false,
       modelShow:false,
-      };
-      this.modelChange = this.modelChange.bind(this);
-      this.makerChange = this.makerChange.bind(this);
-      this.makerShow = this.makerShow.bind(this);
-      this.modelShow = this.modelShow.bind(this);
-            this.scrollToTop = this.scrollToTop.bind(this);
-  }
-  componentDidMount() {
-  
-  }
-  componentDidUpdate() {
-
-  }
-  componentWillUnmount() {
+    };
+    this.modelChange = this.modelChange.bind(this);
+    this.makerChange = this.makerChange.bind(this);
+    this.makerShow = this.makerShow.bind(this);
+    this.modelShow = this.modelShow.bind(this);
+    this.scrollToTop = this.scrollToTop.bind(this);
   }
   modelChange(updatedModel){
     this.props.chooseModel(updatedModel.model)
-    
   }
   makerChange(e){
-     this.props.updateMaker(e);
+    this.props.updateMaker(e.maker);
     let updatedModel={model:"Any Model"};
     this.props.chooseModel(updatedModel.model)
   }
@@ -220,11 +201,8 @@ class Search extends Component {
             <ArrowDropDownIcon/>
           </AnyMaker>
           <DropDownContentMaker makerShow={this.state.makerShow} onClick={() => this.makerShow()}>
-            <SubMaker onClick={() => this.makerChange("Any Maker")}>Any Maker</SubMaker>
-            <SubMaker onClick={() => this.makerChange("Citroen")}>Citroen</SubMaker>
-            <SubMaker onClick={() => this.makerChange("Mercedes-Benz")}>Mercedes-Benz</SubMaker>
-            <SubMaker onClick={() => this.makerChange("BMW")}>BMW</SubMaker>
-            <SubMaker onClick={() => this.makerChange("Audi")}>Audi</SubMaker>
+            <SubMaker onClick={() => this.makerChange({maker:"Any Maker"})}>Any Maker</SubMaker>
+            {(this.props.makers===undefined) ? null : (this.props.makers.map(maker =><SubMaker key={maker} onClick={() => this.makerChange({maker})}>{maker}</SubMaker> ))}
           </DropDownContentMaker>
         </MakerChoose>
         <ModelChoose>
@@ -234,7 +212,7 @@ class Search extends Component {
           </AnyModel>
           <DropDownContentModel modelShow={this.state.modelShow} onClick={() => this.modelShow()}>
             <SubMaker onClick={() => this.modelChange({model:"Any Model"})}>Any Model</SubMaker>
-          {(this.props.models[this.props.maker.maker]===undefined) ?   null : (this.props.models[this.props.maker.maker].map(model =>   <SubMaker key={model} onClick={() => this.modelChange({model})}>{model}</SubMaker> )) }
+          {(this.props.models[this.props.maker.maker]===undefined) ? null : (this.props.models[this.props.maker.maker].map(model => <SubMaker key={model} onClick={() => this.modelChange({model})}>{model}</SubMaker>))}
           </DropDownContentModel>
         </ModelChoose>
         <StyledLink to="/Offers"><SearchButton onClick={() => this.scrollToTop()} >Search</SearchButton></StyledLink>
@@ -245,6 +223,7 @@ class Search extends Component {
 const mapStateToProps = state => ({
   models: state.models,
   maker: state.maker,
+  makers: state.makers,
   choosenModel:state.choosenModel
   }); 
   export default connect(mapStateToProps,{chooseModel, updateMaker})(Search);

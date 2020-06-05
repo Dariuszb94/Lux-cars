@@ -15,26 +15,27 @@ const SubNaviContainer = styled.div`
   background-color:black;
   padding-top:1.5%;
   padding-bottom:1.5%;
-  padding-left:2%;
-  padding-right:2%;
+  padding-left:1%;
+  padding-right:1%;
   color:white;
   display:flex;
   flex-direction:row;
-  font-size:0.85em;
-  
+  font-size:0.85em; 
 `;
+
 const RightSymbol = styled.div`
-color: #3a3a3a;
+  color: #3a3a3a;
+  font-weight:600;
 `;
-const activeClassName = 'nav-item-active'
-const StyledLink = styled(NavLink).attrs({ activeClassName })`
-    text-decoration:none;
-    display:flex;
-    flex-direction:row;
-    color:white;
-    font-family: 'Roboto', sans-serif;
-    font-weight:100;
-    -webkit-transition:0.3s ease-in-out;
+
+const StyledLink = styled(NavLink).attrs()`
+  text-decoration:none;
+  display:flex;
+  flex-direction:row;
+  color:white;
+  font-family: 'Roboto', sans-serif;
+  font-weight:100;
+  -webkit-transition:0.3s ease-in-out;
   -moz-transition:0.3s ease-in-out;
   transition:0.3s ease-in-out;
   &:hover {
@@ -45,19 +46,11 @@ const StyledLink = styled(NavLink).attrs({ activeClassName })`
 class SubNavi extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-      };
-      this.resetWithoutModel = this.resetWithoutModel.bind(this);
-      this.resetWithoutMaker = this.resetWithoutMaker.bind(this);
-      this.resetFilters = this.resetFilters.bind(this);
-
-  }
-  componentDidMount() {
+    this.resetWithoutModel = this.resetWithoutModel.bind(this);
+    this.resetWithoutMaker = this.resetWithoutMaker.bind(this);
+    this.resetFilters = this.resetFilters.bind(this);
   }
 
-  componentWillUnmount() {
-  }
   resetWithoutMaker(){
     this.props.chooseModel("Any Model");
     this.props.choosenPowerMin(null);
@@ -67,6 +60,7 @@ class SubNavi extends Component {
     this.props.choosenPriceMin(null);
     this.props.choosenPriceMax(null);
   }
+
   resetWithoutModel(){
     this.props.choosenPowerMin(null);
     this.props.choosenPowerMax(null);
@@ -75,6 +69,7 @@ class SubNavi extends Component {
     this.props.choosenPriceMin(null);
     this.props.choosenPriceMax(null);
   }
+
   resetFilters(){
     this.props.updateMaker("Any Maker");
     this.props.chooseModel("Any Model");
@@ -93,20 +88,15 @@ class SubNavi extends Component {
         <StyledLink to="/Offers" onClick={()=>this.resetFilters()}>Used cars</StyledLink>
         {(this.props.maker.maker === undefined || this.props.maker.maker === "Any Maker") ? "" : <StyledLink to="/Offers" onClick={()=>this.resetWithoutMaker()}><RightSymbol>&nbsp;>&nbsp;</RightSymbol>{this.props.maker.maker}</StyledLink>}
         {(this.props.choosenModel.choosenModel === undefined || this.props.choosenModel.choosenModel === "Any Model") ? "" : <StyledLink to="/Offers" onClick={()=>this.resetWithoutModel()}><RightSymbol>&nbsp;>&nbsp;</RightSymbol>{this.props.choosenModel.choosenModel}</StyledLink>}
-      
       </SubNaviContainer>
     );
   }
 }
 const mapStateToProps = state => ({
-  models: state.models,
   maker: state.maker,
   choosenModel:state.choosenModel,
-  power:state.power,
   choosenPower:state.choosenPower,
-  years:state.years,
   choosenYear:state.choosenYear,
-  price:state.price,
   choosenPrice:state.choosenPrice,
   cars:state.cars,
   }); 

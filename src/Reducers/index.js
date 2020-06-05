@@ -12,7 +12,7 @@ import carsReducers from './carsReducers';
 import choosePriceSortReducer from './choosePriceSortReducer';
 import chooseIdReducer from './chooseIdReducer';
 import chooseSectionReducer from "./chooseSectionReducer";
-
+import makersReducers from "./makersReducers";
 export default combineReducers({
 models:modelReducers,
 maker:makerReducers,
@@ -27,4 +27,5 @@ cars:carsReducers,
 priceSort:choosePriceSortReducer,
 id:chooseIdReducer,
 section:chooseSectionReducer,
+makers:makersReducers,
 });

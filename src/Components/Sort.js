@@ -1,22 +1,14 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
-import {chooseModel}from '../Actions/chooseModelActions';
-import {updateMaker}from '../Actions/makerActions';
-import {choosenPowerMin }from '../Actions/choosenPowerActions';
-import {choosenPowerMax }from '../Actions/choosenPowerActions';
-import {choosenYearMin }from '../Actions/choosenYearActions';
-import {choosenYearMax }from '../Actions/choosenYearActions';
-import {choosenPriceMin }from '../Actions/choosenPriceActions';
-import {choosenPriceMax }from '../Actions/choosenPriceActions';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import {choosenSortPrice } from '../Actions/choosenPriceSortActions';
 
 const SortContainer = styled.div`
-background-color:black;
-display:flex;
-justify-content: flex-end;
-padding-top:1.5%;
+  background-color:black;
+  display:flex;
+  justify-content: flex-end;
+  padding-top:1.5%;
   padding-bottom:1.5%;
   padding-left:2%;
   padding-right:2%;
@@ -31,13 +23,11 @@ const SortChoosDropDownContentSort = styled.div`
   z-index: 1;
   display: ${props => props.sortShow ? "block" : "none"};
   min-width: 180px;
-
 `;
 
 const SortChoose = styled.ul`
-color:black;
-
-display: inline-block;
+  color:black;
+  display: inline-block;
 `;
 
 const PriceSortButton = styled.button`
@@ -59,32 +49,25 @@ const PriceSortButton = styled.button`
 const Sort = styled.div`
   cursor: pointer;
   padding:4px;
-  
   &:hover {
     background-color: rgba(0, 0, 0, .2);
   }
 `;
+
 const PriceSortText = styled.div`
-font-weight:600;
+  font-weight:600;
 `;
+
 class Sorter extends Component {
   constructor(props) {
     super(props);
     this.state = {
       sort:"Price (High to Low)",
       sortShow:false,
-
-      };
-
-      this.sortShow = this.sortShow.bind(this);
-      this.sortPriceAscending = this.sortPriceAscending.bind(this);
-      this.sortPriceDescending = this.sortPriceDescending.bind(this);
-
-  }
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
+    };
+    this.sortShow = this.sortShow.bind(this);
+    this.sortPriceAscending = this.sortPriceAscending.bind(this);
+    this.sortPriceDescending = this.sortPriceDescending.bind(this);
   }
   sortShow(){
      this.setState({ sortShow: !this.state.sortShow});
@@ -115,17 +98,8 @@ class Sorter extends Component {
   }
 }
 const mapStateToProps = state => ({
-  models: state.models,
-  maker: state.maker,
-  choosenModel:state.choosenModel,
-  power:state.power,
-  choosenPower:state.choosenPower,
-  years:state.years,
-  choosenYear:state.choosenYear,
   price:state.price,
   choosenPrice:state.choosenPrice,
-  cars:state.cars,
-  priceSort:state.priceSort,
   }); 
 
-  export default connect(mapStateToProps,{chooseModel, updateMaker, choosenPowerMax, choosenPowerMin, choosenYearMin , choosenYearMax, choosenPriceMin , choosenPriceMax,choosenSortPrice })(Sorter);
+  export default connect(mapStateToProps,{choosenSortPrice })(Sorter);

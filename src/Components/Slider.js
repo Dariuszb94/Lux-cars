@@ -4,13 +4,15 @@ import imgBg1 from '../Assets/Images/slide1bg.jpg';
 import imgBg2 from '../Assets/Images/slide2bg.jpg';
 import Search from './Search';
 import {NavLink} from "react-router-dom";
-const SliderContainer = styled.div`
 
+const SliderContainer = styled.div`
 `;
+
 const changeSlide = keyframes`
   from {opacity: 0.8;}
   to {opacity: 1;}
 `;
+
 const FirstSlide = styled.div`
   background-image: url(${imgBg1});
   padding-bottom:4%;
@@ -32,16 +34,13 @@ const FirstSlide = styled.div`
   }
   @media (max-width: 850px) {
     min-height:55vh;
-
   }
-
   @media (max-width: 750px) {
     grid-template-columns: 70% 30%;
     min-height:40vh;
   }
   @media (max-width: 680px) {
     grid-template-columns: 80% 20%;
-
   }
   @media (max-width: 600px) {
     grid-template-columns: 90% 10%;
@@ -52,6 +51,7 @@ const FirstSlide = styled.div`
     min-height:30vh;
   }
 `;
+
 const SecondSlide = styled.div`
   background-image: url(${imgBg2});
   padding-bottom:4%;
@@ -79,29 +79,24 @@ const SecondSlide = styled.div`
     min-height:55vh;
 
   }
-
   @media (max-width: 750px) {
     grid-template-columns: 70% 30%;
     min-height:40vh;
   }
   @media (max-width: 680px) {
     grid-template-columns: 80% 20%;
-
   }
   @media (max-width: 600px) {
     grid-template-columns: 90% 10%;
     min-height:35vh;
-
   }
   @media (max-width: 480px) {
     grid-template-columns: 95% 5%;
     min-height:30vh;
-
   }
 `;
+
 const SlideText = styled.div`
-
-
 `;
 
 const SlideUpperText = styled.h2`
@@ -115,7 +110,6 @@ const SlideUpperText = styled.h2`
   padding-right:4px;
   color:white;
   @media (max-width: 1400px) {
-
     width:70%;
   }
   @media (max-width: 1140px) {
@@ -123,15 +117,12 @@ const SlideUpperText = styled.h2`
   }
   @media (max-width: 970px) {
     font-size:2.3rem;
-    
   }
   @media (max-width: 890px) {
     font-size:2.1rem;
-
   }
   @media (max-width: 770px) {
     font-size:2.0rem;
-
   }
   @media (max-width: 750px) {
     width:85%;
@@ -139,7 +130,6 @@ const SlideUpperText = styled.h2`
   }
   @media (max-width: 600px) {
     font-size:2.0rem;
-
   }
   @media (max-width: 480px) {
     font-size:1.8rem;
@@ -147,10 +137,8 @@ const SlideUpperText = styled.h2`
   }
   @media (max-width: 360px) {
     font-size:1.7rem;
-
   }
 `;
-
 
 const SlideMiddleText = styled.h2`
   background-color: rgba(255, 255,255, .6);
@@ -161,35 +149,24 @@ const SlideMiddleText = styled.h2`
   font-size:2.2rem;
   padding-left:4px;
   padding-right:4px;
-
   @media (max-width: 1400px) {
-
-width:85%;
-}
-@media (max-width: 1140px) {
-
-}
-@media (max-width: 970px) {
-font-size:2.1rem;
-
-}
-@media (max-width: 890px) {
-font-size:2.0rem;
-
-}
-@media (max-width: 770px) {
-font-size:1.8rem;
-
-}
-@media (max-width: 750px) {
+    width:85%;
+    }
+  @media (max-width: 970px) {
+    font-size:2.1rem;
+  }
+  @media (max-width: 890px) {
+    font-size:2.0rem;
+  }
+  @media (max-width: 770px) {
+    font-size:1.8rem;
+  }
+  @media (max-width: 750px) {
     width:95%;
     font-size:2rem;
-
   }
   @media (max-width: 600px) {
     font-size:1.8rem;
-
-  }
 }
   @media (max-width: 480px) {
     font-size:1.6rem;
@@ -197,9 +174,9 @@ font-size:1.8rem;
   }
   @media (max-width: 360px) {
     font-size:1.5rem;
-
   }
 `;
+
 const SlideLowerText = styled.button`
   margin-top:16px;
   background-color: #ec6b0c;
@@ -212,54 +189,46 @@ const SlideLowerText = styled.button`
   padding-top:12px;
   padding-left:16px;
   padding-right:16px;
-  @media (max-width: 970px) {
-font-size:1.5rem;
-
-}
-@media (max-width: 890px) {
-font-size:1.4rem;
-
-}
-@media (max-width: 770px) {
-font-size:1.2rem;
-
-}
-@media (max-width: 770px) {
-font-size:1.4rem;
-
-}
-
--webkit-transition:0.2s linear;
+  -webkit-transition:0.2s linear;
   -moz-transition:0.2s linear;
   transition:0.2s linear;
   border-radius:5%;
+  @media (max-width: 970px) {
+    font-size:1.5rem;
+  }
+  @media (max-width: 890px) {
+    font-size:1.4rem;
+  }
+  @media (max-width: 770px) {
+    font-size:1.2rem;
+  }
+  @media (max-width: 770px) {
+    font-size:1.4rem;
+  }
   &:hover {
     background-color: black;
-
   } 
 `;
+
 const StyledLink = styled(NavLink).attrs()`
   width:100%;
-    text-decoration:none;
-    color:white;
-
-  
+  text-decoration:none;
+  color:white;
 `;
+
 export class Slider extends Component {
   constructor(props) {
     super(props);
     this.state = {
       background1:true,
       showSearch: true,
-      };
-      this.showSearch = this.showSearch.bind(this);
+    };
+    this.showSearch = this.showSearch.bind(this);
   }
   componentDidMount() {
-
     if (window.innerWidth <750){
-
-       this.setState({ showSearch: false});
-           }
+      this.setState({ showSearch: false});
+    }
     this.interval = setInterval(() => this.setState({ background1: !this.state.background1}), 10000);
     window.addEventListener('resize', this.showSearch);
   }
@@ -268,24 +237,16 @@ export class Slider extends Component {
     clearInterval(this.interval);
     window.removeEventListener('resize', this.showSearch);
   }
-  componentDidUpdate(){
 
-    
-  }
 showSearch(){
-
   if (window.innerWidth <750){
-
     if (this.state.showSearch===true)
-   this.setState({ showSearch: false});
-
-   }
-   if (window.innerWidth >=750){
-
+      this.setState({ showSearch: false});
+  }
+  if (window.innerWidth >=750){
     if (this.state.showSearch===false)
-   this.setState({ showSearch: true});
-
-   }
+      this.setState({ showSearch: true});
+  }
 }
 
   render() {

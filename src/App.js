@@ -10,15 +10,11 @@ import {Footer} from './Components/Footer';
 import {Finance} from './Components/Finance';
 import Contact from './Components/Contact';
 import FavouriteList from './Components/FavouriteList';
-import {
-    Route,
-    Switch
-  } from "react-router-dom";
-
+import {Route,Switch} from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <React.Fragment>
       <Header/>
       <Menu/>
       <Switch >
@@ -32,7 +28,7 @@ function App() {
         <Route component={Home} />
       </Switch>
       <Footer/>
-    </div>
+    </React.Fragment>
   );
 }
 

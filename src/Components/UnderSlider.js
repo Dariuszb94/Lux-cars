@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import CheckIcon from '@material-ui/icons/Check';
 
-
 const UnderSliderContainer = styled.div`
   display:flex;
   flex-direction:column;
@@ -17,15 +16,14 @@ const UnderSliderContainer = styled.div`
   padding-bottom:2%;
   @media (max-width: 1200px) {
     padding-left:4%;
-  padding-right:4%;
-
+    padding-right:4%;
   }
   @media (max-width: 920px) {
     padding-left:2%;
-  padding-right:2%;
-
+    padding-right:2%;
   }
 `;
+
 const UnderSliderContainerUpper = styled.h2`
   color:#ec6108;
   border-bottom:2px solid white;
@@ -33,29 +31,24 @@ const UnderSliderContainerUpper = styled.h2`
   font-size:3rem;
   @media (max-width: 630px) {
     font-size: 2.5rem;
-
   }
   @media (max-width: 520px) {
     font-size: 2.3rem;
-
   }
   @media (max-width: 440px) {
     font-size: 2.1rem;
-
   }
   @media (max-width: 400px) {
     font-size: 1.9rem;
-
   }
   @media (max-width: 350px) {
     font-size: 1.8rem;
-
   }
   @media (max-width: 320px) {
     font-size: 1.7rem;
-
   }
 `;
+
 const UnderSliderContainerLower = styled.div`
   display:flex;
   flex-direction:row;
@@ -73,28 +66,14 @@ const UnderSliderContainerLowerElement = styled.div`
   align-items:center;
   width:100%;
   justify-content:center;
-
 `;
+
 const Checked = styled(CheckIcon)`
   color: #ec6b0c;
   font-size: 32px !important;
 `;
+
 export class UnderSlider extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      };
-  }
-  componentDidMount() {
- 
-  }
-
-  componentWillUnmount() {
-
-  }
-  componentDidUpdate(){
-    
-  }
   render() {
     return (  
       <UnderSliderContainer>

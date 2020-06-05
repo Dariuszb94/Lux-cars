@@ -1,51 +1,40 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import CallIcon from '@material-ui/icons/Call';
-import MailIcon from '@material-ui/icons/Mail';
-import {NavLink} from "react-router-dom";
-import {GetInTouch} from './GetInTouch';
-import {OpeningHours} from './OpeningHours';
-import {QuickLinks} from './QuickLinks';
 import {FinanceApp} from './FinanceApp';
 
 const Container = styled.div`
-display:flex;
-flex-direction:column;
-background-color:black;
-color:white;
-
-
+  display:flex;
+  flex-direction:column;
+  background-color:black;
+  color:white;
 `;
+
 const HeaderText = styled.h1`
-font-size:2rem;
-
-position: relative;
-
+  font-size:2rem;
+  position: relative;
 `;
+
 const HeaderTextContainer = styled.div`
-
-
 `;
-const Header = styled.div`
-background-position:top center;
-display:flex;
-justify-content:center;
-align-items:center;
 
-background-image: url('https://i.ibb.co/CvWVj2X/close-up-of-coins-on-table-332304.jpg');
-background-size: cover;
-min-height:40vh;
-width:100%;
-    position: relative;
-&:before {
-  content: '';
+const Header = styled.div`
+  background-position:top center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-image: url('https://i.ibb.co/CvWVj2X/close-up-of-coins-on-table-332304.jpg');
+  background-size: cover;
+  min-height:40vh;
+  width:100%;
+  position: relative;
+  &:before {
+    content: '';
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     background: rgba(0,0,0,.7);
-
   }
   @media (max-width:1080px){
     min-height:35vh;
@@ -59,81 +48,60 @@ width:100%;
   @media (max-width:760px){
     min-height:20vh;
   }
-
-
 `;
+
 const Main = styled.div`
-padding:32px;
-padding-left:16%;
-padding-right:16%;
-@media (max-width:1400px){
-  padding-left:12%;
-padding-right:12%;
+  padding:32px;
+  padding-left:16%;
+  padding-right:16%;
+  @media (max-width:1400px){
+    padding-left:12%;
+    padding-right:12%;
   }
   @media (max-width:1200px){
-  padding-left:8%;
-padding-right:8%;
+    padding-left:8%;
+    padding-right:8%;
   }
   @media (max-width:1000px){
-  padding-left:4%;
-padding-right:4%;
+    padding-left:4%;
+    padding-right:4%;
   }
   @media (max-width:600px){
     padding-left:2%;
-padding-right:2%;
-}
-@media (max-width:320px){
-    padding-left:2%;
-padding-right:2%;
+    padding-right:2%;
 }
 `;
+
 const MainLeftParagragraph = styled.p`
-margin-bottom:12px;
-text-align:justify;
-@media (max-width:400px){
-  font-size:0.95rem;
-  margin-bottom:8px;
+  margin-bottom:12px;
+  text-align:justify;
+  @media (max-width:400px){
+    font-size:0.95rem;
+    margin-bottom:8px;
   }
-
 `;
+
 const MainLeftUpper = styled.p`
-font-weight:800;
-margin-bottom:8px;
-@media (max-width:400px){
-
-  margin-bottom:4px;
+  font-weight:800;
+  margin-bottom:8px;
+  @media (max-width:400px){
+    margin-bottom:4px;
   }
-
-
 `;
+
 const MainLeftParagragraphStyled = styled.p`
-font-weight:700;
-margin-bottom:8px;
-color:#ec5d07;
-@media (max-width:400px){
-
-  margin-bottom:4px;
-  }
-
-
+  font-weight:700;
+  margin-bottom:8px;
+  color:#ec5d07;
+  @media (max-width:400px){
+    margin-bottom:4px;
+  } 
 `;
 
 
 export class Finance extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      };
-  }
   componentDidMount() {
     window.scrollTo(0, 0);
-  }
-
-  componentWillUnmount() {
-
-  }
-  componentDidUpdate(){
-    
   }
   render() {
     return (  

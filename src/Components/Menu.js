@@ -10,11 +10,10 @@ const MenuContainer = styled.div`
   color:white;
   font-weight:600;
   @media (max-width: 750px) {
-display:none;
-
-
+    display:none;
   }
 `;
+
 const MenuList = styled.ul`
   display:flex;
   flex-direction:row; 
@@ -22,6 +21,7 @@ const MenuList = styled.ul`
   justify-content:space-around;
   align-items: center;
 `;
+
 const DropDownContent = styled.div`
   display: none;
   width: 300px;
@@ -29,13 +29,12 @@ const DropDownContent = styled.div`
   background-color:white;
   z-index: 1;
   display: ${props => props.makerShow ? "block" : "none"};
-
 `;
+
 const MenuListElement = styled.li`
   cursor: pointer;
   padding-bottom:16px;
   padding-top:16px;
-  
   width:100%;
   text-align:center;
   -webkit-transition:0.2s linear;
@@ -48,26 +47,22 @@ const MenuListElement = styled.li`
     -webkit-backdrop-filter: grayscale(0.1) opacity(0.9);
   }  
 `;
-const MakerChoose = styled.li`
-color:black;
-cursor: pointer;
 
+const MakerChoose = styled.li`
+  color:black;
+  cursor: pointer;
   width:100%;
   text-align:center;
   -webkit-transition:0.2s linear;
   -moz-transition:0.2s linear;
   transition:0.2s linear;
+  display: inline-block;
   &:hover {
     background-color: rgba(0, 0, 0, .1);
     backdrop-filter: grayscale(0.1) opacity(0.9);
     -webkit-backdrop-filter: grayscale(0.1) opacity(0.9);
   }  
-
-width:100%;
-display: inline-block;
-
 `;
-
 
 const SubMaker = styled.div`
   cursor: pointer;
@@ -78,12 +73,13 @@ const SubMaker = styled.div`
     background-color: rgba(0, 0, 0, .2);
   }
 `;
-const activeClassName = 'nav-item-active'
+
 const StyledLink = styled(NavLink).attrs()`
   width:100%;
-    text-decoration:none;
-    color:white;
+  text-decoration:none;
+  color:white;
 `;
+
 const AnyMaker = styled.div`
   padding-bottom:16px;
   padding-top:16px;
@@ -91,35 +87,34 @@ const AnyMaker = styled.div`
   color: white;
   text-align: center;
   text-decoration: none;
- width:100%;
-text-decoration:none;
+  width:100%;
+  text-decoration:none;
   height:100%;
   font-size:1.2rem;
 `;
+
 class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
       makerShow:false,
-      };
-      this.makerChange = this.makerChange.bind(this);
-      this.makerShow = this.makerShow.bind(this);
-      this.makerHide = this.makerHide.bind(this);
-  }
-  componentDidMount() {
+    };
+    this.makerChange = this.makerChange.bind(this);
+    this.makerShow = this.makerShow.bind(this);
+    this.makerHide = this.makerHide.bind(this);
   }
 
-  componentWillUnmount() {
-  }
   makerChange(e){
-    this.props.updateMaker(e);
+    this.props.updateMaker(e.maker);
     let updatedModel={"model":"Any Model"};
     this.props.chooseModel(updatedModel.model)
     this.setState({ makerShow: !this.state.makerShow});
   }
+
   makerShow(){
      this.setState({ makerShow: true});
   }
+
   makerHide(){
      this.setState({ makerShow: false});
   }
@@ -133,13 +128,10 @@ class Menu extends Component {
           </StyledLink>
           <MakerChoose onMouseEnter={() => this.makerShow()} onMouseLeave={() => this.makerHide()}>
             <StyledLink to="/Offers">
-              <AnyMaker onClick={() => this.makerChange("Any Maker")}>USED CARS</AnyMaker>
+              <AnyMaker onClick={() => this.makerChange({maker:"Any Maker"})}>USED CARS</AnyMaker>
             </StyledLink>
             <DropDownContent makerShow={this.state.makerShow} >
-              <StyledLink to="/Offers"><SubMaker onClick={() => this.makerChange("Citroen")}>Citroen</SubMaker></StyledLink>
-              <StyledLink to="/Offers"><SubMaker onClick={() => this.makerChange("Mercedes-Benz")}>Mercedes-Benz</SubMaker></StyledLink>
-              <StyledLink to="/Offers"><SubMaker onClick={() => this.makerChange("BMW")}>BMW</SubMaker></StyledLink>
-              <StyledLink to="/Offers"><SubMaker onClick={() => this.makerChange("Honda")}>Honda</SubMaker></StyledLink>
+              {(this.props.makers===undefined) ?   null : (this.props.makers.map(maker =>   <StyledLink to="/Offers" key={maker} ><SubMaker onClick={() => this.makerChange({maker})}>{maker}</SubMaker></StyledLink> )) }
             </DropDownContent>
           </MakerChoose>
           <StyledLink to="/Finance" >
@@ -157,8 +149,7 @@ class Menu extends Component {
   }
 }
 const mapStateToProps = state => ({
-  models: state.models,
   maker: state.maker,
-  choosenModel:state.choosenModel
+  makers: state.makers,
   }); 
   export default connect(mapStateToProps,{chooseModel, updateMaker})(Menu);

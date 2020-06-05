@@ -17,4 +17,5 @@ export const SORT_PRICE = 'SORT_PRICE';
 export const CARS = 'CARS';
 export const CHOOSE_ID = 'CHOOSE_ID';
 export const CHOOSEN_SECTION = 'CHOOSEN_SECTION';
+export const READ_MAKERS= 'READ_MAKERS';
 
