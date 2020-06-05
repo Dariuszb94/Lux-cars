@@ -679,7 +679,7 @@ const initialState =[
     model:"W204",
     year:2007,
     mileage:115000,
-    price:32700,
+    price:39900,
     fuel:"Benzin",
     imageLogo:'https://i.ibb.co/crrX7tJ/mercedes-benz-logo.png',
     image1:'https://i.ibb.co/SRPYR1N/mini.jpg',
