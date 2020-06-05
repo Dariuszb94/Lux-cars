@@ -221,6 +221,7 @@ const CarPhotoChoose = styled.div`
 
 const CarPhotoChooseSmall= styled.img`
   width:28%;
+  height:100%;
   -webkit-transition:0.5s linear;
   -moz-transition:0.5s linear;
   transition:0.5s linear;
