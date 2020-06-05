@@ -43,14 +43,18 @@ const CarLogo = styled.img`
   flex-direction:row;
   background-color:white;
   width:112px;
+  height:112px;
   @media (max-width: 480px) {
     width:80px;
+    height:80px;
   }
   @media (max-width: 430px) {
     width:64px;
+    height:64px;
   }
   @media (max-width: 390px) {
     width:112px;
+    height:112px;
   }
 `;
 
