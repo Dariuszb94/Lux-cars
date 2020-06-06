@@ -103,7 +103,10 @@ class Menu extends Component {
     this.makerShow = this.makerShow.bind(this);
     this.makerHide = this.makerHide.bind(this);
   }
-
+/**
+ * Choosing maker to show (e.g. "Mercedes-Benz")
+ * @param {string} e.maker 
+ */
   makerChange(e){
     this.props.updateMaker(e.maker);
     let updatedModel={"model":"Any Model"};

@@ -252,6 +252,9 @@ export class FinanceApp extends Component {
     this.onChangeMail = this.onChangeMail.bind(this);
   }
 
+/**
+ * On submit data are checked (adequate states must be true), if OK =>"sent" element is displayed.
+ */
   submit(){
     if(this.state.validMail===true && this.state.validForname===true && this.state.validMiddleName===true && this.state.validNumber===true && this.state.validSurname===true ){
       this.setState({validSubmit: true});
@@ -262,6 +265,10 @@ export class FinanceApp extends Component {
     }
   }
 
+/**
+ * Veryfing name, value can't be empty and must be matched with regex.
+ *  @param   {string} e.target.value inputted name
+ */
   onChangeForname(e){
     let value = e.target.value;
     let letters = /^[A-Za-z]+$/;
@@ -276,6 +283,10 @@ export class FinanceApp extends Component {
     }
   }
 
+/**
+ * Veryfing name, value can't be empty and must be matched with regex.
+ *  @param   {string} e.target.value inputted name
+ */
   onChangeMiddleName(e){
     let value = e.target.value;
     let letters = /^[A-Za-z]+$/;
@@ -290,6 +301,10 @@ export class FinanceApp extends Component {
     }
   }
 
+/**
+ * Veryfing name, value can't be empty and must be matched with regex.
+ *  @param   {string} e.target.value inputted name
+ */
   onChangeSurname(e){
     let value = e.target.value;
     let letters = /^[A-Za-z]+$/;
@@ -304,6 +319,10 @@ export class FinanceApp extends Component {
     }
   }
 
+/**
+ * Veryfing number, value can't be empty and must be matched with regex.
+ *  @param {number} e.target.value inputted number
+ */
   onChangeNumber(e){
     let value = e.target.value;
     let numbers = /^[0-9]+$/;
@@ -318,6 +337,10 @@ export class FinanceApp extends Component {
     }
   }
 
+/**
+ * Veryfing mail, value can't be empty and must be matched with regex.
+ *  @param {string} e.target.value inputted mail
+ */
   onChangeMail(e){
     let value = e.target.value;
     let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

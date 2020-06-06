@@ -84,7 +84,7 @@ const FavouriteSet = (props) => {
     let canUpdate=true;
     if(props.carId===undefined){
       posts.forEach((idPost)=>{
-        if (idPost.id===window.location.href.slice(21).replace(/\D/g, "")){
+        if (idPost.id===window.location.href.slice(21).replace(/\D/g, "")){ //checking if car is already in database
           canUpdate=false;
         }
       })

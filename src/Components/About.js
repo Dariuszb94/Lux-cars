@@ -105,6 +105,7 @@ const SearchContainer = styled.div`
 `;
 
 class About extends Component {
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }

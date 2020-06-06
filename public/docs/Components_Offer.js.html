@@ -1,4 +1,105 @@
-import React, {Component} from 'react';
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Components/Offer.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Car dealer</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="Cars.html">Cars</a></li><li><a href="ContactForm.html">ContactForm</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#FavouriteList">FavouriteList</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Components/Offer.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import SpeedOutlinedIcon from '@material-ui/icons/SpeedOutlined';
@@ -179,7 +280,7 @@ const CarPhotoNaviRight = styled.div`
   display:flex;
   flex-direction:row;
   align-items: center;
-  &:hover {
+  &amp;:hover {
     color: ${props => props.swipeRightPossible ? "#ec6b0c" : "white"};
   } 
   @media(max-width:700px){
@@ -196,7 +297,7 @@ const CarPhotoNaviLeft = styled.div`
   display:flex;
   flex-direction:row;
   align-items: center;
-  &:hover {
+  &amp;:hover {
     color: ${props => props.swipeLeftPossible ? "#ec6b0c" : "white"};
   } 
   @media(max-width:700px){
@@ -227,7 +328,7 @@ const CarPhotoChooseSmall= styled.img`
   transition:0.5s linear;
   position: relative;
   cursor: pointer;
-  &:hover {
+  &amp;:hover {
     transform:scale(1.1);
     z-index:1;
   } 
@@ -247,7 +348,7 @@ const CarDetail = styled.div`
   -webkit-transition:0.3s linear;
   -moz-transition:0.3s linear;
   transition:0.3s linear;
-  &:hover {
+  &amp;:hover {
     background-color: #ec6b0c;  
   } 
   @media (max-width:900px) {
@@ -324,7 +425,7 @@ const CarHeaderSubTextRight = styled(Link).attrs()`
   -moz-transition:0.3s linear;
   transition:0.3s linear;
   text-decoration:none;
-  &:hover{
+  &amp;:hover{
     color:white;
     }
   @media (max-width:590px){
@@ -350,7 +451,7 @@ const CarDetailLink = styled(Link).attrs()`
   -moz-transition:0.3s linear;
   transition:0.3s linear;
   text-decoration:none;
-  &:hover {
+  &amp;:hover {
     background-color: #ec6b0c;
   } 
   @media (max-width:900px) {
@@ -415,7 +516,7 @@ const GoUp = styled.button`
   -moz-transition:opacity 0.2s linear;
   transition:opacity 0.2s linear;
   border-radius:50%;
-  &:hover{
+  &amp;:hover{
     opacity:1;
   }
 `;
@@ -480,22 +581,22 @@ class Offer extends Component {
   }
 
   handleResize() {
-    if(window.innerWidth<600){
+    if(window.innerWidth&lt;600){
       this.setState({ magnifierSize: "40%"});
       this.setState({ magnifierOffsetY: 60});
       this.setState({ magnifierOffsetY: 60});
     }
-    if(window.innerWidth<500){
+    if(window.innerWidth&lt;500){
       this.setState({ magnifierSize: "45%"});
       this.setState({ magnifierOffsetY: 70});
       this.setState({ magnifierOffsetY: 70});
     }
-    if(window.innerWidth<400){
+    if(window.innerWidth&lt;400){
       this.setState({ magnifierSize: "50%"});
       this.setState({ magnifierOffsetY: 80});
       this.setState({ magnifierOffsetY: 80});
     }
-    if(window.innerWidth<710){
+    if(window.innerWidth&lt;710){
       this.setState({ magnifierDesktop: "none"});
       this.setState({ magnifierMobile: "block"});
     }
@@ -518,7 +619,7 @@ class Offer extends Component {
  */
   swipeRight(){
     this.setState({ swipeLeftPossible: true});
-    if (this.state.smallImageSelect3 <this.state.listOfImages.length-1){
+    if (this.state.smallImageSelect3 &lt;this.state.listOfImages.length-1){
       this.setState({ smallImageSelect1: this.state.smallImageSelect1 + 1 });
       this.setState({ smallImageSelect2: this.state.smallImageSelect2 + 1 });
       this.setState({ smallImageSelect3: this.state.smallImageSelect3 + 1 });
@@ -627,15 +728,15 @@ class Offer extends Component {
     if(this.props.priceSort.priceSort==="Ascending")
     filteredArray.sort((a, b) => (a.price > b.price) ? 1 : -1)
     if(this.props.priceSort.priceSort==="Descending")
-    filteredArray.sort((a, b) => (a.price < b.price) ? 1 : -1)
+    filteredArray.sort((a, b) => (a.price &lt; b.price) ? 1 : -1)
   }
 
   filterModel(car, filteredArray){
     if(this.props.maker.maker===car.brand || this.props.maker.maker==="Any Maker") {
       if(this.props.choosenModel.choosenModel===car.model || this.props.choosenModel.choosenModel==="Any Model"){
-        if((this.props.choosenPower.maxPower>=car.power || this.props.choosenPower.maxPower===null)&&(this.props.choosenPower.minPower<=car.power || this.props.choosenPower.minPower===null)){
-          if((this.props.choosenYear.maxYear>=car.year || this.props.choosenYear.maxYear===null) && (this.props.choosenYear.minYear<=car.year || this.props.choosenYear.minYear===null)){
-            if((this.props.choosenPrice.maxPrice>=car.price || this.props.choosenPrice.maxPrice===null) && (this.props.choosenPrice.minPrice<=car.price || this.props.choosenPrice.minPrice===null)){
+        if((this.props.choosenPower.maxPower>=car.power || this.props.choosenPower.maxPower===null)&amp;&amp;(this.props.choosenPower.minPower&lt;=car.power || this.props.choosenPower.minPower===null)){
+          if((this.props.choosenYear.maxYear>=car.year || this.props.choosenYear.maxYear===null) &amp;&amp; (this.props.choosenYear.minYear&lt;=car.year || this.props.choosenYear.minYear===null)){
+            if((this.props.choosenPrice.maxPrice>=car.price || this.props.choosenPrice.maxPrice===null) &amp;&amp; (this.props.choosenPrice.minPrice&lt;=car.price || this.props.choosenPrice.minPrice===null)){
               filteredArray.push(car);
             }
           }
@@ -655,26 +756,26 @@ class Offer extends Component {
 
   render() {
     return (  
-      <CarsContainer>
-        <SubNavi/>
-        <CarList> 
-          <Car key={this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id}>
-            <CarHeader>
-              <CarLogo src={this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageLogo}></CarLogo>
-              <CarHeaderText>
-                <CarHeaderTextRight>
-                  <CarHeaderMainText>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].year} {this.props.cars[this.props.location.pathname.replace(/\D/g, "")].brand} {this.props.cars[this.props.location.pathname.replace(/\D/g, "")].model}</CarHeaderMainText>
-                  <CarHeaderSubText>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].power} KM {this.props.cars[this.props.location.pathname.replace(/\D/g, "")].displacement} cm3</CarHeaderSubText>
-                </CarHeaderTextRight>
-                <CarHeaderTextLeft>
-                  <CarHeaderMainTextRight>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price} PLN</CarHeaderMainTextRight>
-                  <CarHeaderSubTextRight  to={{ pathname: '/Offer/Vehicle-Finances/'+this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id}}  onClick={()=> { this.changeSection("Finance")}}>Finance from {(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price*1.05/72).toFixed(0)} PLN</CarHeaderSubTextRight>
-                </CarHeaderTextLeft>
-              </CarHeaderText>
-            </CarHeader>
-            <CarMain>
-              <CarPhotoContainer>
-                <GlassMagnifier
+      &lt;CarsContainer>
+        &lt;SubNavi/>
+        &lt;CarList> 
+          &lt;Car key={this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id}>
+            &lt;CarHeader>
+              &lt;CarLogo src={this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageLogo}>&lt;/CarLogo>
+              &lt;CarHeaderText>
+                &lt;CarHeaderTextRight>
+                  &lt;CarHeaderMainText>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].year} {this.props.cars[this.props.location.pathname.replace(/\D/g, "")].brand} {this.props.cars[this.props.location.pathname.replace(/\D/g, "")].model}&lt;/CarHeaderMainText>
+                  &lt;CarHeaderSubText>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].power} KM {this.props.cars[this.props.location.pathname.replace(/\D/g, "")].displacement} cm3&lt;/CarHeaderSubText>
+                &lt;/CarHeaderTextRight>
+                &lt;CarHeaderTextLeft>
+                  &lt;CarHeaderMainTextRight>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price} PLN&lt;/CarHeaderMainTextRight>
+                  &lt;CarHeaderSubTextRight  to={{ pathname: '/Offer/Vehicle-Finances/'+this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id}}  onClick={()=> { this.changeSection("Finance")}}>Finance from {(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price*1.05/72).toFixed(0)} PLN&lt;/CarHeaderSubTextRight>
+                &lt;/CarHeaderTextLeft>
+              &lt;/CarHeaderText>
+            &lt;/CarHeader>
+            &lt;CarMain>
+              &lt;CarPhotoContainer>
+                &lt;GlassMagnifier
                   imageSrc={this.state.mainImage}
                   imageAlt={this.props.cars[this.props.location.pathname.replace(/\D/g, "")].model}
                   magnifierOffsetX={this.state.magnifierOffsetX}
@@ -682,54 +783,54 @@ class Offer extends Component {
                   magnifierSize={this.state.magnifierSize}
                   style={{ display: this.state.magnifierDesktop }}
                 />
-                <Magnifier
+                &lt;Magnifier
                   imageSrc={this.state.mainImage}
                   largeImageSrc={this.state.mainImage}
                   style={{ display: this.state.magnifierMobile }}
                 />
-                <CarPhotoChoose>
-                  <CarPhotoNaviLeft swipeLeftPossible={this.state.swipeLeftPossible}><StyledArrowLeftIcon onClick={() => this.swipeLeft()}  ></StyledArrowLeftIcon></CarPhotoNaviLeft>
-                  <CarPhotoChooseSmall src={this.state.listOfImages[this.state.smallImageSelect1]} onClick={() => this.displayPhoto(this.state.listOfImages[this.state.smallImageSelect1],1)}></CarPhotoChooseSmall>
-                  <CarPhotoChooseSmall src={this.state.listOfImages[this.state.smallImageSelect2]} onClick={() => this.displayPhoto(this.state.listOfImages[this.state.smallImageSelect2],2)}></CarPhotoChooseSmall>
-                  <CarPhotoChooseSmall src={this.state.listOfImages[this.state.smallImageSelect3]} onClick={() => this.displayPhoto(this.state.listOfImages[this.state.smallImageSelect3],3)}></CarPhotoChooseSmall>
-                  <CarPhotoNaviRight swipeRightPossible={this.state.swipeRightPossible}><StyledArrowRightIcon onClick={() => this.swipeRight()} ></StyledArrowRightIcon></CarPhotoNaviRight>
-                </CarPhotoChoose>
-              </CarPhotoContainer>
-              <CarMainDetails>
-                  <CarDetailLink to="#contact">
-                    <StyledSpeedOutlinedIcon></StyledSpeedOutlinedIcon>
-                    <CarDetailText>&nbsp;&nbsp;Send An Enquiry</CarDetailText>
-                  </CarDetailLink>
-                  <CarDetail onClick={()=>this.print()}>
-                    <StyledColorLensOutlinedIcon></StyledColorLensOutlinedIcon>
-                    <CarDetailText>&nbsp;&nbsp;Print This Page</CarDetailText>
-                  </CarDetail>
-                  <CarDetailLink to="#similarVehicles">
-                    <StyledBatteryFullIcon></StyledBatteryFullIcon>
-                    <CarDetailText>&nbsp;&nbsp;Similar Vehicles</CarDetailText>
-                  </CarDetailLink>
-                <CarDetailOrangeContainer>
-                    <FavouriteSet/>
-                </CarDetailOrangeContainer>
-              </CarMainDetails>
-            </CarMain>
-            <CarDetails></CarDetails>
-            </Car> 
-        </CarList>
-        <VehicleInfoSection ref="vehicleInfo">
-          <VehicleInfo></VehicleInfo>
-        </VehicleInfoSection>
-        <ContactFormSection id="contact">
-          <ContactHeader>Send a message</ContactHeader>
-          <ContactFormContainer>
-            <ContactForm></ContactForm>
-          </ContactFormContainer>
-        </ContactFormSection>
-        <SimilarVehiclesSection id="similarVehicles">
-          <SimilarVehicles></SimilarVehicles>
-        </SimilarVehiclesSection>
-        <GoUp onClick={()=>{this.goUp()}}><StyledKeyboardArrowUpIcon/><GoUpText>Up</GoUpText></GoUp>
-      </CarsContainer>
+                &lt;CarPhotoChoose>
+                  &lt;CarPhotoNaviLeft swipeLeftPossible={this.state.swipeLeftPossible}>&lt;StyledArrowLeftIcon onClick={() => this.swipeLeft()}  >&lt;/StyledArrowLeftIcon>&lt;/CarPhotoNaviLeft>
+                  &lt;CarPhotoChooseSmall src={this.state.listOfImages[this.state.smallImageSelect1]} onClick={() => this.displayPhoto(this.state.listOfImages[this.state.smallImageSelect1],1)}>&lt;/CarPhotoChooseSmall>
+                  &lt;CarPhotoChooseSmall src={this.state.listOfImages[this.state.smallImageSelect2]} onClick={() => this.displayPhoto(this.state.listOfImages[this.state.smallImageSelect2],2)}>&lt;/CarPhotoChooseSmall>
+                  &lt;CarPhotoChooseSmall src={this.state.listOfImages[this.state.smallImageSelect3]} onClick={() => this.displayPhoto(this.state.listOfImages[this.state.smallImageSelect3],3)}>&lt;/CarPhotoChooseSmall>
+                  &lt;CarPhotoNaviRight swipeRightPossible={this.state.swipeRightPossible}>&lt;StyledArrowRightIcon onClick={() => this.swipeRight()} >&lt;/StyledArrowRightIcon>&lt;/CarPhotoNaviRight>
+                &lt;/CarPhotoChoose>
+              &lt;/CarPhotoContainer>
+              &lt;CarMainDetails>
+                  &lt;CarDetailLink to="#contact">
+                    &lt;StyledSpeedOutlinedIcon>&lt;/StyledSpeedOutlinedIcon>
+                    &lt;CarDetailText>&amp;nbsp;&amp;nbsp;Send An Enquiry&lt;/CarDetailText>
+                  &lt;/CarDetailLink>
+                  &lt;CarDetail onClick={()=>this.print()}>
+                    &lt;StyledColorLensOutlinedIcon>&lt;/StyledColorLensOutlinedIcon>
+                    &lt;CarDetailText>&amp;nbsp;&amp;nbsp;Print This Page&lt;/CarDetailText>
+                  &lt;/CarDetail>
+                  &lt;CarDetailLink to="#similarVehicles">
+                    &lt;StyledBatteryFullIcon>&lt;/StyledBatteryFullIcon>
+                    &lt;CarDetailText>&amp;nbsp;&amp;nbsp;Similar Vehicles&lt;/CarDetailText>
+                  &lt;/CarDetailLink>
+                &lt;CarDetailOrangeContainer>
+                    &lt;FavouriteSet/>
+                &lt;/CarDetailOrangeContainer>
+              &lt;/CarMainDetails>
+            &lt;/CarMain>
+            &lt;CarDetails>&lt;/CarDetails>
+            &lt;/Car> 
+        &lt;/CarList>
+        &lt;VehicleInfoSection ref="vehicleInfo">
+          &lt;VehicleInfo>&lt;/VehicleInfo>
+        &lt;/VehicleInfoSection>
+        &lt;ContactFormSection id="contact">
+          &lt;ContactHeader>Send a message&lt;/ContactHeader>
+          &lt;ContactFormContainer>
+            &lt;ContactForm>&lt;/ContactForm>
+          &lt;/ContactFormContainer>
+        &lt;/ContactFormSection>
+        &lt;SimilarVehiclesSection id="similarVehicles">
+          &lt;SimilarVehicles>&lt;/SimilarVehicles>
+        &lt;/SimilarVehiclesSection>
+        &lt;GoUp onClick={()=>{this.goUp()}}>&lt;StyledKeyboardArrowUpIcon/>&lt;GoUpText>Up&lt;/GoUpText>&lt;/GoUp>
+      &lt;/CarsContainer>
     );
   }
 }
@@ -749,4 +850,32 @@ const mapStateToProps = state => ({
   section:state.section
   }); 
 
-  export default connect(mapStateToProps,{choosenSection})(Offer);
+  export default connect(mapStateToProps,{choosenSection})(Offer);</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

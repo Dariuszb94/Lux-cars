@@ -261,6 +261,9 @@ const CarWithButtons = styled.li`
  border-bottom:2px solid #3a3a3a;
 `;
 
+/**
+ * "Cars" component shows list of cars.
+ */
 class Cars extends Component {
   constructor(props) {
     super(props);
@@ -277,7 +280,10 @@ class Cars extends Component {
   componentDidUpdate(){
     this.filterCars();
   }
-
+/**
+ * Mapping through this.props.cars, then list is sorted and states are updated.
+ * 
+ */
   filterCars(){
     let filteredArray=[];
     this.props.cars.forEach((car)=>{
@@ -288,9 +294,9 @@ class Cars extends Component {
   }
 
   updateList(filteredArray){
-    let prevState = JSON.stringify([...this.state.cars]);
-    let newState = JSON.stringify([...filteredArray]);
-    if(prevState!==newState){
+    let prevState = JSON.stringify([...this.state.cars]); //strinigifing list before comparision
+    let newState = JSON.stringify([...filteredArray]); //strinigifing list before comparision
+    if(prevState!==newState){ //comparing stringified lists, if nothing new, states aren't updated
       this.setState({ cars: filteredArray});
     }
   }
@@ -308,16 +314,19 @@ class Cars extends Component {
         if((this.props.choosenPower.maxPower>=car.power || this.props.choosenPower.maxPower===null)&&(this.props.choosenPower.minPower<=car.power || this.props.choosenPower.minPower===null)){
           if((this.props.choosenYear.maxYear>=car.year || this.props.choosenYear.maxYear===null) && (this.props.choosenYear.minYear<=car.year || this.props.choosenYear.minYear===null)){
             if((this.props.choosenPrice.maxPrice>=car.price || this.props.choosenPrice.maxPrice===null) && (this.props.choosenPrice.minPrice<=car.price || this.props.choosenPrice.minPrice===null)){
-              filteredArray.push(car);
+              filteredArray.push(car); //push new car to the list after filtering
             }
           }
         } 
       }
     }
   }
-
+/**
+ * Update choosen id of a car.
+ * @param {number} e  car id
+ */
   chooseId(e){
-    this.props.chooseId(e);
+    this.props.chooseId(e); 
   }
 
   render() {

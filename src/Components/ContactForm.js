@@ -79,7 +79,9 @@ const FormElement = styled.div`
 const Sent =styled.div`
   display:none;
 `;
-
+/**
+ * "ContactForm" component includes of name, mail, address inputs and submitting them.
+ */
 class ContactForm extends Component {
   constructor(props) {
     super(props);
@@ -95,9 +97,11 @@ class ContactForm extends Component {
   }
 
   componentDidMount() {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0); 
   }
-
+/**
+ * On submit data are validated, check if mail, number and namer are OK. If data is valid, element "sent" is displayed.
+ */
   submit(){
     if(this.state.validMail===true && this.state.validNumber===true && this.state.validName===true ){
       this.setState({validSubmit: true});
@@ -107,7 +111,10 @@ class ContactForm extends Component {
       this.setState({validSubmit: false});
     }
   }
-
+/**
+ * Veryfing telephone number, value can't be empty and must be matched with regex.
+ *    @param   {number} e.target.value inputted telephone number
+ */
   onChangeTel(e){
     let value = e.target.value;
     let numbers = /^[0-9]+$/;
@@ -122,6 +129,10 @@ class ContactForm extends Component {
     }
   }
 
+/**
+ * Veryfing name, value can't be empty and must be matched with regex.
+ *  @param   {string} e.target.value inputted name
+ */
   onChangeName(e){
     let value = e.target.value;
     let letters = /^[A-Za-z]+$/;
@@ -136,6 +147,10 @@ class ContactForm extends Component {
     }
   }
 
+/**
+ * Veryfing mail, value can't be empty and must be matched with regex.
+ *  @param {string} e.target.value inputted mail
+ */
   onChangeMail(e){
     let value = e.target.value;
     let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

@@ -35,7 +35,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docs": "jsdoc -c jsdoc.conf.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -53,8 +54,10 @@
     ]
   },
   "devDependencies": {
+    "better-docs": "^2.0.1",
     "file-loader": "^6.0.0",
     "gh-pages": "^2.2.0",
+    "jsdoc": "^3.6.4",
     "url-loader": "^4.1.0"
   }
 }

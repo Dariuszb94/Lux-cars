@@ -141,6 +141,11 @@ const CarImage = styled.img`
   height:auto;
   max-width:100%;
 `;
+/**
+ * List of favourites cars stored in indexedDB
+ * @param {array} cars list of cars
+ * @param {string} id id of car
+ */
 const FavouriteList = ({ id,cars }) => {
   //set the database 
   const db = new Dexie("CarsIds");
@@ -162,7 +167,7 @@ const FavouriteList = ({ id,cars }) => {
         setPosts(allPosts);
     }
     useEffect(() => {
-      let unmounted = false
+      let unmounted = false  //set false for later unmounting (prevent data leak)
       //get all posts from the database
       const getPosts = async() => {
         let allPosts = await db.posts.toArray();
