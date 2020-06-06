@@ -12,9 +12,12 @@ import ContactForm from './ContactForm';
 import FavouriteSet from './FavouriteSet';
 import { HashLink as Link } from 'react-router-hash-link';
 import {choosenSection}from '../Actions/carOfferNaviActions';
-import {Magnifier,GlassMagnifier,MOUSE_ACTIVATION,
-  TOUCH_ACTIVATION} from "react-image-magnifiers";
+import {Magnifier,GlassMagnifier} from "react-image-magnifiers";
 import SubNavi from './SubNavi';
+import {
+  TOUCH_ACTIVATION,
+  MOUSE_ACTIVATION
+} from "react-input-position";
 
 const CarsContainer = styled.div`
   background-color:black;
@@ -416,6 +419,9 @@ class Offer extends Component {
       imageHighLight3:false,
       swipeRightPossible:true,
       swipeLeftPossible:true,
+      magnifierMobile:"none",
+      magnifierDesktop:"block",
+      
     };
     this.swipeLeft = this.swipeLeft.bind(this);
     this.swipeRight = this.swipeRight.bind(this);
@@ -457,6 +463,14 @@ class Offer extends Component {
       this.setState({ magnifierSize: "50%"});
       this.setState({ magnifierOffsetY: 80});
       this.setState({ magnifierOffsetY: 80});
+    }
+    if(window.innerWidth<710){
+      this.setState({ magnifierDesktop: "none"});
+      this.setState({ magnifierMobile: "block"});
+    }
+    else{
+      this.setState({ magnifierDesktop: "block"});
+      this.setState({ magnifierMobile: "none"});
     }
   }
 
@@ -631,11 +645,14 @@ class Offer extends Component {
                   magnifierOffsetX={this.state.magnifierOffsetX}
                   magnifierOffsetY={this.state.magnifierOffsetY}
                   magnifierSize={this.state.magnifierSize}
+                  style={{ display: this.state.magnifierDesktop }}
                 />
                 <Magnifier
+                  imageSrc={this.state.mainImage}
                   largeImageSrc={this.state.mainImage}
-                  mouseActivation={MOUSE_ACTIVATION.DOUBLE_CLICK} // Optional
-                  touchActivation={TOUCH_ACTIVATION.DOUBLE_TAP} // Optional
+                 // mouseActivation="doubleClick"
+                 // touchActivation="doubleTap"
+                  style={{ display: this.state.magnifierMobile }}
                 />
                 <CarPhotoChoose>
                   <CarPhotoNaviLeft swipeLeftPossible={this.state.swipeLeftPossible}><StyledArrowLeftIcon onClick={() => this.swipeLeft()}  ></StyledArrowLeftIcon></CarPhotoNaviLeft>
