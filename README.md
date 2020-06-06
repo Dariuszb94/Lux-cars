@@ -8,8 +8,16 @@ App lets you search for cars, saving favourites and calculate loans.
 ## General info
 App has multiple functions regarding car purchase.
 
+In header, clicking on logo lets you go to main page wherever you are. Menu includes of five links to different elements of car dealership.
+
+Element of menu - "USED CARS" is a dropdown list, you can choose desired car brand to show.
+
 Main page slider has two backgrounds with content, they are changing every ten seconds.
 On main page slider you can also select car brand and car model which you desire to find. You can see list of cars after clicking "search".
+
+Footer of page has call and mail functionality, also you can go to twitter and facebook page from there.
+
+Car list can be filtered by brand, model, power, year, price. List is constantly updating. You can reset filters by clicking "RESET FILTERS".
 
 
 ## Technologies
