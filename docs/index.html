@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Home</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Car dealer</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="Cars.html">Cars</a></li><li><a href="ContactForm.html">ContactForm</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#FavouriteList">FavouriteList</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Title</p>
+                    <h1>Home</h1>
+                </header>
+                
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>Car dealer app</h1>
+<p>App lets you search for cars, saving favourites and calculate loans.</p>
+<h2>Table of contents</h2>
+<ul>
+<li><a href="#general-info">General info</a></li>
+<li><a href="#technologies">Technologies</a></li>
+<li><a href="#setup">Setup</a></li>
+</ul>
+<h2>General info</h2>
+<p>App has multiple functions regarding car purchase.</p>
+<p>In header, clicking on logo lets you go to main page wherever you are. Menu includes of five links to different elements of car dealership. Element of menu - &quot;USED CARS&quot; is a dropdown list, you can choose desired car brand to show. Main page slider has two backgrounds with content, they are changing every ten seconds. On main page slider you can also select car brand and car model which you desire to find. You can see list of cars after clicking &quot;search&quot;. Footer of page has call and mail functionality, also you can go to twitter and facebook page from there.</p>
+<p>Car list can be filtered by brand, model, power, year, price. List is constantly updating. You can reset filters by clicking &quot;RESET FILTERS&quot;. List can be also sorted by price. Car list consist of car offers. You can add car to favourite (&quot;Add to favourites&quot;) or access list of favourites cars (&quot;View favourites&quot;). Favourite cars are storaged in indexedDB.</p>
+<p>After clicking on car offer you are redirected to detailed offer, you can reach top of this element by clicking on &quot;UP&quot;. There you can see more images (zooming is available), feature info, description info and finance info.</p>
+<p>Feature info consists of three dropdown list of car attributes. Description info consists of list info and long text info. Finance info lets you calculate car loan basing of car price, term and self deposit.</p>
+<p>Below, contact section lets you send request regarding current car, data are being validated before sending. If all data are OK, info is displayed.</p>
+<p>Another element is similar car section, based on actual car propositions are displayed. You can click on them to see offers.</p>
+<p>Finance section lets you fill the form, data are being validated before sending. If all data are OK, info is displayed.</p>
+<p>About section consists of text info and search. You can also contact (mail and telephone) from there.</p>
+<p>Contact section is made to locate company on map and to send info by form.</p>
+<h2>Technologies</h2>
+<p>Project is created with:</p>
+<ul>
+<li>React version: 16.13.1</li>
+<li>Redux: 4.0.5,</li>
+<li>Redux-thunk: 2.3.0,</li>
+<li>Styled-components: 5.1.0,</li>
+<li>Material-ui/icons: 4.9.1,</li>
+<li>Dexie: 3.0.1</li>
+<li>React-image-magnifiers: 1.3.2</li>
+<li>React-transitions: 1.0.0</li>
+</ul>
+<h2>Setup</h2>
+<p>To run this project, download a repo, then go to repo folder, open terminal:</p>
+<pre class="prettyprint source"><code>$ npm install
+$ npm run start
+</code></pre></article>
+    </section>
+
+
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

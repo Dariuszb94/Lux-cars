@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Components/ContactForm.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Car dealer</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="Cars.html">Cars</a></li><li><a href="ContactForm.html">ContactForm</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#FavouriteList">FavouriteList</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Components/ContactForm.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React , {Component} from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display:flex;
+  flex-direction:column;
+  padding-top:16px;
+  padding-bottom:16px;
+`;
+
+const Name = styled.input`
+  margin-bottom:8px;
+  border-radius:4px;
+  border:none;
+  padding:4px;
+  width:100%;
+`;
+
+const Tel = styled.input`
+  margin-bottom:8px;
+  border-radius:4px;
+  border:none;
+  width:100%;
+  padding:4px;
+`;
+
+const Email = styled.input`
+  margin-bottom:8px;
+  border-radius:4px;
+  border:none;
+  width:100%;
+  padding:4px;
+`;
+
+const Enquiry = styled.textarea`
+  margin-bottom:8px;
+  border-radius:4px;
+  width:100%;
+  border:none;
+  padding:4px;
+`;
+
+const Send = styled.button`
+  padding-top:8px;
+  padding-bottom:8px;
+  background-color:#ec6b0c;
+  color:white;
+  border-radius:4px;
+  border:none;
+  cursor: pointer;
+`;
+
+const WarningName= styled.div`
+  color:red;
+  font-size:1.2rem;
+  display:none;
+  font-weight:900;
+`;
+
+const WarningTel= styled.div`
+  color:red;
+  font-size:1.2rem;
+  display:none;
+  font-weight:900;
+`;
+
+const WarningMail= styled.div`
+  color:red;
+  font-size:1.2rem;
+  display:none;
+  font-weight:900;
+`;
+
+const FormElement = styled.div`
+  display:flex;
+  margin-bottom:16px;
+`;
+
+const Sent =styled.div`
+  display:none;
+`;
+/**
+ * "ContactForm" component includes of name, mail, address inputs and submitting them.
+ */
+class ContactForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      validMail:false,
+      validNumber:false,
+      validName:false,
+      };
+      this.onChangeName = this.onChangeName.bind(this);
+      this.onChangeTel = this.onChangeTel.bind(this);
+      this.onChangeMail = this.onChangeMail.bind(this);
+      this.submit = this.submit.bind(this);
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0); 
+  }
+/**
+ * On submit data are validated, check if mail, number and namer are OK. If data is valid, element "sent" is displayed.
+ */
+  submit(){
+    if(this.state.validMail===true &amp;&amp; this.state.validNumber===true &amp;&amp; this.state.validName===true ){
+      this.setState({validSubmit: true});
+      document.getElementById("sent").style.display = "block";
+    }
+    else{
+      this.setState({validSubmit: false});
+    }
+  }
+/**
+ * Veryfing telephone number, value can't be empty and must be matched with regex.
+ *    @param   {number} e.target.value inputted telephone number
+ */
+  onChangeTel(e){
+    let value = e.target.value;
+    let numbers = /^[0-9]+$/;
+    if(value!=="" &amp;&amp; value.match(numbers)){
+      document.getElementById("warningTel").style.display = "none";
+      this.setState({number: value});
+      this.setState({validNumber: true});
+    }
+    else{
+      document.getElementById("warningTel").style.display = "block";
+      this.setState({validNumber: false});
+    }
+  }
+
+/**
+ * Veryfing name, value can't be empty and must be matched with regex.
+ *  @param   {string} e.target.value inputted name
+ */
+  onChangeName(e){
+    let value = e.target.value;
+    let letters = /^[A-Za-z]+$/;
+    if(value.match(letters)){
+      document.getElementById("warningName").style.display = "none";
+      this.setState({name: value});
+      this.setState({validName: true});
+    }
+    else{
+      document.getElementById("warningName").style.display = "block";
+      this.setState({validName: false});
+    }
+  }
+
+/**
+ * Veryfing mail, value can't be empty and must be matched with regex.
+ *  @param {string} e.target.value inputted mail
+ */
+  onChangeMail(e){
+    let value = e.target.value;
+    let re = /^(([^&lt;>()[\]\\.,;:\s@"]+(\.[^&lt;>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(re.test(String(value).toLowerCase())){
+       document.getElementById("warningMail").style.display = "none";
+       this.setState({mail: value});
+      this.setState({validMail: true});
+    }
+    else{
+      document.getElementById("warningMail").style.display = "block";
+      this.setState({validMail: false});
+    }
+  }
+
+  render() {
+    return (  
+      &lt;Container>
+        &lt;FormElement>
+          &lt;Name placeholder="Your Name" type="text" onChange={this.onChangeName}>&lt;/Name>
+          &lt;WarningName id="warningName">!&lt;/WarningName>
+        &lt;/FormElement>
+        &lt;FormElement>
+          &lt;Tel placeholder="Your telephone number"  type="number"  onChange={this.onChangeTel}>&lt;/Tel>
+          &lt;WarningTel id="warningTel">!&lt;/WarningTel>
+        &lt;/FormElement>
+        &lt;FormElement>
+          &lt;Email placeholder="Your email adress" type="text"  onChange={this.onChangeMail}>&lt;/Email>
+          &lt;WarningMail id="warningMail">!&lt;/WarningMail>
+        &lt;/FormElement>
+        &lt;FormElement>
+          &lt;Enquiry placeholder="Message">&lt;/Enquiry>
+        &lt;/FormElement>
+        &lt;Send  onClick={()=>this.submit()}>Send&lt;/Send>
+        &lt;Sent id="sent">Request sent&lt;/Sent>
+      &lt;/Container>
+    );
+  }
+}
+export default ContactForm;</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>
