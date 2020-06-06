@@ -634,7 +634,8 @@ class Offer extends Component {
                 />
                 <Magnifier
                   largeImageSrc={this.state.mainImage}
-                  touchActivation={TOUCH_ACTIVATION.DOUBLE_TAP}
+                  mouseActivation={MOUSE_ACTIVATION.DOUBLE_CLICK} // Optional
+                  touchActivation={TOUCH_ACTIVATION.DOUBLE_TAP} // Optional
                 />
                 <CarPhotoChoose>
                   <CarPhotoNaviLeft swipeLeftPossible={this.state.swipeLeftPossible}><StyledArrowLeftIcon onClick={() => this.swipeLeft()}  ></StyledArrowLeftIcon></CarPhotoNaviLeft>
