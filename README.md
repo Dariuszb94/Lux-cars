@@ -8,16 +8,18 @@ App lets you search for cars, saving favourites and calculate loans.
 ## General info
 App has multiple functions regarding car purchase.
 
-In header, clicking on logo lets you go to main page wherever you are. Menu includes of five links to different elements of car dealership.
+In header, clicking on logo lets you go to main page wherever you are. Menu includes of five links to different elements of car dealership. Element of menu - "USED CARS" is a dropdown list, you can choose desired car brand to show. Main page slider has two backgrounds with content, they are changing every ten seconds. On main page slider you can also select car brand and car model which you desire to find. You can see list of cars after clicking "search". Footer of page has call and mail functionality, also you can go to twitter and facebook page from there.
 
-Element of menu - "USED CARS" is a dropdown list, you can choose desired car brand to show.
+Car list can be filtered by brand, model, power, year, price. List is constantly updating. You can reset filters by clicking "RESET FILTERS". List can be also sorted by price. Car list consist of car offers. You can add car to favourite ("Add to favourites") or access list of favourites cars ("View favourites").
 
-Main page slider has two backgrounds with content, they are changing every ten seconds.
-On main page slider you can also select car brand and car model which you desire to find. You can see list of cars after clicking "search".
+After clicking on car offer you are redirected to detailed offer. There you can see more images (zooming is available), feature info, description info and finance info.
 
-Footer of page has call and mail functionality, also you can go to twitter and facebook page from there.
+Feature info consists of three dropdown list of car attributes. Description info consists of list info and long text info. Finance info lets you calculate car loan basing of car price, term and self deposit.
+ 
+Another element is similar car section, based on actual car propositions are displayed. You can click on them to see offers.
 
-Car list can be filtered by brand, model, power, year, price. List is constantly updating. You can reset filters by clicking "RESET FILTERS".
+Below, contact section lets you send request regarding current car, data are being validated before sending. If all data are OK, info is displayed.
+
 
 
 ## Technologies
