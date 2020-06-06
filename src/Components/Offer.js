@@ -12,7 +12,8 @@ import ContactForm from './ContactForm';
 import FavouriteSet from './FavouriteSet';
 import { HashLink as Link } from 'react-router-hash-link';
 import {choosenSection}from '../Actions/carOfferNaviActions';
-import {Magnifier,GlassMagnifier,MOUSE_ACTIVATION,TOUCH_ACTIVATION} from "react-image-magnifiers";
+import {Magnifier,GlassMagnifier,MOUSE_ACTIVATION,
+  TOUCH_ACTIVATION} from "react-image-magnifiers";
 import SubNavi from './SubNavi';
 
 const CarsContainer = styled.div`
@@ -633,8 +634,7 @@ class Offer extends Component {
                 />
                 <Magnifier
                   largeImageSrc={this.state.mainImage}
-                  mouseActivation={MOUSE_ACTIVATION.DOUBLE_CLICK} // Optional
-                  touchActivation={TOUCH_ACTIVATION.DOUBLE_TAP} // Optional 
+                  touchActivation={TOUCH_ACTIVATION.DOUBLE_TAP}
                 />
                 <CarPhotoChoose>
                   <CarPhotoNaviLeft swipeLeftPossible={this.state.swipeLeftPossible}><StyledArrowLeftIcon onClick={() => this.swipeLeft()}  ></StyledArrowLeftIcon></CarPhotoNaviLeft>
