@@ -10,6 +10,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import {chooseModel}from '../Actions/chooseModelActions';
 import {updateMaker}from '../Actions/makerActions';
 import {connect} from 'react-redux';
+
 const HeaderContainer = styled.div`
   background: #020202;
   display:flex;

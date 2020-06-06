@@ -12,7 +12,7 @@ import ContactForm from './ContactForm';
 import FavouriteSet from './FavouriteSet';
 import { HashLink as Link } from 'react-router-hash-link';
 import {choosenSection}from '../Actions/carOfferNaviActions';
-import {Magnifier,GlassMagnifier} from "react-image-magnifiers";
+import {Magnifier,GlassMagnifier,MOUSE_ACTIVATION,TOUCH_ACTIVATION} from "react-image-magnifiers";
 import SubNavi from './SubNavi';
 
 const CarsContainer = styled.div`
@@ -40,6 +40,9 @@ const CarList = styled.article`
 const CarHeader = styled.div`
   display:flex;
   flex-direction:row;
+  @media (max-width:450px){
+    flex-direction:row-reverse;
+  }
 `;
 
 const CarLogo = styled.img`
@@ -60,12 +63,8 @@ const CarLogo = styled.img`
     height:48px;
   }
   @media (max-width:450px){
-    width:96px;
-    height:96px;
-  }
-  @media (max-width:350px){
-    width:80px;
-    height:80px;
+    width:56px;
+    height:56px;
   }
 `;
 
@@ -137,7 +136,7 @@ const CarHeaderMainTextRight = styled.div`
   @media (max-width:470px){
     font-size:1.5rem;
   }
-  @media (max-width: 450px) {
+  @media (max-width:450px) {
     text-align:left;
   }
 `;
@@ -298,9 +297,6 @@ const StyledColorLensOutlinedIcon = styled(ColorLensOutlinedIcon)`
   background-color:white;
   border-radius:50%;
 `;
-
-
-
 
 const StyledBatteryFullIcon = styled(BatteryFullIcon)`
   font-size:1.5em !important;
@@ -636,7 +632,9 @@ class Offer extends Component {
                   magnifierSize={this.state.magnifierSize}
                 />
                 <Magnifier
-                  largeImageSrc={this.state.mainImage} 
+                  largeImageSrc={this.state.mainImage}
+                  mouseActivation={MOUSE_ACTIVATION.DOUBLE_CLICK} // Optional
+                  touchActivation={TOUCH_ACTIVATION.DOUBLE_TAP} // Optional 
                 />
                 <CarPhotoChoose>
                   <CarPhotoNaviLeft swipeLeftPossible={this.state.swipeLeftPossible}><StyledArrowLeftIcon onClick={() => this.swipeLeft()}  ></StyledArrowLeftIcon></CarPhotoNaviLeft>

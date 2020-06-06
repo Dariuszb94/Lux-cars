@@ -15,7 +15,7 @@ const Container = styled.div`
   @media(max-width:910px){
     padding:2%;
   }
-  @media(max-width:310px){
+  @media(max-width:450px){
     padding-left:0;
     padding-right:0;
   }
@@ -44,13 +44,10 @@ const Car = styled.div`
   margin-right:4px;
   margin-left:4px;
   margin-bottom:16px;
-  min-width:150px;
+  min-width:160px;
   @media(max-width:370px){
     margin-right:2px;
     margin-left:2px;
-  }
-  @media(max-width:330px){
-    min-width:140px;
   }
 `;
 
