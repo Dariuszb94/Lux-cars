@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Components/VehicleInfoFeatures.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Car dealer</h1>
+                </a>
+            
+        </div>
+
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Cars.html">Cars</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactForm.html">ContactForm</a></li><li><a href="Finance.html">Finance</a></li><li><a href="FinanceApp.html">FinanceApp</a></li><li><a href="Footer.html">Footer</a></li><li><a href="GetInTouch.html">GetInTouch</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="MainSearch.html">MainSearch</a></li><li><a href="Menu.html">Menu</a></li><li><a href="Offer.html">Offer</a></li><li><a href="OpeningHours.html">OpeningHours</a></li><li><a href="QuickLinks.html">QuickLinks</a></li><li><a href="Search.html">Search</a></li><li><a href="SimilarVehicles.html">SimilarVehicles</a></li><li><a href="Slider.html">Slider</a></li><li><a href="Sorter.html">Sorter</a></li><li><a href="SubNavi.html">SubNavi</a></li><li><a href="Touch.html">Touch</a></li><li><a href="UnderSlider.html">UnderSlider</a></li><li><a href="VehicleInfo.html">VehicleInfo</a></li><li><a href="VehicleInfoDescription.html">VehicleInfoDescription</a></li><li><a href="VehicleInfoFeatures.html">VehicleInfoFeatures</a></li><li><a href="VehicleInfoFinances.html">VehicleInfoFinances</a></li></ul><h3>Global</h3><ul><li><a href="global.html#FavouriteList">FavouriteList</a></li><li><a href="global.html#FavouriteSet">FavouriteSet</a></li><li><a href="global.html#OffersContainer">OffersContainer</a></li><li><a href="global.html#store">store</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Components/VehicleInfoFeatures.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
+import styled from 'styled-components';
+import {connect} from 'react-redux';
+import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
+import ArrowDropDownOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
+import { CSSTransition } from "react-transition-group";
+import SpeedIcon from '@material-ui/icons/Speed';
+import HeightIcon from '@material-ui/icons/Height';
+
+const VehicleInfoContainer = styled.div`
+  background-color:#474747;
+  padding:16px;
+  @media (max-width:400px){
+    padding-left:8px;
+    padding-right:8px;
+  }
+`;
+
+const VehicleSummaryListHeader = styled.div`
+  justify-content:space-between;
+  padding:12px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  cursor: pointer;
+`;
+
+const VehicleSummaryListHeaderText = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const StyledListAltOutlinedIcon = styled(ListAltOutlinedIcon)`
+  font-size:1.5em !important;
+  color:white;  
+`;
+
+const StyledArrowDropDownOutlinedIcon = styled(ArrowDropDownOutlinedIcon)`
+  font-size:1.5em !important;
+  color:white;
+`;
+
+const StyledSpeedIcon = styled(SpeedIcon)`
+  font-size:1.5em !important;
+  color:white;
+`;
+
+const StyledHeightIcon = styled(HeightIcon)`
+  font-size:1.5em !important;
+  color:white;
+`;
+const VehicleSummaryList = styled.ul`
+  background-color:black;
+  margin-bottom:16px;
+`;
+
+const VehicleSummaryListElement = styled.li`
+  list-style:none;
+  height:20px;
+  display:grid;
+  grid-template-columns:30% 30% 40%;
+  padding-left:16px;
+  padding:4px;
+  @media (max-width:750px){
+    grid-template-columns:40% 40% 20%;
+  }
+  @media (max-width:450px){
+    grid-template-columns:50% 50%;
+  }
+  @media (max-width:340px){
+    grid-template-columns:55% 45%;
+  }
+`;
+
+const VehiclePerformanceListElement = styled.li`
+  list-style:none;
+  height:20px;
+  display:grid;
+  grid-template-columns:30% 30% 40%;
+  padding-left:16px;
+  padding:4px;
+`;
+
+const VehicleDimensionsListElement = styled.li`
+  list-style:none;
+  height:20px;
+  display:grid;
+  grid-template-columns:30% 30% 40%;
+  padding-left:16px;
+  padding:4px;
+`;
+
+const VehicleSummaryListElementLeft = styled.div`
+`;
+
+const VehicleSummaryListElementRight = styled.div`
+`;
+
+const VehicleSummaryListDropDown = styled.div`
+  color:black;
+  background-color:#f5f5f5;
+  display: ${props => props.vehicleSummaryListShow ? "block" : "none"};
+  ${VehicleSummaryListElement}:nth-of-type(odd)  {
+    background-color:#ffffff;
+  };
+  transition: all 1s ease-in-out;
+
+  // enter from
+  &amp;.fade-enter {
+    opacity:0;
+  }
+
+  // enter to
+  &amp;.fade-enter-active {
+    opacity:1;
+  }
+
+  // exit from
+  &amp;.fade-exit {
+    opacity:1;
+  }
+
+  // exit to 
+  &amp;.fade-exit-active {
+    opacity:0;
+  }
+`;
+const VehiclePerformanceListDropDown = styled.div`
+  color:black;
+  background-color:#f5f5f5;
+  transition: opacity 1s linear;
+  display: ${props => props.vehiclePerformanceListShow ? "block" : "none"};
+  ${VehiclePerformanceListElement}:nth-of-type(odd)  {
+    background-color:#ffffff;
+  };
+
+  // enter from
+  &amp;.fade-enter {
+    opacity:0;
+  }
+
+  // enter to
+  &amp;.fade-enter-active {
+    opacity:1;
+  }
+
+  // exit from
+  &amp;.fade-exit {
+    opacity:1;
+  }
+
+  // exit to 
+  &amp;.fade-exit-active {
+    opacity:0;
+  }
+`;
+
+const VehicleDimensionsListDropDown = styled.div`
+  color:black;
+  background-color:#f5f5f5;
+  display: ${props => props.vehicleDimensionsListShow ? "block" : "none"};
+  transition: opacity 1s ease-in-out;
+  ${VehicleDimensionsListElement}:nth-of-type(odd)  {
+    background-color:#ffffff;
+  };
+
+  // enter from
+  &amp;.fade-enter {
+    opacity:0;
+  }
+
+  // enter to
+  &amp;.fade-enter-active {
+    opacity:1;
+  }
+
+  // exit from
+  &amp;.fade-exit {
+    opacity:1;
+  }
+
+  // exit to 
+  &amp;.fade-exit-active {
+    opacity:0;
+  }
+`;
+
+/**
+ * "VehicleInfoFeatures" component.
+ */
+class VehicleInfoFeatures extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      vehicleSummaryListShow:false,
+      active: true,
+      vehiclePerformanceListShow:false,
+      vehicleDimensionsListShow:false,
+    };
+    this.vehicleSummaryListShow = this.vehicleSummaryListShow.bind(this);
+    this.vehiclePerformanceListShow = this.vehiclePerformanceListShow.bind(this);
+    this.vehicleDimensionsListShow = this.vehicleDimensionsListShow.bind(this); 
+  }
+
+  vehicleSummaryListShow(){
+     this.setState({ vehicleSummaryListShow: !this.state.vehicleSummaryListShow});
+  }
+
+  vehiclePerformanceListShow(){
+     this.setState({ vehiclePerformanceListShow: !this.state.vehiclePerformanceListShow});
+  }
+
+  vehicleDimensionsListShow(){
+     this.setState({ vehicleDimensionsListShow: !this.state.vehicleDimensionsListShow});
+  }
+
+  render() {
+    return (  
+      &lt;VehicleInfoContainer> 
+        &lt;VehicleSummaryList>
+          &lt;VehicleSummaryListHeader onClick={()=>this.vehicleSummaryListShow()}>&lt;VehicleSummaryListHeaderText>&lt;StyledListAltOutlinedIcon>&lt;/StyledListAltOutlinedIcon>&amp;nbsp;Vehicle Summary&lt;/VehicleSummaryListHeaderText>&lt;StyledArrowDropDownOutlinedIcon>&lt;/StyledArrowDropDownOutlinedIcon>&lt;/VehicleSummaryListHeader>  
+            &lt;CSSTransition
+              in={this.state.vehicleSummaryListShow}
+              classNames="fade"
+              timeout={300}
+              unmountOnExit
+            >
+              &lt;VehicleSummaryListDropDown vehicleSummaryListShow={this.state.vehicleSummaryListShow}>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Body style&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].body}&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Engine size&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].displacement} cm3&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Number of doors&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].doors}&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Number of seats&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].seats}&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Transmission&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].gearBox}&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+              &lt;/VehicleSummaryListDropDown>
+            &lt;/CSSTransition>
+          &lt;/VehicleSummaryList>
+          &lt;VehicleSummaryList>
+          &lt;VehicleSummaryListHeader onClick={()=>this.vehiclePerformanceListShow()}>&lt;VehicleSummaryListHeaderText>&lt;StyledSpeedIcon>&lt;/StyledSpeedIcon>&amp;nbsp;Vehicle Performance&lt;/VehicleSummaryListHeaderText>&lt;StyledArrowDropDownOutlinedIcon>&lt;/StyledArrowDropDownOutlinedIcon>&lt;/VehicleSummaryListHeader>
+            &lt;CSSTransition
+              in={this.state.vehiclePerformanceListShow}
+              classNames="fade"
+              timeout={300}
+              unmountOnExit
+            >
+              &lt;VehiclePerformanceListDropDown vehiclePerformanceListShow={this.state.vehiclePerformanceListShow}>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>0-100 km/h&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].acceleration} s&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Top speed&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].topSpeed} km/h&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Cylinders&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].cylinders}&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Engine power&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].power} KM&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Engine torque&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].torque} Nm&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+              &lt;/VehiclePerformanceListDropDown>
+            &lt;/CSSTransition>
+          &lt;/VehicleSummaryList>
+          &lt;VehicleSummaryList>
+          &lt;VehicleSummaryListHeader onClick={()=>this.vehicleDimensionsListShow()}>&lt;VehicleSummaryListHeaderText>&lt;StyledHeightIcon>&lt;/StyledHeightIcon>&amp;nbsp;Dimensions&lt;/VehicleSummaryListHeaderText>&lt;StyledArrowDropDownOutlinedIcon>&lt;/StyledArrowDropDownOutlinedIcon>&lt;/VehicleSummaryListHeader> 
+            &lt;CSSTransition
+              in={this.state.vehicleDimensionsListShow}
+              classNames="fade"
+              timeout={300}
+              unmountOnExit
+            >
+              &lt;VehicleDimensionsListDropDown vehicleDimensionsListShow={this.state.vehicleDimensionsListShow}>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Height&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].height} mm&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Length&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].length} mm&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Wheelbase&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].wheelbase} mm&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+                &lt;VehicleSummaryListElement>&lt;VehicleSummaryListElementLeft>Width&lt;/VehicleSummaryListElementLeft>&lt;VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].width} mm&lt;/VehicleSummaryListElementRight>&lt;/VehicleSummaryListElement>
+               &lt;/VehicleDimensionsListDropDown>
+            &lt;/CSSTransition>
+          &lt;/VehicleSummaryList>
+        &lt;/VehicleInfoContainer>
+    );
+  }
+}    
+const mapStateToProps = state => ({
+  cars:state.cars,
+  }); 
+export default connect(mapStateToProps)(VehicleInfoFeatures);</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

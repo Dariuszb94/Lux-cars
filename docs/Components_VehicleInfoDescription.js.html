@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Components/VehicleInfoDescription.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Car dealer</h1>
+                </a>
+            
+        </div>
+
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Cars.html">Cars</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactForm.html">ContactForm</a></li><li><a href="Finance.html">Finance</a></li><li><a href="FinanceApp.html">FinanceApp</a></li><li><a href="Footer.html">Footer</a></li><li><a href="GetInTouch.html">GetInTouch</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="MainSearch.html">MainSearch</a></li><li><a href="Menu.html">Menu</a></li><li><a href="Offer.html">Offer</a></li><li><a href="OpeningHours.html">OpeningHours</a></li><li><a href="QuickLinks.html">QuickLinks</a></li><li><a href="Search.html">Search</a></li><li><a href="SimilarVehicles.html">SimilarVehicles</a></li><li><a href="Slider.html">Slider</a></li><li><a href="Sorter.html">Sorter</a></li><li><a href="SubNavi.html">SubNavi</a></li><li><a href="Touch.html">Touch</a></li><li><a href="UnderSlider.html">UnderSlider</a></li><li><a href="VehicleInfo.html">VehicleInfo</a></li><li><a href="VehicleInfoDescription.html">VehicleInfoDescription</a></li><li><a href="VehicleInfoFeatures.html">VehicleInfoFeatures</a></li><li><a href="VehicleInfoFinances.html">VehicleInfoFinances</a></li></ul><h3>Global</h3><ul><li><a href="global.html#FavouriteList">FavouriteList</a></li><li><a href="global.html#FavouriteSet">FavouriteSet</a></li><li><a href="global.html#OffersContainer">OffersContainer</a></li><li><a href="global.html#store">store</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Components/VehicleInfoDescription.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
+import styled from 'styled-components';
+import {connect} from 'react-redux';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import SpeedIcon from '@material-ui/icons/Speed';
+import BarChartIcon from '@material-ui/icons/BarChart';
+import LocalGasStationIcon from '@material-ui/icons/LocalGasStation';
+import SettingsIcon from '@material-ui/icons/Settings';
+import DriveEtaIcon from '@material-ui/icons/DriveEta';
+
+const VehicleInfoDescriptionContainer = styled.div`
+  background-color:#474747;
+  padding-left:16px;
+  padding-right:16px;
+  padding-top:16px;
+  padding-bottom:16px;
+  @media (max-width:450px) {
+    padding-left:8px;
+    padding-right:8px;
+  }
+`;
+
+const Header = styled.h2`
+  border-bottom:2px solid #ec6b0c;
+  width:30%;
+  margin-bottom:32px;
+  font-size:1.2rem;
+`;
+
+const Main = styled.div`
+  display:grid;
+  grid-template-columns:40% 60%;
+  @media (max-width:1280px) {
+    grid-template-columns:30% 70%;
+  }
+  @media (max-width:780px) {
+    display:flex;
+    flex-direction:column;
+  }
+`;
+
+const MainLeft = styled.div`
+  display:flex;
+  flex-direction:column;
+@media (max-width:780px) {
+  display:grid;
+  grid-template-columns: 50% 50%;
+}
+@media (max-width:460px) {
+  display:flex;
+flex-direction:column;
+}
+`;
+
+const MainLeftElement = styled.div`
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  background-color: #5a5a5a;
+  margin-bottom:4px;
+  font-weight:400;
+`;
+
+const MainRight = styled.div`
+  padding-left:24px;
+  padding-right:24px;
+  @media (max-width:920px) {
+    padding-right:0px;
+    padding-left:12px;
+  }
+  @media (max-width:780px) {
+    padding-right:0px;
+    padding-left:0px;
+    margin-top:16px;
+  }
+`;
+
+const StyledCalendarTodayIcon= styled(CalendarTodayIcon)`
+  font-size:1.5em !important;
+  color:white;
+  background-color:#ec6b0c;
+  color:black;
+  padding:8px;
+`;
+
+const StyledSpeedIcon= styled(SpeedIcon)`
+  font-size:1.5em !important;
+  color:white;
+  background-color:#ec6b0c;
+  color:black;
+  padding:8px;
+`;
+
+const StyledBarChartIcon= styled(BarChartIcon)`
+  font-size:1.5em !important;
+  color:white;
+  background-color:#ec6b0c;
+  color:black;
+  padding:8px;
+`;
+
+const StyledLocalGasStationIcon= styled(LocalGasStationIcon)`
+  font-size:1.5em !important;
+  color:white;
+  background-color:#ec6b0c;
+  color:black;
+  padding:8px;
+`;
+
+const StyledSettingsIcon= styled(SettingsIcon)`
+  font-size:1.5em !important;
+  color:white;
+  background-color:#ec6b0c;
+  color:black;
+  padding:8px;
+`;
+
+const StyledDriveEtaIcon= styled(DriveEtaIcon)`
+  font-size:1.5em !important;
+  color:white;
+  background-color:#ec6b0c;
+  color:black;
+  padding:8px;
+`;
+
+const FirstParagraph= styled.p`
+  text-align: justify;
+  margin-bottom:16px;
+`;
+
+const SecondParagraph= styled.p`
+  font-weight:300;
+  text-align: justify;
+  margin-bottom:16px;
+`;
+
+const ThirdParagraph= styled.p`
+  font-weight:300;
+  text-align: justify;
+`;
+
+/**
+ * "VehicleInfoDescription" component.
+ */
+class VehicleInfoDescription extends Component {
+  render() {
+    return (  
+      &lt;VehicleInfoDescriptionContainer> 
+        &lt;Header>Description&lt;/Header>
+        &lt;Main>
+          &lt;MainLeft>
+            &lt;MainLeftElement>&lt;StyledCalendarTodayIcon>&lt;/StyledCalendarTodayIcon>&amp;nbsp;Registered: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].year}&lt;/MainLeftElement>
+            &lt;MainLeftElement>&lt;StyledSpeedIcon>&lt;/StyledSpeedIcon>&amp;nbsp;Mileage: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].mileage} km&lt;/MainLeftElement>
+            &lt;MainLeftElement>&lt;StyledBarChartIcon>&lt;/StyledBarChartIcon>&amp;nbsp;Engine Size: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].displacement} cm3&lt;/MainLeftElement>
+            &lt;MainLeftElement>&lt;StyledLocalGasStationIcon>&lt;/StyledLocalGasStationIcon>&amp;nbsp;Fuel Type: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].fuel}&lt;/MainLeftElement>
+            &lt;MainLeftElement>&lt;StyledSettingsIcon>&lt;/StyledSettingsIcon>&amp;nbsp;Gearbox: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].gearBox}&lt;/MainLeftElement>
+            &lt;MainLeftElement>&lt;StyledDriveEtaIcon>&lt;/StyledDriveEtaIcon>&amp;nbsp;Body Style: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].body}&lt;/MainLeftElement>
+          &lt;/MainLeft>
+          &lt;MainRight>
+            &lt;FirstParagraph>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].description1}&lt;/FirstParagraph>
+            &lt;SecondParagraph>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].description2}&lt;/SecondParagraph>
+            &lt;ThirdParagraph>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].description3}&lt;/ThirdParagraph>
+          &lt;/MainRight>
+        &lt;/Main>
+      &lt;/VehicleInfoDescriptionContainer>
+    );
+  }
+}    
+const mapStateToProps = state => ({
+  cars:state.cars,
+  }); 
+  export default connect(mapStateToProps)(VehicleInfoDescription);</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

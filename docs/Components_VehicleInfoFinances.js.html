@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Components/VehicleInfoFinances.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Car dealer</h1>
+                </a>
+            
+        </div>
+
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Cars.html">Cars</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactForm.html">ContactForm</a></li><li><a href="Finance.html">Finance</a></li><li><a href="FinanceApp.html">FinanceApp</a></li><li><a href="Footer.html">Footer</a></li><li><a href="GetInTouch.html">GetInTouch</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="MainSearch.html">MainSearch</a></li><li><a href="Menu.html">Menu</a></li><li><a href="Offer.html">Offer</a></li><li><a href="OpeningHours.html">OpeningHours</a></li><li><a href="QuickLinks.html">QuickLinks</a></li><li><a href="Search.html">Search</a></li><li><a href="SimilarVehicles.html">SimilarVehicles</a></li><li><a href="Slider.html">Slider</a></li><li><a href="Sorter.html">Sorter</a></li><li><a href="SubNavi.html">SubNavi</a></li><li><a href="Touch.html">Touch</a></li><li><a href="UnderSlider.html">UnderSlider</a></li><li><a href="VehicleInfo.html">VehicleInfo</a></li><li><a href="VehicleInfoDescription.html">VehicleInfoDescription</a></li><li><a href="VehicleInfoFeatures.html">VehicleInfoFeatures</a></li><li><a href="VehicleInfoFinances.html">VehicleInfoFinances</a></li></ul><h3>Global</h3><ul><li><a href="global.html#FavouriteList">FavouriteList</a></li><li><a href="global.html#FavouriteSet">FavouriteSet</a></li><li><a href="global.html#OffersContainer">OffersContainer</a></li><li><a href="global.html#store">store</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Components/VehicleInfoFinances.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
+import styled from 'styled-components';
+import {connect} from 'react-redux';
+import ReactSlider from 'react-slider'
+import {NavLink} from "react-router-dom";
+
+const Container = styled.div`
+  background-color:#474747;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  padding-bottom:32px;
+  @media (max-width:600px){
+    padding-left:8px;
+    padding-right:8px;
+  } 
+`;
+
+const Sliders = styled.div`
+  margin-top:24px;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-around;
+  @media (max-width:450px){
+    flex-direction:column;
+  }
+`;
+
+const Monthly = styled.div`
+  margin-top:24px;
+  align-self: center;
+  border-radius: 8px;
+  padding:16px;
+`;
+
+const Header = styled.h2`
+  border-bottom:2px solid #ec6b0c;
+  width:30%;
+`;
+
+const  SliderContainer= styled.div`
+  display:flex;
+  flex-direction:column;
+  width:40%;
+  @media (max-width:700px){
+    width:48%;
+  }
+  @media (max-width:450px){
+    width:100%;
+  }
+`;
+
+const MonthsText = styled.h3`
+  padding-bottom:4px;
+  text-align:center;
+`;
+
+const StyledMonthSlider = styled(ReactSlider)`
+  width: 100%;
+  height: 25px;
+  @media (max-width:450px){
+    margin-bottom:24px;
+  }
+`;
+
+const StyledDepositSlider = styled(ReactSlider)`
+  width: 100%;
+  height: 25px;
+`;
+
+const StyledThumbMonths = styled.div`
+  height: 25px;
+  line-height: 25px;
+  width: 25px;
+  text-align: center;
+  color: white;
+  background-color:#ec6b0c;
+  border-radius: 50%;
+  cursor: grab;
+`;
+
+const StyledThumbDeposit = styled.div`
+  height: 25px;
+  line-height: 25px;
+  width: 100px;
+  text-align: center;
+  color: white;
+  background-color:#ec6b0c;
+  border-radius: 8%;
+  cursor: grab;
+  @media (max-width:900px){
+    width: 60px;
+  }
+  @media (max-width:600px){
+    width: 55px;
+  }
+`;
+
+const ThumbMonths = (props, state) => &lt;StyledThumbMonths {...props}>{state.valueNow}&lt;/StyledThumbMonths>;
+
+const ThumbDeposit = (props, state) => &lt;StyledThumbDeposit {...props}>{state.valueNow}&lt;/StyledThumbDeposit>;
+
+const StyledTrackMonths = styled.div`
+  top: 0;
+  bottom: 0;
+  background: ${props => props.index === 1 ? '#000' : '#2d2d2d'};
+  border-radius: 999px;
+`;
+const StyledTrackDeposit = styled.div`
+  top: 0;
+  bottom: 0;
+  background: ${props => props.index === 1 ? '#000' : '#2d2d2d'};
+  border-radius: 999px;
+`;
+
+const TrackMonths = (props, state) => &lt;StyledTrackMonths {...props} index={state.index} />;
+
+const TrackDeposit = (props, state) => &lt;StyledTrackDeposit {...props} index={state.index} />;
+
+const StyledLink = styled(NavLink).attrs()`
+  font-size:0.9rem;
+  color:white;
+  background-color: #ec6b0c;
+  width:30%;
+  text-decoration:none;
+  -webkit-transition:background-color 0.4s linear;
+  -moz-transition:background-color 0.4s linear;
+  transition:background-color 0.4s linear;
+  padding:8px;
+  border-radius:4px;
+  align-self: center;
+  display: block;
+  text-align: center;
+  &amp;:hover{
+    background-color:black;
+  }
+`;
+
+/**
+ * "VehicleInfoFinances" component.
+ */
+class VehicleInfoFinances extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      months:12,
+      deposit:0,
+      monthlyInstallment:0,
+      carPrice:0,
+    };
+  }
+  componentDidMount() {
+    this.setState({ carPrice: this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].price}) 
+  }
+
+  render() {
+    return (  
+      &lt;Container> 
+        &lt;Header>Finance&lt;/Header>
+        &lt;Sliders>
+          &lt;SliderContainer>
+            &lt;MonthsText>Term (Months)&lt;/MonthsText>
+            &lt;StyledMonthSlider
+              defaultValue={[12]}
+              renderTrack={TrackMonths}
+              renderThumb={ThumbMonths}
+              min={2}
+              max={72}
+              onChange={val => this.setState({ months: val}) }
+            />
+          &lt;/SliderContainer>
+          &lt;SliderContainer>
+            &lt;MonthsText>Self Deposit [PLN]&lt;/MonthsText>
+            &lt;StyledDepositSlider
+              defaultValue={[0]}
+              renderTrack={TrackDeposit}
+              renderThumb={ThumbDeposit}
+              onChange={val => this.setState({ deposit: val}) }
+              max={20000}
+            />
+          &lt;/SliderContainer>
+        &lt;/Sliders>
+        &lt;Monthly>Monthly Installment: {((this.state.carPrice*1.05 - this.state.deposit)/this.state.months).toFixed(0)} PLN&lt;/Monthly>
+        &lt;StyledLink to="/Finance">Fill application&lt;/StyledLink>
+      &lt;/Container>
+    );
+  }
+}    
+const mapStateToProps = state => ({
+  cars:state.cars,
+  id:state.id,
+  }); 
+  export default connect(mapStateToProps)(VehicleInfoFinances);</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>
