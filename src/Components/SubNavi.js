@@ -43,6 +43,9 @@ const StyledLink = styled(NavLink).attrs()`
   }
 `;
 
+/**
+ * "SubNavi" component
+ */
 class SubNavi extends Component {
   constructor(props) {
     super(props);

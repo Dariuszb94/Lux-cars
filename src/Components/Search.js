@@ -161,6 +161,9 @@ const SubMaker = styled.div`
 const AnyMakerText = styled.div`
 `;
 
+/**
+ * "Search" component.
+ */
 class Search extends Component {
   constructor(props) {
     super(props);

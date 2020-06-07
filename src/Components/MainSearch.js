@@ -237,6 +237,9 @@ const ResetButton = styled.button`
   }
 `;
 
+/**
+ * "MainSearch" component, element of "Offers"
+ */
  class MainSearch extends Component {
   constructor(props) {
     super(props);
@@ -294,6 +297,9 @@ const ResetButton = styled.button`
   maxPriceChange(e){
      this.props.choosenPriceMax(e.value);
   }
+  /**
+   * Displays hidden dropdown menu.
+   */
   makerShow(){
     this.setState({ makerShow: !this.state.makerShow});
     this.setState({ modelShow: false});
@@ -304,6 +310,9 @@ const ResetButton = styled.button`
     this.setState({ maxPricesShow: false});
     this.setState({ minPricesShow: false});
   }
+  /**
+   * Displays hidden dropdown menu.
+   */
   modelShow(){
     this.setState({ modelShow: !this.state.modelShow});
     this.setState({ makerShow: false});
@@ -314,6 +323,9 @@ const ResetButton = styled.button`
     this.setState({ maxPricesShow: false});
     this.setState({ minPricesShow: false});
   }
+  /**
+   * Displays hidden dropdown menu.
+   */
   minPowerShow(){
     this.setState({ minPowerShow: !this.state.minPowerShow});
     this.setState({ makerShow: false});
@@ -324,6 +336,9 @@ const ResetButton = styled.button`
     this.setState({ maxPricesShow: false});
     this.setState({ minPricesShow: false});
   }
+  /**
+   * Displays hidden dropdown menu.
+   */
   maxPowerShow(){
     this.setState({ maxPowerShow: !this.state.maxPowerShow});
     this.setState({ makerShow: false});
@@ -334,6 +349,9 @@ const ResetButton = styled.button`
     this.setState({ maxPricesShow: false});
     this.setState({ minPricesShow: false});
   }
+  /**
+   * Displays hidden dropdown menu.
+   */
   minYearsShow(){
     this.setState({ minYearsShow: !this.state.minYearsShow});
     this.setState({ makerShow: false});
@@ -344,6 +362,9 @@ const ResetButton = styled.button`
     this.setState({ maxPricesShow: false});
     this.setState({ minPricesShow: false});
   }
+/**
+  * Displays hidden dropdown menu.
+  */
   maxYearsShow(){
     this.setState({ maxYearsShow: !this.state.maxYearsShow});
     this.setState({ makerShow: false});
@@ -354,6 +375,9 @@ const ResetButton = styled.button`
     this.setState({ maxPricesShow: false});
     this.setState({ minPricesShow: false});
   }
+  /**
+   * Displays hidden dropdown menu.
+   */
   minPricesShow(){
     this.setState({ minPricesShow: !this.state.minPricesShow});
     this.setState({ makerShow: false});
@@ -364,6 +388,9 @@ const ResetButton = styled.button`
     this.setState({ maxPricesShow: false});
     this.setState({ maxYearsShow: false});
   }
+  /**
+   * Displays hidden dropdown menu.
+   */
   maxPricesShow(){
     this.setState({ maxPricesShow: !this.state.maxPricesShow});
     this.setState({ makerShow: false});
@@ -374,6 +401,9 @@ const ResetButton = styled.button`
     this.setState({ minPricesShow: false});
     this.setState({ maxPowerShow: false});
   }
+  /**
+   * Displays hidden dropdown menu.
+   */
   resetFilters(){
     this.props.updateMaker("Any Maker");
     this.props.chooseModel("Any Model");

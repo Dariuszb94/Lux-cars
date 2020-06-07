@@ -428,6 +428,9 @@ const GoUpText = styled.div`
   
 `;
 
+/**
+ * "Offer" component
+ */
 class Offer extends Component {
   constructor(props) {
     super(props);
@@ -470,7 +473,9 @@ class Offer extends Component {
     this.filterCars();
     this.createListOfImages();
   }
-
+/**
+ * Unmounts listener for resize
+ */
   componentWillUnmount(){
     window.removeEventListener('resize', this.handleResize);
   }

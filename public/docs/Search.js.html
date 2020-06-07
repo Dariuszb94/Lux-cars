@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Search.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Car dealer</h1>
+                </a>
+            
+        </div>
+
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Cars.html">Cars</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactForm.html">ContactForm</a></li><li><a href="Finance.html">Finance</a></li><li><a href="FinanceApp.html">FinanceApp</a></li><li><a href="Footer.html">Footer</a></li><li><a href="GetInTouch.html">GetInTouch</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="MainSearch.html">MainSearch</a></li><li><a href="Menu.html">Menu</a></li><li><a href="Offer.html">Offer</a></li><li><a href="OpeningHours.html">OpeningHours</a></li><li><a href="QuickLinks.html">QuickLinks</a></li><li><a href="Search.html">Search</a></li><li><a href="SimilarVehicles.html">SimilarVehicles</a></li><li><a href="Slider.html">Slider</a></li><li><a href="Sorter.html">Sorter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#FavouriteList">FavouriteList</a></li><li><a href="global.html#FavouriteSet">FavouriteSet</a></li><li><a href="global.html#OffersContainer">OffersContainer</a></li><li><a href="global.html#PriceSortText">PriceSortText</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Search.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
+import styled from 'styled-components';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import {connect} from 'react-redux';
+import {chooseModel}from '../Actions/chooseModelActions';
+import {updateMaker}from '../Actions/makerActions';
+import {NavLink} from "react-router-dom";
+
+const SearchContainer = styled.div`
+  background-color: rgba(68, 68, 68, .7);
+  color:white;
+  padding:16px;
+  min-height:30%;
+  max-height:60%;
+  letter-spacing: 1px;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  width:300px;
+  @media (max-width: 880px) {
+    width:250px;
+  }
+  @media (max-width: 750px) {
+    width:100%;
+    align-items:center;
+    padding-left:0;
+    padding-right:0;
+}
+`;
+
+const SearchHeader = styled.h2`
+  font-weight:300;
+  font-size:1.4rem;
+  margin-bottom: 8px;
+  @media (max-width: 750px) {
+    align-self: flex-start;
+    padding-left:5%;
+    margin-bottom: 12px;
+    font-size:2rem;
+  }
+`;
+
+const SearchButton = styled.button`
+  background-color:#ec6b0c;
+  outline:none;
+  border:none;
+  color:white;
+  padding-left:16px;
+  padding-right:16px;
+  padding-top:12px;
+  padding-bottom:12px;
+  border-radius:4px;
+  align-self: flex-start;
+  width:100%;
+  -webkit-transition:0.2s linear;
+  -moz-transition:0.2s linear;
+  transition:0.2s linear;
+  cursor: pointer;
+  &amp;:hover{
+    background-color:black;
+  }
+  @media (max-width: 750px) {
+    margin-left:5%;
+    width:90%;
+  }
+`;
+const DropDownContentMaker = styled.div`
+  display: none;
+  width: 300px;
+  position: absolute;
+  background-color:white;
+  z-index: 1;
+  display: ${props => props.makerShow ? "block" : "none"};
+  @media (max-width: 880px) {
+    width:250px;
+  }
+  @media (max-width: 750px) {
+    width:90%;
+  }
+`;
+
+const StyledLink = styled(NavLink).attrs()`
+  margin-top:8px;
+  width:100%;
+  text-decoration:none;
+  color:white;
+`;
+
+const DropDownContentModel = styled.div`
+  display: none;
+  width: 300px;
+  position: absolute;
+  background-color:white;
+  z-index: 1;
+  display: ${props => props.modelShow ? "block" : "none"};
+  @media (max-width: 880px) {
+    width:250px;
+  }
+  @media (max-width: 750px) {
+    width:90%;
+  }
+`;
+
+const MakerChoose = styled.ul`
+  color:black;
+  display: inline-block;
+  @media (max-width: 750px) {
+    width: 90%;
+    margin-bottom: 4px;
+  }
+`;
+
+const ModelChoose = styled.ul`
+  color:black;
+  display: inline-block;
+  @media (max-width: 750px) {
+    width: 90%;
+    margin-bottom: 12px;
+  }
+`;
+
+const AnyMaker = styled.button`
+  cursor: pointer;
+  display: flex;
+  flex-direction:row;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  color:black;
+  width:100%;
+  padding:8px;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const AnyModel = styled.button`
+  cursor: pointer;
+  display: flex;
+  flex-direction:row;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  color:black;
+  width:100%;
+  padding:8px;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 750px) {
+    width:100%
+}
+`;
+
+const SubMaker = styled.div`
+  cursor: pointer;
+  padding:4px;
+  &amp;:hover {
+    background-color: rgba(0, 0, 0, .2);
+  }
+`;
+
+const AnyMakerText = styled.div`
+`;
+
+/**
+ * "Search" component.
+ */
+class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      makerShow:false,
+      modelShow:false,
+    };
+    this.modelChange = this.modelChange.bind(this);
+    this.makerChange = this.makerChange.bind(this);
+    this.makerShow = this.makerShow.bind(this);
+    this.modelShow = this.modelShow.bind(this);
+    this.scrollToTop = this.scrollToTop.bind(this);
+  }
+  modelChange(updatedModel){
+    this.props.chooseModel(updatedModel.model)
+  }
+  makerChange(e){
+    this.props.updateMaker(e.maker);
+    let updatedModel={model:"Any Model"};
+    this.props.chooseModel(updatedModel.model)
+  }
+  makerShow(){
+     this.setState({ makerShow: !this.state.makerShow});
+  }
+  modelShow(){
+     this.setState({ modelShow: !this.state.modelShow});
+  }
+  scrollToTop(){
+    window.scrollTo(0, 0);
+  }
+  render() {
+    return (  
+      &lt;SearchContainer>
+        &lt;SearchHeader>SEARCH OUR STOCK&lt;/SearchHeader>
+        &lt;MakerChoose>
+          &lt;AnyMaker onClick={() => this.makerShow()} >
+            &lt;AnyMakerText>{ (this.props.maker.maker === undefined) ? "Any Maker" : this.props.maker.maker}&lt;/AnyMakerText>
+            &lt;ArrowDropDownIcon/>
+          &lt;/AnyMaker>
+          &lt;DropDownContentMaker makerShow={this.state.makerShow} onClick={() => this.makerShow()}>
+            &lt;SubMaker onClick={() => this.makerChange({maker:"Any Maker"})}>Any Maker&lt;/SubMaker>
+            {(this.props.makers===undefined) ? null : (this.props.makers.map(maker =>&lt;SubMaker key={maker} onClick={() => this.makerChange({maker})}>{maker}&lt;/SubMaker> ))}
+          &lt;/DropDownContentMaker>
+        &lt;/MakerChoose>
+        &lt;ModelChoose>
+          &lt;AnyModel onClick={() => this.modelShow()} >
+            &lt;AnyMakerText>{ (this.props.choosenModel.choosenModel === undefined) ? "Any Model" : this.props.choosenModel.choosenModel}&lt;/AnyMakerText>
+            &lt;ArrowDropDownIcon/>
+          &lt;/AnyModel>
+          &lt;DropDownContentModel modelShow={this.state.modelShow} onClick={() => this.modelShow()}>
+            &lt;SubMaker onClick={() => this.modelChange({model:"Any Model"})}>Any Model&lt;/SubMaker>
+          {(this.props.models[this.props.maker.maker]===undefined) ? null : (this.props.models[this.props.maker.maker].map(model => &lt;SubMaker key={model} onClick={() => this.modelChange({model})}>{model}&lt;/SubMaker>))}
+          &lt;/DropDownContentModel>
+        &lt;/ModelChoose>
+        &lt;StyledLink to="/Offers">&lt;SearchButton onClick={() => this.scrollToTop()} >Search&lt;/SearchButton>&lt;/StyledLink>
+      &lt;/SearchContainer>
+    );
+  }
+}    
+const mapStateToProps = state => ({
+  models: state.models,
+  maker: state.maker,
+  makers: state.makers,
+  choosenModel:state.choosenModel
+  }); 
+  export default connect(mapStateToProps,{chooseModel, updateMaker})(Search);</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

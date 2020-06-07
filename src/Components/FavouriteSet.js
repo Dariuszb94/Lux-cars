@@ -65,6 +65,10 @@ const StyledLink = styled(NavLink).attrs()`
   }
 `;
 
+/**
+ * Set and delete favourite cars
+ * @param {object} props 
+ */
 const FavouriteSet = (props) => {
     
   //set the database 

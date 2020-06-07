@@ -234,6 +234,9 @@ const WarningTel= styled.div`
   font-weight:900;
 `;
 
+/**
+ * "FinanceApp" component
+ */
 export class FinanceApp extends Component {
   constructor(props) {
     super(props);

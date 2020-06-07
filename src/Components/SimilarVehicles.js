@@ -57,7 +57,9 @@ const StyledLink = styled(NavLink).attrs()`
   text-decoration:none;
   color:white;
 `;
-    
+/**
+ * "SimilarVehicles" component
+ */
 class SimilarVehicles extends Component {
   constructor(props) {
     super(props);

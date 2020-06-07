@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Finance.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Car dealer</h1>
+                </a>
+            
+        </div>
+
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Cars.html">Cars</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactForm.html">ContactForm</a></li><li><a href="Finance.html">Finance</a></li><li><a href="FinanceApp.html">FinanceApp</a></li><li><a href="Footer.html">Footer</a></li><li><a href="GetInTouch.html">GetInTouch</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="MainSearch.html">MainSearch</a></li><li><a href="Menu.html">Menu</a></li><li><a href="Offer.html">Offer</a></li><li><a href="OpeningHours.html">OpeningHours</a></li><li><a href="QuickLinks.html">QuickLinks</a></li><li><a href="Search.html">Search</a></li><li><a href="SimilarVehicles.html">SimilarVehicles</a></li><li><a href="Slider.html">Slider</a></li><li><a href="Sorter.html">Sorter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#FavouriteList">FavouriteList</a></li><li><a href="global.html#FavouriteSet">FavouriteSet</a></li><li><a href="global.html#OffersContainer">OffersContainer</a></li><li><a href="global.html#PriceSortText">PriceSortText</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Finance.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
+import styled from 'styled-components';
+import {FinanceApp} from './FinanceApp';
+
+const Container = styled.div`
+  display:flex;
+  flex-direction:column;
+  background-color:black;
+  color:white;
+`;
+
+const HeaderText = styled.h1`
+  font-size:2rem;
+  position: relative;
+`;
+
+const HeaderTextContainer = styled.div`
+`;
+
+const Header = styled.div`
+  background-position:top center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-image: url('https://i.ibb.co/CvWVj2X/close-up-of-coins-on-table-332304.jpg');
+  background-size: cover;
+  min-height:40vh;
+  width:100%;
+  position: relative;
+  &amp;:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.7);
+  }
+  @media (max-width:1080px){
+    min-height:35vh;
+  }
+  @media (max-width:980px){
+    min-height:30vh;
+  }
+  @media (max-width:900px){
+    min-height:25vh;
+  }
+  @media (max-width:760px){
+    min-height:20vh;
+  }
+`;
+
+const Main = styled.div`
+  padding:32px;
+  padding-left:16%;
+  padding-right:16%;
+  @media (max-width:1400px){
+    padding-left:12%;
+    padding-right:12%;
+  }
+  @media (max-width:1200px){
+    padding-left:8%;
+    padding-right:8%;
+  }
+  @media (max-width:1000px){
+    padding-left:4%;
+    padding-right:4%;
+  }
+  @media (max-width:600px){
+    padding-left:2%;
+    padding-right:2%;
+}
+`;
+
+const MainLeftParagragraph = styled.p`
+  margin-bottom:12px;
+  text-align:justify;
+  @media (max-width:400px){
+    font-size:0.95rem;
+    margin-bottom:8px;
+  }
+`;
+
+const MainLeftUpper = styled.p`
+  font-weight:800;
+  margin-bottom:8px;
+  @media (max-width:400px){
+    margin-bottom:4px;
+  }
+`;
+
+const MainLeftParagragraphStyled = styled.p`
+  font-weight:700;
+  margin-bottom:8px;
+  color:#ec5d07;
+  @media (max-width:400px){
+    margin-bottom:4px;
+  } 
+`;
+
+/**
+ * "Finance" component
+ */
+export class Finance extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+  render() {
+    return (  
+      &lt;Container>
+        &lt;Header>
+          &lt;HeaderTextContainer>
+            &lt;HeaderText>Finance&lt;/HeaderText>
+          &lt;/HeaderTextContainer>
+        &lt;/Header>
+        &lt;Main>
+          &lt;MainLeftUpper>Lux Cars have a dedicated team of finance experts waiting to help with your enquiry.&lt;/MainLeftUpper>
+          &lt;MainLeftParagragraph>We have relationships with high street lenders and specialist motoring finance houses too, that is why we have helped hundreds of customers secure the best finance deal for their budget. &lt;/MainLeftParagragraph>
+          &lt;MainLeftParagragraph>Our expertise with finance means that even if you have a poor credit rating we can help arrange finance for you.&lt;/MainLeftParagragraph>
+          &lt;MainLeftParagragraphStyled> 2 Minute Application&lt;/MainLeftParagragraphStyled>
+          &lt;MainLeftParagragraph>Complete our simple to use online form below and once submitted, we will get back to you as soon as possible.&lt;/MainLeftParagragraph>
+          &lt;FinanceApp>&lt;/FinanceApp>
+        &lt;/Main>
+      &lt;/Container>
+    );
+  }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

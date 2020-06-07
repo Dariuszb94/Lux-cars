@@ -151,6 +151,9 @@ const VehicleInfoMenuElementFinances = styled.li`
   } 
 `;
 
+/**
+ * "VehicleInfo" component
+ */
 class VehicleInfo extends Component {
   constructor(props) {
     super(props);
@@ -162,6 +165,9 @@ class VehicleInfo extends Component {
     };
     this.highlightInfoType = this.highlightInfoType.bind(this);
   }
+  /**
+   * Highlights choosen info type (feature, description, finances)
+   */
   componentDidMount() {
     this.highlightInfoType();
   }

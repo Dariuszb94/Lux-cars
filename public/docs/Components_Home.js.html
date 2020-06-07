@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> App.js</title>
+  <title> Components/Home.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -21,7 +21,7 @@
   <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
   <link type="text/css" rel="stylesheet" href="styles/app.min.css">
   <link type="text/css" rel="stylesheet" href="styles/iframe.css">
-  <link type="text/css" rel="stylesheet" href="">
+
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
   
@@ -48,30 +48,7 @@
                 </a>
             
         </div>
-        <div class="menu">
-            
-            <div class="navigation">
-                <a
-                    href="index.html"
-                    class="link"
-                >
-                    API Documentation
-                </a>
-                <div class="dropdown is-hoverable is-right">
-                    <a class="dropdown-trigger link">
-                        Tutorials
-                        <i class="fas fa-chevron-down fa-xs"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-content">
-                        
-                        </div>
-                    </div>
-                </div>
-                
-                
-            </div>
-        </div>
+
     </div>
 </div>
     <div id="main">
@@ -82,7 +59,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="Cars.html">Cars</a></li><li><a href="ContactForm.html">ContactForm</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#FavouriteList">FavouriteList</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Cars.html">Cars</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactForm.html">ContactForm</a></li><li><a href="Finance.html">Finance</a></li><li><a href="FinanceApp.html">FinanceApp</a></li><li><a href="Footer.html">Footer</a></li><li><a href="GetInTouch.html">GetInTouch</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="MainSearch.html">MainSearch</a></li><li><a href="Menu.html">Menu</a></li><li><a href="Offer.html">Offer</a></li><li><a href="OpeningHours.html">OpeningHours</a></li><li><a href="QuickLinks.html">QuickLinks</a></li><li><a href="Search.html">Search</a></li><li><a href="SimilarVehicles.html">SimilarVehicles</a></li><li><a href="Slider.html">Slider</a></li><li><a href="Sorter.html">Sorter</a></li><li><a href="SubNavi.html">SubNavi</a></li><li><a href="Touch.html">Touch</a></li><li><a href="UnderSlider.html">UnderSlider</a></li><li><a href="VehicleInfo.html">VehicleInfo</a></li><li><a href="VehicleInfoDescription.html">VehicleInfoDescription</a></li><li><a href="VehicleInfoFeatures.html">VehicleInfoFeatures</a></li><li><a href="VehicleInfoFinances.html">VehicleInfoFinances</a></li></ul><h3>Global</h3><ul><li><a href="global.html#FavouriteList">FavouriteList</a></li><li><a href="global.html#FavouriteSet">FavouriteSet</a></li><li><a href="global.html#OffersContainer">OffersContainer</a></li><li><a href="global.html#store">store</a></li></ul></div>
                 
             </nav>
         </div>
@@ -90,7 +67,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>App.js</h1>
+                    <h1>Components/Home.js</h1>
                 </header>
                 
 
@@ -99,45 +76,31 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from 'react';
-import './App.css';
-import Header from './Components/Header';
-import Menu from './Components/Menu';
-import Home from './Components/Home';
-import Offers from './Components/Offers';
-import Offer from './Components/Offer';
-import About from './Components/About';
-import {Footer} from './Components/Footer';
-import {Finance} from './Components/Finance';
-import Contact from './Components/Contact';
-import FavouriteList from './Components/FavouriteList';
-import {Route,Switch} from "react-router-dom";
-/**
- * 
- * 
- * asdasdasdasdasd
- */
-function App() {
-  return (
-    &lt;React.Fragment>
-      &lt;Header/>
-      &lt;Menu/>
-      &lt;Switch >
-        &lt;Route exact path="/Lux-cars" component={Home} />
-        &lt;Route path="/Offers" component={Offers} />
-        &lt;Route path="/Offer" component={Offer} />
-        &lt;Route path="/About" component={About} />
-        &lt;Route path="/Finance" component={Finance} />
-        &lt;Route path="/Contact" component={Contact} />
-        &lt;Route path="/FavouriteList" component={FavouriteList} />
-        &lt;Route component={Home} />
-      &lt;/Switch>
-      &lt;Footer/>
-    &lt;/React.Fragment>
-  );
-}
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
+import styled from 'styled-components';
+import {Slider} from './Slider';
+import {UnderSlider} from './UnderSlider';
 
-export default App;
+const HomeContainer = styled.div`
+  background-color:black;
+`;
+
+/**
+ * "Home" component
+ */
+export class Home extends Component {
+  componentDidMount(){
+    window.scrollTo(0, 0);
+  }
+  render() {
+    return (  
+      &lt;HomeContainer>
+        &lt;Slider/>
+        &lt;UnderSlider/>
+      &lt;/HomeContainer>
+    );
+  }
+}
 </code></pre>
         </article>
     </section>

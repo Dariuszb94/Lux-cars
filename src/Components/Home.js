@@ -7,7 +7,10 @@ const HomeContainer = styled.div`
   background-color:black;
 `;
 
-export default class Home extends Component {
+/**
+ * "Home" component
+ */
+export class Home extends Component {
   componentDidMount(){
     window.scrollTo(0, 0);
   }

@@ -4,7 +4,7 @@ import {GetInTouch} from './GetInTouch';
 import {OpeningHours} from './OpeningHours';
 import {QuickLinks} from './QuickLinks';
 
-  const FooterContainer = styled.div`
+const FooterContainer = styled.div`
   display:flex;
   flex-direction:row;
   background-color:#212121;
@@ -27,6 +27,9 @@ import {QuickLinks} from './QuickLinks';
   }
 `;
 
+/**
+ * "Footer" component
+ */
 export class Footer extends Component {
 
   render() {

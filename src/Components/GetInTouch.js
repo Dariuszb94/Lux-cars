@@ -134,8 +134,10 @@ const Twitter = styled(TwitterIcon)`
   border-radius:50%;
 `;
 
+/**
+ * "GetInTouch" component.
+ */
 export class GetInTouch extends Component {
-
   render() {
     return (  
       <Container>

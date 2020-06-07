@@ -73,6 +73,9 @@ const Checked = styled(CheckIcon)`
   font-size: 32px !important;
 `;
 
+/**
+ * "UnderSlider" component.
+ */
 export class UnderSlider extends Component {
   render() {
     return (  

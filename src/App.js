@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './Components/Header';
 import Menu from './Components/Menu';
-import Home from './Components/Home';
+import {Home} from './Components/Home';
 import Offers from './Components/Offers';
 import Offer from './Components/Offer';
 import About from './Components/About';

@@ -216,6 +216,9 @@ const StyledLink = styled(NavLink).attrs()`
   color:white;
 `;
 
+/**
+ * "Slider" component
+ */
 export class Slider extends Component {
   constructor(props) {
     super(props);
@@ -233,21 +236,27 @@ export class Slider extends Component {
     window.addEventListener('resize', this.showSearch);
   }
 
+  /**
+   * Clear listener for resize.
+   */
   componentWillUnmount() {
     clearInterval(this.interval);
     window.removeEventListener('resize', this.showSearch);
   }
 
-showSearch(){
-  if (window.innerWidth <750){
-    if (this.state.showSearch===true)
-      this.setState({ showSearch: false});
+  /**
+    * Change display of size on smaller devices.
+    */
+  showSearch(){
+   if (window.innerWidth <750){
+     if (this.state.showSearch===true)
+       this.setState({ showSearch: false});
+   }
+   if (window.innerWidth >=750){
+     if (this.state.showSearch===false)
+       this.setState({ showSearch: true});
+   }
   }
-  if (window.innerWidth >=750){
-    if (this.state.showSearch===false)
-      this.setState({ showSearch: true});
-  }
-}
 
   render() {
     return (  

@@ -139,6 +139,9 @@ const ThirdParagraph= styled.p`
   text-align: justify;
 `;
 
+/**
+ * "VehicleInfoDescription" component.
+ */
 class VehicleInfoDescription extends Component {
   render() {
     return (  

@@ -98,7 +98,9 @@ const MainLeftParagragraphStyled = styled.p`
   } 
 `;
 
-
+/**
+ * "Finance" component
+ */
 export class Finance extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);

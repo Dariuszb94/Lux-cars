@@ -53,6 +53,9 @@ const StyledLink = styled(NavLink).attrs()`
   }
 `;
 
+/**
+ * "QuickLinks" component.
+ */
 export class QuickLinks extends Component {
   render() {
     return (  

@@ -57,7 +57,9 @@ const Sort = styled.div`
 const PriceSortText = styled.div`
   font-weight:600;
 `;
-
+/**
+ * "Sorter" component.
+ */
 class Sorter extends Component {
   constructor(props) {
     super(props);
@@ -69,6 +71,9 @@ class Sorter extends Component {
     this.sortPriceAscending = this.sortPriceAscending.bind(this);
     this.sortPriceDescending = this.sortPriceDescending.bind(this);
   }
+  /**
+   * Display dropdown list.
+   */
   sortShow(){
      this.setState({ sortShow: !this.state.sortShow});
   }

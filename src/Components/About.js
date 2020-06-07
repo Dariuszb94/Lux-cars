@@ -103,7 +103,9 @@ const SearchContainer = styled.div`
   justify-content: center;
   margin-bottom: 16px;
 `;
-
+/**
+ * "About" component.
+ */
 class About extends Component {
 
   componentDidMount() {

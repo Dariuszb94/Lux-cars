@@ -185,6 +185,9 @@ const VehicleDimensionsListDropDown = styled.div`
   }
 `;
 
+/**
+ * "VehicleInfoFeatures" component.
+ */
 class VehicleInfoFeatures extends Component {
   constructor(props) {
     super(props);

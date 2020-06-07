@@ -93,6 +93,9 @@ const AnyMaker = styled.div`
   font-size:1.2rem;
 `;
 
+/**
+ * "Menu" component.
+ */
 class Menu extends Component {
   constructor(props) {
     super(props);

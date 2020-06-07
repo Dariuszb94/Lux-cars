@@ -5,6 +5,9 @@ import Cars from './Cars';
 import SubNavi from './SubNavi';
 import Sort from './Sort';
 
+/**
+ * "OffersContainer" component.
+ */
 const OffersContainer = styled.div`
 `;
 

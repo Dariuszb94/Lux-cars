@@ -112,6 +112,9 @@ const MapContent=styled.div`
   }
 `;
 
+/**
+ * "Contact" component.
+ */
 class Contact extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);

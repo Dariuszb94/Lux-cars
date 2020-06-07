@@ -173,6 +173,9 @@ const StyledMenuIconContainer = styled.div`
   }
 `;
 
+/**
+ * "Header"component.
+ */
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -184,12 +187,24 @@ class Header extends Component {
     this.makerShow = this.makerShow.bind(this);
     this.makerChange = this.makerChange.bind(this);
   }
+  /**
+    * Displays dropdown menu
+   */
   showMenu(){
     this.setState({ showMenu: !this.state.showMenu});
   }
+
+   /**
+    * Displays dropdown menu
+   */
   makerShow(){
     this.setState({ makerShow: !this.state.makerShow});
   }
+
+  /**
+   * Updates choosen maker, also resets models filter.
+   * @param {string} e.maker 
+   */
   makerChange(e){
     this.showMenu()
     this.props.updateMaker(e.maker);

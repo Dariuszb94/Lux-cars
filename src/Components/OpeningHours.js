@@ -50,6 +50,9 @@ const CalendarIcon = styled(CalendarTodayIcon)`
   cursor: pointer;
 `;
 
+/**
+ * "OpeningHours" component.
+ */
 export class OpeningHours extends Component {
   render() {
     return (  

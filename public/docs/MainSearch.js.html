@@ -1,0 +1,635 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> MainSearch.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Car dealer</h1>
+                </a>
+            
+        </div>
+
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Cars.html">Cars</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactForm.html">ContactForm</a></li><li><a href="Finance.html">Finance</a></li><li><a href="FinanceApp.html">FinanceApp</a></li><li><a href="Footer.html">Footer</a></li><li><a href="GetInTouch.html">GetInTouch</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="MainSearch.html">MainSearch</a></li><li><a href="Menu.html">Menu</a></li><li><a href="Offer.html">Offer</a></li><li><a href="OpeningHours.html">OpeningHours</a></li><li><a href="QuickLinks.html">QuickLinks</a></li><li><a href="Search.html">Search</a></li><li><a href="SimilarVehicles.html">SimilarVehicles</a></li><li><a href="Slider.html">Slider</a></li><li><a href="Sorter.html">Sorter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#FavouriteList">FavouriteList</a></li><li><a href="global.html#FavouriteSet">FavouriteSet</a></li><li><a href="global.html#OffersContainer">OffersContainer</a></li><li><a href="global.html#PriceSortText">PriceSortText</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>MainSearch.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
+import styled from 'styled-components';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import {connect} from 'react-redux';
+import {chooseModel}from '../Actions/chooseModelActions';
+import {updateMaker}from '../Actions/makerActions';
+import {choosenPowerMin }from '../Actions/choosenPowerActions';
+import {choosenPowerMax }from '../Actions/choosenPowerActions';
+import {choosenYearMin }from '../Actions/choosenYearActions';
+import {choosenYearMax }from '../Actions/choosenYearActions';
+import {choosenPriceMin }from '../Actions/choosenPriceActions';
+import {choosenPriceMax }from '../Actions/choosenPriceActions';
+
+const MainSearchContainer = styled.div`
+  background-color:#3a3a3a;
+  padding:2%;
+  @media (max-width: 450px) {
+    padding-left:0;
+    padding-right:0;
+  }
+`;
+
+const AttrContainer = styled.div`
+  display:flex;
+  flex-direction:column;
+  width: 24%;
+  @media (max-width: 860px) {
+    width: 100%;
+  }
+`;
+
+const Search = styled.div`
+  display:flex;
+  flex-direction:row;
+  @media (max-width: 1040px) {
+    flex-direction:column;
+  }
+`;
+const SearchHeader = styled.h2`
+  color:white;
+  font-family: 'Roboto', sans-serif;
+  font-weight:100;
+  padding-bottom:4px;
+  letter-spacing:1px;
+`;
+
+const FilterContainer = styled.div`
+  color:white;
+  font-family: 'Roboto', sans-serif;
+  font-weight:200;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-around;
+  width: 100%;
+  @media (max-width: 860px) {
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-gap:1rem;
+  }
+  @media (max-width: 450px) {
+    display:flex;
+    flex-direction:column;
+    grid-gap:0;
+  }
+`;
+const DropDownContentMaker = styled.div`
+  font-weight: 200;
+  display: none;
+  position: absolute;
+  background-color:white;
+  z-index: 1;
+  display: ${props => props.makerShow ? "block" : "none"};
+  min-width:200px;
+  @media (max-width:450px){
+    width:100%;
+  }
+`;
+
+const DropDownContentMinYear= styled.div`
+  font-weight: 200;
+  display: none;
+  min-width:200px;
+  position: absolute;
+  background-color:white;
+  z-index: 1;
+  display: ${props => props.minYearsShow ? "block" : "none"};
+  @media (max-width:450px){
+    width:100%;
+  }
+`;
+
+const DropDownContentMaxYear= styled.div`
+  font-weight: 200;
+  display: none;
+  min-width:200px;
+  position: absolute;
+  background-color:white;
+  z-index: 1;
+  display: ${props => props.maxYearsShow ? "block" : "none"};
+  @media (max-width:450px){
+    width:100%;
+  }
+`;
+
+const DropDownContentMinPrice= styled.div`
+  font-weight: 200;
+  display: none;
+  min-width:200px;
+  position: absolute;
+  background-color:white;
+  z-index: 1;
+  display: ${props => props.minPricesShow ? "block" : "none"};
+  @media (max-width:450px){
+    width:100%;
+  }
+`;
+
+const DropDownContentMaxPrice= styled.div`
+  font-weight: 200;
+  display: none;
+  min-width:200px;
+  position: absolute;
+  background-color:white;
+  z-index: 1;
+  display: ${props => props.maxPricesShow ? "block" : "none"};
+  @media (max-width:450px){
+    width:100%;
+  }
+`;
+
+const SubAttr = styled.div`
+  cursor: pointer;
+  color:black;
+  padding:4px;
+  font-weight: 300;
+  &amp;:hover {
+    background-color: rgba(0, 0, 0, .2);
+  }
+`;
+
+const AnyAttrText = styled.div`
+  color:black;
+`;
+
+const AttrChoose = styled.ul`
+  display: inline-block;
+  padding-bottom:4px;
+  margin-bottom:8px;
+`;
+
+const AnyAttr = styled.button`
+  cursor: pointer;
+  display: flex;
+  flex-direction:row;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  color:black;
+  width:100%;
+  padding:8px;
+  margin-bottom:4px;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 200px;
+  border:none;
+  border-radius:4px;
+  -webkit-transition:0.4s ease-in-out;
+  -moz-transition:0.4s ease-in-out;
+  transition:0.4s ease-in-out;
+  &amp;:hover {
+    color: #ec6b0c;
+  }
+`;
+const DropDownContentModel = styled.div`
+  display: none;
+  position: absolute;
+  background-color:white;
+  z-index: 1;
+  display: ${props => props.modelShow ? "block" : "none"};
+  font-weight: 200;
+  min-width:200px;
+  @media (max-width:450px){
+    width:100%;
+  }
+`;
+
+const DropDownContentMinPower = styled.div`
+  display: none;
+  min-width:200px;
+  position: absolute;
+  background-color:white;
+  z-index: 1;
+  display: ${props => props.minPowerShow ? "block" : "none"};
+  font-weight: 200;
+  @media (max-width:450px){
+    width:100%;
+  }
+`;
+
+const DropDownContentMaxPower = styled.div`
+  display: none;
+  min-width:200px;
+  position: absolute;
+  background-color:white;
+  z-index: 1;
+  display: ${props => props.maxPowerShow ? "block" : "none"};
+  font-weight: 200;
+  @media (max-width:450px){
+    width:100%;
+  }
+`;
+
+const ResetButton = styled.button`
+  white-space: nowrap;
+  cursor: pointer;
+  background-color:#ec6b0c;
+  color:white;
+  justify-self:center;
+  align-self:center;
+  outline:none;
+  border:none;
+  border-radius:4px;
+  height:100%;
+  padding-top:16px;
+  padding-bottom:16px;
+  padding-left:16px;
+  padding-right:16px;
+  -webkit-transition:0.4s ease-in-out;
+  -moz-transition:0.4s ease-in-out;
+  transition:0.4s ease-in-out;
+  margin-left:8px;
+  &amp;:hover {
+    background-color: black;
+  }
+  @media (max-width: 1040px) {
+    margin-left:0px;
+  }
+`;
+
+/**
+ * "MainSearch" component, element of "Offers"
+ */
+ class MainSearch extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      makerShow:false,
+      modelShow:false,
+      minPowerShow:false,
+      maxPowerShow:false,
+      minYearsShow:false,
+      maxYearsShow:false,
+      minPricesShow:false,
+      maxPricesShow:false,
+      };
+      this.modelChange = this.modelChange.bind(this);
+      this.makerChange = this.makerChange.bind(this);
+      this.makerShow = this.makerShow.bind(this);
+      this.modelShow = this.modelShow.bind(this);
+      this.minPowerShow = this.minPowerShow.bind(this);
+      this.maxPowerShow = this.maxPowerShow.bind(this);
+      this.minPowerChange = this.minPowerChange.bind(this);
+      this.maxPowerChange = this.maxPowerChange.bind(this);
+      this.maxYearChange = this.maxYearChange.bind(this);
+      this.minYearChange = this.minYearChange.bind(this);
+      this.maxYearsShow = this.maxYearsShow.bind(this);
+      this.minYearsShow = this.minYearsShow.bind(this);
+      this.maxPriceChange = this.maxPriceChange.bind(this);
+      this.minPriceChange = this.minPriceChange.bind(this);
+      this.maxPricesShow = this.maxPricesShow.bind(this);
+      this.minPricesShow = this.minPricesShow.bind(this);
+      this.resetFilters = this.resetFilters.bind(this);
+  }
+
+  modelChange(updatedModel){
+    this.props.chooseModel(updatedModel.model);
+  }
+  makerChange(e){
+    this.props.updateMaker(e.maker);
+    this.props.chooseModel("Any Model")
+  }
+  minPowerChange(e){
+     this.props.choosenPowerMin(e.value);
+  }
+  maxPowerChange(e){
+     this.props.choosenPowerMax(e.value);
+  }
+  minYearChange(e){
+     this.props.choosenYearMin(e.value);
+  }
+  maxYearChange(e){
+     this.props.choosenYearMax(e.value);
+  }
+  minPriceChange(e){
+     this.props.choosenPriceMin(e.value);
+  }
+  maxPriceChange(e){
+     this.props.choosenPriceMax(e.value);
+  }
+  /**
+   * Displays hidden dropdown menu.
+   */
+  makerShow(){
+    this.setState({ makerShow: !this.state.makerShow});
+    this.setState({ modelShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ maxPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ minPricesShow: false});
+  }
+  /**
+   * Displays hidden dropdown menu.
+   */
+  modelShow(){
+    this.setState({ modelShow: !this.state.modelShow});
+    this.setState({ makerShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ maxPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ minPricesShow: false});
+  }
+  /**
+   * Displays hidden dropdown menu.
+   */
+  minPowerShow(){
+    this.setState({ minPowerShow: !this.state.minPowerShow});
+    this.setState({ makerShow: false});
+    this.setState({ modelShow: false});
+    this.setState({ maxPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ minPricesShow: false});
+  }
+  /**
+   * Displays hidden dropdown menu.
+   */
+  maxPowerShow(){
+    this.setState({ maxPowerShow: !this.state.maxPowerShow});
+    this.setState({ makerShow: false});
+    this.setState({ modelShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ minPricesShow: false});
+  }
+  /**
+   * Displays hidden dropdown menu.
+   */
+  minYearsShow(){
+    this.setState({ minYearsShow: !this.state.minYearsShow});
+    this.setState({ makerShow: false});
+    this.setState({ modelShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ maxPowerShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ minPricesShow: false});
+  }
+/**
+  * Displays hidden dropdown menu.
+  */
+  maxYearsShow(){
+    this.setState({ maxYearsShow: !this.state.maxYearsShow});
+    this.setState({ makerShow: false});
+    this.setState({ modelShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxPowerShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ minPricesShow: false});
+  }
+  /**
+   * Displays hidden dropdown menu.
+   */
+  minPricesShow(){
+    this.setState({ minPricesShow: !this.state.minPricesShow});
+    this.setState({ makerShow: false});
+    this.setState({ modelShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ maxPricesShow: false});
+    this.setState({ maxYearsShow: false});
+  }
+  /**
+   * Displays hidden dropdown menu.
+   */
+  maxPricesShow(){
+    this.setState({ maxPricesShow: !this.state.maxPricesShow});
+    this.setState({ makerShow: false});
+    this.setState({ modelShow: false});
+    this.setState({ minPowerShow: false});
+    this.setState({ minYearsShow: false});
+    this.setState({ maxYearsShow: false});
+    this.setState({ minPricesShow: false});
+    this.setState({ maxPowerShow: false});
+  }
+  /**
+   * Displays hidden dropdown menu.
+   */
+  resetFilters(){
+    this.props.updateMaker("Any Maker");
+    this.props.chooseModel("Any Model");
+    this.props.choosenPowerMin(null);
+    this.props.choosenPowerMax(null);
+    this.props.choosenYearMin(null);
+    this.props.choosenYearMax(null);
+    this.props.choosenPriceMin(null);
+    this.props.choosenPriceMax(null);
+  }
+  render() {
+    return (  
+      &lt;MainSearchContainer>
+        &lt;Search>
+          &lt;FilterContainer>
+            &lt;AttrContainer>
+              &lt;SearchHeader>Search&lt;/SearchHeader>
+              &lt;AttrChoose>
+                &lt;AnyAttr onClick={() => this.makerShow()}>
+                  &lt;AnyAttrText>{ (this.props.maker.maker === undefined) ? "Any Maker" : this.props.maker.maker}&lt;/AnyAttrText>
+                  &lt;ArrowDropDownIcon/>
+                &lt;/AnyAttr>
+                &lt;DropDownContentMaker makerShow={this.state.makerShow} onClick={() => this.makerShow()}>
+                  &lt;SubAttr onClick={() => this.makerChange({maker:"Any Maker"})}>Any Maker&lt;/SubAttr>
+                  {(this.props.makers===undefined) ? null : (this.props.makers.map(maker => &lt;SubAttr key={maker} onClick={() => this.makerChange({maker})}>{maker}&lt;/SubAttr> )) }
+                &lt;/DropDownContentMaker>
+              &lt;/AttrChoose>
+              &lt;AttrChoose>
+                &lt;AnyAttr onClick={() => this.modelShow()} >
+                  &lt;AnyAttrText>{ (this.props.choosenModel.choosenModel === undefined) ? "Any Model" : this.props.choosenModel.choosenModel}&lt;/AnyAttrText> 
+                  &lt;ArrowDropDownIcon/>
+                &lt;/AnyAttr>
+                &lt;DropDownContentModel modelShow={this.state.modelShow} onClick={() => this.modelShow()}>
+                  &lt;SubAttr onClick={() => this.modelChange({model:"Any Model"})}>Any Model&lt;/SubAttr>
+                  {(this.props.models===undefined || this.props.maker===undefined || this.props.maker.maker===undefined || this.props.models[this.props.maker.maker]===undefined) ?   null : (this.props.models[this.props.maker.maker].map(model =>   &lt;SubAttr key={model} onClick={() => this.modelChange({model})}>{model}&lt;/SubAttr> )) }
+                &lt;/DropDownContentModel>
+              &lt;/AttrChoose>
+            &lt;/AttrContainer>
+            &lt;AttrContainer>  
+              &lt;SearchHeader>Power&lt;/SearchHeader>
+              &lt;AttrChoose>
+                &lt;AnyAttr onClick={() => this.minPowerShow()} >
+                  &lt;AnyAttrText>{ (this.props.choosenPower.minPower === null) ? "Min Power" : this.props.choosenPower.minPower} KM&lt;/AnyAttrText> 
+                  &lt;ArrowDropDownIcon/>
+                &lt;/AnyAttr>
+                &lt;DropDownContentMinPower minPowerShow={this.state.minPowerShow} onClick={() => this.minPowerShow()}>
+                  {(this.props.power.powerMin===undefined ) ?   null : (this.props.power.powerMin.map(value =>   &lt;SubAttr key={value} onClick={() => this.minPowerChange({value})}>{value}&amp;nbsp;KM&lt;/SubAttr> )) }
+               &lt;/DropDownContentMinPower>
+              &lt;/AttrChoose>
+              &lt;AttrChoose>
+                &lt;AnyAttr onClick={() => this.maxPowerShow()} >
+                  &lt;AnyAttrText>{ (this.props.choosenPower.maxPower === null) ? "Max Power" : this.props.choosenPower.maxPower} KM&lt;/AnyAttrText> 
+                  &lt;ArrowDropDownIcon/>
+                &lt;/AnyAttr>
+                &lt;DropDownContentMaxPower maxPowerShow={this.state.maxPowerShow} onClick={() => this.maxPowerShow()}>
+                  {(this.props.power.powerMax===undefined ) ?   null : (this.props.power.powerMax.map(value =>   &lt;SubAttr key={value} onClick={() => this.maxPowerChange({value})}>{value}&amp;nbsp;KM&lt;/SubAttr> )) }
+               &lt;/DropDownContentMaxPower>
+              &lt;/AttrChoose>
+            &lt;/AttrContainer>
+            &lt;AttrContainer>  
+              &lt;SearchHeader>Years&lt;/SearchHeader>
+              &lt;AttrChoose>
+                &lt;AnyAttr onClick={() => this.minYearsShow()} >
+                  &lt;AnyAttrText>From { (this.props.choosenYear.minYear === null) ? null : this.props.choosenYear.minYear}&lt;/AnyAttrText> 
+                  &lt;ArrowDropDownIcon/>
+                &lt;/AnyAttr>
+                &lt;DropDownContentMinYear minYearsShow={this.state.minYearsShow} onClick={() => this.minYearsShow()}>
+                  {(this.props.years===undefined ) ?   null : (this.props.years.yearMin.map(value =>   &lt;SubAttr key={value} onClick={() => this.minYearChange({value})}>{value}&lt;/SubAttr> )) }
+               &lt;/DropDownContentMinYear>
+              &lt;/AttrChoose>
+              &lt;AttrChoose>
+                &lt;AnyAttr onClick={() => this.maxYearsShow()} >
+                  &lt;AnyAttrText>To { (this.props.choosenYear.maxYear === null) ? null: this.props.choosenYear.maxYear}&lt;/AnyAttrText> 
+                  &lt;ArrowDropDownIcon/>
+                &lt;/AnyAttr>
+                &lt;DropDownContentMaxYear maxYearsShow={this.state.maxYearsShow} onClick={() => this.maxYearsShow()}>
+                  {(this.props.years===undefined ) ?   null : (this.props.years.yearMax.map(value =>   &lt;SubAttr key={value} onClick={() => this.maxYearChange({value})}>{value}&lt;/SubAttr> )) }
+               &lt;/DropDownContentMaxYear>
+              &lt;/AttrChoose>
+            &lt;/AttrContainer>
+            &lt;AttrContainer>  
+              &lt;SearchHeader>Price&lt;/SearchHeader>
+              &lt;AttrChoose>
+                &lt;AnyAttr onClick={() => this.minPricesShow()} >
+                  &lt;AnyAttrText>From { (this.props.choosenPrice.minPrice === null) ? null : this.props.choosenPrice.minPrice} PLN&lt;/AnyAttrText> 
+                  &lt;ArrowDropDownIcon/>
+                &lt;/AnyAttr>
+                &lt;DropDownContentMinPrice minPricesShow={this.state.minPricesShow} onClick={() => this.minPricesShow()}>
+                  {(this.props.price===undefined ) ?   null : (this.props.price.priceMin.map(value =>   &lt;SubAttr key={value} onClick={() => this.minPriceChange({value})}>{value}&lt;/SubAttr> )) }
+               &lt;/DropDownContentMinPrice>
+              &lt;/AttrChoose>
+              &lt;AttrChoose>
+                &lt;AnyAttr onClick={() => this.maxPricesShow()} >
+                  &lt;AnyAttrText>To { (this.props.choosenPrice.maxPrice === null) ? null : this.props.choosenPrice.maxPrice} PLN&lt;/AnyAttrText> 
+                  &lt;ArrowDropDownIcon/>
+                &lt;/AnyAttr>
+                &lt;DropDownContentMaxPrice maxPricesShow={this.state.maxPricesShow} onClick={() => this.maxPricesShow()}>
+                  {(this.props.price===undefined ) ?   null : (this.props.price.priceMax.map(value =>   &lt;SubAttr key={value} onClick={() => this.maxPriceChange({value})}>{value}&lt;/SubAttr> )) }
+               &lt;/DropDownContentMaxPrice>
+              &lt;/AttrChoose>
+            &lt;/AttrContainer>     
+          &lt;/FilterContainer>
+          &lt;ResetButton onClick={()=>this.resetFilters()}>RESET FILTERS&lt;/ResetButton>
+        &lt;/Search>
+      &lt;/MainSearchContainer>
+    );
+  }
+}    
+const mapStateToProps = state => ({
+  models: state.models,
+  maker: state.maker,
+  makers: state.makers,
+  choosenModel:state.choosenModel,
+  power:state.power,
+  choosenPower:state.choosenPower,
+  years:state.years,
+  choosenYear:state.choosenYear,
+  price:state.price,
+  choosenPrice:state.choosenPrice,
+  cars:state.cars,
+  }); 
+
+  export default connect(mapStateToProps,{chooseModel, updateMaker, choosenPowerMax, choosenPowerMin, choosenYearMin , choosenYearMax, choosenPriceMin , choosenPriceMax  })(MainSearch);</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

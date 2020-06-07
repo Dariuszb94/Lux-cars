@@ -136,7 +136,9 @@ const StyledLink = styled(NavLink).attrs()`
   }
 `;
 
-
+/**
+ * "VehicleInfoFinances" component.
+ */
 class VehicleInfoFinances extends Component {
   constructor(props) {
     super(props);

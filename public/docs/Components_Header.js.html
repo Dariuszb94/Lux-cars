@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Components/Header.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Car dealer</h1>
+                </a>
+            
+        </div>
+
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="Cars.html">Cars</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactForm.html">ContactForm</a></li><li><a href="Finance.html">Finance</a></li><li><a href="FinanceApp.html">FinanceApp</a></li><li><a href="Footer.html">Footer</a></li><li><a href="GetInTouch.html">GetInTouch</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="MainSearch.html">MainSearch</a></li><li><a href="Menu.html">Menu</a></li><li><a href="Offer.html">Offer</a></li><li><a href="OpeningHours.html">OpeningHours</a></li><li><a href="QuickLinks.html">QuickLinks</a></li><li><a href="Search.html">Search</a></li><li><a href="SimilarVehicles.html">SimilarVehicles</a></li><li><a href="Slider.html">Slider</a></li><li><a href="Sorter.html">Sorter</a></li><li><a href="SubNavi.html">SubNavi</a></li><li><a href="Touch.html">Touch</a></li><li><a href="UnderSlider.html">UnderSlider</a></li><li><a href="VehicleInfo.html">VehicleInfo</a></li><li><a href="VehicleInfoDescription.html">VehicleInfoDescription</a></li><li><a href="VehicleInfoFeatures.html">VehicleInfoFeatures</a></li><li><a href="VehicleInfoFinances.html">VehicleInfoFinances</a></li></ul><h3>Global</h3><ul><li><a href="global.html#FavouriteList">FavouriteList</a></li><li><a href="global.html#FavouriteSet">FavouriteSet</a></li><li><a href="global.html#OffersContainer">OffersContainer</a></li><li><a href="global.html#store">store</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Components/Header.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
+import styled from 'styled-components';
+import LogoSrc from '../Assets/Images/Logo.png';
+import TopRatedSrc from '../Assets/Images/Top-rated.png';
+import CallIcon from '@material-ui/icons/Call';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import {NavLink} from "react-router-dom";
+import MenuIcon from '@material-ui/icons/Menu';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import {chooseModel}from '../Actions/chooseModelActions';
+import {updateMaker}from '../Actions/makerActions';
+import {connect} from 'react-redux';
+
+const HeaderContainer = styled.div`
+  background: #020202;
+  display:flex;
+  flex-direction:row;
+  padding-left:12px;
+  padding-right:12px;
+  padding-top:16px;
+  padding-bottom:16px;
+  justify-content:space-between;
+  align-items: center;
+  @media (max-width: 750px) {
+    background-color:#ec6b0c; 
+    padding-top:0px;
+    padding-bottom:0px;
+    padding-left:16px;
+    padding-right:16px;
+  }
+`;
+
+const Logo = styled.img`
+  width: 100px;
+  height: 100px;
+  -webkit-box-shadow: 10px 10px 47px -26px rgba(0,0,0,0.47);
+  -moz-box-shadow: 10px 10px 47px -26px rgba(0,0,0,0.47);
+  box-shadow: 10px 10px 47px -26px rgba(0,0,0,0.47);
+`;
+
+const TopRated = styled.img`
+  width: 400px;
+  height: 31px;
+  @media (max-width: 750px) {
+    display:none; 
+  }
+`;
+
+const StyledLink = styled(NavLink).attrs()`
+  width:100%;
+  text-decoration:none;
+  color:black;
+  &amp;:hover {
+    color: #ec6b0c;
+  }
+`;
+
+const Contact= styled.div`
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  @media (max-width: 750px) {
+    display:none;
+  }
+`;
+
+const CallLowerUpperContainer= styled.div`
+  padding-right:16px;
+  border-right:1px solid white;
+  display:flex;
+  flex-direction:column;
+`;
+
+const CallUpper= styled.div`
+  color:white;
+  text-align:right;
+`;
+
+const CallLower= styled.div`
+  display:flex;
+  flex-direction:row;
+  font-size: 32px !important;
+  align-items:center;
+`;
+
+const Facebook = styled(FacebookIcon)`
+  color: #ec6b0c;
+  cursor: pointer;
+  font-size: 32px !important;
+  padding-left:16px;
+  &amp;:hover {
+    color: white;
+  }
+`;
+
+const CallNumber = styled.div`
+  color: white;
+`;
+
+const Makers = styled.ul`
+display: ${props => props.makerShow ? "grid" : "none"};
+grid-template-columns:50% 50%;
+padding:16px;
+`;
+
+const Maker = styled.li`
+padding-top:8px;
+padding-bottom:8px;
+list-style: none;
+cursor: pointer;
+&amp;:hover {
+  color: #ec6b0c;
+  }
+`;
+
+const LogoLink = styled.div`
+`;
+
+const MenuDropDown = styled.ul`
+  position:absolute;
+  z-index:1;
+  display: ${props => props.showMenu ? "block" : "none"};
+  list-style:none;
+  width:100%;
+  background-color:white;
+  margin-left: -16px;
+  margin-top:34px;
+`;
+
+const MenuDropDownElement = styled.li`
+  padding-top:16px;
+  padding-bottom:16px;
+  margin-left: 16px;
+  margin-right: 16px;
+  font-weight:600;
+  border-bottom: 2px solid rgba(0,0,0,.1);
+  &amp;:hover {
+    color: #ec6b0c;
+  }
+`;
+
+const MenuDropDownElementUsedCars = styled.li`
+  color:black;
+  padding-top:16px;
+  padding-bottom:16px;
+  margin-left: 16px;
+  margin-right: 16px;
+  font-weight:600;
+  border-bottom: 2px solid rgba(0,0,0,.1);
+  display:flex;
+  align-content:center;
+  cursor: pointer;
+  &amp;:hover {
+    color: #ec6b0c;
+  }
+`;
+
+const StyledCallIcon = styled(CallIcon)`
+  color: #ec6b0c;
+  font-size: 32px !important;
+`;
+
+const StyledMenuIcon = styled(MenuIcon)`
+  color: white;
+  font-size: 32px !important;
+  cursor:pointer;
+`;
+
+const StyledMenuIconContainer = styled.div`
+  display:none !important;
+  @media (max-width: 750px) {
+    display:initial !important; 
+  }
+`;
+
+/**
+ * "Header"component.
+ */
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showMenu:false,
+      makerShow:false,
+    };
+    this.showMenu = this.showMenu.bind(this);
+    this.makerShow = this.makerShow.bind(this);
+    this.makerChange = this.makerChange.bind(this);
+  }
+  /**
+    * Displays dropdown menu
+   */
+  showMenu(){
+    this.setState({ showMenu: !this.state.showMenu});
+  }
+
+   /**
+    * Displays dropdown menu
+   */
+  makerShow(){
+    this.setState({ makerShow: !this.state.makerShow});
+  }
+
+  /**
+   * Updates choosen maker, also resets models filter.
+   * @param {string} e.maker 
+   */
+  makerChange(e){
+    this.showMenu()
+    this.props.updateMaker(e.maker);
+    let updatedModel={model:"Any Model"};
+    this.props.chooseModel(updatedModel.model)
+  }
+  render() {
+    return (  
+      &lt;HeaderContainer>
+        &lt;StyledMenuIconContainer>
+          &lt;StyledMenuIcon onClick={()=>this.showMenu()}>&lt;/StyledMenuIcon>
+          &lt;MenuDropDown showMenu={this.state.showMenu}>
+            &lt;StyledLink to="/Lux-cars">
+              &lt;MenuDropDownElement onClick={()=>this.showMenu()}>HOME&lt;/MenuDropDownElement>
+            &lt;/StyledLink>
+            &lt;MenuDropDownElementUsedCars>
+              &lt;StyledLink to="/Offers" onClick={()=>this.showMenu()}>USED CARS&lt;/StyledLink>
+              &lt;ArrowDropDownIcon onClick={()=>this.makerShow()}/>
+            &lt;/MenuDropDownElementUsedCars>
+            &lt;Makers makerShow={this.state.makerShow}>
+              {(this.props.makers===undefined) ?   null : (this.props.makers.map(maker =>   &lt;StyledLink to="/Offers" key={maker} onClick={() => this.makerChange({maker})}>&lt;Maker>{maker}&lt;/Maker>&lt;/StyledLink> )) }
+            &lt;/Makers>
+            &lt;StyledLink to="/Finance" >&lt;MenuDropDownElement onClick={()=>this.showMenu()}>FINANCE&lt;/MenuDropDownElement>&lt;/StyledLink>
+            &lt;StyledLink to="/About" > &lt;MenuDropDownElement onClick={()=>this.showMenu()}>ABOUT&lt;/MenuDropDownElement>&lt;/StyledLink>
+            &lt;StyledLink to="/Contact" >&lt;MenuDropDownElement onClick={()=>this.showMenu()}>CONTACT&lt;/MenuDropDownElement>&lt;/StyledLink>
+          &lt;/MenuDropDown>
+        &lt;/StyledMenuIconContainer>
+        &lt;LogoLink>
+          &lt;StyledLink to="/Lux-cars">
+            &lt;Logo src={LogoSrc}>&lt;/Logo>
+          &lt;/StyledLink>
+        &lt;/LogoLink>
+        &lt;TopRated src={TopRatedSrc}>&lt;/TopRated>
+        &lt;Contact>
+          &lt;CallLowerUpperContainer>
+            &lt;CallUpper>Sales Hotline&lt;/CallUpper>
+            &lt;CallLower>
+              &lt;StyledCallIcon/>
+              &lt;CallNumber>111 222 333&lt;/CallNumber>
+            &lt;/CallLower>
+          &lt;/CallLowerUpperContainer>
+          &lt;Facebook/>
+        &lt;/Contact>
+      &lt;/HeaderContainer>
+    );
+  }
+}
+const mapStateToProps = state => ({
+  maker: state.maker,
+  makers: state.makers,
+  }); 
+  export default connect(mapStateToProps,{chooseModel, updateMaker})(Header);</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

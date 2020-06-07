@@ -65,6 +65,9 @@ const Mail= styled.div`
   }
 `;
 
+/**
+ * "Touch" component
+ */
 class Touch extends Component {
   render() {
     return (  
