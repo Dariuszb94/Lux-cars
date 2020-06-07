@@ -44,4 +44,5 @@ To run this project, download a repo, then go to repo folder, open terminal:
 $ npm install
 $ npm run start
 ```
-[Click for more detailed documentation](https://dariuszb94.github.io/incomes/docs/index)
+
+[Click for more detailed documentation](https://dariuszb94.github.io/Lux-cars/docs/index)
