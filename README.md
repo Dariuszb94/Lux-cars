@@ -37,6 +37,9 @@ Project is created with:
 * Dexie: 3.0.1
 * React-image-magnifiers: 1.3.2
 * React-transitions: 1.0.0
+* Better-docs: 2.0.1
+* Gh-pages: 2.2.0
+* jsdoc: 3.6.4
 ## Setup
 To run this project, download a repo, then go to repo folder, open terminal:
 
