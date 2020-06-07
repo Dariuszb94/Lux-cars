@@ -19,7 +19,7 @@ const Header = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
-  background-image: url('https://i.ibb.co/59Qnbjk/a1.png');
+  background-image: url('https://i.ibb.co/1TMgT0Y/a1-1.png');
   background-size: cover;
   min-height:40vh;
   width:100%;

@@ -22,7 +22,7 @@ const Header = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
-  background-image: url('https://i.ibb.co/CvWVj2X/close-up-of-coins-on-table-332304.jpg');
+  background-image: url('https://i.ibb.co/Bzdwf7z/close-up-of-coins-on-table-332304-1.jpg');
   background-size: cover;
   min-height:40vh;
   width:100%;

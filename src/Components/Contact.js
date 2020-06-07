@@ -18,7 +18,7 @@ const Header = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
-  background-image: url('https://i.ibb.co/K59yjZC/photography-of-a-classic-car-gauge-1006511.jpg');
+  background-image: url('https://i.ibb.co/yWcpKMX/photography-of-a-classic-car-gauge-1006511-1.jpg');
   background-size: cover;
   min-height:40vh;
   width:100%;
