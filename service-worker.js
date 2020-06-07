@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Lux-cars/precache-manifest.626d9333dd7707f0ce74e70a4b89faf1.js"
+  "/Lux-cars/precache-manifest.c50a7eca5ab103b9edf11c1914a8c99a.js"
 );
 
 self.addEventListener('message', (event) => {
