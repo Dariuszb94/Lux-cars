@@ -1,17 +1,12 @@
 import {CHOOSEN_POWER_MAX } from './types';
 import {CHOOSEN_POWER_MIN } from './types';
 
-export const choosenPowerMin = (e) => dispatch => {
-dispatch({
+export const choosenPowerMin = payload => ({
   type:CHOOSEN_POWER_MIN,
-  payload:e
+  payload,
 });
-};
 
-export const choosenPowerMax = (e) => dispatch => {
-    dispatch({
-      type:CHOOSEN_POWER_MAX ,
-      payload:e
-    });
-    };
-    
+export const choosenPowerMax = payload => ({
+    type:CHOOSEN_POWER_MAX,
+    payload,
+  });

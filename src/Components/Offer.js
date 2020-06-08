@@ -15,6 +15,7 @@ import {choosenSection}from '../Actions/carOfferNaviActions';
 import {Magnifier,GlassMagnifier} from "react-image-magnifiers";
 import SubNavi from './SubNavi';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import {CARS} from '../Components/Const/carsDefaultData'
 
 const CarsContainer = styled.div`
   background-color:black;
@@ -443,7 +444,7 @@ class Offer extends Component {
       smallImageSelect1:1,
       smallImageSelect2:2,
       smallImageSelect3:3,
-      mainImage:this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail3,
+      mainImage:[this.props.location.pathname.replace(/\D/g, "")].imageDetail3,
       imageHighLight1:false,
       imageHighLight2:true,
       imageHighLight3:false,
@@ -512,7 +513,7 @@ class Offer extends Component {
 
   filterCars(){
     let filteredArray=[];
-    this.props.cars.forEach((car)=>{
+    CARS.forEach((car)=>{
       this.filterModel(car,filteredArray);
     });
     this.sort(filteredArray);
@@ -585,11 +586,11 @@ class Offer extends Component {
 
   createListOfImages(){
     let listOfImages=[];
-    listOfImages.push(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail1);
-    listOfImages.push(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail2);
-    listOfImages.push(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail3);
-    listOfImages.push(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail4);
-    listOfImages.push(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail5);
+    listOfImages.push(CARS[this.props.location.pathname.replace(/\D/g, "")].imageDetail1);
+    listOfImages.push(CARS[this.props.location.pathname.replace(/\D/g, "")].imageDetail2);
+    listOfImages.push(CARS[this.props.location.pathname.replace(/\D/g, "")].imageDetail3);
+    listOfImages.push(CARS[this.props.location.pathname.replace(/\D/g, "")].imageDetail4);
+    listOfImages.push(CARS[this.props.location.pathname.replace(/\D/g, "")].imageDetail5);
     let prevState = JSON.stringify([...this.state.listOfImages]); 
     let newState = JSON.stringify([...listOfImages]);
     if(prevState!==newState){
@@ -602,7 +603,7 @@ class Offer extends Component {
     if (event!==undefined)
       this.setState({ mainImage: event });
     if(event==="changeCar")
-      this.setState({ mainImage:this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageDetail3 });
+      this.setState({ mainImage:CARS[this.props.location.pathname.replace(/\D/g, "")].imageDetail3 });
     if (numberOfPhoto===1){
       this.setState({ imageHighLight1: true });
       this.setState({ imageHighLight2: false });
@@ -663,17 +664,17 @@ class Offer extends Component {
       <CarsContainer>
         <SubNavi/>
         <CarList> 
-          <Car key={this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id}>
+          <Car key={CARS[this.props.location.pathname.replace(/\D/g, "")].id}>
             <CarHeader>
-              <CarLogo src={this.props.cars[this.props.location.pathname.replace(/\D/g, "")].imageLogo}></CarLogo>
+              <CarLogo src={CARS[this.props.location.pathname.replace(/\D/g, "")].imageLogo}></CarLogo>
               <CarHeaderText>
                 <CarHeaderTextRight>
-                  <CarHeaderMainText>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].year} {this.props.cars[this.props.location.pathname.replace(/\D/g, "")].brand} {this.props.cars[this.props.location.pathname.replace(/\D/g, "")].model}</CarHeaderMainText>
-                  <CarHeaderSubText>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].power} KM {this.props.cars[this.props.location.pathname.replace(/\D/g, "")].displacement} cm3</CarHeaderSubText>
+                  <CarHeaderMainText>{CARS[this.props.location.pathname.replace(/\D/g, "")].year} {CARS[this.props.location.pathname.replace(/\D/g, "")].brand} {CARS[this.props.location.pathname.replace(/\D/g, "")].model}</CarHeaderMainText>
+                  <CarHeaderSubText>{CARS[this.props.location.pathname.replace(/\D/g, "")].power} KM {CARS[this.props.location.pathname.replace(/\D/g, "")].displacement} cm3</CarHeaderSubText>
                 </CarHeaderTextRight>
                 <CarHeaderTextLeft>
-                  <CarHeaderMainTextRight>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price} PLN</CarHeaderMainTextRight>
-                  <CarHeaderSubTextRight  to={{ pathname: '/Offer/Vehicle-Finances/'+this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id}}  onClick={()=> { this.changeSection("Finance")}}>Finance from {(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price*1.05/72).toFixed(0)} PLN</CarHeaderSubTextRight>
+                  <CarHeaderMainTextRight>{CARS[this.props.location.pathname.replace(/\D/g, "")].price} PLN</CarHeaderMainTextRight>
+                  <CarHeaderSubTextRight  to={{ pathname: '/Offer/Vehicle-Finances/'+CARS[this.props.location.pathname.replace(/\D/g, "")].id}}  onClick={()=> { this.changeSection("Finance")}}>Finance from {(CARS[this.props.location.pathname.replace(/\D/g, "")].price*1.05/72).toFixed(0)} PLN</CarHeaderSubTextRight>
                 </CarHeaderTextLeft>
               </CarHeaderText>
             </CarHeader>
@@ -681,7 +682,7 @@ class Offer extends Component {
               <CarPhotoContainer>
                 <GlassMagnifier
                   imageSrc={this.state.mainImage}
-                  imageAlt={this.props.cars[this.props.location.pathname.replace(/\D/g, "")].model}
+                  imageAlt={CARS[this.props.location.pathname.replace(/\D/g, "")].model}
                   magnifierOffsetX={this.state.magnifierOffsetX}
                   magnifierOffsetY={this.state.magnifierOffsetY}
                   magnifierSize={this.state.magnifierSize}
@@ -748,7 +749,6 @@ const mapStateToProps = state => ({
   choosenYear:state.choosenYear,
   price:state.price,
   choosenPrice:state.choosenPrice,
-  cars:state.cars,
   priceSort:state.priceSort,
   id:state.id,
   section:state.section

@@ -10,6 +10,7 @@ import {choosenYearMin }from '../Actions/choosenYearActions';
 import {choosenYearMax }from '../Actions/choosenYearActions';
 import {choosenPriceMin }from '../Actions/choosenPriceActions';
 import {choosenPriceMax }from '../Actions/choosenPriceActions';
+import {CARS_MODELS} from '../Components/Const/carsModels';
 
 const MainSearchContainer = styled.div`
   background-color:#3a3a3a;
@@ -438,7 +439,7 @@ const ResetButton = styled.button`
                 </AnyAttr>
                 <DropDownContentModel modelShow={this.state.modelShow} onClick={() => this.modelShow()}>
                   <SubAttr onClick={() => this.modelChange({model:"Any Model"})}>Any Model</SubAttr>
-                  {(this.props.models===undefined || this.props.maker===undefined || this.props.maker.maker===undefined || this.props.models[this.props.maker.maker]===undefined) ?   null : (this.props.models[this.props.maker.maker].map(model =>   <SubAttr key={model} onClick={() => this.modelChange({model})}>{model}</SubAttr> )) }
+                  {(CARS_MODELS===undefined || this.props.maker===undefined || this.props.maker.maker===undefined || CARS_MODELS[this.props.maker.maker]===undefined) ?   null : (CARS_MODELS[this.props.maker.maker].map(model =>   <SubAttr key={model} onClick={() => this.modelChange({model})}>{model}</SubAttr> )) }
                 </DropDownContentModel>
               </AttrChoose>
             </AttrContainer>

@@ -10,6 +10,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import {NavLink} from "react-router-dom";
 import {chooseId}from '../Actions/chooseOfferActions';
 import FavouriteSet from './FavouriteSet';
+import {CARS} from '../Components/Const/carsDefaultData'
 
 const CarsContainer = styled.div`
   background-color:black;
@@ -281,12 +282,12 @@ class Cars extends Component {
     this.filterCars();
   }
 /**
- * Mapping through this.props.cars, then list is sorted and states are updated.
+ * Mapping through CARS, then list is sorted and states are updated.
  * 
  */
   filterCars(){
     let filteredArray=[];
-    this.props.cars.forEach((car)=>{
+    CARS.forEach((car)=>{
       this.filterModel(car,filteredArray);
     });
     this.sort(filteredArray);
@@ -389,7 +390,6 @@ const mapStateToProps = state => ({
   choosenYear:state.choosenYear,
   price:state.price,
   choosenPrice:state.choosenPrice,
-  cars:state.cars,
   priceSort:state.priceSort,
   id:state.id
   }); 

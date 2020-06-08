@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import ArrowDropDownOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
 import { CSSTransition } from "react-transition-group";
 import SpeedIcon from '@material-ui/icons/Speed';
 import HeightIcon from '@material-ui/icons/Height';
+import {CARS} from '../Components/Const/carsDefaultData';
 
 const VehicleInfoContainer = styled.div`
   background-color:#474747;
@@ -226,11 +226,11 @@ class VehicleInfoFeatures extends Component {
               unmountOnExit
             >
               <VehicleSummaryListDropDown vehicleSummaryListShow={this.state.vehicleSummaryListShow}>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Body style</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].body}</VehicleSummaryListElementRight></VehicleSummaryListElement>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Engine size</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].displacement} cm3</VehicleSummaryListElementRight></VehicleSummaryListElement>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Number of doors</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].doors}</VehicleSummaryListElementRight></VehicleSummaryListElement>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Number of seats</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].seats}</VehicleSummaryListElementRight></VehicleSummaryListElement>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Transmission</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].gearBox}</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Body style</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].body}</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Engine size</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].displacement} cm3</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Number of doors</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].doors}</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Number of seats</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].seats}</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Transmission</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].gearBox}</VehicleSummaryListElementRight></VehicleSummaryListElement>
               </VehicleSummaryListDropDown>
             </CSSTransition>
           </VehicleSummaryList>
@@ -243,11 +243,11 @@ class VehicleInfoFeatures extends Component {
               unmountOnExit
             >
               <VehiclePerformanceListDropDown vehiclePerformanceListShow={this.state.vehiclePerformanceListShow}>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>0-100 km/h</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].acceleration} s</VehicleSummaryListElementRight></VehicleSummaryListElement>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Top speed</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].topSpeed} km/h</VehicleSummaryListElementRight></VehicleSummaryListElement>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Cylinders</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].cylinders}</VehicleSummaryListElementRight></VehicleSummaryListElement>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Engine power</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].power} KM</VehicleSummaryListElementRight></VehicleSummaryListElement>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Engine torque</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].torque} Nm</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>0-100 km/h</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].acceleration} s</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Top speed</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].topSpeed} km/h</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Cylinders</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].cylinders}</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Engine power</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].power} KM</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Engine torque</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].torque} Nm</VehicleSummaryListElementRight></VehicleSummaryListElement>
               </VehiclePerformanceListDropDown>
             </CSSTransition>
           </VehicleSummaryList>
@@ -260,10 +260,10 @@ class VehicleInfoFeatures extends Component {
               unmountOnExit
             >
               <VehicleDimensionsListDropDown vehicleDimensionsListShow={this.state.vehicleDimensionsListShow}>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Height</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].height} mm</VehicleSummaryListElementRight></VehicleSummaryListElement>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Length</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].length} mm</VehicleSummaryListElementRight></VehicleSummaryListElement>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Wheelbase</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].wheelbase} mm</VehicleSummaryListElementRight></VehicleSummaryListElement>
-                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Width</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].width} mm</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Height</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].height} mm</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Length</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].length} mm</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Wheelbase</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].wheelbase} mm</VehicleSummaryListElementRight></VehicleSummaryListElement>
+                <VehicleSummaryListElement><VehicleSummaryListElementLeft>Width</VehicleSummaryListElementLeft><VehicleSummaryListElementRight>{CARS[window.location.href.slice(21).replace(/\D/g, "")].width} mm</VehicleSummaryListElementRight></VehicleSummaryListElement>
                </VehicleDimensionsListDropDown>
             </CSSTransition>
           </VehicleSummaryList>
@@ -271,7 +271,5 @@ class VehicleInfoFeatures extends Component {
     );
   }
 }    
-const mapStateToProps = state => ({
-  cars:state.cars,
-  }); 
-export default connect(mapStateToProps)(VehicleInfoFeatures);
+
+export default VehicleInfoFeatures;

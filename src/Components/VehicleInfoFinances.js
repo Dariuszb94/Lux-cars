@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {connect} from 'react-redux';
 import ReactSlider from 'react-slider'
 import {NavLink} from "react-router-dom";
+import {CARS} from '../Components/Const/carsDefaultData';
 
 const Container = styled.div`
   background-color:#474747;
@@ -150,7 +151,7 @@ class VehicleInfoFinances extends Component {
     };
   }
   componentDidMount() {
-    this.setState({ carPrice: this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].price}) 
+    this.setState({ carPrice: CARS[window.location.href.slice(21).replace(/\D/g, "")].price}) 
   }
 
   render() {
@@ -187,7 +188,6 @@ class VehicleInfoFinances extends Component {
   }
 }    
 const mapStateToProps = state => ({
-  cars:state.cars,
   id:state.id,
   }); 
   export default connect(mapStateToProps)(VehicleInfoFinances);

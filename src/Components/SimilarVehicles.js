@@ -5,6 +5,7 @@ import {chooseModel}from '../Actions/chooseModelActions';
 import {updateMaker}from '../Actions/makerActions';
 import {NavLink} from "react-router-dom";
 import {chooseId}from '../Actions/chooseOfferActions';
+import {CARS} from '../Components/Const/carsDefaultData'
 
 const Container = styled.div`
 `;
@@ -70,13 +71,13 @@ class SimilarVehicles extends Component {
   }
 
   componentDidMount() {
-    this.setState({ cars: this.props.cars});
+    this.setState({ cars: CARS});
     this.filterCars();
   }
 
   filterCars(){
   let filteredArray=[];
-  this.props.cars.forEach((car)=>{
+  CARS.forEach((car)=>{
     this.filterModel(car,filteredArray);
   });
   this.updateList(filteredArray);
@@ -93,7 +94,7 @@ class SimilarVehicles extends Component {
   }
 
   filterModel(car, filteredArray){
-    if(this.props.cars[this.props.id.choosenId].brand===car.brand || ((this.props.cars[this.props.id.choosenId].price-40000)<=car.price) || ((this.props.cars[this.props.id.choosenId].price+40000)>=car.price)) {
+    if(CARS[this.props.id.choosenId].brand===car.brand || ((CARS[this.props.id.choosenId].price-40000)<=car.price) || ((CARS[this.props.id.choosenId].price+40000)>=car.price)) {
       if(filteredArray.length<4)
         filteredArray.push(car);
     }
@@ -120,10 +121,8 @@ class SimilarVehicles extends Component {
   }
 }    
 const mapStateToProps = state => ({
-  models: state.models,
   maker: state.maker,
   choosenModel:state.choosenModel,
-  cars:state.cars,
   id:state.id
   }); 
   export default connect(mapStateToProps,{chooseModel, updateMaker,chooseId})(SimilarVehicles);

@@ -14,7 +14,6 @@ export const PRICE_MIN = 'PRICE_MIN';
 export const CHOOSEN_PRICE_MAX = 'CHOOSEN_PRICE_MAX';
 export const CHOOSEN_PRICE_MIN = 'CHOOSEN_PRICE_MIN';
 export const SORT_PRICE = 'SORT_PRICE';
-export const CARS = 'CARS';
 export const CHOOSE_ID = 'CHOOSE_ID';
 export const CHOOSEN_SECTION = 'CHOOSEN_SECTION';
 export const READ_MAKERS= 'READ_MAKERS';

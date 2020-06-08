@@ -1,9 +1,7 @@
 import {CHOOSEN_SECTION} from './types';
 
-export const choosenSection = (e) => dispatch => {
-dispatch({
+export const choosenSection = payload =>( {
   type:CHOOSEN_SECTION,
-  payload:e
+  payload
 });
-};
 

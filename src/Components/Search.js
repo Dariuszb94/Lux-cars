@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {chooseModel}from '../Actions/chooseModelActions';
 import {updateMaker}from '../Actions/makerActions';
 import {NavLink} from "react-router-dom";
+import {CARS_MODELS} from '../Components/Const/carsModels'
 
 const SearchContainer = styled.div`
   background-color: rgba(68, 68, 68, .7);
@@ -215,7 +216,7 @@ class Search extends Component {
           </AnyModel>
           <DropDownContentModel modelShow={this.state.modelShow} onClick={() => this.modelShow()}>
             <SubMaker onClick={() => this.modelChange({model:"Any Model"})}>Any Model</SubMaker>
-          {(this.props.models[this.props.maker.maker]===undefined) ? null : (this.props.models[this.props.maker.maker].map(model => <SubMaker key={model} onClick={() => this.modelChange({model})}>{model}</SubMaker>))}
+          {(CARS_MODELS[this.props.maker.maker]===undefined) ? null : (CARS_MODELS[this.props.maker.maker].map(model => <SubMaker key={model} onClick={() => this.modelChange({model})}>{model}</SubMaker>))}
           </DropDownContentModel>
         </ModelChoose>
         <StyledLink to="/Offers"><SearchButton onClick={() => this.scrollToTop()} >Search</SearchButton></StyledLink>
@@ -224,7 +225,6 @@ class Search extends Component {
   }
 }    
 const mapStateToProps = state => ({
-  models: state.models,
   maker: state.maker,
   makers: state.makers,
   choosenModel:state.choosenModel

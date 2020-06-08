@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import SpeedIcon from '@material-ui/icons/Speed';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LocalGasStationIcon from '@material-ui/icons/LocalGasStation';
 import SettingsIcon from '@material-ui/icons/Settings';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
+import {CARS} from '../Components/Const/carsDefaultData'
 
 const VehicleInfoDescriptionContainer = styled.div`
   background-color:#474747;
@@ -149,24 +149,22 @@ class VehicleInfoDescription extends Component {
         <Header>Description</Header>
         <Main>
           <MainLeft>
-            <MainLeftElement><StyledCalendarTodayIcon></StyledCalendarTodayIcon>&nbsp;Registered: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].year}</MainLeftElement>
-            <MainLeftElement><StyledSpeedIcon></StyledSpeedIcon>&nbsp;Mileage: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].mileage} km</MainLeftElement>
-            <MainLeftElement><StyledBarChartIcon></StyledBarChartIcon>&nbsp;Engine Size: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].displacement} cm3</MainLeftElement>
-            <MainLeftElement><StyledLocalGasStationIcon></StyledLocalGasStationIcon>&nbsp;Fuel Type: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].fuel}</MainLeftElement>
-            <MainLeftElement><StyledSettingsIcon></StyledSettingsIcon>&nbsp;Gearbox: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].gearBox}</MainLeftElement>
-            <MainLeftElement><StyledDriveEtaIcon></StyledDriveEtaIcon>&nbsp;Body Style: {this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].body}</MainLeftElement>
+            <MainLeftElement><StyledCalendarTodayIcon></StyledCalendarTodayIcon>&nbsp;Registered: {CARS[window.location.href.slice(21).replace(/\D/g, "")].year}</MainLeftElement>
+            <MainLeftElement><StyledSpeedIcon></StyledSpeedIcon>&nbsp;Mileage: {CARS[window.location.href.slice(21).replace(/\D/g, "")].mileage} km</MainLeftElement>
+            <MainLeftElement><StyledBarChartIcon></StyledBarChartIcon>&nbsp;Engine Size: {CARS[window.location.href.slice(21).replace(/\D/g, "")].displacement} cm3</MainLeftElement>
+            <MainLeftElement><StyledLocalGasStationIcon></StyledLocalGasStationIcon>&nbsp;Fuel Type: {CARS[window.location.href.slice(21).replace(/\D/g, "")].fuel}</MainLeftElement>
+            <MainLeftElement><StyledSettingsIcon></StyledSettingsIcon>&nbsp;Gearbox: {CARS[window.location.href.slice(21).replace(/\D/g, "")].gearBox}</MainLeftElement>
+            <MainLeftElement><StyledDriveEtaIcon></StyledDriveEtaIcon>&nbsp;Body Style: {CARS[window.location.href.slice(21).replace(/\D/g, "")].body}</MainLeftElement>
           </MainLeft>
           <MainRight>
-            <FirstParagraph>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].description1}</FirstParagraph>
-            <SecondParagraph>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].description2}</SecondParagraph>
-            <ThirdParagraph>{this.props.cars[window.location.href.slice(21).replace(/\D/g, "")].description3}</ThirdParagraph>
+            <FirstParagraph>{CARS[window.location.href.slice(21).replace(/\D/g, "")].description1}</FirstParagraph>
+            <SecondParagraph>{CARS[window.location.href.slice(21).replace(/\D/g, "")].description2}</SecondParagraph>
+            <ThirdParagraph>{CARS[window.location.href.slice(21).replace(/\D/g, "")].description3}</ThirdParagraph>
           </MainRight>
         </Main>
       </VehicleInfoDescriptionContainer>
     );
   }
 }    
-const mapStateToProps = state => ({
-  cars:state.cars,
-  }); 
-  export default connect(mapStateToProps)(VehicleInfoDescription);
+
+  export default VehicleInfoDescription;
