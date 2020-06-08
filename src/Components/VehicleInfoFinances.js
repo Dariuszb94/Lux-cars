@@ -188,6 +188,6 @@ class VehicleInfoFinances extends Component {
   }
 }    
 const mapStateToProps = state => ({
-  id:state.id,
+  chosenId:state.chosenId,
   }); 
   export default connect(mapStateToProps)(VehicleInfoFinances);

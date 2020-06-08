@@ -715,7 +715,7 @@ class Offer extends Component {
 
   filterModel(car, filteredArray){
     if(this.props.maker.maker===car.brand || this.props.maker.maker==="Any Maker") {
-      if(this.props.choosenModel.choosenModel===car.model || this.props.choosenModel.choosenModel==="Any Model"){
+      if(this.props.chosenModel.chosenModel===car.model || this.props.chosenModel.chosenModel==="Any Model"){
         if((this.props.choosenPower.maxPower>=car.power || this.props.choosenPower.maxPower===null)&amp;&amp;(this.props.choosenPower.minPower&lt;=car.power || this.props.choosenPower.minPower===null)){
           if((this.props.choosenYear.maxYear>=car.year || this.props.choosenYear.maxYear===null) &amp;&amp; (this.props.choosenYear.minYear&lt;=car.year || this.props.choosenYear.minYear===null)){
             if((this.props.choosenPrice.maxPrice>=car.price || this.props.choosenPrice.maxPrice===null) &amp;&amp; (this.props.choosenPrice.minPrice&lt;=car.price || this.props.choosenPrice.minPrice===null)){
@@ -819,7 +819,7 @@ class Offer extends Component {
 const mapStateToProps = state => ({
   models: state.models,
   maker: state.maker,
-  choosenModel:state.choosenModel,
+  chosenModel:state.chosenModel,
   power:state.power,
   choosenPower:state.choosenPower,
   years:state.years,
@@ -828,7 +828,7 @@ const mapStateToProps = state => ({
   choosenPrice:state.choosenPrice,
   cars:state.cars,
   priceSort:state.priceSort,
-  id:state.id,
+  id:state.chosenId,
   section:state.section
   }); 
 

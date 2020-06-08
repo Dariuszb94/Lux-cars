@@ -8,8 +8,9 @@ import {NavLink} from "react-router-dom";
 import MenuIcon from '@material-ui/icons/Menu';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import {chooseModel}from '../Actions/chooseModelActions';
-import {updateMaker}from '../Actions/makerActions';
+import {chooseMaker}from '../Actions/chooseMakerActions';
 import {connect} from 'react-redux';
+import {CARS_MAKERS} from '../Components/Const/carsMakers';
 
 const HeaderContainer = styled.div`
   background: #020202;
@@ -202,12 +203,12 @@ class Header extends Component {
   }
 
   /**
-   * Updates choosen maker, also resets models filter.
+   * Updates chosen maker, also resets models filter.
    * @param {string} e.maker 
    */
   makerChange(e){
     this.showMenu()
-    this.props.updateMaker(e.maker);
+    this.props.chooseMaker(e.maker);
     let updatedModel={model:"Any Model"};
     this.props.chooseModel(updatedModel.model)
   }
@@ -225,7 +226,7 @@ class Header extends Component {
               <ArrowDropDownIcon onClick={()=>this.makerShow()}/>
             </MenuDropDownElementUsedCars>
             <Makers makerShow={this.state.makerShow}>
-              {(this.props.makers===undefined) ?   null : (this.props.makers.map(maker =>   <StyledLink to="/Offers" key={maker} onClick={() => this.makerChange({maker})}><Maker>{maker}</Maker></StyledLink> )) }
+              {(CARS_MAKERS===undefined) ?   null : (CARS_MAKERS.map(maker =>   <StyledLink to="/Offers" key={maker} onClick={() => this.makerChange({maker})}><Maker>{maker}</Maker></StyledLink> )) }
             </Makers>
             <StyledLink to="/Finance" ><MenuDropDownElement onClick={()=>this.showMenu()}>FINANCE</MenuDropDownElement></StyledLink>
             <StyledLink to="/About" > <MenuDropDownElement onClick={()=>this.showMenu()}>ABOUT</MenuDropDownElement></StyledLink>
@@ -254,6 +255,5 @@ class Header extends Component {
 }
 const mapStateToProps = state => ({
   maker: state.maker,
-  makers: state.makers,
   }); 
-  export default connect(mapStateToProps,{chooseModel, updateMaker})(Header);
+  export default connect(mapStateToProps,{chooseModel, chooseMaker})(Header);

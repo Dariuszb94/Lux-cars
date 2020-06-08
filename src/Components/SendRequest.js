@@ -13,7 +13,6 @@ import ContactForm from './ContactForm';
 import Touch from './Touch';
 import {NavLink} from "react-router-dom";
 import { HashLink as Link } from 'react-router-hash-link';
-import {choosenSection}from '../Actions/carOfferNaviActions';
 import {
   Magnifier,
   GlassMagnifier,
@@ -59,17 +58,16 @@ class ContactForm extends Component {
 const mapStateToProps = state => ({
   models: state.models,
   maker: state.maker,
-  choosenModel:state.choosenModel,
+  chosenModel:state.chosenModel,
   power:state.power,
-  choosenPower:state.choosenPower,
+  chosenPower:state.chosenPower,
   years:state.years,
-  choosenYear:state.choosenYear,
+  chosenYear:state.chosenYear,
   price:state.price,
-  choosenPrice:state.choosenPrice,
+  chosenPrice:state.chosenPrice,
   cars:state.cars,
   priceSort:state.priceSort,
-  id:state.id,
-  section:state.section
+  chosenId:state.chosenId,
   }); 
 
-  export default connect(mapStateToProps,{choosenSection})(ContactForm);
+  export default connect(mapStateToProps)(ContactForm);

@@ -1,14 +1,14 @@
 import { CHOOSE_MODEL} from '../Actions/types';
 
-const initialState ={choosenModel:"Any Model"};
+const initialState ={chosenModel:"Any Model"};
 
 export default function(state = initialState, action) {
 
   switch (action.type) {
-    case   CHOOSE_MODEL:
+    case CHOOSE_MODEL:
       return {
         ...state,
-        choosenModel:action.payload
+        chosenModel:action.payload
       }
       default: 
       return state;

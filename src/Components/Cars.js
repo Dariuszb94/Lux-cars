@@ -310,11 +310,11 @@ class Cars extends Component {
   }
 
   filterModel(car, filteredArray){
-    if(this.props.maker.maker===car.brand || this.props.maker.maker==="Any Maker") {
-      if(this.props.choosenModel.choosenModel===car.model || this.props.choosenModel.choosenModel==="Any Model"){
-        if((this.props.choosenPower.maxPower>=car.power || this.props.choosenPower.maxPower===null)&&(this.props.choosenPower.minPower<=car.power || this.props.choosenPower.minPower===null)){
-          if((this.props.choosenYear.maxYear>=car.year || this.props.choosenYear.maxYear===null) && (this.props.choosenYear.minYear<=car.year || this.props.choosenYear.minYear===null)){
-            if((this.props.choosenPrice.maxPrice>=car.price || this.props.choosenPrice.maxPrice===null) && (this.props.choosenPrice.minPrice<=car.price || this.props.choosenPrice.minPrice===null)){
+    if(this.props.chosenMaker.maker===car.brand || this.props.chosenMaker.maker==="Any Maker") {
+      if(this.props.chosenModel.chosenModel===car.model || this.props.chosenModel.chosenModel==="Any Model"){
+        if((this.props.chosenPower.maxPower>=car.power || this.props.chosenPower.maxPower===null)&&(this.props.chosenPower.minPower<=car.power || this.props.chosenPower.minPower===null)){
+          if((this.props.chosenYear.maxYear>=car.year || this.props.chosenYear.maxYear===null) && (this.props.chosenYear.minYear<=car.year || this.props.chosenYear.minYear===null)){
+            if((this.props.chosenPrice.maxPrice>=car.price || this.props.chosenPrice.maxPrice===null) && (this.props.chosenPrice.minPrice<=car.price || this.props.chosenPrice.minPrice===null)){
               filteredArray.push(car); //push new car to the list after filtering
             }
           }
@@ -323,7 +323,7 @@ class Cars extends Component {
     }
   }
 /**
- * Update choosen id of a car.
+ * Update chosen id of a car.
  * @param {number} e  car id
  */
   chooseId(e){
@@ -382,16 +382,16 @@ class Cars extends Component {
 }
 
 const mapStateToProps = state => ({
-  maker: state.maker,
-  choosenModel:state.choosenModel,
+  chosenMaker: state.chosenMaker,
+  chosenModel:state.chosenModel,
   power:state.power,
-  choosenPower:state.choosenPower,
+  chosenPower:state.chosenPower,
   years:state.years,
-  choosenYear:state.choosenYear,
+  chosenYear:state.chosenYear,
   price:state.price,
-  choosenPrice:state.choosenPrice,
+  chosenPrice:state.chosenPrice,
   priceSort:state.priceSort,
-  id:state.id
+  chosenId:state.chosenId
   }); 
 
   export default connect(mapStateToProps,{chooseId})(Cars);

@@ -1,6 +1,6 @@
 import { CHOOSE_ID} from '../Actions/types';
 
-const initialState ={choosenId:0};
+const initialState ={chosenId:0};
 
 export default function(state = initialState, action) {
 
@@ -8,7 +8,7 @@ export default function(state = initialState, action) {
     case CHOOSE_ID:
       return {
         ...state,
-        choosenId:action.payload
+        chosenId:action.payload
       }
       default: 
       return state;

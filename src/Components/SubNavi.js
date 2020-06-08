@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import {NavLink} from "react-router-dom";
 import {connect} from 'react-redux';
 import {chooseModel}from '../Actions/chooseModelActions';
-import {updateMaker}from '../Actions/makerActions';
-import {choosenPowerMin }from '../Actions/choosenPowerActions';
-import {choosenPowerMax }from '../Actions/choosenPowerActions';
-import {choosenYearMin }from '../Actions/choosenYearActions';
-import {choosenYearMax }from '../Actions/choosenYearActions';
-import {choosenPriceMin }from '../Actions/choosenPriceActions';
-import {choosenPriceMax }from '../Actions/choosenPriceActions';
+import {chooseMaker}from '../Actions/chooseMakerActions';
+import {choosePowerMin }from '../Actions/choosePowerActions';
+import {choosePowerMax }from '../Actions/choosePowerActions';
+import {chooseYearMin }from '../Actions/chooseYearActions';
+import {chooseYearMax }from '../Actions/chooseYearActions';
+import {choosePriceMin }from '../Actions/choosePriceActions';
+import {choosePriceMax }from '../Actions/choosePriceActions';
 
 const SubNaviContainer = styled.div`
   background-color:black;
@@ -56,32 +56,32 @@ class SubNavi extends Component {
 
   resetWithoutMaker(){
     this.props.chooseModel("Any Model");
-    this.props.choosenPowerMin(null);
-    this.props.choosenPowerMax(null);
-    this.props.choosenYearMin(null);
-    this.props.choosenYearMax(null);
-    this.props.choosenPriceMin(null);
-    this.props.choosenPriceMax(null);
+    this.props.choosePowerMin(null);
+    this.props.choosePowerMax(null);
+    this.props.chooseYearMin(null);
+    this.props.chooseYearMax(null);
+    this.props.choosePriceMin(null);
+    this.props.choosePriceMax(null);
   }
 
   resetWithoutModel(){
-    this.props.choosenPowerMin(null);
-    this.props.choosenPowerMax(null);
-    this.props.choosenYearMin(null);
-    this.props.choosenYearMax(null);
-    this.props.choosenPriceMin(null);
-    this.props.choosenPriceMax(null);
+    this.props.choosePowerMin(null);
+    this.props.choosePowerMax(null);
+    this.props.chooseYearMin(null);
+    this.props.chooseYearMax(null);
+    this.props.choosePriceMin(null);
+    this.props.choosePriceMax(null);
   }
 
   resetFilters(){
-    this.props.updateMaker("Any Maker");
+    this.props.chooseMaker("Any Maker");
     this.props.chooseModel("Any Model");
-    this.props.choosenPowerMin(null);
-    this.props.choosenPowerMax(null);
-    this.props.choosenYearMin(null);
-    this.props.choosenYearMax(null);
-    this.props.choosenPriceMin(null);
-    this.props.choosenPriceMax(null);
+    this.props.choosePowerMin(null);
+    this.props.choosePowerMax(null);
+    this.props.chooseYearMin(null);
+    this.props.chooseYearMax(null);
+    this.props.choosePriceMin(null);
+    this.props.choosePriceMax(null);
   }
   render() {
     return (  
@@ -89,19 +89,19 @@ class SubNavi extends Component {
        <StyledLink to="/Lux-cars">Home</StyledLink>
         <RightSymbol>&nbsp;>&nbsp;</RightSymbol>
         <StyledLink to="/Offers" onClick={()=>this.resetFilters()}>Used cars</StyledLink>
-        {(this.props.maker.maker === undefined || this.props.maker.maker === "Any Maker") ? "" : <StyledLink to="/Offers" onClick={()=>this.resetWithoutMaker()}><RightSymbol>&nbsp;>&nbsp;</RightSymbol>{this.props.maker.maker}</StyledLink>}
-        {(this.props.choosenModel.choosenModel === undefined || this.props.choosenModel.choosenModel === "Any Model") ? "" : <StyledLink to="/Offers" onClick={()=>this.resetWithoutModel()}><RightSymbol>&nbsp;>&nbsp;</RightSymbol>{this.props.choosenModel.choosenModel}</StyledLink>}
+        {(this.props.chosenMaker.maker === undefined || this.props.chosenMaker.maker === "Any Maker") ? "" : <StyledLink to="/Offers" onClick={()=>this.resetWithoutMaker()}><RightSymbol>&nbsp;>&nbsp;</RightSymbol>{this.props.chosenMaker.maker}</StyledLink>}
+        {(this.props.chosenModel.chosenModel === undefined || this.props.chosenModel.chosenModel === "Any Model") ? "" : <StyledLink to="/Offers" onClick={()=>this.resetWithoutModel()}><RightSymbol>&nbsp;>&nbsp;</RightSymbol>{this.props.chosenModel.chosenModel}</StyledLink>}
       </SubNaviContainer>
     );
   }
 }
 const mapStateToProps = state => ({
-  maker: state.maker,
-  choosenModel:state.choosenModel,
-  choosenPower:state.choosenPower,
-  choosenYear:state.choosenYear,
-  choosenPrice:state.choosenPrice,
+  chosenMaker: state.chosenMaker,
+  chosenModel:state.chosenModel,
+  chosenPower:state.chosenPower,
+  chosenYear:state.chosenYear,
+  chosenPrice:state.chosenPrice,
   cars:state.cars,
   }); 
 
-  export default connect(mapStateToProps,{chooseModel, updateMaker, choosenPowerMax, choosenPowerMin, choosenYearMin , choosenYearMax, choosenPriceMin , choosenPriceMax  })(SubNavi);
+  export default connect(mapStateToProps,{chooseModel, chooseMaker, choosePowerMax, choosePowerMin, chooseYearMin , chooseYearMax, choosePriceMin , choosePriceMax  })(SubNavi);

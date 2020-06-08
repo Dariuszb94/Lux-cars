@@ -161,34 +161,31 @@ class VehicleInfo extends Component {
       highlightInfoTypeFeatures:true,
       highlightInfoTypeDescription:false,
       highlightInfoTypeFinances:false,
-      activeSection:"",
     };
     this.highlightInfoType = this.highlightInfoType.bind(this);
   }
   /**
-   * Highlights choosen info type (feature, description, finances)
+   * Highlights chosen info type (feature, description, finances)
    */
   componentDidMount() {
     this.highlightInfoType();
   }
   componentDidUpdate() {
     setTimeout(() => this.highlightInfoType(),200);
-    if (this.state.activeSection!==this.props.section.section)
-      this.setState({ activeSection: this.props.section.section});
   }
 
   highlightInfoType(){
-    if(window.location.href.includes("Features") && this.state.highlightInfoTypeFeatures===false ){
+    if(window.location.href.includes("Features")  ){
       this.setState({ highlightInfoTypeFeatures: true});
       this.setState({ highlightInfoTypeDescription: false});
       this.setState({ highlightInfoTypeFinances: false});
     }
-    if(window.location.href.includes("Description") && this.state.highlightInfoTypeDescription===false){
+    if(window.location.href.includes("Description") ){
       this.setState({ highlightInfoTypeDescription: true});
       this.setState({ highlightInfoTypeFeatures: false});
       this.setState({ highlightInfoTypeFinances: false});
     }
-    if(window.location.href.includes("Finances") && this.state.highlightInfoTypeFinances===false){
+    if(window.location.href.includes("Finances")){
       this.setState({ highlightInfoTypeFinances: true});
       this.setState({ highlightInfoTypeFeatures: false});
       this.setState({ highlightInfoTypeDescription: false});
@@ -222,6 +219,6 @@ class VehicleInfo extends Component {
 }    
 const mapStateToProps = state => ({
   section:state.section,
-  id:state.id
+  chosenId:state.chosenId
   }); 
   export default connect(mapStateToProps)(VehicleInfo);

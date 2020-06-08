@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import {choosenSortPrice } from '../Actions/choosenPriceSortActions';
+import {chooseSortPrice } from '../Actions/choosePriceSortActions';
 
 const SortContainer = styled.div`
   background-color:black;
@@ -79,11 +79,11 @@ class Sorter extends Component {
   }
   sortPriceDescending(){
     this.setState({ sort:"Price (High to Low)"});
-    this.props.choosenSortPrice ("Descending");
+    this.props.chooseSortPrice ("Descending");
   }
   sortPriceAscending(){
     this.setState({ sort:"Price (Low to High)"});
-    this.props.choosenSortPrice ("Ascending");
+    this.props.chooseSortPrice ("Ascending");
   }
   render() {
     return (  
@@ -104,7 +104,7 @@ class Sorter extends Component {
 }
 const mapStateToProps = state => ({
   price:state.price,
-  choosenPrice:state.choosenPrice,
+  chosenPrice:state.chosenPrice,
   }); 
 
-  export default connect(mapStateToProps,{choosenSortPrice })(Sorter);
+  export default connect(mapStateToProps,{chooseSortPrice })(Sorter);

@@ -221,8 +221,7 @@ const FavouriteList = ({ id}) => {
 }
 function mapStateToProps(state) {
   return {
-    id:state.id,
-    CARS:state.CARS
+    chosenId:state.chosenId,
   };
 } 
 export default connect(mapStateToProps)(FavouriteList);

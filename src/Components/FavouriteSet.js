@@ -85,6 +85,8 @@ const FavouriteSet = (props) => {
   const [posts, setPosts] = useState("");
 
   const addFavourite = () => {
+    console.log(window.location.href.slice(21).replace(/\D/g, ""));
+    console.log(posts);
     let canUpdate=true;
     if(props.carId===undefined){
       posts.forEach((idPost)=>{

@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {chooseModel}from '../Actions/chooseModelActions';
-import {updateMaker}from '../Actions/makerActions';
+import {chooseMaker}from '../Actions/chooseMakerActions';
 import {NavLink} from "react-router-dom";
+import {CARS_MAKERS} from '../Components/Const/carsMakers';
 
 const MenuContainer = styled.div`
   background-color:#ec6b0c;
@@ -111,7 +112,7 @@ class Menu extends Component {
  * @param {string} e.maker 
  */
   makerChange(e){
-    this.props.updateMaker(e.maker);
+    this.props.chooseMaker(e.maker);
     let updatedModel={"model":"Any Model"};
     this.props.chooseModel(updatedModel.model)
     this.setState({ makerShow: !this.state.makerShow});
@@ -137,7 +138,7 @@ class Menu extends Component {
               <AnyMaker onClick={() => this.makerChange({maker:"Any Maker"})}>USED CARS</AnyMaker>
             </StyledLink>
             <DropDownContent makerShow={this.state.makerShow} >
-              {(this.props.makers===undefined) ?   null : (this.props.makers.map(maker =>   <StyledLink to="/Offers" key={maker} ><SubMaker onClick={() => this.makerChange({maker})}>{maker}</SubMaker></StyledLink> )) }
+              {(CARS_MAKERS===undefined) ?   null : (CARS_MAKERS.map(maker =>   <StyledLink to="/Offers" key={maker} ><SubMaker onClick={() => this.makerChange({maker})}>{maker}</SubMaker></StyledLink> )) }
             </DropDownContent>
           </MakerChoose>
           <StyledLink to="/Finance" >
@@ -156,6 +157,5 @@ class Menu extends Component {
 }
 const mapStateToProps = state => ({
   maker: state.maker,
-  makers: state.makers,
   }); 
-  export default connect(mapStateToProps,{chooseModel, updateMaker})(Menu);
+  export default connect(mapStateToProps,{chooseModel, chooseMaker})(Menu);

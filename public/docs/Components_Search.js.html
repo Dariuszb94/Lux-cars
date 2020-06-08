@@ -81,7 +81,7 @@ import styled from 'styled-components';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import {connect} from 'react-redux';
 import {chooseModel}from '../Actions/chooseModelActions';
-import {updateMaker}from '../Actions/makerActions';
+import {chooseMaker}from '../Actions/makerActions';
 import {NavLink} from "react-router-dom";
 
 const SearchContainer = styled.div`
@@ -259,7 +259,7 @@ class Search extends Component {
     this.props.chooseModel(updatedModel.model)
   }
   makerChange(e){
-    this.props.updateMaker(e.maker);
+    this.props.chooseMaker(e.maker);
     let updatedModel={model:"Any Model"};
     this.props.chooseModel(updatedModel.model)
   }
@@ -288,7 +288,7 @@ class Search extends Component {
         &lt;/MakerChoose>
         &lt;ModelChoose>
           &lt;AnyModel onClick={() => this.modelShow()} >
-            &lt;AnyMakerText>{ (this.props.choosenModel.choosenModel === undefined) ? "Any Model" : this.props.choosenModel.choosenModel}&lt;/AnyMakerText>
+            &lt;AnyMakerText>{ (this.props.chosenModel.chosenModel === undefined) ? "Any Model" : this.props.chosenModel.chosenModel}&lt;/AnyMakerText>
             &lt;ArrowDropDownIcon/>
           &lt;/AnyModel>
           &lt;DropDownContentModel modelShow={this.state.modelShow} onClick={() => this.modelShow()}>
@@ -305,9 +305,9 @@ const mapStateToProps = state => ({
   models: state.models,
   maker: state.maker,
   makers: state.makers,
-  choosenModel:state.choosenModel
+  chosenModel:state.chosenModel
   }); 
-  export default connect(mapStateToProps,{chooseModel, updateMaker})(Search);</code></pre>
+  export default connect(mapStateToProps,{chooseModel, chooseMaker})(Search);</code></pre>
         </article>
     </section>
 
