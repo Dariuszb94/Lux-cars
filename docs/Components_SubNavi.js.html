@@ -81,7 +81,7 @@ import styled from 'styled-components';
 import {NavLink} from "react-router-dom";
 import {connect} from 'react-redux';
 import {chooseModel}from '../Actions/chooseModelActions';
-import {updateMaker}from '../Actions/makerActions';
+import {chooseMaker}from '../Actions/makerActions';
 import {choosenPowerMin }from '../Actions/choosenPowerActions';
 import {choosenPowerMax }from '../Actions/choosenPowerActions';
 import {choosenYearMin }from '../Actions/choosenYearActions';
@@ -152,7 +152,7 @@ class SubNavi extends Component {
   }
 
   resetFilters(){
-    this.props.updateMaker("Any Maker");
+    this.props.chooseMaker("Any Maker");
     this.props.chooseModel("Any Model");
     this.props.choosenPowerMin(null);
     this.props.choosenPowerMax(null);
@@ -168,21 +168,21 @@ class SubNavi extends Component {
         &lt;RightSymbol>&amp;nbsp;>&amp;nbsp;&lt;/RightSymbol>
         &lt;StyledLink to="/Offers" onClick={()=>this.resetFilters()}>Used cars&lt;/StyledLink>
         {(this.props.maker.maker === undefined || this.props.maker.maker === "Any Maker") ? "" : &lt;StyledLink to="/Offers" onClick={()=>this.resetWithoutMaker()}>&lt;RightSymbol>&amp;nbsp;>&amp;nbsp;&lt;/RightSymbol>{this.props.maker.maker}&lt;/StyledLink>}
-        {(this.props.choosenModel.choosenModel === undefined || this.props.choosenModel.choosenModel === "Any Model") ? "" : &lt;StyledLink to="/Offers" onClick={()=>this.resetWithoutModel()}>&lt;RightSymbol>&amp;nbsp;>&amp;nbsp;&lt;/RightSymbol>{this.props.choosenModel.choosenModel}&lt;/StyledLink>}
+        {(this.props.chosenModel.chosenModel === undefined || this.props.chosenModel.chosenModel === "Any Model") ? "" : &lt;StyledLink to="/Offers" onClick={()=>this.resetWithoutModel()}>&lt;RightSymbol>&amp;nbsp;>&amp;nbsp;&lt;/RightSymbol>{this.props.chosenModel.chosenModel}&lt;/StyledLink>}
       &lt;/SubNaviContainer>
     );
   }
 }
 const mapStateToProps = state => ({
   maker: state.maker,
-  choosenModel:state.choosenModel,
+  chosenModel:state.chosenModel,
   choosenPower:state.choosenPower,
   choosenYear:state.choosenYear,
   choosenPrice:state.choosenPrice,
   cars:state.cars,
   }); 
 
-  export default connect(mapStateToProps,{chooseModel, updateMaker, choosenPowerMax, choosenPowerMin, choosenYearMin , choosenYearMax, choosenPriceMin , choosenPriceMax  })(SubNavi);</code></pre>
+  export default connect(mapStateToProps,{chooseModel, chooseMaker, choosenPowerMax, choosenPowerMin, choosenYearMin , choosenYearMax, choosenPriceMin , choosenPriceMax  })(SubNavi);</code></pre>
         </article>
     </section>
 

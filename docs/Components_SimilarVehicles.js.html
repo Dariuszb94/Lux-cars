@@ -80,7 +80,7 @@
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {chooseModel}from '../Actions/chooseModelActions';
-import {updateMaker}from '../Actions/makerActions';
+import {chooseMaker}from '../Actions/makerActions';
 import {NavLink} from "react-router-dom";
 import {chooseId}from '../Actions/chooseOfferActions';
 
@@ -171,7 +171,7 @@ class SimilarVehicles extends Component {
   }
 
   filterModel(car, filteredArray){
-    if(this.props.cars[this.props.id.choosenId].brand===car.brand || ((this.props.cars[this.props.id.choosenId].price-40000)&lt;=car.price) || ((this.props.cars[this.props.id.choosenId].price+40000)>=car.price)) {
+    if(this.props.cars[this.props.chosenId.chosenId].brand===car.brand || ((this.props.cars[this.props.chosenId.chosenId].price-40000)&lt;=car.price) || ((this.props.cars[this.props.chosenId.chosenId].price+40000)>=car.price)) {
       if(filteredArray.length&lt;4)
         filteredArray.push(car);
     }
@@ -200,11 +200,11 @@ class SimilarVehicles extends Component {
 const mapStateToProps = state => ({
   models: state.models,
   maker: state.maker,
-  choosenModel:state.choosenModel,
+  chosenModel:state.chosenModel,
   cars:state.cars,
-  id:state.id
+  id:state.chosenId
   }); 
-  export default connect(mapStateToProps,{chooseModel, updateMaker,chooseId})(SimilarVehicles);</code></pre>
+  export default connect(mapStateToProps,{chooseModel, chooseMaker,chooseId})(SimilarVehicles);</code></pre>
         </article>
     </section>
 

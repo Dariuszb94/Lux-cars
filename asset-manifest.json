@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/Lux-cars/static/css/main.ace0d15c.chunk.css",
-    "main.js": "/Lux-cars/static/js/main.83e359a9.chunk.js",
-    "main.js.map": "/Lux-cars/static/js/main.83e359a9.chunk.js.map",
+    "main.js": "/Lux-cars/static/js/main.8d45505f.chunk.js",
+    "main.js.map": "/Lux-cars/static/js/main.8d45505f.chunk.js.map",
     "runtime-main.js": "/Lux-cars/static/js/runtime-main.e82becdc.js",
     "runtime-main.js.map": "/Lux-cars/static/js/runtime-main.e82becdc.js.map",
-    "static/js/2.a89a44d0.chunk.js": "/Lux-cars/static/js/2.a89a44d0.chunk.js",
-    "static/js/2.a89a44d0.chunk.js.map": "/Lux-cars/static/js/2.a89a44d0.chunk.js.map",
+    "static/js/2.b48f7914.chunk.js": "/Lux-cars/static/js/2.b48f7914.chunk.js",
+    "static/js/2.b48f7914.chunk.js.map": "/Lux-cars/static/js/2.b48f7914.chunk.js.map",
     "index.html": "/Lux-cars/index.html",
-    "precache-manifest.bd6ddbedbf9b9e698399f53a350fd335.js": "/Lux-cars/precache-manifest.bd6ddbedbf9b9e698399f53a350fd335.js",
+    "precache-manifest.dc407875919792af2280744324607de9.js": "/Lux-cars/precache-manifest.dc407875919792af2280744324607de9.js",
     "service-worker.js": "/Lux-cars/service-worker.js",
     "static/css/main.ace0d15c.chunk.css.map": "/Lux-cars/static/css/main.ace0d15c.chunk.css.map",
-    "static/js/2.a89a44d0.chunk.js.LICENSE.txt": "/Lux-cars/static/js/2.a89a44d0.chunk.js.LICENSE.txt",
+    "static/js/2.b48f7914.chunk.js.LICENSE.txt": "/Lux-cars/static/js/2.b48f7914.chunk.js.LICENSE.txt",
     "static/media/Logo.png": "/Lux-cars/static/media/Logo.54611b1f.png",
     "static/media/slide1bg.jpg": "/Lux-cars/static/media/slide1bg.8cbca1b0.jpg",
     "static/media/slide2bg.jpg": "/Lux-cars/static/media/slide2bg.0cb1be51.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.e82becdc.js",
-    "static/js/2.a89a44d0.chunk.js",
+    "static/js/2.b48f7914.chunk.js",
     "static/css/main.ace0d15c.chunk.css",
-    "static/js/main.83e359a9.chunk.js"
+    "static/js/main.8d45505f.chunk.js"
   ]
 }
