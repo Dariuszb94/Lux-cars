@@ -201,7 +201,7 @@ const FavouriteList = ({ id}) => {
                       <CarMainElement>{CARS[post.id].fuel}</CarMainElement>
                     </CarMain>
                     <Buttons>
-                    <StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+post.id}}> See Offer</StyledLink>
+                    <StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+post.id}}>See Offer</StyledLink>
                       <CarDetailOrange onClick={() => deletePost(post.id)}>Remove</CarDetailOrange>
                     </Buttons>
                   </Car>       

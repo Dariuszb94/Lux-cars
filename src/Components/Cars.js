@@ -373,7 +373,7 @@ class Cars extends Component {
             </Car>
             </StyledLink>
             <CarDetailOrangeContainer>
-            <FavouriteSet carId={car.id.toString(10)}  />
+            <FavouriteSet carId={car.id.toString(10)} />
           </CarDetailOrangeContainer></CarWithButtons>)}
         </CarList>
       </CarsContainer>

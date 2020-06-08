@@ -85,8 +85,6 @@ const FavouriteSet = (props) => {
   const [posts, setPosts] = useState("");
 
   const addFavourite = () => {
-    console.log(window.location.href.slice(21).replace(/\D/g, ""));
-    console.log(posts);
     let canUpdate=true;
     if(props.carId===undefined){
       posts.forEach((idPost)=>{
@@ -125,13 +123,16 @@ const FavouriteSet = (props) => {
       }
     }
   }
+
   useEffect(() => {
     let unmounted = false
     //get all posts from the database
     const getPosts = async() => {
       let allPosts = await db.posts.toArray();
-      if(!unmounted)
+      if(!unmounted){
         setPosts(allPosts);
+      }
+
     }
     getPosts();
     return () => {

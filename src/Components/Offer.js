@@ -438,7 +438,6 @@ class Offer extends Component {
       magnifierSize: "30%",
       magnifierOffsetY:50,
       magnifierOffsetX:50,
-      cars:[],
       listOfImages:[],
       smallImageSelect1:1,
       smallImageSelect2:2,
@@ -464,13 +463,11 @@ class Offer extends Component {
   componentDidMount() {
     window.addEventListener('resize', this.handleResize);
     window.scrollTo(0, 0);
-    this.filterCars();
     this.createListOfImages();
     this.handleResize();
   }
 
   componentDidUpdate(){
-    this.filterCars();
     this.createListOfImages();
   }
 /**
@@ -508,15 +505,6 @@ class Offer extends Component {
       this.setState({ magnifierDesktop: "block"});
       this.setState({ magnifierMobile: "none"});
     }
-  }
-
-  filterCars(){
-    let filteredArray=[];
-    CARS.forEach((car)=>{
-      this.filterModel(car,filteredArray);
-    });
-    this.sort(filteredArray);
-    this.updateList(filteredArray);
   }
 /**
  * Clicking on right arrow make image change, states are being incremented until end of image array is reached.
@@ -619,36 +607,6 @@ class Offer extends Component {
       this.setState({ imageHighLight3: true });
     }
   }
-
-  updateList(filteredArray){
-    let prevState = JSON.stringify([...this.state.cars]);
-    let newState = JSON.stringify([...filteredArray]);
-    if(prevState!==newState){
-      this.setState({ cars: filteredArray});
-    }
-  }
-
-  sort(filteredArray){
-    if(this.props.priceSort.priceSort==="Ascending")
-    filteredArray.sort((a, b) => (a.price > b.price) ? 1 : -1)
-    if(this.props.priceSort.priceSort==="Descending")
-    filteredArray.sort((a, b) => (a.price < b.price) ? 1 : -1)
-  }
-
-  filterModel(car, filteredArray){
-    if(this.props.chosenMaker.maker===car.brand || this.props.chosenMaker.maker==="Any Maker") {
-      if(this.props.chosenModel.chosenModel===car.model || this.props.chosenModel.chosenModel==="Any Model"){
-        if((this.props.chosenPower.maxPower>=car.power || this.props.chosenPower.maxPower===null)&&(this.props.chosenPower.minPower<=car.power || this.props.chosenPower.minPower===null)){
-          if((this.props.chosenYear.maxYear>=car.year || this.props.chosenYear.maxYear===null) && (this.props.chosenYear.minYear<=car.year || this.props.chosenYear.minYear===null)){
-            if((this.props.chosenPrice.maxPrice>=car.price || this.props.chosenPrice.maxPrice===null) && (this.props.chosenPrice.minPrice<=car.price || this.props.chosenPrice.minPrice===null)){
-              filteredArray.push(car);
-            }
-          }
-        } 
-      }
-    }
-  }
-
   changeSection(){
     this.refs.vehicleInfo.scrollIntoView();
   }
@@ -713,7 +671,7 @@ class Offer extends Component {
                     <CarDetailText>&nbsp;&nbsp;Similar Vehicles</CarDetailText>
                   </CarDetailLink>
                 <CarDetailOrangeContainer>
-                    <FavouriteSet/>
+                  <FavouriteSet/>
                 </CarDetailOrangeContainer>
               </CarMainDetails>
             </CarMain>
