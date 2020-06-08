@@ -335,7 +335,7 @@ const CarHeaderSubTextRight = styled(Link).attrs()`
   }
 `;
 
-const CarDetailLink = styled(Link).attrs()`
+const CarDetailLink = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -607,8 +607,8 @@ class Offer extends Component {
       this.setState({ imageHighLight3: true });
     }
   }
-  changeSection(){
-    this.refs.vehicleInfo.scrollIntoView();
+  changeSection(section){
+    this.refs[section].scrollIntoView();
   }
 
   print(){
@@ -630,7 +630,7 @@ class Offer extends Component {
                 </CarHeaderTextRight>
                 <CarHeaderTextLeft>
                   <CarHeaderMainTextRight>{CARS[this.props.location.pathname.replace(/\D/g, "")].price} PLN</CarHeaderMainTextRight>
-                  <CarHeaderSubTextRight  to={{ pathname: '/Offer/Vehicle-Finances/'+CARS[this.props.location.pathname.replace(/\D/g, "")].id}}  onClick={()=> { this.changeSection()}}>Finance from {(CARS[this.props.location.pathname.replace(/\D/g, "")].price*1.05/72).toFixed(0)} PLN</CarHeaderSubTextRight>
+                  <CarHeaderSubTextRight  to={{ pathname: '/Offer/Vehicle-Finances/'+CARS[this.props.location.pathname.replace(/\D/g, "")].id}}  onClick={()=> { this.changeSection("vehicleInfo")}}>Finance from {(CARS[this.props.location.pathname.replace(/\D/g, "")].price*1.05/72).toFixed(0)} PLN</CarHeaderSubTextRight>
                 </CarHeaderTextLeft>
               </CarHeaderText>
             </CarHeader>
@@ -658,7 +658,7 @@ class Offer extends Component {
                 </CarPhotoChoose>
               </CarPhotoContainer>
               <CarMainDetails>
-                  <CarDetailLink to="#contact">
+                  <CarDetailLink onClick={()=> { this.changeSection("contact")}}>
                     <StyledSpeedOutlinedIcon></StyledSpeedOutlinedIcon>
                     <CarDetailText>&nbsp;&nbsp;Send An Enquiry</CarDetailText>
                   </CarDetailLink>
@@ -666,7 +666,7 @@ class Offer extends Component {
                     <StyledColorLensOutlinedIcon></StyledColorLensOutlinedIcon>
                     <CarDetailText>&nbsp;&nbsp;Print This Page</CarDetailText>
                   </CarDetail>
-                  <CarDetailLink to="#similarVehicles">
+                  <CarDetailLink onClick={()=> { this.changeSection("similar")}}>
                     <StyledBatteryFullIcon></StyledBatteryFullIcon>
                     <CarDetailText>&nbsp;&nbsp;Similar Vehicles</CarDetailText>
                   </CarDetailLink>
@@ -681,13 +681,13 @@ class Offer extends Component {
         <VehicleInfoSection ref="vehicleInfo">
           <VehicleInfo></VehicleInfo>
         </VehicleInfoSection>
-        <ContactFormSection id="contact">
+        <ContactFormSection ref="contact">
           <ContactHeader>Send a message</ContactHeader>
           <ContactFormContainer>
             <ContactForm></ContactForm>
           </ContactFormContainer>
         </ContactFormSection>
-        <SimilarVehiclesSection id="similarVehicles">
+        <SimilarVehiclesSection ref="similar">
           <SimilarVehicles></SimilarVehicles>
         </SimilarVehiclesSection>
         <GoUp onClick={()=>{this.goUp()}}><StyledKeyboardArrowUpIcon/><GoUpText>Up</GoUpText></GoUp>
