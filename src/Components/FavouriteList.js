@@ -3,6 +3,7 @@ import Dexie from "dexie";
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {NavLink} from "react-router-dom";
+import {CARS} from '../Components/Const/carsDefaultData'
 
 const Container = styled.div`
   background-color:black;
@@ -143,10 +144,10 @@ const CarImage = styled.img`
 `;
 /**
  * List of favourites cars stored in indexedDB
- * @param {array} cars list of cars
+ * @param {array} CARS list of cars
  * @param {string} id id of car
  */
-const FavouriteList = ({ id,cars }) => {
+const FavouriteList = ({ id}) => {
   //set the database 
   const db = new Dexie("CarsIds");
   //create the database store
@@ -187,17 +188,17 @@ const FavouriteList = ({ id,cars }) => {
       <Cars>
         {posts.map(post => {
           return <Car key={post.id}>
-                    <CarHeader><CarHeaderMaker>{cars[post.id].brand}</CarHeaderMaker><CarHeaderModel>&nbsp;{cars[post.id].model}</CarHeaderModel></CarHeader>
-                    <CarImage src={cars[post.id].image1}></CarImage>
+                    <CarHeader><CarHeaderMaker>{CARS[post.id].brand}</CarHeaderMaker><CarHeaderModel>&nbsp;{CARS[post.id].model}</CarHeaderModel></CarHeader>
+                    <CarImage src={CARS[post.id].image1}></CarImage>
                     <CarMain>
-                      <CarMainElement>{cars[post.id].price} PLN</CarMainElement>
-                      <CarMainElement>{cars[post.id].power} KM</CarMainElement>
-                      <CarMainElement>{cars[post.id].torque} Nm</CarMainElement>
-                      <CarMainElement>{cars[post.id].displacement} cm3</CarMainElement>
-                      <CarMainElement>{cars[post.id].color}</CarMainElement>
-                      <CarMainElement>{cars[post.id].gearBox}</CarMainElement>
-                      <CarMainElement>{cars[post.id].price} PLN</CarMainElement>
-                      <CarMainElement>{cars[post.id].fuel}</CarMainElement>
+                      <CarMainElement>{CARS[post.id].price} PLN</CarMainElement>
+                      <CarMainElement>{CARS[post.id].power} KM</CarMainElement>
+                      <CarMainElement>{CARS[post.id].torque} Nm</CarMainElement>
+                      <CarMainElement>{CARS[post.id].displacement} cm3</CarMainElement>
+                      <CarMainElement>{CARS[post.id].color}</CarMainElement>
+                      <CarMainElement>{CARS[post.id].gearBox}</CarMainElement>
+                      <CarMainElement>{CARS[post.id].price} PLN</CarMainElement>
+                      <CarMainElement>{CARS[post.id].fuel}</CarMainElement>
                     </CarMain>
                     <Buttons>
                     <StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+post.id}}> See Offer</StyledLink>
@@ -221,7 +222,7 @@ const FavouriteList = ({ id,cars }) => {
 function mapStateToProps(state) {
   return {
     id:state.id,
-    cars:state.cars
+    CARS:state.CARS
   };
 } 
 export default connect(mapStateToProps)(FavouriteList);
