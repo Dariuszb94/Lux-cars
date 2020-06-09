@@ -83,20 +83,37 @@ const FavouriteSet = (props) => {
   
   //set the state and property
   const [posts, setPosts] = useState("");
+  const [wait, setWait] = useState(false);
 
   const addFavourite = () => {
     let canUpdate=true;
-    if(props.carId===undefined){
-      posts.forEach((idPost)=>{
-        if (idPost.id===window.location.href.slice(21).replace(/\D/g, "")){ //checking if car is already in database
+    if(props.carId===undefined && wait===false){
+      
+      for(let i=0;i<posts.length;i++){
+        if(posts[i].id===window.location.href.slice(21).replace(/\D/g, "")){  
           canUpdate=false;
         }
-      })
-      if(canUpdate===true){
+        if(i===posts.length-1 && canUpdate===true){
+          setWait(true);
+          let post = {
+            id:window.location.href.slice(21).replace(/\D/g, ""),
+          }
+          db.posts.add(post).then(async() => {
+            setWait(false);
+            //retrieve all posts inside the database
+            let allPosts = await db.posts.toArray();
+            //set the posts
+            setPosts(allPosts);
+          });
+        }
+      }
+      if(posts.length===0 && canUpdate===true){
+        setWait(true);
         let post = {
           id:window.location.href.slice(21).replace(/\D/g, ""),
         }
         db.posts.add(post).then(async() => {
+          setWait(false);
           //retrieve all posts inside the database
           let allPosts = await db.posts.toArray();
           //set the posts
@@ -104,17 +121,35 @@ const FavouriteSet = (props) => {
         });
       }
     }
-    if(props.carId!==undefined){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    if(props.carId!==undefined && wait===false){
+      
       posts.forEach((idPost)=>{
         if (idPost.id===props.carId){
           canUpdate=false;
         }
       })
       if(canUpdate===true){
+        setWait(true);
         let post = {
           id:props.carId,
         }
         db.posts.add(post).then(async() => {
+          setWait(false);
           //retrieve all posts inside the database
           let allPosts = await db.posts.toArray();
           //set the posts
