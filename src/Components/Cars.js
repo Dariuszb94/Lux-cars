@@ -334,7 +334,7 @@ class Cars extends Component {
     return (  
       <CarsContainer>
         <CarList>
-          {CARS.map(car =><CarWithButtons key={car.id}>
+          {this.state.cars.map(car =><CarWithButtons key={car.id}>
             <StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+car.id}}><Car onClick={() => this.chooseId(car.id)}>
             <CarHeader>
               <CarLogo src={car.imageLogo}></CarLogo>

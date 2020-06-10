@@ -1,16 +1,16 @@
-import {CHOOSEN_PRICE_MAX } from './types';
-import {CHOOSEN_PRICE_MIN } from './types';
+import {CHOOSE_PRICE_MAX } from './types';
+import {CHOOSE_PRICE_MIN } from './types';
 
-export const choosenPriceMin = (e) => dispatch => {
+export const choosePriceMin = (e) => dispatch => {
     dispatch({
-      type:CHOOSEN_PRICE_MIN,
+      type:CHOOSE_PRICE_MIN,
       payload:e
     });
 };
 
-export const choosenPriceMax = (e) => dispatch => {
+export const choosePriceMax = (e) => dispatch => {
     dispatch({
-      type:CHOOSEN_PRICE_MAX ,
+      type:CHOOSE_PRICE_MAX ,
       payload:e
     });
 };

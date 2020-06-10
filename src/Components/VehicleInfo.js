@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
 import {Route,Switch} from "react-router-dom";
 import VehicleInfoFeatures from './VehicleInfoFeatures';
 import VehicleInfoDescription from './VehicleInfoDescription';
@@ -217,8 +216,5 @@ class VehicleInfo extends Component {
     );
   }
 }    
-const mapStateToProps = state => ({
-  section:state.section,
-  chosenId:state.chosenId
-  }); 
-  export default connect(mapStateToProps)(VehicleInfo);
+
+  export default VehicleInfo;

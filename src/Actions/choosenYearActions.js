@@ -1,16 +1,16 @@
-import {CHOOSEN_YEAR_MAX } from './types';
-import {CHOOSEN_YEAR_MIN } from './types';
+import {CHOOSE_YEAR_MAX } from './types';
+import {CHOOSE_YEAR_MIN } from './types';
 
-export const choosenYearMin = (e) => dispatch => {
+export const chooseYearMin = (e) => dispatch => {
     dispatch({
-      type:CHOOSEN_YEAR_MIN,
+      type:CHOOSE_YEAR_MIN,
       payload:e
     });
 };
 
-export const choosenYearMax = (e) => dispatch => {
+export const chooseYearMax = (e) => dispatch => {
     dispatch({
-      type:CHOOSEN_YEAR_MAX ,
+      type:CHOOSE_YEAR_MAX ,
       payload:e
     });
 };

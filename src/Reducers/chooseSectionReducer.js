@@ -1,4 +1,4 @@
-import {CHOOSEN_SECTION} from '../Actions/types';
+import {CHOOSE_SECTION} from '../Actions/types';
 
 
 const initialState ="";
@@ -6,7 +6,7 @@ const initialState ="";
 export default function(state = initialState, action) {
 
   switch (action.type) {
-    case CHOOSEN_SECTION:
+    case CHOOSE_SECTION:
       return {
         ...state,
 section:action.payload
