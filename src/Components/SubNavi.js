@@ -101,7 +101,15 @@ const mapStateToProps = state => ({
   chosenPower:state.chosenPower,
   chosenYear:state.chosenYear,
   chosenPrice:state.chosenPrice,
-  cars:state.cars,
   }); 
-
-  export default connect(mapStateToProps,{chooseModel, chooseMaker, choosePowerMax, choosePowerMin, chooseYearMin , chooseYearMax, choosePriceMin , choosePriceMax  })(SubNavi);
+const mapDispatchToProps = {
+  chooseModel,
+  chooseMaker,
+  choosePowerMax,
+  choosePowerMin,
+  chooseYearMin ,
+  chooseYearMax,
+  choosePriceMin,
+  choosePriceMax,
+};
+  export default connect(mapStateToProps, mapDispatchToProps)(SubNavi);

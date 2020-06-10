@@ -228,5 +228,9 @@ class Search extends Component {
 const mapStateToProps = state => ({
   chosenMaker: state.chosenMaker,
   chosenModel:state.chosenModel
-  }); 
-  export default connect(mapStateToProps,{chooseModel, chooseMaker})(Search);
+  });
+const mapDispatchToProps = {
+  chooseModel,
+  chooseMaker
+}; 
+  export default connect(mapStateToProps, mapDispatchToProps)(Search);

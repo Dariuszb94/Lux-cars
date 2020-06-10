@@ -125,4 +125,9 @@ const mapStateToProps = state => ({
   chosenModel:state.chosenModel,
   chosenId:state.chosenId
   }); 
-  export default connect(mapStateToProps,{chooseModel, chooseMaker,chooseId})(SimilarVehicles);
+const mapDispatchToProps = {
+  chooseModel,
+  chooseMaker,
+  chooseId,
+};
+  export default connect(mapStateToProps, mapDispatchToProps)(SimilarVehicles);

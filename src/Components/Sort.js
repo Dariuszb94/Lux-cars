@@ -103,7 +103,6 @@ class Sorter extends Component {
   }
 }
 const mapStateToProps = state => ({
-  price:state.price,
   chosenPrice:state.chosenPrice,
   }); 
 

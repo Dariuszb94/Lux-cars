@@ -157,5 +157,9 @@ class Menu extends Component {
 }
 const mapStateToProps = state => ({
   maker: state.maker,
-  }); 
-  export default connect(mapStateToProps,{chooseModel, chooseMaker})(Menu);
+  });
+const mapDispatchToProps = {
+  chooseModel,
+  chooseMaker,
+}; 
+  export default connect(mapStateToProps, mapDispatchToProps)(Menu);

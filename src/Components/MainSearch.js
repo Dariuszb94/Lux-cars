@@ -524,5 +524,15 @@ const mapStateToProps = state => ({
   chosenYear:state.chosenYear,
   chosenPrice:state.chosenPrice,
   }); 
+const mapDispatchToProps = {
+  chooseModel,
+  chooseMaker,
+  choosePowerMax,
+  choosePowerMin,
+  chooseYearMin ,
+  chooseYearMax,
+  choosePriceMin,
+  choosePriceMax,
+};
 
-  export default connect(mapStateToProps,{chooseModel, chooseMaker, choosePowerMax, choosePowerMin, chooseYearMin , chooseYearMax, choosePriceMin , choosePriceMax  })(MainSearch);
+  export default connect(mapStateToProps, mapDispatchToProps)(MainSearch);

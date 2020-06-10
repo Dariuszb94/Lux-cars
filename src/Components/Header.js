@@ -255,5 +255,9 @@ class Header extends Component {
 }
 const mapStateToProps = state => ({
   maker: state.maker,
-  }); 
-  export default connect(mapStateToProps,{chooseModel, chooseMaker})(Header);
+  });
+const mapDispatchToProps = {
+  chooseModel,
+  chooseMaker
+  };
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

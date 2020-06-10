@@ -384,11 +384,8 @@ class Cars extends Component {
 const mapStateToProps = state => ({
   chosenMaker: state.chosenMaker,
   chosenModel:state.chosenModel,
-  power:state.power,
   chosenPower:state.chosenPower,
-  years:state.years,
   chosenYear:state.chosenYear,
-  price:state.price,
   chosenPrice:state.chosenPrice,
   priceSort:state.priceSort,
   chosenId:state.chosenId
