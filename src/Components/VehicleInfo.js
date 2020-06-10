@@ -171,21 +171,21 @@ class VehicleInfo extends Component {
     this.highlightInfoType();
   }
   componentDidUpdate() {
-    setTimeout(() => this.highlightInfoType(),200);
+    this.highlightInfoType();
   }
 
   highlightInfoType(){
-    if(window.location.href.includes("Features")  ){
+    if(window.location.href.includes("Features") && this.state.highlightInfoTypeFeatures!==true){
       this.setState({ highlightInfoTypeFeatures: true});
       this.setState({ highlightInfoTypeDescription: false});
       this.setState({ highlightInfoTypeFinances: false});
     }
-    if(window.location.href.includes("Description") ){
+    if(window.location.href.includes("Description") && this.state.highlightInfoTypeDescription!==true ){
       this.setState({ highlightInfoTypeDescription: true});
       this.setState({ highlightInfoTypeFeatures: false});
       this.setState({ highlightInfoTypeFinances: false});
     }
-    if(window.location.href.includes("Finances")){
+    if(window.location.href.includes("Finances") && this.state.highlightInfoTypeFinances!==true){
       this.setState({ highlightInfoTypeFinances: true});
       this.setState({ highlightInfoTypeFeatures: false});
       this.setState({ highlightInfoTypeDescription: false});

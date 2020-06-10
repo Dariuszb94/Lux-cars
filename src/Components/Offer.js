@@ -450,6 +450,7 @@ class Offer extends Component {
       swipeLeftPossible:true,
       magnifierMobile:"none",
       magnifierDesktop:"block",
+      updateVehicleInfo:false,
     };
     this.swipeLeft = this.swipeLeft.bind(this);
     this.swipeRight = this.swipeRight.bind(this);
@@ -609,6 +610,7 @@ class Offer extends Component {
   }
   changeSection(section){
     this.refs[section].scrollIntoView();
+    this.setState({ updateVehicleInfo: !this.state.updateVehicleInfo });
   }
 
   print(){
@@ -679,7 +681,7 @@ class Offer extends Component {
             </Car> 
         </CarList>
         <VehicleInfoSection ref="vehicleInfo">
-          <VehicleInfo></VehicleInfo>
+          <VehicleInfo updateVehicleInfo={this.state.updateVehicleInfo}></VehicleInfo>
         </VehicleInfoSection>
         <ContactFormSection ref="contact">
           <ContactHeader>Send a message</ContactHeader>

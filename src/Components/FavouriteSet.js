@@ -121,23 +121,7 @@ const FavouriteSet = (props) => {
         });
       }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     if(props.carId!==undefined && wait===false){
-      
       posts.forEach((idPost)=>{
         if (idPost.id===props.carId){
           canUpdate=false;
