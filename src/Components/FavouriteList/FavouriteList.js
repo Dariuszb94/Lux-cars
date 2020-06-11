@@ -68,7 +68,10 @@ const FavouriteList = () => {
         {posts.map((post) => (
           <Car key={post.id}>
             <CarHeader>
-              <CarHeaderMaker>{CARS[post.id].brand}</CarHeaderMaker>
+              <CarHeaderMaker>
+                {CARS[post.id].brand}
+                &nbsp;
+              </CarHeaderMaker>
               <CarHeaderModel>{CARS[post.id].model}</CarHeaderModel>
             </CarHeader>
             <CarImage src={CARS[post.id].image1} />
