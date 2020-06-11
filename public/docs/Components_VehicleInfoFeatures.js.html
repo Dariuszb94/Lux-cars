@@ -78,7 +78,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import ArrowDropDownOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
 import { CSSTransition } from "react-transition-group";
@@ -281,15 +281,15 @@ class VehicleInfoFeatures extends Component {
   }
 
   vehicleSummaryListShow(){
-     this.setState({ vehicleSummaryListShow: !this.state.vehicleSummaryListShow});
+     this.setState({ vehicleSummaryListShow: !this.state.vehicleSummaryListShow});
   }
 
   vehiclePerformanceListShow(){
-     this.setState({ vehiclePerformanceListShow: !this.state.vehiclePerformanceListShow});
+     this.setState({ vehiclePerformanceListShow: !this.state.vehiclePerformanceListShow});
   }
 
   vehicleDimensionsListShow(){
-     this.setState({ vehicleDimensionsListShow: !this.state.vehicleDimensionsListShow});
+     this.setState({ vehicleDimensionsListShow: !this.state.vehicleDimensionsListShow});
   }
 
   render() {
@@ -349,10 +349,10 @@ class VehicleInfoFeatures extends Component {
     );
   }
 }    
-const mapStateToProps = state => ({
+const mapStateToProps = state => ({
   cars:state.cars,
   }); 
-export default connect(mapStateToProps)(VehicleInfoFeatures);</code></pre>
+export default connect(mapStateToProps)(VehicleInfoFeatures);</code></pre>
         </article>
     </section>
 

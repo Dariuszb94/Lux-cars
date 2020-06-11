@@ -79,15 +79,15 @@
             <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import {connect} from 'react-redux';
-import {chooseModel}from '../Actions/chooseModelActions';
-import {chooseMaker}from '../Actions/makerActions';
-import {choosenPowerMin }from '../Actions/choosenPowerActions';
-import {choosenPowerMax }from '../Actions/choosenPowerActions';
-import {choosenYearMin }from '../Actions/choosenYearActions';
-import {choosenYearMax }from '../Actions/choosenYearActions';
-import {choosenPriceMin }from '../Actions/choosenPriceActions';
-import {choosenPriceMax }from '../Actions/choosenPriceActions';
+import {connect} from 'react-redux';
+import {chooseModel}from '../Actions/chooseModelActions';
+import {chooseMaker}from '../Actions/makerActions';
+import {choosenPowerMin }from '../Actions/choosenPowerActions';
+import {choosenPowerMax }from '../Actions/choosenPowerActions';
+import {choosenYearMin }from '../Actions/choosenYearActions';
+import {choosenYearMax }from '../Actions/choosenYearActions';
+import {choosenPriceMin }from '../Actions/choosenPriceActions';
+import {choosenPriceMax }from '../Actions/choosenPriceActions';
 
 const MainSearchContainer = styled.div`
   background-color:#3a3a3a;
@@ -358,22 +358,22 @@ const ResetButton = styled.button`
     this.props.chooseModel("Any Model")
   }
   minPowerChange(e){
-     this.props.choosenPowerMin(e.value);
+     this.props.choosenPowerMin(e.value);
   }
   maxPowerChange(e){
-     this.props.choosenPowerMax(e.value);
+     this.props.choosenPowerMax(e.value);
   }
   minYearChange(e){
-     this.props.choosenYearMin(e.value);
+     this.props.choosenYearMin(e.value);
   }
   maxYearChange(e){
-     this.props.choosenYearMax(e.value);
+     this.props.choosenYearMax(e.value);
   }
   minPriceChange(e){
-     this.props.choosenPriceMin(e.value);
+     this.props.choosenPriceMin(e.value);
   }
   maxPriceChange(e){
-     this.props.choosenPriceMax(e.value);
+     this.props.choosenPriceMax(e.value);
   }
   /**
    * Displays hidden dropdown menu.
@@ -500,21 +500,21 @@ const ResetButton = styled.button`
             &lt;AttrContainer>
               &lt;SearchHeader>Search&lt;/SearchHeader>
               &lt;AttrChoose>
-                &lt;AnyAttr onClick={() => this.makerShow()}>
+                &lt;AnyAttr onClick={this.makerShow}>
                   &lt;AnyAttrText>{ (this.props.maker.maker === undefined) ? "Any Maker" : this.props.maker.maker}&lt;/AnyAttrText>
                   &lt;ArrowDropDownIcon/>
                 &lt;/AnyAttr>
-                &lt;DropDownContentMaker makerShow={this.state.makerShow} onClick={() => this.makerShow()}>
+                &lt;DropDownContentMaker makerShow={this.state.makerShow} onClick={this.makerShow}>
                   &lt;SubAttr onClick={() => this.makerChange({maker:"Any Maker"})}>Any Maker&lt;/SubAttr>
                   {(this.props.makers===undefined) ? null : (this.props.makers.map(maker => &lt;SubAttr key={maker} onClick={() => this.makerChange({maker})}>{maker}&lt;/SubAttr> )) }
                 &lt;/DropDownContentMaker>
               &lt;/AttrChoose>
               &lt;AttrChoose>
-                &lt;AnyAttr onClick={() => this.modelShow()} >
+                &lt;AnyAttr onClick={this.modelShow} >
                   &lt;AnyAttrText>{ (this.props.chosenModel.chosenModel === undefined) ? "Any Model" : this.props.chosenModel.chosenModel}&lt;/AnyAttrText> 
                   &lt;ArrowDropDownIcon/>
                 &lt;/AnyAttr>
-                &lt;DropDownContentModel modelShow={this.state.modelShow} onClick={() => this.modelShow()}>
+                &lt;DropDownContentModel modelShow={this.state.modelShow} onClick={this.modelShow}>
                   &lt;SubAttr onClick={() => this.modelChange({model:"Any Model"})}>Any Model&lt;/SubAttr>
                   {(this.props.models===undefined || this.props.maker===undefined || this.props.maker.maker===undefined || this.props.models[this.props.maker.maker]===undefined) ?   null : (this.props.models[this.props.maker.maker].map(model =>   &lt;SubAttr key={model} onClick={() => this.modelChange({model})}>{model}&lt;/SubAttr> )) }
                 &lt;/DropDownContentModel>
@@ -523,20 +523,20 @@ const ResetButton = styled.button`
             &lt;AttrContainer>  
               &lt;SearchHeader>Power&lt;/SearchHeader>
               &lt;AttrChoose>
-                &lt;AnyAttr onClick={() => this.minPowerShow()} >
+                &lt;AnyAttr onClick={this.minPowerShow} >
                   &lt;AnyAttrText>{ (this.props.choosenPower.minPower === null) ? "Min Power" : this.props.choosenPower.minPower} KM&lt;/AnyAttrText> 
                   &lt;ArrowDropDownIcon/>
                 &lt;/AnyAttr>
-                &lt;DropDownContentMinPower minPowerShow={this.state.minPowerShow} onClick={() => this.minPowerShow()}>
+                &lt;DropDownContentMinPower minPowerShow={this.state.minPowerShow} onClick={this.minPowerShow}>
                   {(this.props.power.powerMin===undefined ) ?   null : (this.props.power.powerMin.map(value =>   &lt;SubAttr key={value} onClick={() => this.minPowerChange({value})}>{value}&amp;nbsp;KM&lt;/SubAttr> )) }
                &lt;/DropDownContentMinPower>
               &lt;/AttrChoose>
               &lt;AttrChoose>
-                &lt;AnyAttr onClick={() => this.maxPowerShow()} >
+                &lt;AnyAttr onClick={this.maxPowerShow} >
                   &lt;AnyAttrText>{ (this.props.choosenPower.maxPower === null) ? "Max Power" : this.props.choosenPower.maxPower} KM&lt;/AnyAttrText> 
                   &lt;ArrowDropDownIcon/>
                 &lt;/AnyAttr>
-                &lt;DropDownContentMaxPower maxPowerShow={this.state.maxPowerShow} onClick={() => this.maxPowerShow()}>
+                &lt;DropDownContentMaxPower maxPowerShow={this.state.maxPowerShow} onClick={this.maxPowerShow}>
                   {(this.props.power.powerMax===undefined ) ?   null : (this.props.power.powerMax.map(value =>   &lt;SubAttr key={value} onClick={() => this.maxPowerChange({value})}>{value}&amp;nbsp;KM&lt;/SubAttr> )) }
                &lt;/DropDownContentMaxPower>
               &lt;/AttrChoose>
@@ -544,20 +544,20 @@ const ResetButton = styled.button`
             &lt;AttrContainer>  
               &lt;SearchHeader>Years&lt;/SearchHeader>
               &lt;AttrChoose>
-                &lt;AnyAttr onClick={() => this.minYearsShow()} >
+                &lt;AnyAttr onClick={this.minYearsShow} >
                   &lt;AnyAttrText>From { (this.props.choosenYear.minYear === null) ? null : this.props.choosenYear.minYear}&lt;/AnyAttrText> 
                   &lt;ArrowDropDownIcon/>
                 &lt;/AnyAttr>
-                &lt;DropDownContentMinYear minYearsShow={this.state.minYearsShow} onClick={() => this.minYearsShow()}>
+                &lt;DropDownContentMinYear minYearsShow={this.state.minYearsShow} onClick={this.minYearsShow}>
                   {(this.props.years===undefined ) ?   null : (this.props.years.yearMin.map(value =>   &lt;SubAttr key={value} onClick={() => this.minYearChange({value})}>{value}&lt;/SubAttr> )) }
                &lt;/DropDownContentMinYear>
               &lt;/AttrChoose>
               &lt;AttrChoose>
-                &lt;AnyAttr onClick={() => this.maxYearsShow()} >
+                &lt;AnyAttr onClick={this.maxYearsShow} >
                   &lt;AnyAttrText>To { (this.props.choosenYear.maxYear === null) ? null: this.props.choosenYear.maxYear}&lt;/AnyAttrText> 
                   &lt;ArrowDropDownIcon/>
                 &lt;/AnyAttr>
-                &lt;DropDownContentMaxYear maxYearsShow={this.state.maxYearsShow} onClick={() => this.maxYearsShow()}>
+                &lt;DropDownContentMaxYear maxYearsShow={this.state.maxYearsShow} onClick={this.maxYearsShow}>
                   {(this.props.years===undefined ) ?   null : (this.props.years.yearMax.map(value =>   &lt;SubAttr key={value} onClick={() => this.maxYearChange({value})}>{value}&lt;/SubAttr> )) }
                &lt;/DropDownContentMaxYear>
               &lt;/AttrChoose>
@@ -565,20 +565,20 @@ const ResetButton = styled.button`
             &lt;AttrContainer>  
               &lt;SearchHeader>Price&lt;/SearchHeader>
               &lt;AttrChoose>
-                &lt;AnyAttr onClick={() => this.minPricesShow()} >
+                &lt;AnyAttr onClick={this.minPricesShow} >
                   &lt;AnyAttrText>From { (this.props.choosenPrice.minPrice === null) ? null : this.props.choosenPrice.minPrice} PLN&lt;/AnyAttrText> 
                   &lt;ArrowDropDownIcon/>
                 &lt;/AnyAttr>
-                &lt;DropDownContentMinPrice minPricesShow={this.state.minPricesShow} onClick={() => this.minPricesShow()}>
+                &lt;DropDownContentMinPrice minPricesShow={this.state.minPricesShow} onClick={this.minPricesShow}>
                   {(this.props.price===undefined ) ?   null : (this.props.price.priceMin.map(value =>   &lt;SubAttr key={value} onClick={() => this.minPriceChange({value})}>{value}&lt;/SubAttr> )) }
                &lt;/DropDownContentMinPrice>
               &lt;/AttrChoose>
               &lt;AttrChoose>
-                &lt;AnyAttr onClick={() => this.maxPricesShow()} >
+                &lt;AnyAttr onClick={this.maxPricesShow} >
                   &lt;AnyAttrText>To { (this.props.choosenPrice.maxPrice === null) ? null : this.props.choosenPrice.maxPrice} PLN&lt;/AnyAttrText> 
                   &lt;ArrowDropDownIcon/>
                 &lt;/AnyAttr>
-                &lt;DropDownContentMaxPrice maxPricesShow={this.state.maxPricesShow} onClick={() => this.maxPricesShow()}>
+                &lt;DropDownContentMaxPrice maxPricesShow={this.state.maxPricesShow} onClick={this.maxPricesShow}>
                   {(this.props.price===undefined ) ?   null : (this.props.price.priceMax.map(value =>   &lt;SubAttr key={value} onClick={() => this.maxPriceChange({value})}>{value}&lt;/SubAttr> )) }
                &lt;/DropDownContentMaxPrice>
               &lt;/AttrChoose>
@@ -590,10 +590,10 @@ const ResetButton = styled.button`
     );
   }
 }    
-const mapStateToProps = state => ({
-  models: state.models,
-  maker: state.maker,
-  makers: state.makers,
+const mapStateToProps = state => ({
+  models: state.models,
+  maker: state.maker,
+  makers: state.makers,
   chosenModel:state.chosenModel,
   power:state.power,
   choosenPower:state.choosenPower,
@@ -604,7 +604,7 @@ const mapStateToProps = state => ({
   cars:state.cars,
   }); 
 
-  export default connect(mapStateToProps,{chooseModel, chooseMaker, choosenPowerMax, choosenPowerMin, choosenYearMin , choosenYearMax, choosenPriceMin , choosenPriceMax  })(MainSearch);</code></pre>
+  export default connect(mapStateToProps,{chooseModel, chooseMaker, choosenPowerMax, choosenPowerMin, choosenYearMin , choosenYearMax, choosenPriceMin , choosenPriceMax  })(MainSearch);</code></pre>
         </article>
     </section>
 

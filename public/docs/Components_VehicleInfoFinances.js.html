@@ -78,9 +78,9 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import ReactSlider from 'react-slider'
-import {NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Container = styled.div`
   background-color:#474747;
@@ -264,11 +264,11 @@ class VehicleInfoFinances extends Component {
     );
   }
 }    
-const mapStateToProps = state => ({
+const mapStateToProps = state => ({
   cars:state.cars,
   id:state.chosenId,
   }); 
-  export default connect(mapStateToProps)(VehicleInfoFinances);</code></pre>
+  export default connect(mapStateToProps)(VehicleInfoFinances);</code></pre>
         </article>
     </section>
 

@@ -78,10 +78,10 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
-import {chooseModel}from '../Actions/chooseModelActions';
-import {chooseMaker}from '../Actions/makerActions';
-import {NavLink} from "react-router-dom";
+import {connect} from 'react-redux';
+import {chooseModel}from '../Actions/chooseModelActions';
+import {chooseMaker}from '../Actions/makerActions';
+import {NavLink} from "react-router-dom";
 
 const MenuContainer = styled.div`
   background-color:#ec6b0c;
@@ -196,35 +196,35 @@ class Menu extends Component {
   }
 
   makerShow(){
-     this.setState({ makerShow: true});
+     this.setState({ makerShow: true});
   }
 
   makerHide(){
-     this.setState({ makerShow: false});
+     this.setState({ makerShow: false});
   }
 
   render() {
     return (  
       &lt;MenuContainer>
         &lt;MenuList>
-          &lt;StyledLink to="/Lux-cars" >
+          &lt;StyledLink to="/Lux-cars" >
             &lt;MenuListElement>HOME&lt;/MenuListElement>
           &lt;/StyledLink>
           &lt;MakerChoose onMouseEnter={() => this.makerShow()} onMouseLeave={() => this.makerHide()}>
-            &lt;StyledLink to="/Offers">
+            &lt;StyledLink to="/Offers">
               &lt;AnyMaker onClick={() => this.makerChange({maker:"Any Maker"})}>USED CARS&lt;/AnyMaker>
             &lt;/StyledLink>
             &lt;DropDownContent makerShow={this.state.makerShow} >
-              {(this.props.makers===undefined) ?   null : (this.props.makers.map(maker =>   &lt;StyledLink to="/Offers" key={maker} >&lt;SubMaker onClick={() => this.makerChange({maker})}>{maker}&lt;/SubMaker>&lt;/StyledLink> )) }
+              {(this.props.makers===undefined) ?   null : (this.props.makers.map(maker =>   &lt;StyledLink to="/Offers" key={maker} >&lt;SubMaker onClick={() => this.makerChange({maker})}>{maker}&lt;/SubMaker>&lt;/StyledLink> )) }
             &lt;/DropDownContent>
           &lt;/MakerChoose>
-          &lt;StyledLink to="/Finance" >
+          &lt;StyledLink to="/Finance" >
             &lt;MenuListElement>FINANCE&lt;/MenuListElement>
           &lt;/StyledLink>
-          &lt;StyledLink to="/About" >
+          &lt;StyledLink to="/About" >
             &lt;MenuListElement>ABOUT&lt;/MenuListElement>
           &lt;/StyledLink>
-          &lt;StyledLink to="/Contact">
+          &lt;StyledLink to="/Contact">
             &lt;MenuListElement>CONTACT&lt;/MenuListElement>
           &lt;/StyledLink>
         &lt;/MenuList>
@@ -232,11 +232,11 @@ class Menu extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  maker: state.maker,
-  makers: state.makers,
+const mapStateToProps = state => ({
+  maker: state.maker,
+  makers: state.makers,
   }); 
-  export default connect(mapStateToProps,{chooseModel, chooseMaker})(Menu);</code></pre>
+  export default connect(mapStateToProps,{chooseModel, chooseMaker})(Menu);</code></pre>
         </article>
     </section>
 

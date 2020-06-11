@@ -78,16 +78,16 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
-import {NavLink} from "react-router-dom";
-import {connect} from 'react-redux';
-import {chooseModel}from '../Actions/chooseModelActions';
-import {chooseMaker}from '../Actions/makerActions';
-import {choosenPowerMin }from '../Actions/choosenPowerActions';
-import {choosenPowerMax }from '../Actions/choosenPowerActions';
-import {choosenYearMin }from '../Actions/choosenYearActions';
-import {choosenYearMax }from '../Actions/choosenYearActions';
-import {choosenPriceMin }from '../Actions/choosenPriceActions';
-import {choosenPriceMax }from '../Actions/choosenPriceActions';
+import {NavLink} from "react-router-dom";
+import {connect} from 'react-redux';
+import {chooseModel}from '../Actions/chooseModelActions';
+import {chooseMaker}from '../Actions/makerActions';
+import {choosenPowerMin }from '../Actions/choosenPowerActions';
+import {choosenPowerMax }from '../Actions/choosenPowerActions';
+import {choosenYearMin }from '../Actions/choosenYearActions';
+import {choosenYearMax }from '../Actions/choosenYearActions';
+import {choosenPriceMin }from '../Actions/choosenPriceActions';
+import {choosenPriceMax }from '../Actions/choosenPriceActions';
 
 const SubNaviContainer = styled.div`
   background-color:black;
@@ -164,17 +164,17 @@ class SubNavi extends Component {
   render() {
     return (  
       &lt;SubNaviContainer>
-       &lt;StyledLink to="/Lux-cars">Home&lt;/StyledLink>
+       &lt;StyledLink to="/Lux-cars">Home&lt;/StyledLink>
         &lt;RightSymbol>&amp;nbsp;>&amp;nbsp;&lt;/RightSymbol>
-        &lt;StyledLink to="/Offers" onClick={()=>this.resetFilters()}>Used cars&lt;/StyledLink>
-        {(this.props.maker.maker === undefined || this.props.maker.maker === "Any Maker") ? "" : &lt;StyledLink to="/Offers" onClick={()=>this.resetWithoutMaker()}>&lt;RightSymbol>&amp;nbsp;>&amp;nbsp;&lt;/RightSymbol>{this.props.maker.maker}&lt;/StyledLink>}
-        {(this.props.chosenModel.chosenModel === undefined || this.props.chosenModel.chosenModel === "Any Model") ? "" : &lt;StyledLink to="/Offers" onClick={()=>this.resetWithoutModel()}>&lt;RightSymbol>&amp;nbsp;>&amp;nbsp;&lt;/RightSymbol>{this.props.chosenModel.chosenModel}&lt;/StyledLink>}
+        &lt;StyledLink to="/Offers" onClick={()=>this.resetFilters()}>Used cars&lt;/StyledLink>
+        {(this.props.maker.maker === undefined || this.props.maker.maker === "Any Maker") ? "" : &lt;StyledLink to="/Offers" onClick={()=>this.resetWithoutMaker()}>&lt;RightSymbol>&amp;nbsp;>&amp;nbsp;&lt;/RightSymbol>{this.props.maker.maker}&lt;/StyledLink>}
+        {(this.props.chosenModel.chosenModel === undefined || this.props.chosenModel.chosenModel === "Any Model") ? "" : &lt;StyledLink to="/Offers" onClick={()=>this.resetWithoutModel()}>&lt;RightSymbol>&amp;nbsp;>&amp;nbsp;&lt;/RightSymbol>{this.props.chosenModel.chosenModel}&lt;/StyledLink>}
       &lt;/SubNaviContainer>
     );
   }
 }
-const mapStateToProps = state => ({
-  maker: state.maker,
+const mapStateToProps = state => ({
+  maker: state.maker,
   chosenModel:state.chosenModel,
   choosenPower:state.choosenPower,
   choosenYear:state.choosenYear,
@@ -182,7 +182,7 @@ const mapStateToProps = state => ({
   cars:state.cars,
   }); 
 
-  export default connect(mapStateToProps,{chooseModel, chooseMaker, choosenPowerMax, choosenPowerMin, choosenYearMin , choosenYearMax, choosenPriceMin , choosenPriceMax  })(SubNavi);</code></pre>
+  export default connect(mapStateToProps,{chooseModel, chooseMaker, choosenPowerMax, choosenPowerMin, choosenYearMin , choosenYearMax, choosenPriceMin , choosenPriceMax  })(SubNavi);</code></pre>
         </article>
     </section>
 

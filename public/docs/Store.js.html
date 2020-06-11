@@ -76,26 +76,26 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './Reducers';
+            <pre class="prettyprint source linenums"><code>import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './Reducers';
 
-const initialState = {};
+const initialState = {};
 
-const middleware = [thunk];
+const middleware = [thunk];
 /**
  * Redux boilerplate
  */
-const store = createStore(
-  rootReducer,
-  initialState,
-  compose(
-    applyMiddleware(...middleware),
-//window.__REDUX_DEVTOOLS_EXTENSION__ &amp;&amp; window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+const store = createStore(
+  rootReducer,
+  initialState,
+  compose(
+    applyMiddleware(...middleware),
+//window.__REDUX_DEVTOOLS_EXTENSION__ &amp;&amp; window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
 
-export default store;</code></pre>
+export default store;</code></pre>
         </article>
     </section>
 

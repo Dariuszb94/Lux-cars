@@ -78,9 +78,9 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React , {useState, useEffect} from 'react';
 import Dexie from "dexie";
-import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import styled from 'styled-components';
-import {NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Container = styled.div`
   background-color:black;
@@ -278,7 +278,7 @@ const FavouriteList = ({ id,cars }) => {
                       &lt;CarMainElement>{cars[post.id].fuel}&lt;/CarMainElement>
                     &lt;/CarMain>
                     &lt;Buttons>
-                    &lt;StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+post.id}}> See Offer&lt;/StyledLink>
+                    &lt;StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+post.id}}> See Offer&lt;/StyledLink>
                       &lt;CarDetailOrange onClick={() => deletePost(post.id)}>Remove&lt;/CarDetailOrange>
                     &lt;/Buttons>
                   &lt;/Car>       
@@ -302,7 +302,7 @@ function mapStateToProps(state) {
     cars:state.cars
   };
 } 
-export default connect(mapStateToProps)(FavouriteList);</code></pre>
+export default connect(mapStateToProps)(FavouriteList);</code></pre>
         </article>
     </section>
 

@@ -1,6 +1,7 @@
-import {CHOOSE_ID} from './types';
+import { CHOOSE_ID } from './types';
 
-export const chooseId = payload => ({
-    type:CHOOSE_ID,
-    payload
+const chooseId = (payload) => ({
+  type: CHOOSE_ID,
+  payload,
 });
+export default chooseId;

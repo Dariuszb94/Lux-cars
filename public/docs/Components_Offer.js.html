@@ -78,7 +78,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import SpeedOutlinedIcon from '@material-ui/icons/SpeedOutlined';
 import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import BatteryFullIcon from '@material-ui/icons/Opacity';
@@ -89,7 +89,7 @@ import SimilarVehicles from './SimilarVehicles';
 import ContactForm from './ContactForm';
 import FavouriteSet from './FavouriteSet';
 import { HashLink as Link } from 'react-router-hash-link';
-import {choosenSection}from '../Actions/carOfferNaviActions';
+import {choosenSection}from '../Actions/carOfferNaviActions';
 import {Magnifier,GlassMagnifier} from "react-image-magnifiers";
 import SubNavi from './SubNavi';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
@@ -751,7 +751,7 @@ class Offer extends Component {
                 &lt;/CarHeaderTextRight>
                 &lt;CarHeaderTextLeft>
                   &lt;CarHeaderMainTextRight>{this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price} PLN&lt;/CarHeaderMainTextRight>
-                  &lt;CarHeaderSubTextRight  to={{ pathname: '/Offer/Vehicle-Finances/'+this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id}}  onClick={()=> { this.changeSection("Finance")}}>Finance from {(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price*1.05/72).toFixed(0)} PLN&lt;/CarHeaderSubTextRight>
+                  &lt;CarHeaderSubTextRight  to={{ pathname: '/Offer/Vehicle-Finances/'+this.props.cars[this.props.location.pathname.replace(/\D/g, "")].id}}  onClick={()=> { this.changeSection("Finance")}}>Finance from {(this.props.cars[this.props.location.pathname.replace(/\D/g, "")].price*1.05/72).toFixed(0)} PLN&lt;/CarHeaderSubTextRight>
                 &lt;/CarHeaderTextLeft>
               &lt;/CarHeaderText>
             &lt;/CarHeader>
@@ -816,9 +816,9 @@ class Offer extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  models: state.models,
-  maker: state.maker,
+const mapStateToProps = state => ({
+  models: state.models,
+  maker: state.maker,
   chosenModel:state.chosenModel,
   power:state.power,
   choosenPower:state.choosenPower,
@@ -832,7 +832,7 @@ const mapStateToProps = state => ({
   section:state.section
   }); 
 
-  export default connect(mapStateToProps,{choosenSection})(Offer);</code></pre>
+  export default connect(mapStateToProps,{choosenSection})(Offer);</code></pre>
         </article>
     </section>
 

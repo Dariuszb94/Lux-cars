@@ -1,34 +1,34 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/Header';
-import Menu from './Components/Menu';
-import {Home} from './Components/Home';
-import Offers from './Components/Offers';
-import Offer from './Components/Offer';
-import About from './Components/About';
-import {Footer} from './Components/Footer';
-import {Finance} from './Components/Finance';
-import Contact from './Components/Contact';
-import FavouriteList from './Components/FavouriteList';
-import {Route,Switch} from "react-router-dom";
+import { Route, Switch } from 'react-router-dom';
+import Header from './Components/Header/Header';
+import Menu from './Components/Menu/Menu';
+import Home from './Components/Home/Home';
+import Offers from './Components/Offers/Offers';
+import Offer from './Components/Offer/Offer';
+import About from './Components/About/About';
+import Footer from './Components/Footer/Footer';
+import Finance from './Components/Finance/Finance';
+import Contact from './Components/Contact/Contact';
+import FavouriteList from './Components/FavouriteList/FavouriteList';
 
 function App() {
   return (
-    <React.Fragment>
-      <Header/>
-      <Menu/>
-      <Switch >
-        <Route exact path="/Lux-cars" component={Home} />
-        <Route path="/Offers" component={Offers} />
-        <Route path="/Offer" component={Offer} />
-        <Route path="/About" component={About} />
-        <Route path="/Finance" component={Finance} />
-        <Route path="/Contact" component={Contact} />
-        <Route path="/FavouriteList" component={FavouriteList} />
-        <Route component={Home} />
+    <>
+      <Header />
+      <Menu />
+      <Switch>
+        <Route exact path="/Lux-cars" component={Home} />
+        <Route path="/Offers" component={Offers} />
+        <Route path="/Offer" component={Offer} />
+        <Route path="/About" component={About} />
+        <Route path="/Finance" component={Finance} />
+        <Route path="/Contact" component={Contact} />
+        <Route path="/FavouriteList" component={FavouriteList} />
+        <Route component={Home} />
       </Switch>
-      <Footer/>
-    </React.Fragment>
+      <Footer />
+    </>
   );
 }
 

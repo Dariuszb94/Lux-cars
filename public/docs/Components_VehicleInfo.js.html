@@ -78,12 +78,12 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
-import {Route,Switch} from "react-router-dom";
+import {connect} from 'react-redux';
+import {Route,Switch} from "react-router-dom";
 import VehicleInfoFeatures from './VehicleInfoFeatures';
 import VehicleInfoDescription from './VehicleInfoDescription';
 import VehicleInfoFinances from './VehicleInfoFinances';
-import {NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import ListIcon from '@material-ui/icons/List';
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import CreditCardOutlinedIcon from '@material-ui/icons/CreditCardOutlined';
@@ -278,31 +278,31 @@ class VehicleInfo extends Component {
       &lt;VehicleInfoContainer> 
         &lt;VehicleInfoHeader>Vehicle Information&lt;/VehicleInfoHeader>
         &lt;VehicleInfoMenu>
-          &lt;StyledLinkFeatures   to={{ pathname: '/Offer/Vehicle-Features/' +window.location.href.slice(21).replace(/\D/g, "")    }}    onClick={() => setTimeout(() => this.highlightInfoType(),200)}>
+          &lt;StyledLinkFeatures   to={{ pathname: '/Offer/Vehicle-Features/' +window.location.href.slice(21).replace(/\D/g, "")    }}    onClick={() => setTimeout(() => this.highlightInfoType(),200)}>
             &lt;VehicleInfoMenuElementFeatures highlightInfoTypeFeatures={this.state.highlightInfoTypeFeatures}>&lt;StyledListIcon>&lt;/StyledListIcon>&amp;nbsp;Features&lt;/VehicleInfoMenuElementFeatures>
           &lt;/StyledLinkFeatures>
-          &lt;StyledLinkDescription to={{ pathname: '/Offer/Vehicle-Description/' +window.location.href.slice(21).replace(/\D/g, "")    }}  onClick={() => setTimeout(() => this.highlightInfoType(),200)}>
+          &lt;StyledLinkDescription to={{ pathname: '/Offer/Vehicle-Description/' +window.location.href.slice(21).replace(/\D/g, "")    }}  onClick={() => setTimeout(() => this.highlightInfoType(),200)}>
             &lt;VehicleInfoMenuElementDescription highlightInfoTypeDescription={this.state.highlightInfoTypeDescription}>&lt;StyledCheckBoxOutlinedIcon>&lt;/StyledCheckBoxOutlinedIcon>&amp;nbsp;Description&lt;/VehicleInfoMenuElementDescription>
           &lt;/StyledLinkDescription>
-          &lt;StyledLinkFinances to={{ pathname: '/Offer/Vehicle-Finances/' +window.location.href.slice(21).replace(/\D/g, "")    }}  onClick={() => setTimeout(() => this.highlightInfoType(),200)}>
+          &lt;StyledLinkFinances to={{ pathname: '/Offer/Vehicle-Finances/' +window.location.href.slice(21).replace(/\D/g, "")    }}  onClick={() => setTimeout(() => this.highlightInfoType(),200)}>
             &lt;VehicleInfoMenuElementFinances highlightInfoTypeFinances={this.state.highlightInfoTypeFinances}>&lt;StyledCreditCardOutlinedIcon>&lt;/StyledCreditCardOutlinedIcon>&amp;nbsp;Finance&lt;/VehicleInfoMenuElementFinances>
           &lt;/StyledLinkFinances>
         &lt;/VehicleInfoMenu>
-        &lt;Switch >
-          &lt;Route path="/Offer/Vehicle-Features" component={VehicleInfoFeatures} />
-          &lt;Route path="/Offer/Vehicle-Description" component={VehicleInfoDescription} />
-          &lt;Route path="/Offer/Vehicle-Finances" component={VehicleInfoFinances} />
-          &lt;Route component={VehicleInfoFinances} />
+        &lt;Switch >
+          &lt;Route path="/Offer/Vehicle-Features" component={VehicleInfoFeatures} />
+          &lt;Route path="/Offer/Vehicle-Description" component={VehicleInfoDescription} />
+          &lt;Route path="/Offer/Vehicle-Finances" component={VehicleInfoFinances} />
+          &lt;Route component={VehicleInfoFinances} />
         &lt;/Switch>
       &lt;/VehicleInfoContainer>
     );
   }
 }    
-const mapStateToProps = state => ({
+const mapStateToProps = state => ({
   section:state.section,
   id:state.chosenId
   }); 
-  export default connect(mapStateToProps)(VehicleInfo);</code></pre>
+  export default connect(mapStateToProps)(VehicleInfo);</code></pre>
         </article>
     </section>
 

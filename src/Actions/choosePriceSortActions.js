@@ -1,7 +1,7 @@
-import {SORT_PRICE} from './types';
+import { SORT_PRICE } from './types';
 
-export const chooseSortPrice = payload => ({
-      type:SORT_PRICE ,
-      payload
+const chooseSortPrice = (payload) => ({
+  type: SORT_PRICE,
+  payload,
 });
-
+export default chooseSortPrice;

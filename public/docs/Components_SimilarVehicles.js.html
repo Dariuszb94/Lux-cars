@@ -78,11 +78,11 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
-import {chooseModel}from '../Actions/chooseModelActions';
-import {chooseMaker}from '../Actions/makerActions';
-import {NavLink} from "react-router-dom";
-import {chooseId}from '../Actions/chooseOfferActions';
+import {connect} from 'react-redux';
+import {chooseModel}from '../Actions/chooseModelActions';
+import {chooseMaker}from '../Actions/makerActions';
+import {NavLink} from "react-router-dom";
+import {chooseId}from '../Actions/chooseOfferActions';
 
 const Container = styled.div`
 `;
@@ -187,7 +187,7 @@ class SimilarVehicles extends Component {
       &lt;Container>
         &lt;Header>Similar Used Cars&lt;/Header>
         &lt;Offers> 
-          {this.state.cars.map(car =>   &lt;StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+car.id}} key={car.id} >&lt;Offer onClick={() => this.chooseId(car.id)}>
+          {this.state.cars.map(car =>   &lt;StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+car.id}} key={car.id} >&lt;Offer onClick={() => this.chooseId(car.id)}>
             &lt;OfferPhoto src={car.image1}>&lt;/OfferPhoto>
             &lt;OfferName>{car.brand} {car.model}&lt;/OfferName>
             &lt;OfferPrice>{car.price} PLN&lt;/OfferPrice>
@@ -197,14 +197,14 @@ class SimilarVehicles extends Component {
     );
   }
 }    
-const mapStateToProps = state => ({
-  models: state.models,
-  maker: state.maker,
+const mapStateToProps = state => ({
+  models: state.models,
+  maker: state.maker,
   chosenModel:state.chosenModel,
   cars:state.cars,
   id:state.chosenId
   }); 
-  export default connect(mapStateToProps,{chooseModel, chooseMaker,chooseId})(SimilarVehicles);</code></pre>
+  export default connect(mapStateToProps,{chooseModel, chooseMaker,chooseId})(SimilarVehicles);</code></pre>
         </article>
     </section>
 

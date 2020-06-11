@@ -79,10 +79,10 @@
             <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import {connect} from 'react-redux';
-import {chooseModel}from '../Actions/chooseModelActions';
-import {chooseMaker}from '../Actions/makerActions';
-import {NavLink} from "react-router-dom";
+import {connect} from 'react-redux';
+import {chooseModel}from '../Actions/chooseModelActions';
+import {chooseMaker}from '../Actions/makerActions';
+import {NavLink} from "react-router-dom";
 
 const SearchContainer = styled.div`
   background-color: rgba(68, 68, 68, .7);
@@ -264,10 +264,10 @@ class Search extends Component {
     this.props.chooseModel(updatedModel.model)
   }
   makerShow(){
-     this.setState({ makerShow: !this.state.makerShow});
+     this.setState({ makerShow: !this.state.makerShow});
   }
   modelShow(){
-     this.setState({ modelShow: !this.state.modelShow});
+     this.setState({ modelShow: !this.state.modelShow});
   }
   scrollToTop(){
     window.scrollTo(0, 0);
@@ -277,37 +277,37 @@ class Search extends Component {
       &lt;SearchContainer>
         &lt;SearchHeader>SEARCH OUR STOCK&lt;/SearchHeader>
         &lt;MakerChoose>
-          &lt;AnyMaker onClick={() => this.makerShow()} >
+          &lt;AnyMaker onClick={this.makerShow} >
             &lt;AnyMakerText>{ (this.props.maker.maker === undefined) ? "Any Maker" : this.props.maker.maker}&lt;/AnyMakerText>
             &lt;ArrowDropDownIcon/>
           &lt;/AnyMaker>
-          &lt;DropDownContentMaker makerShow={this.state.makerShow} onClick={() => this.makerShow()}>
+          &lt;DropDownContentMaker makerShow={this.state.makerShow} onClick={this.makerShow}>
             &lt;SubMaker onClick={() => this.makerChange({maker:"Any Maker"})}>Any Maker&lt;/SubMaker>
             {(this.props.makers===undefined) ? null : (this.props.makers.map(maker =>&lt;SubMaker key={maker} onClick={() => this.makerChange({maker})}>{maker}&lt;/SubMaker> ))}
           &lt;/DropDownContentMaker>
         &lt;/MakerChoose>
         &lt;ModelChoose>
-          &lt;AnyModel onClick={() => this.modelShow()} >
+          &lt;AnyModel onClick={this.modelShow} >
             &lt;AnyMakerText>{ (this.props.chosenModel.chosenModel === undefined) ? "Any Model" : this.props.chosenModel.chosenModel}&lt;/AnyMakerText>
             &lt;ArrowDropDownIcon/>
           &lt;/AnyModel>
-          &lt;DropDownContentModel modelShow={this.state.modelShow} onClick={() => this.modelShow()}>
+          &lt;DropDownContentModel modelShow={this.state.modelShow} onClick={this.modelShow}>
             &lt;SubMaker onClick={() => this.modelChange({model:"Any Model"})}>Any Model&lt;/SubMaker>
           {(this.props.models[this.props.maker.maker]===undefined) ? null : (this.props.models[this.props.maker.maker].map(model => &lt;SubMaker key={model} onClick={() => this.modelChange({model})}>{model}&lt;/SubMaker>))}
           &lt;/DropDownContentModel>
         &lt;/ModelChoose>
-        &lt;StyledLink to="/Offers">&lt;SearchButton onClick={() => this.scrollToTop()} >Search&lt;/SearchButton>&lt;/StyledLink>
+        &lt;StyledLink to="/Offers">&lt;SearchButton onClick={() => this.scrollToTop()} >Search&lt;/SearchButton>&lt;/StyledLink>
       &lt;/SearchContainer>
     );
   }
 }    
-const mapStateToProps = state => ({
-  models: state.models,
-  maker: state.maker,
-  makers: state.makers,
+const mapStateToProps = state => ({
+  models: state.models,
+  maker: state.maker,
+  makers: state.makers,
   chosenModel:state.chosenModel
   }); 
-  export default connect(mapStateToProps,{chooseModel, chooseMaker})(Search);</code></pre>
+  export default connect(mapStateToProps,{chooseModel, chooseMaker})(Search);</code></pre>
         </article>
     </section>
 

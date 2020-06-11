@@ -82,12 +82,12 @@ import LogoSrc from '../Assets/Images/Logo.png';
 import TopRatedSrc from '../Assets/Images/Top-rated.png';
 import CallIcon from '@material-ui/icons/Call';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import {NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import MenuIcon from '@material-ui/icons/Menu';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import {chooseModel}from '../Actions/chooseModelActions';
-import {chooseMaker}from '../Actions/makerActions';
-import {connect} from 'react-redux';
+import {chooseModel}from '../Actions/chooseModelActions';
+import {chooseMaker}from '../Actions/makerActions';
+import {connect} from 'react-redux';
 
 const HeaderContainer = styled.div`
   background: #020202;
@@ -295,23 +295,23 @@ class Header extends Component {
         &lt;StyledMenuIconContainer>
           &lt;StyledMenuIcon onClick={()=>this.showMenu()}>&lt;/StyledMenuIcon>
           &lt;MenuDropDown showMenu={this.state.showMenu}>
-            &lt;StyledLink to="/Lux-cars">
+            &lt;StyledLink to="/Lux-cars">
               &lt;MenuDropDownElement onClick={()=>this.showMenu()}>HOME&lt;/MenuDropDownElement>
             &lt;/StyledLink>
             &lt;MenuDropDownElementUsedCars>
-              &lt;StyledLink to="/Offers" onClick={()=>this.showMenu()}>USED CARS&lt;/StyledLink>
+              &lt;StyledLink to="/Offers" onClick={()=>this.showMenu()}>USED CARS&lt;/StyledLink>
               &lt;ArrowDropDownIcon onClick={()=>this.makerShow()}/>
             &lt;/MenuDropDownElementUsedCars>
             &lt;Makers makerShow={this.state.makerShow}>
-              {(this.props.makers===undefined) ?   null : (this.props.makers.map(maker =>   &lt;StyledLink to="/Offers" key={maker} onClick={() => this.makerChange({maker})}>&lt;Maker>{maker}&lt;/Maker>&lt;/StyledLink> )) }
+              {(this.props.makers===undefined) ?   null : (this.props.makers.map(maker =>   &lt;StyledLink to="/Offers" key={maker} onClick={() => this.makerChange({maker})}>&lt;Maker>{maker}&lt;/Maker>&lt;/StyledLink> )) }
             &lt;/Makers>
-            &lt;StyledLink to="/Finance" >&lt;MenuDropDownElement onClick={()=>this.showMenu()}>FINANCE&lt;/MenuDropDownElement>&lt;/StyledLink>
-            &lt;StyledLink to="/About" > &lt;MenuDropDownElement onClick={()=>this.showMenu()}>ABOUT&lt;/MenuDropDownElement>&lt;/StyledLink>
-            &lt;StyledLink to="/Contact" >&lt;MenuDropDownElement onClick={()=>this.showMenu()}>CONTACT&lt;/MenuDropDownElement>&lt;/StyledLink>
+            &lt;StyledLink to="/Finance" >&lt;MenuDropDownElement onClick={()=>this.showMenu()}>FINANCE&lt;/MenuDropDownElement>&lt;/StyledLink>
+            &lt;StyledLink to="/About" > &lt;MenuDropDownElement onClick={()=>this.showMenu()}>ABOUT&lt;/MenuDropDownElement>&lt;/StyledLink>
+            &lt;StyledLink to="/Contact" >&lt;MenuDropDownElement onClick={()=>this.showMenu()}>CONTACT&lt;/MenuDropDownElement>&lt;/StyledLink>
           &lt;/MenuDropDown>
         &lt;/StyledMenuIconContainer>
         &lt;LogoLink>
-          &lt;StyledLink to="/Lux-cars">
+          &lt;StyledLink to="/Lux-cars">
             &lt;Logo src={LogoSrc}>&lt;/Logo>
           &lt;/StyledLink>
         &lt;/LogoLink>
@@ -330,11 +330,11 @@ class Header extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  maker: state.maker,
-  makers: state.makers,
+const mapStateToProps = state => ({
+  maker: state.maker,
+  makers: state.makers,
   }); 
-  export default connect(mapStateToProps,{chooseModel, chooseMaker})(Header);</code></pre>
+  export default connect(mapStateToProps,{chooseModel, chooseMaker})(Header);</code></pre>
         </article>
     </section>
 
