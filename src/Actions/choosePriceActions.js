@@ -1,4 +1,4 @@
-import { CHOOSE_PRICE_MAX, CHOOSE_PRICE_MIN } from './types';
+import { CHOOSE_PRICE_MAX, CHOOSE_PRICE_MIN } from "./types";
 
 export const choosePriceMin = (payload) => ({
   type: CHOOSE_PRICE_MIN,

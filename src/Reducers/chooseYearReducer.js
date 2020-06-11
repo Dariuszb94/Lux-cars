@@ -1,4 +1,4 @@
-import { CHOOSE_YEAR_MAX, CHOOSE_YEAR_MIN } from '../Actions/types';
+import { CHOOSE_YEAR_MAX, CHOOSE_YEAR_MIN } from "../Actions/types";
 
 const initialState = { minYear: null, maxYear: null };
 

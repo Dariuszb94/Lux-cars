@@ -1,4 +1,4 @@
-import { CHOOSE_ID } from '../Actions/types';
+import { CHOOSE_ID } from "../Actions/types";
 
 const initialState = { chosenId: 0 };
 

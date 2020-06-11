@@ -1,11 +1,15 @@
 # Car dealer app
+
 The App lets you search for cars, saving favourites and calculate loans.
+
 ## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
+
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Setup](#setup)
 
 ## General info
+
 The App has multiple functions regarding car purchase.
 
 In the header, clicking on logo lets you go to the main page wherever you are. Menu includes of five links to different elements of car dealership. Element of menu - "USED CARS" is a dropdown list, you can choose desired car brand to show. The Main page slider has two backgrounds with content, they are changing every ten seconds. On the main page slider you can also select car brand and car model which you desire to find. You can see list of cars after clicking "search". Footer of page has call and mail functionality, also you can go to twitter and facebook page from there.
@@ -26,21 +30,24 @@ About section consists of text info and search. You can also contact (mail and t
 
 Contact section is made to locate company on map and to send info by form.
 
-
 ## Technologies
+
 Project is created with:
-* React version: 16.13.1
-* Redux: 4.0.5,
-* Redux-thunk: 2.3.0,
-* Styled-components: 5.1.0,
-* Material-ui/icons: 4.9.1,
-* Dexie: 3.0.1
-* React-image-magnifiers: 1.3.2
-* React-transitions: 1.0.0
-* Better-docs: 2.0.1
-* Gh-pages: 2.2.0
-* jsdoc: 3.6.4
+
+- React version: 16.13.1
+- Redux: 4.0.5,
+- Redux-thunk: 2.3.0,
+- Styled-components: 5.1.0,
+- Material-ui/icons: 4.9.1,
+- Dexie: 3.0.1
+- React-image-magnifiers: 1.3.2
+- React-transitions: 1.0.0
+- Better-docs: 2.0.1
+- Gh-pages: 2.2.0
+- jsdoc: 3.6.4
+
 ## Setup
+
 To run this project, download a repo, then go to repo folder, open terminal:
 
 ```

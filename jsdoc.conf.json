@@ -1,27 +1,24 @@
 {
   "tags": {
-      "allowUnknownTags": true
+    "allowUnknownTags": true
   },
   "source": {
     "include": ["src"],
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },
-  "plugins": [
-      "plugins/markdown",
-      "better-docs/component"
-  ],
+  "plugins": ["plugins/markdown", "better-docs/component"],
   "opts": {
-      "encoding": "utf8",
-      "destination": "public/docs/",
-      "recurse": true,
-      "verbose": true,
-      "template": "./node_modules/better-docs",
-      "readme": "README.md"
+    "encoding": "utf8",
+    "destination": "public/docs/",
+    "recurse": true,
+    "verbose": true,
+    "template": "./node_modules/better-docs",
+    "readme": "README.md"
   },
   "templates": {
-      "better-docs": {
-          "name": "Car dealer"
-      }
+    "better-docs": {
+      "name": "Car dealer"
+    }
   }
 }

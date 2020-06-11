@@ -1,6 +1,6 @@
-import { CHOOSE_MAKER } from '../Actions/types';
+import { CHOOSE_MAKER } from "../Actions/types";
 
-const initialState = { maker: 'Any Maker' };
+const initialState = { maker: "Any Maker" };
 
 export default function (state = initialState, action) {
   switch (action.type) {

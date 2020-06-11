@@ -1,4 +1,4 @@
-import { SORT_PRICE } from './types';
+import { SORT_PRICE } from "./types";
 
 const chooseSortPrice = (payload) => ({
   type: SORT_PRICE,

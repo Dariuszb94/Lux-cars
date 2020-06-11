@@ -1,11 +1,7 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import Slider from './HomeComponents/Slider';
-import UnderSlider from './HomeComponents/UnderSlider';
-
-const HomeContainer = styled.div`
-  background-color:black;
-`;
+import React, { Component } from "react";
+import Slider from "./HomeComponents/Slider/Slider";
+import UnderSlider from "./HomeComponents/UnderSlider/UnderSlider";
+import HomeContainer from "./HomeStyle";
 
 /**
  * "Home" component

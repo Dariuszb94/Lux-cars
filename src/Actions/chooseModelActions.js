@@ -1,4 +1,4 @@
-import { CHOOSE_MODEL } from './types';
+import { CHOOSE_MODEL } from "./types";
 
 const chooseModel = (payload) => ({
   type: CHOOSE_MODEL,

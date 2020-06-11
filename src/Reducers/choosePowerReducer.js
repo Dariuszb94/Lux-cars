@@ -1,4 +1,4 @@
-import { CHOOSE_POWER_MAX, CHOOSE_POWER_MIN } from '../Actions/types';
+import { CHOOSE_POWER_MAX, CHOOSE_POWER_MIN } from "../Actions/types";
 
 const initialState = { minPower: null, maxPower: null };
 

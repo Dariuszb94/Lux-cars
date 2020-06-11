@@ -1,6 +1,6 @@
-import { SORT_PRICE } from '../Actions/types';
+import { SORT_PRICE } from "../Actions/types";
 
-const initialState = { priceSort: 'Descending' };
+const initialState = { priceSort: "Descending" };
 
 export default function (state = initialState, action) {
   switch (action.type) {

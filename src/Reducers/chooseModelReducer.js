@@ -1,6 +1,6 @@
-import { CHOOSE_MODEL } from '../Actions/types';
+import { CHOOSE_MODEL } from "../Actions/types";
 
-const initialState = { chosenModel: 'Any Model' };
+const initialState = { chosenModel: "Any Model" };
 
 export default function (state = initialState, action) {
   switch (action.type) {

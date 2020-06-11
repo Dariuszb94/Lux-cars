@@ -1,4 +1,4 @@
-import { CHOOSE_PRICE_MAX, CHOOSE_PRICE_MIN } from '../Actions/types';
+import { CHOOSE_PRICE_MAX, CHOOSE_PRICE_MIN } from "../Actions/types";
 
 const initialState = { minPrice: null, maxPrice: null };
 
