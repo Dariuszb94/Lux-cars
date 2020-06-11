@@ -276,11 +276,11 @@ class Cars extends Component {
 
   componentDidMount() {
     this.filterCars();
+    this.isIE();
   }
 
   componentDidUpdate() {
     this.filterCars();
-    this.isIE();
   }
 
   /**
