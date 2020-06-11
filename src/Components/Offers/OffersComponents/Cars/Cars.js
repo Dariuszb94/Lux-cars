@@ -154,7 +154,7 @@ class Cars extends Component {
                         </CarHeaderMainText>
                         <CarHeaderSubText>
                           {car.power}
-                          &nbsp;KM
+                          &nbsp;KM&nbsp;
                           {car.displacement}
                           &nbsp;cm3
                         </CarHeaderSubText>
