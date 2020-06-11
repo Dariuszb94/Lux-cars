@@ -1,6 +1,6 @@
 # Car dealer app
 
-The App lets you search for cars, saving favourites and calculate loans.
+The App lets you search for cars, saving favourites and calculate loans
 
 ## Table of contents
 
