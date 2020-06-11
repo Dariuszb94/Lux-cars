@@ -78,15 +78,15 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import SpeedOutlinedIcon from '@material-ui/icons/SpeedOutlined';
 import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import LocalGasStationOutlinedIcon from '@material-ui/icons/LocalGasStationOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import BatteryFullIcon from '@material-ui/icons/Opacity';
 import CheckIcon from '@material-ui/icons/Check';
-import {NavLink} from "react-router-dom";
-import {chooseId}from '../Actions/chooseOfferActions';
+import {NavLink} from "react-router-dom";
+import {chooseId}from '../Actions/chooseOfferActions';
 import FavouriteSet from './FavouriteSet';
 
 const CarsContainer = styled.div`
@@ -412,7 +412,7 @@ class Cars extends Component {
       &lt;CarsContainer>
         &lt;CarList>
           {this.state.cars.map(car =>&lt;CarWithButtons key={car.id}>
-            &lt;StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+car.id}}>&lt;Car onClick={() => this.chooseId(car.id)}>
+            &lt;StyledLink to={{ pathname: '/Offer/Vehicle-Features/'+car.id}}>&lt;Car onClick={() => this.chooseId(car.id)}>
             &lt;CarHeader>
               &lt;CarLogo src={car.imageLogo}>&lt;/CarLogo>
               &lt;CarHeaderText>
@@ -458,8 +458,8 @@ class Cars extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  maker: state.maker,
+const mapStateToProps = state => ({
+  maker: state.maker,
   chosenModel:state.chosenModel,
   power:state.power,
   choosenPower:state.choosenPower,
@@ -472,7 +472,7 @@ const mapStateToProps = state => ({
   id:state.chosenId
   }); 
 
-  export default connect(mapStateToProps,{chooseId})(Cars);</code></pre>
+  export default connect(mapStateToProps,{chooseId})(Cars);</code></pre>
         </article>
     </section>
 

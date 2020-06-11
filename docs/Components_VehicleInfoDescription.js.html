@@ -78,7 +78,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import SpeedIcon from '@material-ui/icons/Speed';
 import BarChartIcon from '@material-ui/icons/BarChart';
@@ -244,10 +244,10 @@ class VehicleInfoDescription extends Component {
     );
   }
 }    
-const mapStateToProps = state => ({
+const mapStateToProps = state => ({
   cars:state.cars,
   }); 
-  export default connect(mapStateToProps)(VehicleInfoDescription);</code></pre>
+  export default connect(mapStateToProps)(VehicleInfoDescription);</code></pre>
         </article>
     </section>
 

@@ -78,9 +78,9 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import {choosenSortPrice } from '../Actions/choosenPriceSortActions';
+import {choosenSortPrice } from '../Actions/choosenPriceSortActions';
 
 const SortContainer = styled.div`
   background-color:black;
@@ -152,25 +152,25 @@ class Sorter extends Component {
     this.sortPriceDescending = this.sortPriceDescending.bind(this);
   }
   sortShow(){
-     this.setState({ sortShow: !this.state.sortShow});
+     this.setState({ sortShow: !this.state.sortShow});
   }
   sortPriceDescending(){
     this.setState({ sort:"Price (High to Low)"});
-    this.props.choosenSortPrice ("Descending");
+    this.props.choosenSortPrice ("Descending");
   }
   sortPriceAscending(){
     this.setState({ sort:"Price (Low to High)"});
-    this.props.choosenSortPrice ("Ascending");
+    this.props.choosenSortPrice ("Ascending");
   }
   render() {
     return (  
       &lt;SortContainer>
         &lt;SortChoose>
-          &lt;PriceSortButton onClick={() => this.sortShow()} >
+          &lt;PriceSortButton onClick={this.sortShow} >
             &lt;PriceSortText>{this.state.sort===undefined ? "Price (High to Low)" : this.state.sort}&lt;/PriceSortText>
             &lt;ArrowDropDownIcon/>
           &lt;/PriceSortButton>
-          &lt;SortChoosDropDownContentSort sortShow={this.state.sortShow} onClick={() => this.sortShow()}>
+          &lt;SortChoosDropDownContentSort sortShow={this.state.sortShow} onClick={this.sortShow}>
             &lt;Sort onClick={() => this.sortPriceDescending()}>Price (High to Low)&lt;/Sort>
             &lt;Sort onClick={() => this.sortPriceAscending()}>Price (Low to High)&lt;/Sort>
           &lt;/SortChoosDropDownContentSort>
@@ -179,12 +179,12 @@ class Sorter extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
+const mapStateToProps = state => ({
   price:state.price,
   choosenPrice:state.choosenPrice,
   }); 
 
-  export default connect(mapStateToProps,{choosenSortPrice })(Sorter);</code></pre>
+  export default connect(mapStateToProps,{choosenSortPrice })(Sorter);</code></pre>
         </article>
     </section>
 
