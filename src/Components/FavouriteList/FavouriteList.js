@@ -73,13 +73,28 @@ const FavouriteList = () => {
             </CarHeader>
             <CarImage src={CARS[post.id].image1} />
             <CarMain>
-              <CarMainElement>{CARS[post.id].price} PLN</CarMainElement>
-              <CarMainElement>{CARS[post.id].power} KM</CarMainElement>
-              <CarMainElement>{CARS[post.id].torque} Nm</CarMainElement>
-              <CarMainElement>{CARS[post.id].displacement} cm3</CarMainElement>
+              <CarMainElement>
+                {CARS[post.id].price}
+                &nbsp;PLN
+              </CarMainElement>
+              <CarMainElement>
+                {CARS[post.id].power}
+                &nbsp;KM
+              </CarMainElement>
+              <CarMainElement>
+                {CARS[post.id].torque}
+                &nbsp;Nm
+              </CarMainElement>
+              <CarMainElement>
+                {CARS[post.id].displacement}
+                &nbsp;cm3
+              </CarMainElement>
               <CarMainElement>{CARS[post.id].color}</CarMainElement>
               <CarMainElement>{CARS[post.id].gearBox}</CarMainElement>
-              <CarMainElement>{CARS[post.id].price} PLN</CarMainElement>
+              <CarMainElement>
+                {CARS[post.id].price}
+                &nbsp;PLN
+              </CarMainElement>
               <CarMainElement>{CARS[post.id].fuel}</CarMainElement>
             </CarMain>
             <Buttons>

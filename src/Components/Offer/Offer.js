@@ -284,15 +284,18 @@ class Offer extends Component {
               <CarHeaderText>
                 <CarHeaderTextRight>
                   <CarHeaderMainText>
-                    {CARS[this.props.location.pathname.replace(/\D/g, "")].year}{" "}
+                    {CARS[this.props.location.pathname.replace(/\D/g, "")].year}
+                    &nbsp;
                     {
                       CARS[this.props.location.pathname.replace(/\D/g, "")]
                         .brand
-                    }{" "}
+                    }
+                    &nbsp;
                     {
                       CARS[this.props.location.pathname.replace(/\D/g, "")]
                         .model
                     }
+                    &nbsp;
                   </CarHeaderMainText>
                   <CarHeaderSubText>
                     {
