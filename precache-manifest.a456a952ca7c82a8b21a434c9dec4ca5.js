@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "84c31e4c467c3156a5ad75533e9d570d",
+    "revision": "1de1f1dc827526da26b7f36d57939ccb",
     "url": "/Lux-cars/index.html"
   },
   {
-    "revision": "2dff4210e8aed4e8ab24",
+    "revision": "5de2db8cc9824a174228",
     "url": "/Lux-cars/static/css/main.650179fd.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Lux-cars/static/js/2.daaea239.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2dff4210e8aed4e8ab24",
-    "url": "/Lux-cars/static/js/main.19fe6855.chunk.js"
+    "revision": "5de2db8cc9824a174228",
+    "url": "/Lux-cars/static/js/main.4aab3628.chunk.js"
   },
   {
     "revision": "84ff2a4d21bed614454f",
