@@ -276,7 +276,6 @@ class Cars extends Component {
 
   componentDidMount() {
     this.filterCars();
-    this.isIE();
   }
 
   componentDidUpdate() {
@@ -329,14 +328,6 @@ class Cars extends Component {
  */
   chooseId(e) {
     this.props.chooseId(e);
-  }
-
-  isIE() {
-    const ua = navigator.userAgent;
-    /* MSIE used to detect old browsers and Trident used to newer ones */
-    const isIE = ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
-    this.setState({ isIE: true });
-    return isIE;
   }
 
   render() {
@@ -454,7 +445,7 @@ class Cars extends Component {
                 </Car>
               </StyledLink>
               <CarDetailOrangeContainer>
-                {!(this.state.isIE) && <FavouriteSet carId={car.id.toString(10)} />}
+                <FavouriteSet carId={car.id.toString(10)}/>
               </CarDetailOrangeContainer>
             </CarWithButtons>
           ))}
