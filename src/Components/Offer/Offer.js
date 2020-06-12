@@ -328,7 +328,7 @@ class Offer extends Component {
                       this.changeSection("vehicleInfo");
                     }}
                   >
-                    Finance from
+                    Finance from&nbsp;
                     {(
                       (CARS[this.props.location.pathname.replace(/\D/g, "")]
                         .price *
