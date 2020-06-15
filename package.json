@@ -7,7 +7,6 @@
     "@material-ui/core": "^4.9.14",
     "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/react-transition-group": "^4.4.0",
     "bootstrap-icons": "^1.0.0-alpha4",
@@ -58,6 +57,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^9.5.0",
     "better-docs": "^2.0.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
