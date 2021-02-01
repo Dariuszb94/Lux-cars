@@ -1,4 +1,4 @@
-# Car dealer app
+# Car dealer app 
 
 The App lets you search for cars, saving favourites and calculate loans
 
