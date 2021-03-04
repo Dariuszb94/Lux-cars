@@ -5,7 +5,7 @@ The App lets you search for cars, saving favourites and calculate loans
 ## Table of contents
 
 - [General info](#general-info)
-- [Technologies](#technologies)
+- [Technologies](#technologies) 
 - [Setup](#setup)
 
 ## General info
