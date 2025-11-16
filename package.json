@@ -21,7 +21,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^1.2.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "react-slider": "^1.0.7",
     "react-transition-group": "^4.4.1",
     "react-transitions": "^1.0.0",
@@ -59,7 +59,7 @@
   "devDependencies": {
     "@testing-library/react": "^9.5.0",
     "better-docs": "^2.0.1",
-    "eslint": "^6.8.0",
+    "eslint": "^9.39.1",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-better-styled-components": "^1.1.2",
